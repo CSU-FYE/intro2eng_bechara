@@ -4,9 +4,9 @@
   <title>Thinking Algorithmically</title>
 
   <introduction>
-    <figure xml:id="fig_1">
+    <figure xml:id="fig-13-1">
       <caption>Think algorithmic thoughts.</caption>
-      <image source="assets/chapter_13/fig_1.png" width="70%"> </image>
+      <image source="chapter_13/fig_1.png" width="70%"> </image>
     </figure>
     <p>
       Professional engineers are well known for their ability to solve complex problems. Throughout the rest of this book, we will continue to learn how to use MATLAB as a tool to solve problems. However, before we jump back into MATLAB syntax and usage, it is important to remember the end goal: <term>to learn how to solve problems algorithmically.</term>
@@ -58,9 +58,9 @@
   <p>
     Getting to a class that is held early in the morning is a problem that some college freshmen and professors can relate to. Although, we professors typically complain about it much less (<term>and some of us, myself included, even enjoy early classes!</term>). Based on the attendance of classes I have taught at 8 AM, <term>it really is a problem that doesn’t have a definite solution yet!</term> There are a ton of things that you need to do, to solve the problem of attending class at 8 AM. First, you have to start by waking up at a specific time that is often earlier than the time you are accustomed to waking up at. Presumably, your solution to this problem will look similar to my solution. Certain details may be different but you get the idea.
   </p>
-  <figure xml:id="fig_2">
+  <figure xml:id="fig-13-2">
       <caption><url href="https://lifehacker.com/why-you-should-stop-using-your-phone-to-wake-up-and-buy-1789840303">PSA - Science says you shouldn’t use your phone as an alarm clock!</url></caption>
-      <image source="assets/chapter_13/fig_2.jpeg" width="70%"> </image>
+      <image source="chapter_13/fig_2.jpeg" width="70%"> </image>
     </figure>
     <p>
       <term>Professor's Solution- Speech</term>
@@ -68,7 +68,7 @@
     <p>
       I wake up using a cheap digital alarm clock I have on my bedside table set for 6 AM. It cost me about $4 and as a bonus, I avoid the temptation to check my smartphone before I go to bed. I found that I sleep better that way. I am not really a “snooze” guy, so I just pop up out of bed as soon as the alarm goes off. I take a shower, appreciating the clean, reliable, hot water, being delivered to my wall. If only my ancestors could imagine such luxury, such magnificence! Next, I check the weather on the internet, then put on some weather-appropriate clothing for bike riding. I hop on my bike and ride towards Colorado State University. I am fortunate that my commuting route doubles as a scenic route. It travels through an area of Fort Collins known for its beautiful turn-of-the-century houses and great, big, old, happy, trees. As I pedal through Old Town, I remind myself how lucky I am to live in a city with drivers that are educated on bicycle safety and are respectful to riders. I arrive at CSU, lock my bike, and get to class at 7:50 am.
     </p>
-  <exercise xml:id="attending-class-algorithm">
+  <exercise xml:id="attending-class-algorithm" exercise-interactive="shortanswer">
 
   <title>Your 8 AM Algorithm</title>
 
@@ -142,9 +142,9 @@
       </p>
     </li>
   </ul>
-  <figure xml:id="fig_3">
+  <figure xml:id="fig-13-3">
       <caption>Professor’s solution to the 8 AM problem.</caption>
-      <image source="assets/chapter_13/fig_3.png" width="70%"> </image>
+      <image source="chapter_13/fig_3.png" width="70%"> </image>
     </figure>
 <p>
   Let’s take a look at line 4:
@@ -161,7 +161,7 @@
 <p>
   Let’s say the forecast indicates it will be 61 degrees today. Therefore when I evaluate my algorithm, the statement <c>If forecast >= 70</c> continue, evaluates to false. It isn’t true, so I shouldn’t follow the instruction. This is where the algorithm following rule. <term>Follow the instructions on each line to their logical conclusion comes into play.</term> Since it is not true that it is 61 degrees, I should follow the else go to <c>line 7</c> bit. So I skip to <c>line 7</c> and am on my merry way.
 </p>
-<exercise xml:id="weather-algorithm-clothing">
+<exercise xml:id="weather-algorithm-clothing" exercise-interactive="fillin">
 
   <title>What Should You Wear?</title>
 
@@ -172,16 +172,23 @@
 
     <p>
       The algorithm suggests that you wear
-      <fillin>
-        <answer>longsleeve shirt</answer>
-        <answer>long sleeve shirt</answer>
-      </fillin>
+      <fillin name="blank1" answer="long\s*sleeve shirt" mode="string"/>
       and
-      <fillin>
-        <answer>jeans</answer>
-      </fillin>.
+      <fillin name="blank2" answer="jeans" mode="string"/>.
     </p>
   </statement>
+  <evaluation>
+    <evaluate name="blank1">
+      <test correct="yes">
+        <strcmp use-answer="yes" case="insensitive"/>
+      </test>
+    </evaluate>
+    <evaluate name="blank2">
+      <test correct="yes">
+        <strcmp use-answer="yes" case="insensitive"/>
+      </test>
+    </evaluate>
+  </evaluation>
 
 </exercise>
 <p>
@@ -193,16 +200,16 @@
 <p>
   <term>A bug in your algorithm is an erroneous instruction(s) included in your steps that causes your algorithm to behave in a way you didn’t anticipate</term>
 </p>
-<figure xml:id="fig_4">
+<figure xml:id="fig-13-4">
       <caption>Always check for bugs in your code.</caption>
-      <image source="assets/chapter_13/fig_4.jpeg" width="70%"> </image>
+      <image source="chapter_13/fig_4.jpeg" width="70%"> </image>
     </figure>
     <p>
       Remember, it might be useful to you to think about writing algorithms for a very, very, very dumb person. For example, consider the following Professor’s Solution - Algorithm with the following, small, yet critical change (figure 13.2.4 below). Now, read it and pretend that you are exceptionally dumb and just follow the instructions blindly. Furthermore, let’s say that the forecast is 61 degrees F. Before continuing reading the text, look at the picture below and see if you can find the bug.
     </p>
-    <figure xml:id="fig_5">
+    <figure xml:id="fig-13-5">
       <caption>Can you find the bug?</caption>
-      <image source="assets/chapter_13/fig_5.png" width="70%"> </image>
+      <image source="chapter_13/fig_5.png" width="70%"> </image>
     </figure>
     <p>
       The dumb person MIGHT start at the top of the list, notice that the forecast is NOT greater than or equal to 70, deduce that the tabs imply that you should only follow the instructions if the preceding statement is true, then skip to line 6 (doubtful, but let’s say that this particular dumb person is having a good day). When the dumb person gets to <c>line 6</c>, they notice that hey, <c>If forecast >= 50</c> is true so they continue and put on a long sleeve shirt and jeans. When they get to <c>line 8</c>, they notice that <c>If forecast >= 30</c> is ALSO true! So they put on a jacket and jeans over the long sleeve shirt and jeans they already have on. <term>That is the bug!</term> We didn’t intend for someone to remember that an algorithm is a step-by-step process that should be written with nothing implied. Wear two pairs of jeans or two tops!
@@ -219,7 +226,7 @@
     <p>
       Find the bug in the algorithm and select the line number that contains the error.
     </p>
-    <image source="assets/chapter_13/fig_6.png" width="70%"> </image>
+    <image source="chapter_13/fig_6.png" width="70%"> </image>
   </statement>
 
   <choices>
@@ -332,7 +339,7 @@
     <p>
       How much time does the student spend studying according to this algorithm?
     </p>
-    <image source="assets/chapter_13/fig_7.png" width="70%"> </image>
+    <image source="chapter_13/fig_7.png" width="70%"> </image>
   </statement>
 
   <choices>
@@ -399,9 +406,9 @@
 <p>
   The idea of a <c>for</c> statement is that you already have an idea of how many iterations need to be performed, then you algorithmically define the sequence that is to be performed beneath it. Let’s return to the military drafting example to illustrate this. Consider the algorithm below that assigns all eligible men a draft number, then randomly chooses 20,000 numbers.
 </p>
- <figure xml:id="fig_8">
+ <figure xml:id="fig-13-8">
       <caption><c>for</c> statement example algorithm</caption>
-      <image source="assets/chapter_13/fig_8.png" width="70%"> </image>
+      <image source="chapter_13/fig_8.png" width="70%"> </image>
     </figure>
     <p>
       Looking at figure 13.3.2 above, hopefully, you can see why it is called a <term>loop</term>. Starting at the top, we first assign all eligible men a draft number. Let’s say there are 150,000 eligible men, so the next line tells us to set the variable <c>number_eligible</c> to 150,000. On line three we have our <c>for</c> statement and <term>enter the loop</term>. The statement is telling us to start drafting at 1 and continue until 20,000. On line 4 we choose a random number, then on line 5, we draft the person with that number. Now the loop comes into play. Because we are in a <c>for</c> loop, we <term>automatically</term> increment <c>draft</c> by one and continue repeating lines 4 and 5 19,999 more times.
@@ -415,9 +422,9 @@
   <p>
     The last thing we should mention about algorithms is that you can <c>nest</c> statements within each other. For example, look at the following algorithm below in figure 13.4.1.
   </p>
-  <figure xml:id="fig_9">
+  <figure xml:id="fig-13-9">
       <caption>Example of nesting statements</caption>
-      <image source="assets/chapter_13/fig_9.png" width="70%"> </image>
+      <image source="chapter_13/fig_9.png" width="70%"> </image>
     </figure>
     <p>
       Notice how we nested a <c>for</c> statement within an <c>if</c> statement. Nesting is a way to allow your algorithms to only loop if certain conditions are met (<c>for</c> within an <c>if</c>), or to make certain decisions a number of times (<c>if</c> within a <c>for</c>).
@@ -466,9 +473,9 @@
   <p>
     Another common way to write down algorithms is using a flowchart. Before we talk about some general rules for flowcharting, look at the flowchart for the 8 am problem shown below in figure 13.5.1. I think the best way to learn about how to flowchart, is to look at a flowchart and discover its logic on your own.
   </p>
-   <figure xml:id="fig_10">
+   <figure xml:id="fig-13-10">
       <caption>Flowchart showing solution to the 8 AM Attendance Problem</caption>
-      <image source="assets/chapter_13/fig_10.png" width="70%"> </image>
+      <image source="chapter_13/fig_10.png" width="70%"> </image>
     </figure>
     <p>
       As you can see, flowcharts are nice because they are pictures with arrows which makes it easy to follow along. Just like your pseudocode, in order for flowcharts to be effective, they need to fully describe the logic of the algorithm. Again, that makes copying the algorithm into MATLAB (or whatever programming language) much easier.
@@ -476,9 +483,9 @@
     <p>
       There are some generally accepted standards for flowcharting presented below in figure 13.5.2.
     </p>
-     <figure xml:id="fig_11">
+     <figure xml:id="fig-13-11">
       <caption>Flowchart standards</caption>
-      <image source="assets/chapter_13/fig_11.png" width="70%"> </image>
+      <image source="chapter_13/fig_11.png" width="70%"> </image>
     </figure>
 <p>
   The only real rule with flowcharts is that they are useful to you. Honestly, I prefer flowcharting to pseudocode but in my professional life, I use both to help organize my thoughts and force me to think algorithmically. Whichever you decide to use is a matter of personal taste, but all good engineers <term>will use at least one of these techniques.</term>
@@ -486,7 +493,7 @@
 <p>
   Think about an algorithm that only you would know (or very few of your classmates), and explain it “algorithmically” as either a flowchart OR pseudo-code. The only requirement is that it should have some decisions to make and should contain no bugs. My suggestion is to avoid recipes, they are kind of boring and aren’t really unique TO YOU. Perhaps you are a gifted gardener and know exactly how to prune apple trees? Are you into repairing cars and know the best procedure to follow to diagnose and replace an alternator? I am willing to bet that there is something that you know how to do that a lot of your classmates would not understand (it doesn’t matter how nerdy or weird it is).
 </p>
-<exercise xml:id="personal-algorithm">
+<exercise xml:id="personal-algorithm" exercise-interactive="shortanswer">
 
   <title>Your Own Algorithm</title>
 

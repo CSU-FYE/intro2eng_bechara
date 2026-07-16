@@ -5,7 +5,7 @@
   <introduction>
     <figure xml:id="fig_6_1">
       <caption>There are SO MANY stock images of people working on macs in coffee shops it isn’t funny</caption>
-      <image source="assets/chapter_06/fig_1.jpeg" width="70%"> </image>
+      <image source="chapter_06/fig_1.jpeg" width="70%"> </image>
     </figure>
   <p>
     The old adage “a picture is worth a thousand words” is especially relevant in the 21st century. Our smartphones and computers are excellent at displaying graphs and pictures and a good graph can convey a ton of useful information. It is a useful and marketable skill to be able to make legible, easy-to-read, and beautiful graphs. Furthermore, in the current digital age with <url href="https://journalistsresource.org/studies/society/internet/fake-news-conspiracy-theories-journalism-research/">the rise of misinformation and fake news</url>, it is useful to learn how to make correct and honest graphs so that when you encounter poor or misleading graphs, you are more likely to identify them as such.
@@ -31,7 +31,7 @@
   </introduction>
 <section xml:id="elements-of-good-graph">
   <title>The Elements of a Good Graph</title>
-  <exercise xml:id="graph-elements">
+  <exercise xml:id="graph-elements" exercise-interactive="shortanswer">
   <title>Elements of a Good Graph</title>
   <statement>
     <p>
@@ -57,21 +57,21 @@
 </p>
 <figure xml:id="fig_6_2">
       <caption>In this figure, the spring is the black squiggly line. At first, the spring is unstretched. When a mass, <m>m</m>, is added (creates a force <m>F</m> that is not shown) to the spring, it stretches <m>x</m> meters.</caption>
-      <image source="assets/chapter_06/fig_2.png" width="70%"> </image>
+      <image source="chapter_06/fig_2.png" width="70%"> </image>
     </figure>
     <p>
       Next, you realize that Excel would be excellent for this type of data! Good thing you were paying attention in your introductory engineering courses! You enter your data into Excel as shown in figure 6.1.3 below.
     </p>
     <figure xml:id="fig_6_3">
       <caption>Example of data entry from the experiment described.</caption>
-      <image source="assets/chapter_06/fig_3.png" width="70%"> </image>
+      <image source="chapter_06/fig_3.png" width="70%"> </image>
     </figure>
     <p>
       Finally, you realize that you can plot this data and that it should look relatively linear based on the form of the Hooke's Law equation. When you were reading Chapter 6 in your Hands-On Engineering textbook your freshman year (meta, I know), you skimmed that particular chapter because you were so confident in your Excel graphing skills. So this is the plot you come up with.
     </p>
     <figure xml:id="fig_6_4">
       <caption>Your graph from the experimental data.</caption>
-      <image source="assets/chapter_06/fig_4.png" width="70%"> </image>
+      <image source="chapter_06/fig_4.png" width="70%"> </image>
     </figure>
     <p>
       You look at the plot, realize that it looks fairly linear (which is what you expect from the relationship <m>F=kx</m>) and you submit this to your boss explaining that you solved the mystery of the spring constant! Your email explains that it isn’t perfectly linear because of measurement errors but that you can derive the spring constant from this graph.
@@ -84,7 +84,7 @@
     </p>
     <figure xml:id="fig_6_5">
       <caption>A significantly improved graph of your experimental data</caption>
-      <image source="assets/chapter_06/fig_5.png" width="70%"> </image>
+      <image source="chapter_06/fig_5.png" width="70%"> </image>
     </figure>
     <p>
       The plot in Figure 6.1.5 above is <term>clearly</term> better. We don’t even have to dive into physics or math, it is much easier to understand on its own. It displays more information, is easier to read, and is much easier to understand what the data is saying. Before we learn how to graph it is important to keep the following guidelines in mind.
@@ -106,7 +106,7 @@
   </p>
   <figure xml:id="fig_6_6">
       <caption>Please use this graph to answer the checkpoint below</caption>
-      <image source="assets/chapter_06/fig_6.png" width="70%"> </image>
+      <image source="chapter_06/fig_6.png" width="70%"> </image>
     </figure>
     <exercise xml:id="graph-guidelines-missing">
       <title>A Similar Experiment</title>
@@ -175,7 +175,7 @@
       </ul>
     <figure xml:id="fig_6_7">
       <caption>The only two charts you will likely need</caption>
-      <image source="assets/chapter_06/fig_7.png" width="70%"> </image>
+      <image source="chapter_06/fig_7.png" width="70%"> </image>
     </figure>  
   <p>
     There are some cases where using other types of plots is acceptable. Some of your professors may even sneak in a pie chart to describe a very high level concept at the beginning or end of a lecture. There are other fields such as the social sciences where stacked bar plots or "box and whisker" plots are common, although these are just fancy column and scatter plots, respectively. The main takeaway on scatter and column plots is that they are the most useful for quickly and effectively communicating large quantities of data points in a way that is meant to facilitate discussion with peers and hold up to scientific query during the peer review process. This is especially important in science and engineering fields!
@@ -194,14 +194,14 @@
   </p>
   <figure xml:id="fig_6_8">
       <caption>Roll up those sleeves, open Excel, and recreate the spreadsheet shown here.</caption>
-      <image source="assets/chapter_06/fig_8.png" width="70%"> </image>
+      <image source="chapter_06/fig_8.png" width="70%"> </image>
     </figure> 
     <p>
       In this case, we want to create two plots on the same axes showing the different springs. Since we are plotting the raw data, we will want to use a <term>scatter plot</term> to visualize the data and identify any trends. The process for creating the graph is a little bit complicated so I suggest that you follow along closely:
     </p>
    <figure xml:id="fig_6_9">
       <caption>Where to insert charts to your Excel spreadsheet</caption>
-      <image source="assets/chapter_06/fig_9.png" width="70%"> </image>
+      <image source="chapter_06/fig_9.png" width="70%"> </image>
     </figure>  
      <ol>
         <li>Click the <c>“Insert”</c> tab along the top of the main navigation banner.</li>
@@ -211,7 +211,7 @@
           <p>Now that you have your blank chart, we need to tell Excel where to look for the data. To do that, make sure that the chart is selected by clicking on it. Notice that the navigation banner has a new option category called <c>“Chart Tools”</c>. Underneath the <c>“Chart Tools”</c> designation is a <c>“Design”</c> tab. Click on the <c>“Select Data”</c> button in the design tab.</p>
            <figure xml:id="fig_6_10">
       <caption>Where the <c>“Select Data”</c> button is located. You must click on the chart for the correct button to show.</caption>
-      <image source="assets/chapter_06/fig_10.png" width="70%"> </image>
+      <image source="chapter_06/fig_10.png" width="70%"> </image>
     </figure> 
         </li>
         <li>A <c>“Select Data Source”</c> wizard box should pop up that looks similar to Figure 6.4.4 below. Notice that Excel has attempted to guess what you want to plot. Go ahead and remove any of the items under the legend entries area of the wizard by selecting them and hitting the remove button. We want to add the data manually.</li>
@@ -219,18 +219,18 @@
           <p>Now that you have removed any auto-added entries, your <c>“Select Data Source”</c> wizard box should look exactly like Figure 6.4.4 below. Click on the <c>“Add”</c> button under the <c>“Legend Entries (Series)”</c> section of the box.</p>
           <figure xml:id="fig_6_11">
       <caption>By step 6 your <c>“Select Data Source”</c> wizard window should look exactly like this.</caption>
-      <image source="assets/chapter_06/fig_11.png" width="70%"> </image>
+      <image source="chapter_06/fig_11.png" width="70%"> </image>
     </figure> 
     <figure xml:id="fig_6_12">
       <caption>The <c>“Edit Series”</c> box</caption>
-      <image source="assets/chapter_06/fig_12.png" width="70%"> </image>
+      <image source="chapter_06/fig_12.png" width="70%"> </image>
     </figure> 
         </li>
         <li>
           <p>At this point a new box pops up titled <c>“Edit Series”</c> (Figure 6.4.5 to the right). We are finally at the point where Excel wants us to tell it where our data lives. <term>FINALLY.</term> The way the <c>“Edit Series”</c> box works is that you click the text box inside the <c>“Edit Series”</c> box for the area that you want. Let’s start with the <c>“Series Name”</c>. So click inside the blank text box under the series name. Next, click on the Excel cell that contains the text you want the data series to be named after. Since we already have a nice label for Spring 1 in box <c>C4</c> (see Figure 6.4.3 above), we can now just <term>click on the cell <c>C4</c> in the spreadsheet.</term> The correct Excel equation should automatically populate in the text area.</p>
            <figure xml:id="fig_6_13">
       <caption>The <c>“Edit Series”</c> box for Spring 1</caption>
-      <image source="assets/chapter_06/fig_13.png" width="70%"> </image>
+      <image source="chapter_06/fig_13.png" width="70%"> </image>
     </figure> 
         </li>
         <li>
@@ -255,14 +255,14 @@
         </p>
         <figure xml:id="fig_6_14">
       <caption>Add chart element button. Notice that it is under the <c>“Design”</c> tab under the <c>“Chart Tools”</c> section of the main navigation bar. Remember, <term>this menu only shows up if the chart is selected!</term></caption>
-      <image source="assets/chapter_06/fig_14.png" width="70%"> </image>
+      <image source="chapter_06/fig_14.png" width="70%"> </image>
     </figure>
     <p>
       To finish our chart, we are going to use the <c>“Axis Titles”</c>, <c>“Chart Title”</c>, and <c>“Legend”</c>. We will investigate the <c>“Trendline”</c> in the next section of this chapter. For now, go ahead and add the titles and legend. You can just select the appropriate item from the menu, then edit the field by double clicking on it. When you are finished your chart should like identical to the one below (Figure 6.4.9). Good work!
     </p>  
     <figure xml:id="fig_6_15">
       <caption>The completed scatter plot.</caption>
-      <image source="assets/chapter_06/fig_15.png" width="70%"> </image>
+      <image source="chapter_06/fig_15.png" width="70%"> </image>
     </figure>
     <p>
       If you are confused about how to do this, Figure 6.4.10 shows how this process is completed.
@@ -283,7 +283,7 @@
         <p>
           We are going to jump into how to make a column chart next but we will be returning to the spring example in the next chapter. Don’t forget to save your Excel file somewhere where you will remember so we can refer back to it!
         </p>
-      <exercise xml:id="recap-scatter">
+      <exercise xml:id="recap-scatter" exercise-interactive="shortanswer">
   <title>Recap of Making a Scatterplot in Excel</title>
   <statement>
     <p>
@@ -306,7 +306,7 @@
   </p>
       <figure xml:id="fig_6_16">
       <caption>What your Excel spreadsheet should look like. Private Universities are EXPENSIVE.</caption>
-      <image source="assets/chapter_06/fig_16.png" width="70%"> </image>
+      <image source="chapter_06/fig_16.png" width="70%"> </image>
     </figure>
     <p>
       <heading><term>Formatting Cells</term></heading>
@@ -320,7 +320,7 @@
     <p>
       Before you move on, don’t skip your brain workout! Spend a few seconds poking around the <c>“Format cells…”</c> menu to see what everything does!
     </p>
-      <exercise xml:id="format-cells">
+      <exercise xml:id="format-cells" exercise-interactive="shortanswer">
   <title>Formatting Cells</title>
   <statement>
     <p>
@@ -340,7 +340,7 @@
     </p>
     <figure xml:id="fig_6_17">
       <caption>You can do it! Don’t worry if you get stuck or if it takes a little time!</caption>
-      <image source="assets/chapter_06/fig_17.png" width="70%"> </image>
+      <image source="chapter_06/fig_17.png" width="70%"> </image>
     </figure>
     <p>
       To double-check your process, you can see how I accomplished creating this chart in the video below.
@@ -354,7 +354,7 @@
         </p>
         <figure xml:id="fig_6_18">
       <caption>Where is the Chart Tools Ribbon Item?</caption>
-      <image source="assets/chapter_06/fig_18.png" width="70%"> </image>
+      <image source="chapter_06/fig_18.png" width="70%"> </image>
     </figure>
     <exercise xml:id="add-chart-elements-menu">
       <title>Locate the <c>"Add Chart Elements"</c></title>
@@ -392,9 +392,9 @@
 </exercise>
 <figure xml:id="fig_6_19">
       <caption>There is the Chart Tools Ribbon Feature!</caption>
-      <image source="assets/chapter_06/fig_19.png" width="70%"> </image>
+      <image source="chapter_06/fig_19.png" width="70%"> </image>
     </figure>
-    <exercise xml:id="move-legend">
+    <exercise xml:id="move-legend" exercise-interactive="shortanswer">
   <title>How do I move the legend?</title>
   <statement>
     <p>
@@ -422,7 +422,7 @@
       </p>
       <figure xml:id="fig_6_20">
       <caption>The Times leaves the rest behind…but do they?</caption>
-      <image source="assets/chapter_06/fig_20.jpeg" width="70%"> </image>
+      <image source="chapter_06/fig_20.jpeg" width="70%"> </image>
     </figure>
     <p>
       Notice how at an initial glance the bar chart looks like The Times has almost 2x the number of subscribers as the Daily Telegraph! But wait, when you look at the numbers it looks like they only have 38,766 more subscribers or an 8.7% increase over the Daily Telegraph. Sneaky sneaky. This is a classic graph manipulation technique, changing the vertical scale so that it doesn’t start at zero.
@@ -432,7 +432,7 @@
     </p>
     <figure xml:id="fig_6_21">
       <caption>Gasp! Obama’s policies suck! Or do they? source: http://cloudfront.mediamatters.org</caption>
-      <image source="assets/chapter_06/fig_21.jpeg" width="70%"> </image>
+      <image source="chapter_06/fig_21.jpeg" width="70%"> </image>
     </figure>
     <p>
       In this example, Fox News is using a few misleading tactics. One, the last data point (8.6%) is plotted at the same level as the previous data point (9.0%) and therefor misrepresented to hide the fact that the unemployment rate actually decreased a little bit. Furthermore, the data also appears as if the unemployment rate has gone up dramatically since March but in reality, it has held pretty stably at 9% throughout the whole graph.
@@ -443,7 +443,7 @@
     <p>
       For this ethics discussion post, I would like you to consider misleading graphs. Do you think they are a big problem or do you think it is up to people to be smarter and more critical about reading graphs? If a future boss of yours asked you to “change the axes” to make the data look better for a presentation, would you? Is there a specific instance or case where you would draw the line and refuse?
     </p>
-    <exercise xml:id="misleading-graph-ethics">
+    <exercise xml:id="misleading-graph-ethics" exercise-interactive="shortanswer">
   <title>Misleading Graphs</title>
   <statement>
     <p>

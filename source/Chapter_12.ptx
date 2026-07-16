@@ -4,9 +4,9 @@
   <title>Relational and Logical Operators</title>
 
   <introduction>
-    <figure xml:id="fig_1">
+    <figure xml:id="fig-12-1">
       <caption>“Give me a lever long enough and a fulcrum on which to place it, and I shall move the world.” - Archimedes " - Sam Bechara</caption>
-      <image source="assets/chapter_12/fig_1.png" width="70%"> </image>
+      <image source="chapter_12/fig_1.png" width="70%"> </image>
     </figure>
     <p>
       This chapter is a little weird. We are going to learn about relational and logical operators but it will seem out of place because we will not learn how to apply them until the next chapter. Eventually, we will use what we learn in this chapter to give our programs the ability to <term>flow</term> and <term>make</term> decisions. Until then, concentrate on learning how these operators work with my promise that it will make more sense why they are important in the coming chapters.
@@ -51,9 +51,9 @@
   <p>
     Does it evaluate to True or False? Well since <m>7+2=9</m> and <m>9>8</m> this particular statement evaluated to True! We will learn how this helps our programs make decisions in the sections below. For now, the important thing is to understand what the relational operators are (figure 12.1.1 below) and how they are used in MATLAB.
   </p>
-  <figure xml:id="fig_2">
+  <figure xml:id="fig-12-2">
       <caption>The Relational Operators</caption>
-      <image source="assets/chapter_12/fig_2.png" width="70%"> </image>
+      <image source="chapter_12/fig_2.png" width="70%"> </image>
     </figure>
     <p>
       The relational operators can be used to compare variables, combinations of variables and numbers, or even mathematical operations. The important thing to remember is that when the operation is completed, either <term>True</term> or <term>False</term> comes out.
@@ -131,7 +131,7 @@ tomato > cucumber
   <p>
     Notice that MATLAB creates a new variable in the workspace called <c>result_1</c> and that it is storing the number <c>0</c> which is the same thing as false. That is what we would have expected the following operation to evaluate to.
   </p>
-  <exercise xml:id="relational-operators-results">
+  <exercise xml:id="relational-operators-results" exercise-interactive="fillin">
 
   <title>Output for Relational Operators</title>
 
@@ -152,41 +152,55 @@ tomato > cucumber
 
     <p>
       <c>cake == apple</c>
-      <fillin>
-        <answer>1</answer>
-      </fillin>
+      <fillin name="blank1" answer="1" mode="number"/>
     </p>
 
     <p>
       <c>pear &gt; pie</c>
-      <fillin>
-        <answer>0</answer>
-      </fillin>
+      <fillin name="blank2" answer="0" mode="number"/>
     </p>
 
     <p>
       <c>apple &lt;= pear</c>
-      <fillin>
-        <answer>0</answer>
-      </fillin>
+      <fillin name="blank3" answer="0" mode="number"/>
     </p>
 
     <p>
       <c>pie ~= cake</c>
-      <fillin>
-        <answer>1</answer>
-      </fillin>
+      <fillin name="blank4" answer="1" mode="number"/>
     </p>
 
   </statement>
+  <evaluation>
+    <evaluate name="blank1">
+      <test correct="yes">
+        <numcmp use-answer="yes" tolerance="0.5"/>
+      </test>
+    </evaluate>
+    <evaluate name="blank2">
+      <test correct="yes">
+        <numcmp use-answer="yes" tolerance="0.5"/>
+      </test>
+    </evaluate>
+    <evaluate name="blank3">
+      <test correct="yes">
+        <numcmp use-answer="yes" tolerance="0.5"/>
+      </test>
+    </evaluate>
+    <evaluate name="blank4">
+      <test correct="yes">
+        <numcmp use-answer="yes" tolerance="0.5"/>
+      </test>
+    </evaluate>
+  </evaluation>
 
 </exercise>
 </section>
 <section xml:id="order-of-precedence">
   <title>The Order of Precedence</title>
-  <figure xml:id="fig_3">
+  <figure xml:id="fig-12-3">
       <caption>MATLAB operators have to wait for their turn.</caption>
-      <image source="assets/chapter_12/fig_3.jpeg" width="70%"> </image>
+      <image source="chapter_12/fig_3.jpeg" width="70%"> </image>
     </figure>
   <p>
     There is actually one more important way that we can use relational operators, we can use them in combination with mathematical operators. For example, we COULD perform an operation like this.
@@ -214,9 +228,9 @@ pie + salmon^2 > tomato * salmon + 2
 <p>
   You can think about it like the operators are waiting in line to get into a club. The bouncer is going to let everyone in but they don’t all get to come in first come first serve. There is a hierarchy, and that hierarchy is listed in table 12.3.3 below.
 </p>
-  <figure xml:id="fig_4">
+  <figure xml:id="fig-12-4">
       <caption>The MATLAB Order of Precedence</caption>
-      <image source="assets/chapter_12/fig_4.png" width="70%"> </image>
+      <image source="chapter_12/fig_4.png" width="70%"> </image>
     </figure>
     <p>
       You should note that this is slightly different than what MATLAB presents as the order of precedence, I truncated the <url href="https://www.mathworks.com/help/matlab/matlab_prog/operator-precedence.html">official list</url> down to what we will be using in this book. Let’s take another look at that MATLAB statement we started this section with:
@@ -293,7 +307,7 @@ pie + salmon^2 > tomato * salmon + 2
 <p>
   Hopefully, you nailed Question 12.3.4 above. Let’s try one more little brain workout before we move on and discuss the Logical Operators.
 </p>
-<exercise xml:id="precedence-fillin">
+<exercise xml:id="precedence-fillin" exercise-interactive="fillin">
 
   <title>Order of Operations and Relational Expressions</title>
 
@@ -314,26 +328,37 @@ vanilla = 9;
 
     <p>
       <c>cookie + brownie^3 &lt; chocolate - cookie</c> =
-      <fillin>
-        <answer>1</answer>
-      </fillin>
+      <fillin name="blank1" answer="1" mode="number"/>
     </p>
 
     <p>
       <c>chocolate - (cookie * brownie) / 5 &gt; vanilla * brownie + (chocolate + cookie)</c> =
-      <fillin>
-        <answer>1</answer>
-      </fillin>
+      <fillin name="blank2" answer="1" mode="number"/>
     </p>
 
     <p>
       <c>chocolate - (vanilla * 2) ~= chocolate - cookie + brownie</c> =
-      <fillin>
-        <answer>0</answer>
-      </fillin>
+      <fillin name="blank3" answer="0" mode="number"/>
     </p>
 
   </statement>
+  <evaluation>
+    <evaluate name="blank1">
+      <test correct="yes">
+        <numcmp use-answer="yes" tolerance="0.5"/>
+      </test>
+    </evaluate>
+    <evaluate name="blank2">
+      <test correct="yes">
+        <numcmp use-answer="yes" tolerance="0.5"/>
+      </test>
+    </evaluate>
+    <evaluate name="blank3">
+      <test correct="yes">
+        <numcmp use-answer="yes" tolerance="0.5"/>
+      </test>
+    </evaluate>
+  </evaluation>
 
 </exercise>
 </section>
@@ -345,16 +370,16 @@ vanilla = 9;
   <p>
     Consider designing a piece of software that needs to make a decision about a range. For example, I personally ride my bike to work but won’t ride if the forecasted high is above <m>35C</m> or if the forecasted low is below <m>-10C</m>. If I wanted to make an app that could tell me if I should ride my bike to work or not, I would need a program that could determine if: the forecast high is less than <m>35C</m> AND forecast low is greater than <m>-10C</m>. The AND in the previous statement is formatted in code because it represents where we would have included a <c>logical and</c>.
   </p>
-    <figure xml:id="fig_5">
+    <figure xml:id="fig-12-5">
       <caption>You know who else is into logic? These old boys.</caption>
-      <image source="assets/chapter_12/fig_5.jpeg" width="70%"> </image>
+      <image source="chapter_12/fig_5.jpeg" width="70%"> </image>
     </figure>
     <p>
       The logical operators give us a way to string together multiple relational statements and get one <term>true</term> or <term>false</term> out. When looking at the order of precedence you may have noticed the three logical operators, shown in figure 12.4.2 below. <term>Take a minute to look at figure 12.4.2 below and read the description of each of the logical operators.</term>
     </p>
-    <figure xml:id="fig_6">
+    <figure xml:id="fig-12-6">
       <caption>The logical operators</caption>
-      <image source="assets/chapter_12/fig_6.png" width="70%"> </image>
+      <image source="chapter_12/fig_6.png" width="70%"> </image>
     </figure>
     <p>
       You can see that the logical operators <c>&amp;</c> and <c>|</c> allow us to string together multiple relational operations! Cool! Consider the following MATLAB command:
@@ -380,7 +405,7 @@ vanilla = 9;
     <p>
       In the future, we will see how both <c>&amp;</c> and <c>|</c> are critical to creating complex programs. Just like yin and yang, we need both <c>&amp;</c> and | to make our programs work. Logical <c>&amp;</c> and logical <c>|</c> are a little tricky but once you understand the logic, you will be able to make some cool programs.
     </p>
-    <exercise xml:id="logical-operator-eval">
+    <exercise xml:id="logical-operator-eval" exercise-interactive="fillin">
 
   <title>Logical and Relational Operators in MATLAB</title>
 
@@ -399,11 +424,16 @@ vanilla = 9;
 
     <p>
       The result is
-      <fillin>
-        <answer>1</answer>
-      </fillin>
+      <fillin answer="1" mode="number"/>
     </p>
   </statement>
+  <evaluation>
+    <evaluate>
+      <test correct="yes">
+        <numcmp use-answer="yes" tolerance="0.5"/>
+      </test>
+    </evaluate>
+  </evaluation>
 
 </exercise>
 <p>
@@ -424,9 +454,9 @@ vanilla = 9;
   <p>
     Using the order of precedence, you should now be able to evaluate statements with mathematical, relational, and logical operators all in tandem. The trick is to reduce the statement using the order of precedence until you are left with a single Boolean value.
   </p>
-  <figure xml:id="fig_7">
+  <figure xml:id="fig-12-7">
       <caption>A lovely tandem</caption>
-      <image source="assets/chapter_12/fig_7.jpeg" width="70%"> </image>
+      <image source="chapter_12/fig_7.jpeg" width="70%"> </image>
     </figure>
   <p>
     Let’s consider one more example together to tie it all together:
@@ -476,7 +506,7 @@ vanilla = 9;
   <p>
     The reality is that you will never have to solve problems like this in the real world. Instead, you will be asked to utilize relational and logical operators in tandem to create complicated programs that can react intelligently to different inputs. That is what our programs have lacked so far! The ability to make decisions. Hopefully, now you can see how combinations of these operators might allow us to control the flow of our programs in the future.
   </p>
-  <exercise xml:id="logical-challenge">
+  <exercise xml:id="logical-challenge" exercise-interactive="fillin">
 
   <title>Logical Operators and Boolean Values</title>
 
@@ -504,11 +534,16 @@ no = 0
 
     <p>
       The value is
-      <fillin>
-        <answer>1</answer>
-      </fillin>
+      <fillin answer="1" mode="number"/>
     </p>
   </statement>
+  <evaluation>
+    <evaluate>
+      <test correct="yes">
+        <numcmp use-answer="yes" tolerance="0.5"/>
+      </test>
+    </evaluate>
+  </evaluation>
 
 </exercise>
 </section>

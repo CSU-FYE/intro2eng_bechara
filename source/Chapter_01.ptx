@@ -14,7 +14,7 @@
 
         <figure xml:id="fig_0_1">
           <caption>Begone boring textbooks of old!</caption>
-            <image source="assets/chapter_01/fig_1.jpeg" width="70%"> </image>
+            <image source="chapter_01/fig_1.jpeg" width="70%"> </image>
     </figure>
    <p> Mastering anything takes <term> time and deliberate practice. </term> In general, you cannot reduce the time required, but you can make the educational journey fun and interesting. This textbook is designed to be part of that journey.</p>
 <blockquote>
@@ -31,7 +31,7 @@
       <p>
         That motivation can come from many places, but it is best if it comes from within yourself, what we call <term> intrinsic motivation. </term> College is a time to learn who you are as you invest your time into your future. Let's take a minute to think about this in the context of your learning and answer the discussion post below.
       </p>
-      <exercise xml:id="what-goal">
+      <exercise xml:id="what-goal" exercise-interactive="shortanswer">
         <title>What is your goal?</title>
         <statement>
           <p>What is your goal this semester? What do you want to learn?</p>
@@ -68,7 +68,7 @@ This chapter will concentrate on learning idea X. That includes learning the fol
         </p>
                 <figure xml:id="fig_0_2">
           <caption>Cheesecake Challenge</caption>
-            <image source="assets/chapter_01/fig_2.png" width="70%"> </image>
+            <image source="chapter_01/fig_2.png" width="70%"> </image>
     </figure>
       </section>
       <section xml:id="software-how-to">
@@ -78,7 +78,7 @@ This chapter will concentrate on learning idea X. That includes learning the fol
         </p>
         <figure xml:id="fig_0_3">
           <caption>Roll up those sleeves and get your hands dirty!</caption>
-            <image source="assets/chapter_01/fig_3.jpeg" width="70%"> </image>
+            <image source="chapter_01/fig_3.jpeg" width="70%"> </image>
     </figure>
     <p>
       <term> The key to learning how to use software is to roll up your sleeves and get your hands proverbially dirty.</term> What I am trying to say is that just reading about Excel (or any software package really) is insufficient compared to learning Excel. What you really need to do is open up Microsoft Excel, and follow along with the material as you are learning it. For example, if you are reading about how to enter data into cells in Excel, you need to take a minute to practice that (again you should be able to see the connection to the workout analogy). In my opinion, the best way to learn the material on Excel and MATLAB is to have the book opened up in your web browser of choice, and also have the software package of interest opened up beside it. That way you can read and practice simultaneously.

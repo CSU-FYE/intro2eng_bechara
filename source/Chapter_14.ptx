@@ -4,9 +4,9 @@
   <title>MATLAB Decisions</title>
 
   <introduction>
- <figure xml:id="fig_1">
+ <figure xml:id="fig-14-1">
       <caption>If we want our computers to be “smart” we need to have a way for them to make decisions.</caption>
-      <image source="assets/chapter_14/fig_1.jpeg" width="70%"> </image>
+      <image source="chapter_14/fig_1.jpeg" width="70%"> </image>
     </figure>
     <p>
       So far, the programs we have been writing are great at performing calculations but they are limited and not like software that you are used to using. We are used to software making “decisions” based on information. For example, when it is going to rain, Google Assistant (or Siri, or Alexfontconfiga, or whatever) can send you an alert reminding you to bring an umbrella. When it is going to be sunny, that same assistant might suggest wearing sunblock. The software underpinning those technologies has the capability to make decisions about what it tells you depending on the weather. I am certain that you can think of several other instances of computer programs making decisions.
@@ -20,9 +20,9 @@
     <p>
       Our mantra and guiding process for writing complex programs will be: <term>think, sketch, code, test, repeat</term>. We will use what we learned about thinking algorithmically to make sure that we <term>think</term> before we do anything. We will <term>sketch</term> to ensure that we come up with a robust plan. After coming up with a sketch, we will write our <term>code</term>. Then we will <term>test</term> the code using as many absurd and wide-ranging possibilities as we can think of. Finally, we will <term>repeat</term> the entire (or part of) the process until our code works the way we want it to!
     </p>
-    <figure xml:id="fig_2">
+    <figure xml:id="fig-14-2">
       <caption>Our mantra. Breathe it in. LIVE it.</caption>
-      <image source="assets/chapter_14/fig_2.png" width="70%"> </image>
+      <image source="chapter_14/fig_2.png" width="70%"> </image>
     </figure>
     <p>
       In this chapter, we will learn: how to combine what we learned about thinking algorithmically with MATLAB syntax to make complex computer programs. That means learning:
@@ -55,7 +55,7 @@
    </introduction>
 <section xml:id="conditional-statements">
   <title>Conditional Statements</title>
-  <exercise xml:id="computer-decision-making-impact">
+  <exercise xml:id="computer-decision-making-impact" exercise-interactive="shortanswer">
 
   <title>Computers and Decision Making</title>
 
@@ -140,9 +140,9 @@
   <p>
     The generic flowchart for this can be found in figure 14.2.1 below:
   </p>
-  <figure xml:id="fig_3">
+  <figure xml:id="fig-14-3">
       <caption>A generic if-end statement flowchart.</caption>
-      <image source="assets/chapter_14/fig_3.png" width="70%"> </image>
+      <image source="chapter_14/fig_3.png" width="70%"> </image>
     </figure>
     <p>
       <term>Example- Hourly Worker Calculation</term>
@@ -186,7 +186,7 @@
         </p>
       </li>
     </ul>
-    <exercise xml:id="problem-information-reflection">
+    <exercise xml:id="problem-information-reflection" exercise-interactive="shortanswer">
 
   <title>THINK about Hourly Wage</title>
 
@@ -257,16 +257,16 @@
     </match>
   </matches>
 </exercise>
-<figure xml:id="fig_4">
+<figure xml:id="fig-14-4">
       <caption><term>Every time someone scrolls and looks at my flowchart before creating their own, this puppy doesn’t get a snuggle!</term> Don’t be a monster! I was going to say the puppy gets hit but that is too dark. Look how cute he is!</caption>
-      <image source="assets/chapter_43/fig_4.jpeg" width="70%"> </image>
+      <image source="chapter_14/fig_4.jpeg" width="70%"> </image>
     </figure>
     <p>
       The flowchart that I created for this particular problem is located below in figure 14.2.4.
     </p>
-    <figure xml:id="fig_5">
+    <figure xml:id="fig-14-5">
       <caption>My flowchart for the wage program. Note how there is both descriptive text and rough code.</caption>
-      <image source="assets/chapter_14/fig_5.png" width="70%"> </image>
+      <image source="chapter_14/fig_5.png" width="70%"> </image>
     </figure>
     <p>
       Take a look at the flowchart. Hopefully, it looks very similar to yours. Ask yourself the following questions before moving on.
@@ -294,9 +294,9 @@
     <p>
       <term>Code</term> - Now comes the fun part, translating our <term>sketch</term> into <term>code</term>! I highly encourage you to try this on your own before you look at my solution below! It is OK if you get stuck and struggle! That is what learning is about. Take a moment to review the generic version of the <c>if-end</c> statement (in Chapter 17) so you have a good idea of the MATLAB syntax necessary to complete the problem.
     </p>
-    <figure xml:id="fig_6">
+    <figure xml:id="fig-14-6">
       <caption>The lemur of judgment is majestically judging those who scroll down before trying to <term>code</term> on their own. Don’t let the lemur down!</caption>
-      <image source="assets/4/fig_5.png" width="70%"> </image>
+      <image source="chapter_14/fig_6.jpeg" width="70%"> </image>
     </figure>
     <p>
       Did you try it on your own first? Good! Does your script work? If yes, good work! If not, it is OK! Struggling and practicing IS learning!
@@ -360,7 +360,7 @@ pay
 </program>
 </statement>
 </example>
-<exercise xml:id="overtime-pay-question">
+<exercise xml:id="overtime-pay-question" exercise-interactive="fillin">
   <title>Overtime Pay Calculation</title>
 
   <statement>
@@ -370,9 +370,16 @@ pay
     </p>
 
     <p>
-      The total pay would be $<fillin correct="2264.95"/>.
+      The total pay would be $<fillin answer="2264.95" mode="number"/>.
     </p>
   </statement>
+  <evaluation>
+    <evaluate>
+      <test correct="yes">
+        <numcmp use-answer="yes" tolerance="0.01"/>
+      </test>
+    </evaluate>
+  </evaluation>
 </exercise>
 <p>
   Hopefully, by this point, you understand how the if-end statements are structured and how they are written in MATLAB. The reality is that there has been very little new material in this chapter. We have simply learned how to apply previous concepts to new problems. There are a few other decision structures MATLAB has that we should investigate.
@@ -422,9 +429,9 @@ pay
   <p>
     The generic flowchart for an if-else-end statement can be seen in figure 14.3.1 below.
   </p>
-  <figure xml:id="fig_7">
+  <figure xml:id="fig-14-7">
       <caption>The generic flowchart for the <c>if-else-end</c> statement.</caption>
-      <image source="assets/chapter_14/fig_7.png" width="70%"> </image>
+      <image source="chapter_14/fig_7.png" width="70%"> </image>
     </figure>
     <p>
       You can see that the flowchart for an if-else-end statement is almost identical to an if-end statement, with the exception that an if-else-end statement can have two independent code blocks. Only one of the code blocks will be run depending on if the conditional statement evaluates as true or false.
@@ -432,7 +439,7 @@ pay
     <p>
       Another thing to remember is that although our conditional statement was fairly simple in our wage example, conditional statements can be complex! For example, try this problem.
     </p>
-    <exercise xml:id="matlab-logical-output">
+    <exercise xml:id="matlab-logical-output" exercise-interactive="fillin">
   <title>MATLAB Conditional Output</title>
 
   <statement>
@@ -458,9 +465,16 @@ end
     <p>
       What is the value in the variable <code>output</code> when the program is finished running?
       <br/>
-      output = <fillin answer="-22"/>
+      output = <fillin answer="-22" mode="number"/>
     </p>
   </statement>
+  <evaluation>
+    <evaluate>
+      <test correct="yes">
+        <numcmp use-answer="yes" tolerance="0.5"/>
+      </test>
+    </evaluate>
+  </evaluation>
 </exercise>
 </section>
 <section xml:id="if-elseif-else-end">
@@ -515,9 +529,9 @@ end
 <p>
   The generic <c>if-elseif-else-end</c> flowchart is shown below in figure 14.4.1. Again, keep in mind it can have any number of <c>elseif &lt; conditional expression &gt;</c> lines!
 </p>
-  <figure xml:id="fig_8">
+  <figure xml:id="fig-14-8">
       <caption>The generic flowchart for the <c>if-elseif-else-end</c> statement.</caption>
-      <image source="assets/chapter_14/fig_8.png" width="70%"> </image>
+      <image source="chapter_14/fig_8.png" width="70%"> </image>
     </figure>
     <p>
       <term>Student Grades - <c>if-elseif-else-end</c> Example</term>
@@ -525,9 +539,9 @@ end
     <p>
       I think that it is important to clarify the statement “when you have ( n ) different conditions, you need ( n−1 ) conditional statements”. To do so, let’s consider an example. Let’s say that we have a variable <c>grade</c> that contains the final numeric grade for a person in a class. Furthermore, let’s say that this hypothetical class does not have + or - grades, instead, the final letter grade is calculated as follows:
     </p>
-    <figure xml:id="fig_9">
+    <figure xml:id="fig-14-9">
       <caption>Student grading scheme example.</caption>
-      <image source="assets/chapter_14/fig_9.png" width="70%"> </image>
+      <image source="chapter_14/fig_9.png" width="70%"> </image>
     </figure>
     <p>
       The problem is to create a MATLAB script that can take the numeric grade as a variable <c>grade</c>, determine the letter grade associated with it, and store that in a variable called <c>letter_grade</c>.
@@ -544,7 +558,7 @@ end
     <p>
       If you are feeling like a tough workout today, go ahead and try to program this script on your own. Go you! If your brain is too tired from that it is OK, but don’t skip the flowchart part.
     </p>
-    <exercise xml:id="code-flow-reflection">
+    <exercise xml:id="code-flow-reflection" exercise-interactive="shortanswer">
 
   <title>Thinking About Code Flow</title>
 
@@ -563,16 +577,16 @@ end
 <p>
   I won’t threaten you with puppies or lemurs anymore. I will trust that you care about your education and want to learn this material. Handshake?
 </p>
-  <figure xml:id="fig_10">
+  <figure xml:id="fig-14-10">
       <caption>Our handshake agreement that you are working on the material. I love stock images so much.</caption>
-      <image source="assets/chapter_14/fig_10.jpeg" width="70%"> </image>
+      <image source="chapter_14/fig_10.jpeg" width="70%"> </image>
     </figure>
     <p>
       Here is my flowchart for the problem.
     </p>
-      <figure xml:id="fig_11">
+      <figure xml:id="fig-14-11">
       <caption>My flowchart for the letter grade problem.</caption>
-      <image source="assets/chapter_14/fig_11.png" width="70%"> </image>
+      <image source="chapter_14/fig_11.png" width="70%"> </image>
     </figure>
     <p>
       Take a moment to compare our flowcharts.
@@ -641,16 +655,16 @@ end
   <p>
     When designing your programs you may run into scenarios where it is useful to create nested decisions. Nested decisions describe the scenario of enclosing one decision into another. It may not seem intuitively obvious why this is necessary, but as your computer programs become more complex, it will be an extremely effective and useful strategy to consider.
   </p>
-  <figure xml:id="fig_12">
+  <figure xml:id="fig-14-12">
       <caption>Nested decisions allow for some neat program capabilities!</caption>
-      <image source="assets/chapter_14/fig_12.jpeg" width="70%"> </image>
+      <image source="chapter_14/fig_12.jpeg" width="70%"> </image>
     </figure>
     <p>
       For example, consider the following flowchart, which describes an algorithm a new mother might use to stop her baby from crying:
     </p>
-    <figure xml:id="fig_13">
+    <figure xml:id="fig-14-13">
       <caption>Crying baby algorithm.</caption>
-      <image source="assets/chapter_14/fig_13.png" width="70%"> </image>
+      <image source="chapter_14/fig_13.png" width="70%"> </image>
     </figure>
     <p>
       Notice how the “If the baby is wet” condition is <term>nested</term> inside of the “If the baby is crying” condition. That is what we mean by nesting! There is no difference in the way that you write the code. You just can put one <c>if</c> after the other. The only little trick to nesting is remembering that each <c>if</c> needs a corresponding <c>end</c>. When you have several nested decisions, it can get confusing which <c>end</c> keyword is referring to which <c>if</c> keyword. To help organize your code, MATLAB will automatically apply a tab after each <c>if</c> statement. That way you can see what “level” you are in.
@@ -658,9 +672,9 @@ end
     <p>
       For example, take a look at the code in figure 14.5.3 below. Keep in mind <term>I do not expect you to understand what is happening in this code!</term> (Spoiler: it is actually non-sensical code because I had to change some things to <c>if</c> statements so it didn’t include programming concepts you haven’t seen yet but that is not the point).
     </p>
-    <figure xml:id="fig_14">
+    <figure xml:id="fig-14-14">
       <caption>Example of non-sensical code of nesting.</caption>
-      <image source="assets/chapter_14/fig_14.png" width="70%"> </image>
+      <image source="chapter_14/fig_14.png" width="70%"> </image>
     </figure>
     <p>
       You should be able to create a flow chart of this code from figure 14.5.3 alone. The key is to notice that on line 5, there is a <term>nested</term> <c>if</c> statement. Furthermore, there is a 2nd level <term>nested</term> <c>if</c> statement on line 13. The other thing that you should notice is that MATLAB has automatically applied a tab after each if statement.
@@ -668,7 +682,7 @@ end
     <p>
       Go ahead and type in some non-sensical code into MATLAB to see this auto-tab in action. Or you can just copy the code in figure 14.5.3.
     </p>
-    <exercise xml:id="nested-if-flowchart">
+    <exercise xml:id="nested-if-flowchart" exercise-interactive="shortanswer">
 
   <title>Nested If Statements and Flowcharts</title>
 
@@ -692,11 +706,11 @@ end
 <p>
   If you ever mess up your tabbing, don’t worry! Just select all your text, right-click, and select the “Smart Indent” option (see below). Again, this is something that you should try yourself.
 </p>
-<figure xml:id="fig_15">
+<figure xml:id="fig-14-15">
       <caption>Selecting text, right-clicking, and then selecting “Smart Indent” will fix any indentation problems your code has and will make it easier to read!</caption>
-      <image source="assets/chapter_14/fig_15.png" width="70%"> </image>
+      <image source="chapter_14/fig_15.png" width="70%"> </image>
     </figure>
-    <exercise xml:id="mantra-fill-blank">
+    <exercise xml:id="mantra-fill-blank" exercise-interactive="fillin">
 
   <title>Chapter Mantra</title>
 
@@ -708,13 +722,40 @@ end
     </p>
 
     <p>
-      <fillin answer="think"/> , 
-      <fillin answer="sketch"/> , 
-      <fillin answer="code"/> , 
-      <fillin answer="test"/> , 
-      <fillin answer="repeat"/>
+      <fillin name="blank1" answer="think" mode="string"/> ,
+      <fillin name="blank2" answer="sketch" mode="string"/> ,
+      <fillin name="blank3" answer="code" mode="string"/> ,
+      <fillin name="blank4" answer="test" mode="string"/> ,
+      <fillin name="blank5" answer="repeat" mode="string"/>
     </p>
   </statement>
+  <evaluation>
+    <evaluate name="blank1">
+      <test correct="yes">
+        <strcmp use-answer="yes" case="insensitive"/>
+      </test>
+    </evaluate>
+    <evaluate name="blank2">
+      <test correct="yes">
+        <strcmp use-answer="yes" case="insensitive"/>
+      </test>
+    </evaluate>
+    <evaluate name="blank3">
+      <test correct="yes">
+        <strcmp use-answer="yes" case="insensitive"/>
+      </test>
+    </evaluate>
+    <evaluate name="blank4">
+      <test correct="yes">
+        <strcmp use-answer="yes" case="insensitive"/>
+      </test>
+    </evaluate>
+    <evaluate name="blank5">
+      <test correct="yes">
+        <strcmp use-answer="yes" case="insensitive"/>
+      </test>
+    </evaluate>
+  </evaluation>
 
 </exercise>
 </section>

@@ -6,7 +6,7 @@
   <introduction>
      <figure xml:id="fig_3_1">
       <caption>You will be doing lots of writing as a professional.</caption>
-      <image source="assets/chapter_03/fig_1.jpeg" width="70%"> </image>
+      <image source="chapter_03/fig_1.jpeg" width="70%"> </image>
     </figure>
     <p>
       One of the most important things to learn early in your journey as an engineer is that <term>engineers</term> are professionals as engineering is considered a profession. A profession is distinctive from other career choices in that it requires specific educational requirements, has a path to licensure, has clients as opposed to customers, and is responsible for societal well-being. Other professions include (but are not limited to) teachers, chemists, accountants, lawyers, surgeons, registered nurses, architects, professors, etc. All of these are positions where people rely on the expertise of these individuals and put their trust into their educational background. Therefore, it is important as an engineer to remember that you are a professional and people put their trust in your results, calculations, and what you communicate. Often, people's lives are in your hands. It is also worth being aware that there are many skilled jobs that do not require a college degree and pay well. Examples include plumbers, electricians, truck drivers, power plant operators, farmers, and real estate agents.
@@ -53,7 +53,7 @@
   <p>
     You may have heard this cliché before. A lot of clichés are clichés because there is some truth in them. First, it is important to note that <term>technical competence and ability is by far the most important factor when it comes to your professional success.</term> If you can’t do the job, you won’t get the job. This section is not insinuating that it isn’t important to study and learn. The question is: how can you distinguish yourself from a crowded field of graduates? You will be graduating with and competing against thousands of other people that have the exact same qualifications as you do. How do you get a job?
   </p>
-   <exercise xml:id="why-important-chap3">
+   <exercise xml:id="why-important-chap3" exercise-interactive="shortanswer">
         <title>Why is this important?</title>
         <statement>
           <p>
@@ -67,7 +67,7 @@
       </exercise>
   <figure xml:id="fig_3_2">
       <caption>It is important to start building your network now.</caption>
-      <image source="assets/chapter_03/fig_2.jpeg" width="70%"> </image>
+      <image source="chapter_03/fig_2.jpeg" width="70%"> </image>
     </figure>
     <p>
       <term>You cultivate relationships.</term> It is important that you act professionally and cultivate relationships with everyone you come into contact with at a University. Everyone is italicized for emphasis because I mean everyone at the University. From the President of your University to the administrative assistants in your department, all your professors, your classmates, the academic advisers, the janitorial staff… everyone.
@@ -88,7 +88,7 @@
     <p>
       The list goes on and on but the common thread through all of it, <term>is acting professionally and courteously can go a long way in helping you get a job.</term> You need to realize that hiring is risky and scary and people are always looking for a known quantity over an unknown one. If you can get a recommendation from a professor, or other University official, it will go a long way. If you slack off in your classes, argue with your professors, and treat the University support staff disrespectfully, you will have a much harder time getting a job.
     </p>
-    <exercise xml:id="what-story">
+    <exercise xml:id="what-story" exercise-interactive="shortanswer">
         <title>What is your story?</title>
         <statement>
           <p>
@@ -108,7 +108,7 @@
   </p>
   <figure xml:id="fig_3_3">
       <caption>Who is your knight in shining armor?</caption>
-      <image source="assets/chapter_03/fig_3.jpeg" width="70%"> </image>
+      <image source="chapter_03/fig_3.jpeg" width="70%"> </image>
     </figure>
     <p>
       My guess is that you would <term>address them by their professional title</term> (Mister, Misses, Doctor, Professor, Mr. President, Sir, etc.), that you would <term>be polite in your choice of words</term>, that you would <term>be humble</term> (more on that later), and that you would <term>defer to their expertise.</term> This is exactly how you act professionally and how you should treat everyone you come into contact with at a University.
@@ -140,7 +140,7 @@
         <p>
           In the video, Mr. Duane gives tips to be successful in making relationships. First, he advises that people establish a common connection early in the conversation. He also advises that people be centered and actively listen and pay attention to the person they are talking to. He warns people to not get distracted and gives an example of a meeting he had in times square. Furthermore, Mr. Duane suggests showing your value but to make sure not to brag because it can be a turnoff. Next, Mr. Duane suggests that following up and following through is critical. It doesn’t work in the dating world or in industry.
         </p>
-        <exercise xml:id="network-landmine">
+        <exercise xml:id="network-landmine" exercise-interactive="shortanswer">
         <title>Networking "Lifelines" and "Landmines"</title>
         <statement>
           <p>
@@ -160,7 +160,7 @@
   </p>
     <figure xml:id="fig_3_4">
       <caption>Respect, the magic 7-letter word.</caption>
-      <image source="assets/chapter_03/fig_4.jpeg" width="70%"> </image>
+      <image source="chapter_03/fig_4.jpeg" width="70%"> </image>
     </figure>
     <p>
       Furthermore, the power dynamic between a student and professors is unbalanced in a dramatic way. Faculty and staff have almost all of the power, and students have very little if any at all. Hopefully, you trust your University to hire competent employees who will act fairly and on your behalf. For the most part, this is true, but what it means for you is that <term>it does not pay to be disrespectful or immodest.</term>
@@ -192,7 +192,7 @@
     <p>
       All of this comes back to being a professional. <term>Successful professionals are always modest and respectful.</term> People like people who treat them with respect and differ in their expertise.
     </p>
-    <exercise xml:id="power-respect">
+    <exercise xml:id="power-respect" exercise-interactive="shortanswer">
         <title>The Power of Modesty and Respect</title>
         <statement>
           <p>
@@ -211,9 +211,9 @@
     Suppose you have a successful engineering firm and that you need to hire an accountant to help balance your books and do your taxes. You get two offers from people who have similar educational background, similar experience, and quote you similar prices. They are both excellent candidates in your opinion. You check their consulting company websites and they have the following pictures in their "About Me" section. Besides the different style of each person's picture, the two people are equal in every other way. Which of the two would you hire?
   </p>
  <figure xml:id="cover">
-      <image source="assets/chapter_03/fig_5.jpeg" width="70%"> </image>
+      <image source="chapter_03/fig_5.jpeg" width="70%"> </image>
     </figure>
-    <exercise xml:id="book-judge">
+    <exercise xml:id="book-judge" exercise-interactive="shortanswer">
         <title>Judge a Book by its Cover</title>
         <statement>
           <p>
@@ -239,25 +239,30 @@
       </p>
       <figure xml:id="fig_3_6">
       <caption>Don’t judge a book by its cover is a good thing to try and live by but no one actually does that. In any case, these books have amazing covers.</caption>
-      <image source="assets/chapter_03/fig_6.jpeg" width="70%"> </image>
+      <image source="chapter_03/fig_6.jpeg" width="70%"> </image>
     </figure>
     <p>
       Why do we judge people by what they look like? Humans assess information quickly and we are predominately visual animals. Plus, a lot of the time it can be useful to understand patterns and make quick judgments. To illustrate this, try the following problem which is probably the easiest problem you will ever have in college.
     </p>
-    <exercise xml:id="doctor">
+    <exercise xml:id="doctor" exercise-interactive="fillin">
       <title>Who do you see?</title>
     <statement>
         <p>Fill in the blank.</p>
         <figure xml:id="doctor-image">
-            <image source="assets/chapter_03/fig_7.jpeg" width="40%"/>
+            <image source="chapter_03/fig_7.jpeg" width="40%"/>
         </figure>
         <p>
             This image shows an illustration of a
-            <fillin>
-                <answer>doctor</answer>
-            </fillin>.
+            <fillin answer="doctor" mode="string"/>.
         </p>
     </statement>
+    <evaluation>
+        <evaluate>
+            <test correct="yes">
+                <strcmp use-answer="yes" case="insensitive"/>
+            </test>
+        </evaluate>
+    </evaluation>
 </exercise>
 <p>
   Or for another example, think about the last time you looked up companies online. It is easy to get caught up in the marketing and fancy visuals of their website and to attribute those qualities to mean that the company must have high quality even though a fancy website has nothing to do with how the company actually performs. The list goes on and on, but the fact is that we judge books by their cover. If you are interested in reading more about this, here is a nice, short little <url href="https://www.psychologytoday.com/us/blog/happiness-in-world/201208/judging-book-its-cover">blog</url> post discussing this from a psychological perspective.
@@ -270,7 +275,7 @@
   </p>
    <figure xml:id="fig_3_8">
       <caption>These two epitomize looking professional.</caption>
-      <image source="assets/chapter_03/fig_8.jpeg" width="70%"> </image>
+      <image source="chapter_03/fig_8.jpeg" width="70%"> </image>
     </figure>
     <p>
       <heading><term>Tips for Business Casual</term></heading>
@@ -286,7 +291,7 @@
         <li>Ties and bow-ties are optional but should be conservative.</li>
         <li>Blazers/sport coats are optional as well.</li>
       </ul>
-       <exercise xml:id="impression">
+       <exercise xml:id="impression" exercise-interactive="shortanswer">
         <title>Make a Good Impression</title>
         <statement>
           <p>
@@ -361,7 +366,7 @@
         </choice>
     </choices>
 </exercise>
-<exercise xml:id="email-rewrite">
+<exercise xml:id="email-rewrite" exercise-interactive="shortanswer">
         <title>An Email</title>
         <statement>
           <p>
@@ -391,7 +396,7 @@
   <p>
     <term>Note: There are many more ways to cross section humanity besides gender and race, including by sexuality, religious creed, parent education level, socioeconomic status, and more. Gender and race demographics represent two of the more visually presenting demographic subsets and is discussed here as an example of how to be more inclusive in the workplace.</term>
   </p>
-  <exercise xml:id="gender-race">
+  <exercise xml:id="gender-race" exercise-interactive="shortanswer">
         <title>Gender and Race in the Workplace</title>
         <statement>
           <p>

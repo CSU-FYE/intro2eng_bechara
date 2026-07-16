@@ -6,7 +6,7 @@
   <introduction>
     <figure xml:id="fig_2_1">
       <caption>Engineers bestow superhuman powers.</caption>
-      <image source="assets/chapter_02/fig_1.jpeg" width="70%"> </image>
+      <image source="chapter_02/fig_1.jpeg" width="70%"> </image>
     </figure>
     <p>
       Typical engineering textbooks often start off by asking:
@@ -40,7 +40,7 @@
   </introduction>
   <section xml:id="engineer-superpowers">
     <title>Engineers Create Superpowers</title>
-     <exercise xml:id="what_engineer">
+     <exercise xml:id="what_engineer" exercise-interactive="shortanswer">
         <title>What is an engineer?</title>
         <statement>
           Before we jump into this book, take a minute to reflect. After all, you chose this major for some reason. What do you think an engineer does? Why did you choose this major? Your answer doesn’t need to be a page long, just write a few sentences to reflect.
@@ -64,12 +64,12 @@
     </p>
      <figure xml:id="fig_2_2">
       <caption>Horatio Winterberry in his new horseless carriage… probably</caption>
-      <image source="assets/chapter_02/fig_2.jpeg" width="70%"> </image>
+      <image source="chapter_02/fig_2.jpeg" width="70%"> </image>
     </figure>
     <p>
       Now, continuing our imagination, someone comes from the future and tells you some of the things engineers have created. Engineers have made it so that a businessman can travel to New York from London in a matter of hours! Engineers have created robotic prosthetics that can be controlled from the mind of an amputee! Engineers have developed vaccines so that people are now protected from flu viruses. Horatio Winterberry from 1918 would have thought you are crazy.
     </p>
-    <exercise xml:id="time-traveler">
+    <exercise xml:id="time-traveler" exercise-interactive="shortanswer">
         <title>Time Traveler</title>
         <statement>
           <p>
@@ -122,7 +122,7 @@
       <p>
         Finally, spend some time perusing the BLS page for your chosen major or field you would like to go into. Click around on all the tabs. Looks at where they are employed, what they do, how much they are paid, etc. Then take some time to reflect.
       </p>
-<exercise xml:id="what-major">
+<exercise xml:id="what-major" exercise-interactive="shortanswer">
         <title>What is your major?</title>
         <statement>
           <p>
@@ -167,7 +167,7 @@
       <p>
         Engineering school will equip you with the tools and mindset necessary to analyze problems and design novel solutions using technical knowledge and personal ingenuity. Your professors, TAs, advisors, and endless other resources are here for you to help you find success along your journey. Remember that learning takes time, practice, and repetition.
       </p>
-      <exercise xml:id="what-motivate">
+      <exercise xml:id="what-motivate" exercise-interactive="shortanswer">
         <title>What motivates you to study engineering?</title>
         <statement>
           <p>
@@ -228,7 +228,7 @@
         <blockquote>
         <p><em>"I really want everyone to know, especially young people, that the hundreds or thousands of dumb ideas that I have had are what led me to my good ideas. You have to give yourself permission to fail."</em> Taylor Alison Swift</p>
       </blockquote>
-      <exercise xml:id="what-step">
+      <exercise xml:id="what-step" exercise-interactive="shortanswer">
         <title>What steps do you take and what resources do you use to approach a new and unfamiliar challenge? Describe a time where you overcame a challenge.</title>
         <statement>
           <p>

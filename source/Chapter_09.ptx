@@ -5,7 +5,7 @@
   <introduction>
     <figure xml:id="fig_9_1">
       <caption>Type, type, type.</caption>
-      <image source="assets/chapter_09/fig_1.jpeg" width="70%"> </image>
+      <image source="chapter_09/fig_1.jpeg" width="70%"> </image>
     </figure>
     <p>
       To start this chapter I would like you to consider a situation where you need to perform the same <term>calculation</term> with <term>different numbers</term> multiple times. For example, let’s pretend that you are preparing for a final exam, and you would like to know how different final exam grades will impact your overall average. You have already taken midterm 1, midterm 2, and midterm 3 so those grades are locked. You recall that to calculate the average all you have to do is sum your values and divide the sum by the number of entries. For you math folks, the formula is:
@@ -40,7 +40,7 @@ average_exam_score = (midterm_1 + midterm_2 + midterm_3 + final
 </p>
 <figure xml:id="fig_9_2">
       <caption>Example of workspace variables</caption>
-      <image source="assets/chapter_09/fig_2.png" width="70%"> </image>
+      <image source="chapter_09/fig_2.png" width="70%"> </image>
     </figure>
     <p>
       Viola! You can see that your average exam score would be <c>87.75</c>. Now let’s consider how a <c>75</c> on the final would affect the average exam score. We can see that the variables for the var scores are still present in the workspace (Figure 9.0.3 above). All we need to do is overwrite the final exam score so that it is <c>75</c>, then re-run the average exam score calculation.
@@ -71,7 +71,7 @@ average_exam_score = (midterm_1 + midterm_2 + midterm_3 + final
 </p>
 <figure xml:id="fig_9_3">
       <caption>Updated workspace variables.</caption>
-      <image source="assets/chapter_09/fig_3.png" width="70%"> </image>
+      <image source="chapter_09/fig_3.png" width="70%"> </image>
     </figure>
     <p>
       At this point, you can see that your <c>average_exam_score</c> variable has been updated to the value of <c>83.75</c>. If you were following along, the variables in your workspace should look like this (Figure 9.0.5 above).
@@ -100,7 +100,7 @@ average_exam_score = (midterm_1 + midterm_2 + midterm_3 + final
     <title>Script Files</title>
     <figure xml:id="fig_9_4">
       <caption>How to create a script</caption>
-      <image source="assets/chapter_09/fig_4.png" width="70%"> </image>
+      <image source="chapter_09/fig_4.png" width="70%"> </image>
     </figure>
     <p>
       To work out our brain muscles, let’s create a script that calculates the average exam grade as in the example presented above. As we have learned, a script file is just a list of MATLAB commands to be executed in a specific order. So in a way, we already have the meat for our first script file. To start a new script, click the “New” button on the “Home” toolbar and then select “Script” (Figure 9.1.1, everything that you don’t need to worry about is blurred out).
@@ -110,7 +110,7 @@ average_exam_score = (midterm_1 + midterm_2 + midterm_3 + final
     </p>
     <figure xml:id="fig_9_5">
       <caption>What your editor window should look like</caption>
-      <image source="assets/chapter_09/fig_5.png" width="70%"> </image>
+      <image source="chapter_09/fig_5.png" width="70%"> </image>
     </figure>
     <p>
       <term>Saving Scripts</term>
@@ -118,24 +118,41 @@ average_exam_score = (midterm_1 + midterm_2 + midterm_3 + final
     <p>
       Remember, the whole point of having scripts is so that we can save them and run them whenever we want and change the variables as we please. Notice that in Figure 9.1.2 that currently the editor is displaying <c>“untitled*”</c> in the window. This is mentioning to the user that the file currently does not have a name and the asterisks is indicating that the file is currently not saved. Hold your horses, don’t go saving that file yet! We need to make sure we know <term>where</term> we are saving it.
     </p>
-<exercise xml:id="matlab-working-directory">
+<exercise xml:id="matlab-working-directory" exercise-interactive="fillin">
   <title>What folder am I in?</title>
   <statement>
     <p>
       Fill in the missing folders in the working directory shown below.
     </p>
     <figure xml:id="fig_9_6">
-      <image source="assets/chapter_09/fig_6.png" width="70%"> </image>
+      <image source="chapter_09/fig_6.png" width="70%"> </image>
     </figure>
     <p>
       /home/
-      <fillin><answer>sbechara</answer></fillin>
+      <fillin name="blank1" answer="sbechara" mode="string"/>
       /
-      <fillin><answer>Documents</answer></fillin>
+      <fillin name="blank2" answer="Documents" mode="string"/>
       /
-      <fillin><answer>MATLAB</answer></fillin>
+      <fillin name="blank3" answer="MATLAB" mode="string"/>
     </p>
   </statement>
+  <evaluation>
+    <evaluate name="blank1">
+      <test correct="yes">
+        <strcmp use-answer="yes"/>
+      </test>
+    </evaluate>
+    <evaluate name="blank2">
+      <test correct="yes">
+        <strcmp use-answer="yes"/>
+      </test>
+    </evaluate>
+    <evaluate name="blank3">
+      <test correct="yes">
+        <strcmp use-answer="yes"/>
+      </test>
+    </evaluate>
+  </evaluation>
 </exercise>
 <p>
   In Question 9.1.3 above the current directory being displayed is <c>/home/sbechara/Documents/MATLAB</c>. That seems like an easy place to remember <term>for me</term>. <term>You need to decide where to store your file.</term> If I were you, I would create a folder in my documents folder called <c>“MATLAB Book Examples”</c> or something like that. Then navigate to that folder in MATLAB (did you forget how? No worries, you can click here to jump to the chapter of the book where that was discussed).
@@ -145,26 +162,26 @@ average_exam_score = (midterm_1 + midterm_2 + midterm_3 + final
 </p>
 <figure xml:id="fig_9_7">
       <caption>Notice that the current folder now has avgExam.m and that the asterisks are no longer next to the filename indicating that the file was successfully saved.</caption>
-      <image source="assets/chapter_09/fig_7.png" width="70%"> </image>
+      <image source="chapter_09/fig_7.png" width="70%"> </image>
     </figure>
   <p>
     <term>Running Your Script</term>
   </p>
   <figure xml:id="fig_9_8">
       <caption>MATLAB icon to run script file</caption>
-      <image source="assets/chapter_09/fig_8.png" width="70%"> </image>
+      <image source="chapter_09/fig_8.png" width="70%"> </image>
     </figure>
     <p>
       Double-check that you have <c>avgExam.m</c> in your <c>“Current Folder”</c>. We are ready to run our first script! There are actually two ways to run the script. The first way is to click the green <c>“Run”</c> button on the <c>“Editor”</c> banner. Go ahead and click it now!
     </p>
     <figure xml:id="fig_9_9">
       <caption>Current Workspace after running script file</caption>
-      <image source="assets/chapter_09/fig_9.png" width="70%"> </image>
+      <image source="chapter_09/fig_9.png" width="70%"> </image>
     </figure>
     <p>
       If you typed everything in correctly, the only thing that you should notice when the program is complete is that you now have several new variables in your workspace corresponding to your variables (specifically the <c>midterm_1</c>, <c>midterm_2</c>, <c>midterm_3</c>, <c>final</c>, and <c>average_exam_score</c> variables).
     </p>
-    <exercise xml:id="run-script-name">
+    <exercise xml:id="run-script-name" exercise-interactive="fillin">
   <title>What is displayed in the command window?</title>
   <statement>
     <p>
@@ -174,11 +191,16 @@ average_exam_score = (midterm_1 + midterm_2 + midterm_3 + final
     </p>
 
     <p>
-      <fillin>
-        <answer>avgExam</answer>
-      </fillin>
+      <fillin answer="avgExam" mode="string"/>
     </p>
   </statement>
+  <evaluation>
+    <evaluate>
+      <test correct="yes">
+        <strcmp use-answer="yes"/>
+      </test>
+    </evaluate>
+  </evaluation>
 </exercise>
 <p>
   The preceding question is actually the other way that you can run your <c>.m</c> files. As long as the current working directory contains a <c>.m</c> file, you can simply type the name of the <c>.m</c> file into MATLAB (omitting the <c>.m</c> extension) and it will run the script!
@@ -247,14 +269,14 @@ average_exam_score = (midterm_1 + midterm_2 + midterm_3 + final
 </p>
  <figure xml:id="fig_9_10">
       <caption>Whole line vs in-line comments</caption>
-      <image source="assets/chapter_09/fig_10.png" width="70%"> </image>
+      <image source="chapter_09/fig_10.png" width="70%"> </image>
     </figure>
     <p>
     This is where the <term>art</term> of commenting comes into play. How much commenting is too much or too little commenting? There really isn’t a hard and fast rule with this. It depends. I suggest that you comment enough so that you understand what is happening in each chunk of code. What is a chunk of code? Again it depends. See figure 9.1.10 to see my script header and how I would comment on the <c>avgExam.m</c> script we have been working on.
     </p>
      <figure xml:id="fig_9_11">
       <caption>You can see my script header and comments.</caption>
-      <image source="assets/chapter_09/fig_11.png" width="70%"> </image>
+      <image source="chapter_09/fig_11.png" width="70%"> </image>
     </figure>
     <p>
       Looking at figure 9.1.10 above, you can see how the header helps the user see what the script does and how it is intended to work. Keep in mind there are no right or wrong answers when it comes to commenting. Depending on where you work, your company might have specific requirements about how much commenting and what headers should look like. The important thing, for now, is to make sure that from now on you are commenting on your script files and including some form of header so that you can understand what your scripts do in the future.
@@ -270,7 +292,7 @@ average_exam_score = (midterm_1 + midterm_2 + midterm_3 + final
   </p>
    <figure xml:id="fig_9_12">
       <caption>Examples of different kinds of arrays.</caption>
-      <image source="assets/chapter_09/fig_12.png" width="70%"> </image>
+      <image source="chapter_09/fig_12.png" width="70%"> </image>
     </figure>
     <p>
       <term>Creating Vectors</term>
@@ -569,7 +591,7 @@ linear_boi = linspace(2,4,12)
   </p>
      <figure xml:id="fig_9_13">
       <caption>Examples matricies.</caption>
-      <image source="assets/chapter_09/fig_13.png" width="70%"> </image>
+      <image source="chapter_09/fig_13.png" width="70%"> </image>
     </figure>
     <p>
       In figure 9.3.1 above, we can see that the matrix <c>square</c> has 3 rows and 3 columns. To make it easy to write, it is common to say that this is a 3x3 (pronounced “three by three”) matrix. Square matrices have the same number of rows and columns. It follows that since <c>not_square</c> has 4 rows and 3 columns it is not square. We would say this is a 4x3 matrix (pronounced “four by three”).
@@ -761,7 +783,7 @@ neo = [1 2 3; 4 5 6; 7 8 9]
   <title>Understanding Matrix Layout in MATLAB</title>
 
   <statement>
-    <image source="assets/chapter_09/fig_14.png" width="70%"> </image>
+    <image source="chapter_09/fig_14.png" width="70%"> </image>
     <p>
       What would the variable <c>trinity</c> look like in the workspace after typing the following command?
     </p>
@@ -853,7 +875,7 @@ position = [0, 4, 8, 12, 30] % position in meters
 </p>
    <figure xml:id="fig_9_15">
       <caption>Example of our position array.</caption>
-      <image source="assets/chapter_09/fig_15.png" width="70%"> </image>
+      <image source="chapter_09/fig_15.png" width="70%"> </image>
     </figure>
 <p>
   In this example, our array <c>position</c> has 5 elements in it corresponding to the numbers 0, 4, 8, 12, and 30. In this example, the number 8 has an address of 3. It is the third element in the array position. To access this number, we can call the array position and specify that we want the third element out of it.
@@ -962,7 +984,7 @@ position = [0, 4, 8, 12, 30] % position in meters
 </p>
  <figure xml:id="fig_9_16">
       <caption>Example of addressing the number 14 in the matrix <term>matrix</term>.</caption>
-      <image source="assets/chapter_09/fig_16.png" width="70%"> </image>
+      <image source="chapter_09/fig_16.png" width="70%"> </image>
     </figure>
     <p>
       Go ahead and enter the matrix in figure 9.4.5 into your workspace. It is good practice to remember how to enter all of the values. When you are done double-check that your matrix is the same as mine.
@@ -1204,7 +1226,7 @@ two_to_five = v_man(2:5)</program>
 </p>
 <figure xml:id="fig_9_17">
       <caption>An example script.</caption>
-      <image source="assets/chapter_09/fig_17.png" width="70%"> </image>
+      <image source="chapter_09/fig_17.png" width="70%"> </image>
     </figure>
     <p>
       Don’t worry about what this script does (yet). Instead, notice how I started the script with a <c>clc</c> and then a <c>clear</c> command. This is good practice to ensure that your scripts will work on a fresh start of MATLAB and do not rely on a variable that is currently in the workspace. You are not required to start your scripts this way, but it is good practice.

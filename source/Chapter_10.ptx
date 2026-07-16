@@ -6,7 +6,7 @@
   <introduction>
   <figure xml:id="fig_10_1">
       <caption>A different kind of array</caption>
-      <image source="assets/chapter_10/fig_1.jpeg" width="70%"> </image>
+      <image source="chapter_10/fig_1.jpeg" width="70%"> </image>
     </figure>
     <p>
       At this point, we have learned how to store and manipulate data inside of arrays. It is really important that you remember everything in Chapter 9, so it is a good idea to go back and review the previous material.
@@ -176,7 +176,7 @@ vec2 =
 </example> 
 <figure xml:id="fig_10_2">
       <caption>Before continuing make sure your Workspace variables are identical!</caption>
-      <image source="assets/chapter_10/fig_2.png" width="70%"> </image>
+      <image source="chapter_10/fig_2.png" width="70%"> </image>
     </figure>
     <p>
       Now that those four arrays are loaded into your Workspace (see figure 10.1.2 to the right to make sure you are on the same page) you can add or subtract the matrices. <term>Keep these 4 arrays in your Workspace. We will be using them throughout the chapter.</term>
@@ -198,7 +198,7 @@ mat3 =
 </program>
 </statement>
 </example> 
-<exercise xml:id="mat3-values">
+<exercise xml:id="mat3-values" exercise-interactive="fillin">
   <title>Values in mat3</title>
 
   <statement>
@@ -208,15 +208,37 @@ mat3 =
 
     <tabular>
       <row>
-        <cell><fillin><answer>-6</answer></fillin></cell>
-        <cell><fillin><answer>14.3</answer></fillin></cell>
+        <cell><fillin name="blank1" answer="-6" mode="number"/></cell>
+        <cell><fillin name="blank2" answer="14.3" mode="number"/></cell>
       </row>
       <row>
-        <cell><fillin><answer>0</answer></fillin></cell>
-        <cell><fillin><answer>9.6</answer></fillin></cell>
+        <cell><fillin name="blank3" answer="0" mode="number"/></cell>
+        <cell><fillin name="blank4" answer="9.6" mode="number"/></cell>
       </row>
     </tabular>
   </statement>
+  <evaluation>
+    <evaluate name="blank1">
+      <test correct="yes">
+        <numcmp use-answer="yes" tolerance="0.5"/>
+      </test>
+    </evaluate>
+    <evaluate name="blank2">
+      <test correct="yes">
+        <numcmp use-answer="yes" tolerance="0.05"/>
+      </test>
+    </evaluate>
+    <evaluate name="blank3">
+      <test correct="yes">
+        <numcmp use-answer="yes" tolerance="0.5"/>
+      </test>
+    </evaluate>
+    <evaluate name="blank4">
+      <test correct="yes">
+        <numcmp use-answer="yes" tolerance="0.05"/>
+      </test>
+    </evaluate>
+  </evaluation>
 </exercise>
 <p>
   Notice that it simply adds up the corresponding elements. The 1st row, 1st column of <m>[mat3]</m> contains the value <m>-6</m> which is just <m>4+(-10)</m> which are the values in the 1st row, 1st column of <m>[mat1]</m> and <m>[mat2]</m> respectively.
@@ -230,7 +252,7 @@ mat3 =
 <p>
   and store it in a new vector called <c>vec 3</c>.
 </p>
-<exercise xml:id="vec3-first-element">
+<exercise xml:id="vec3-first-element" exercise-interactive="fillin">
 
   <title>Accessing a <c>vec3</c> Element</title>
 
@@ -250,11 +272,16 @@ vec3 =
 
     <p>
       <c>vec3(1)</c> =
-      <fillin>
-        <answer>11</answer>
-      </fillin>
+      <fillin answer="11" mode="number"/>
     </p>
   </statement>
+  <evaluation>
+    <evaluate>
+      <test correct="yes">
+        <numcmp use-answer="yes" tolerance="0.5"/>
+      </test>
+    </evaluate>
+  </evaluation>
 </exercise>
 <p>
   <term>Remember, arrays must be identical in size</term>
@@ -309,7 +336,7 @@ a_{21}+s &amp; a_{22}+s
   <p>
     Using the 4 variables still stored in your Workspace, subtract the scalar 4 from <c>mat1</c> and store it in a new matrix called <c>mat4</c>.
   </p>
-  <exercise xml:id="mat4-first-element">
+  <exercise xml:id="mat4-first-element" exercise-interactive="fillin">
 
   <title>Subtracting a Scalar</title>
 
@@ -329,11 +356,16 @@ mat4 =
 
     <p>
       <c>mat4(1,1)</c> =
-      <fillin>
-        <answer>0</answer>
-      </fillin>
+      <fillin answer="0" mode="number"/>
     </p>
   </statement>
+  <evaluation>
+    <evaluate>
+      <test correct="yes">
+        <numcmp use-answer="yes" tolerance="0.5"/>
+      </test>
+    </evaluate>
+  </evaluation>
 </exercise>
 </section>
 <section xml:id="mult-div-expo-array">
@@ -376,7 +408,7 @@ huh =
 </program>
 </statement>
 </example> 
-<exercise xml:id="huh-values">
+<exercise xml:id="huh-values" exercise-interactive="fillin">
   <title>Values in matrix huh</title>
 
   <statement>
@@ -386,15 +418,37 @@ huh =
 
     <tabular>
       <row>
-        <cell><fillin><answer>20</answer></fillin></cell>
-        <cell><fillin><answer>93.2</answer></fillin></cell>
+        <cell><fillin name="blank1" answer="20" mode="number"/></cell>
+        <cell><fillin name="blank2" answer="93.2" mode="number"/></cell>
       </row>
       <row>
-        <cell><fillin><answer>63</answer></fillin></cell>
-        <cell><fillin><answer>6.7</answer></fillin></cell>
+        <cell><fillin name="blank3" answer="63" mode="number"/></cell>
+        <cell><fillin name="blank4" answer="6.7" mode="number"/></cell>
       </row>
     </tabular>
   </statement>
+  <evaluation>
+    <evaluate name="blank1">
+      <test correct="yes">
+        <numcmp use-answer="yes" tolerance="0.5"/>
+      </test>
+    </evaluate>
+    <evaluate name="blank2">
+      <test correct="yes">
+        <numcmp use-answer="yes" tolerance="0.05"/>
+      </test>
+    </evaluate>
+    <evaluate name="blank3">
+      <test correct="yes">
+        <numcmp use-answer="yes" tolerance="0.5"/>
+      </test>
+    </evaluate>
+    <evaluate name="blank4">
+      <test correct="yes">
+        <numcmp use-answer="yes" tolerance="0.05"/>
+      </test>
+    </evaluate>
+  </evaluation>
 </exercise>
 <p>
   So did we break MATLAB? Is MATLAB incapable of doing such a simple mathematical operation? The value of <c>mat1(1,1)</c> is <m>4</m> and the value of <c>mat2(1,1)</c> is <m>-10</m> so <m>4*-10</m> should equal <m>-40</m> so why is the number <m>20</m> showing up in <c>huh(1,1)</c>?
@@ -421,7 +475,7 @@ oh_okay =
 </program>
 </statement>
 </example> 
-<exercise xml:id="oh-okay-values">
+<exercise xml:id="oh-okay-values" exercise-interactive="fillin">
   <title>Values in matrix oh_okay</title>
 
   <statement>
@@ -431,15 +485,37 @@ oh_okay =
 
     <tabular>
       <row>
-        <cell><fillin><answer>-40</answer></fillin></cell>
-        <cell><fillin><answer>27.6</answer></fillin></cell>
+        <cell><fillin name="blank1" answer="-40" mode="number"/></cell>
+        <cell><fillin name="blank2" answer="27.6" mode="number"/></cell>
       </row>
       <row>
-        <cell><fillin><answer>-25</answer></fillin></cell>
-        <cell><fillin><answer>18.2</answer></fillin></cell>
+        <cell><fillin name="blank3" answer="-25" mode="number"/></cell>
+        <cell><fillin name="blank4" answer="18.2" mode="number"/></cell>
       </row>
     </tabular>
   </statement>
+  <evaluation>
+    <evaluate name="blank1">
+      <test correct="yes">
+        <numcmp use-answer="yes" tolerance="0.5"/>
+      </test>
+    </evaluate>
+    <evaluate name="blank2">
+      <test correct="yes">
+        <numcmp use-answer="yes" tolerance="0.05"/>
+      </test>
+    </evaluate>
+    <evaluate name="blank3">
+      <test correct="yes">
+        <numcmp use-answer="yes" tolerance="0.5"/>
+      </test>
+    </evaluate>
+    <evaluate name="blank4">
+      <test correct="yes">
+        <numcmp use-answer="yes" tolerance="0.05"/>
+      </test>
+    </evaluate>
+  </evaluation>
 </exercise>
 <p>
   Now THAT looks like what we are expecting! So what is going on?
@@ -452,7 +528,7 @@ oh_okay =
 </p>
 <figure xml:id="fig_10_3">
       <caption>When to use the <c>.</c> operator</caption>
-      <image source="assets/chapter_10/fig_3.png" width="70%"> </image>
+      <image source="chapter_10/fig_3.png" width="70%"> </image>
     </figure>
   </section>
 <section xml:id="challenge-prob-10">
@@ -541,7 +617,7 @@ fun = x.^3 - 6 * x.^2 + x - 10
 <p>
   For this question, let’s consider the preceding example, but this time, redefine <c>x</c> to be from <c>x = 1</c> to <c>x=999</c> equally spaced by 1. To accomplish this, you should only have to modify two numbers in your script. After running it, you have now created a fun array with 1000 entries!
 </p>
- <exercise xml:id="x-257-element">
+ <exercise xml:id="x-257-element" exercise-interactive="fillin">
 
   <title>Beauty of MATLAB</title>
 
@@ -558,11 +634,16 @@ clc; clear; close all;
 
     <p>
       The value at <c>x=257</c> is
-      <fillin>
-        <answer>16578546</answer>
-      </fillin>
+      <fillin answer="16578546" mode="number"/>
     </p>
   </statement>
+  <evaluation>
+    <evaluate>
+      <test correct="yes">
+        <numcmp use-answer="yes" tolerance="0.5"/>
+      </test>
+    </evaluate>
+  </evaluation>
 </exercise>
 <p>
   That is the beauty of MATLAB! You can change one or two numbers, and re-run your script without having to do much work. If you struggled with the question above, it is ok! If you are struggling then you are learning! But you also need to figure out a plan to make sure that you learn this material. It is critical to being a successful MATLAB programmer.
@@ -584,7 +665,7 @@ clc; clear; close all;
   </p>
   <figure xml:id="fig-4">
       <caption>A collection of functions that work specifically on arrays.</caption>
-      <image source="assets/chapter_10/fig_4.png" width="70%"> </image>
+      <image source="chapter_10/fig_4.png" width="70%"> </image>
     </figure>
     <p>
       Note: some of the functions above work a little differently on matrices than on vectors. For example) in the command window type <c>help std</c>, read the help text introductory paragraph, then answer the following question.
@@ -592,14 +673,14 @@ clc; clear; close all;
     <p>
       For this question, consider a 5x8 matrix stored in the variable random_man with random values. When the user types in <c>y = std(random_man)</c> ...
     </p>
-    <exercise xml:id="random-man">
+    <exercise xml:id="random-man" exercise-interactive="fillin">
 
   <title>Help! <c>std</c></title>
 
   <statement>
     <p>Here is an interactive code box that functions identically to the MATLAB command window.</p>
 <program language="octave">
-% Here is a code box to write code for this problem. 
+% Here is a code box to write code for this problem.
 % Insert your matlab code here:
 clc; clear; close all;
 
@@ -615,24 +696,28 @@ clc; clear; close all;
 
       The dimensions of <c>y</c> is/are
 
-      <fillin>
-
-        <answer>1</answer>
-
-      </fillin>
+      <fillin name="blank1" answer="1" mode="number"/>
 
       row(s) by
 
-      <fillin>
-
-        <answer>8</answer>
-
-      </fillin>
+      <fillin name="blank2" answer="8" mode="number"/>
 
       column(s).
 
     </p>
   </statement>
+  <evaluation>
+    <evaluate name="blank1">
+      <test correct="yes">
+        <numcmp use-answer="yes" tolerance="0.5"/>
+      </test>
+    </evaluate>
+    <evaluate name="blank2">
+      <test correct="yes">
+        <numcmp use-answer="yes" tolerance="0.5"/>
+      </test>
+    </evaluate>
+  </evaluation>
 </exercise>
 </section>
 </chapter>

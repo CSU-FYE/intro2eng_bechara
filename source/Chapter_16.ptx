@@ -4,16 +4,16 @@
   <title>User Defined Functions</title>
 
   <introduction>
-    <figure xml:id="fig_1">
+    <figure xml:id="fig-16-1">
       <caption>Luckily for us, MATLAB functions aren’t THIS complicated.</caption>
-      <image source="assets/chapter_16/fig_1.png" width="70%"> </image>
+      <image source="chapter_16/fig_1.png" width="70%"> </image>
     </figure>
     <p>
       Functions are a fundamental part of mathematics and most students are familiar with how they work. In math class, you were likely taught that you can think of functions like little machines (figure 16.0.2) that associate a unique number <m>y</m>, with any given number, <m>x</m>. You may have even learned the terminology that the <m>x</m> value is the input, and the <m>y</m> value is the output.
     </p>
-    <figure xml:id="fig_2">
+    <figure xml:id="fig-16-2">
       <caption>The function of a little number manipulation machine</caption>
-      <image source="assets/chapter_16/fig_2.png" width="70%"> </image>
+      <image source="chapter_16/fig_2.png" width="70%"> </image>
     </figure>
     <p>
       If you can understand how a mathematical function works, you are actually well on your way to understanding how MATLAB functions work! MATLAB functions work in the same way as mathematical functions. You have one (or more inputs), manipulate the input(s) according to some rules, and then you return one (or more outputs).
@@ -138,7 +138,7 @@ avg = mean(array)
 <p>
   The key concept here is that functions make your code easier to read and easier to type. So when you have an algorithm that is likely to get run over and over again, it is a good idea to make a function for it!
 </p>
-<exercise xml:id="avg-equality-check">
+<exercise xml:id="avg-equality-check" exercise-interactive="fillin">
 
   <title>Checking Equality of Variables</title>
 
@@ -150,9 +150,26 @@ avg = mean(array)
     </p>
 
     <p>
-      are_they_equal = <fillin answer="avg"/> <fillin answer="=="/> <fillin answer="avg_long_way"/>
+      are_they_equal = <fillin name="blank1" answer="avg" mode="string"/> <fillin name="blank2" answer="==" mode="string"/> <fillin name="blank3" answer="avg_long_way" mode="string"/>
     </p>
   </statement>
+  <evaluation>
+    <evaluate name="blank1">
+      <test correct="yes">
+        <strcmp use-answer="yes"/>
+      </test>
+    </evaluate>
+    <evaluate name="blank2">
+      <test correct="yes">
+        <strcmp use-answer="yes"/>
+      </test>
+    </evaluate>
+    <evaluate name="blank3">
+      <test correct="yes">
+        <strcmp use-answer="yes"/>
+      </test>
+    </evaluate>
+  </evaluation>
 
 </exercise>
 <p>
@@ -213,9 +230,9 @@ biggest = max(array)
 <p>
   Let’s continue with the <c>max()</c> function to investigate our next key concept. If you have been doing your brain workouts, you read through the <c>max()</c> help text. See figure 16.1.5 below, specifically the highlighted region.
 </p>
-<figure xml:id="fig_3">
+<figure xml:id="fig-16-3">
       <caption>A portion of the MATLAB help text for <c>max()</c>.</caption>
-      <image source="assets/chapter_16/fig_3.png" width="70%"> </image>
+      <image source="chapter_16/fig_3.png" width="70%"> </image>
     </figure>
     <p>
       Notice how well this function is described! It shows an example of how to use the function (<c>[M,I] = max(X)</c>) and gives a nice description of how it works.
@@ -244,9 +261,9 @@ biggest = max(array)
   <p>
     The moral of the story is that MATLAB will <term>always look in the current working directory for your user-defined functions</term>.
   </p>
-  <figure xml:id="fig_4">
+  <figure xml:id="fig-16-4">
       <caption>Maybe you throw your new <c>impact_driver()</c> into this shed. How is MATLAB supposed to know?</caption>
-      <image source="assets/chapter_16/fig_4.jpeg" width="70%"> </image>
+      <image source="chapter_16/fig_4.jpeg" width="70%"> </image>
     </figure>
     <p>
       This is important to remember when you save a function and are trying to run it. If the function is not located in either the path (the garage in our analogy) or the current working directory, it will throw an error.
@@ -290,16 +307,16 @@ biggest = max(array)
     <p>
       To start, click the <c>“New”</c> drop-down arrow on the <c>“Home”</c> tab of the MATLAB GUI toolbar. Click the <c>“Function”</c> option (see figure 16.2.2 below).
     </p>
-    <figure xml:id="fig_5">
+    <figure xml:id="fig-16-5">
       <caption>What to click on to create a new function in MATLAB.</caption>
-      <image source="assets/chapter_16/fig_5.png" width="70%"> </image>
+      <image source="chapter_16/fig_5.png" width="70%"> </image>
     </figure>
     <p>
       Once click the correct button, a new editor window should pop up that looks like figure 16.2.3 below. MATLAB creates a template function that we can then modify to fit our needs. The reality is there is no difference between a script file and a function <term>except that a function must begin with the keyword <c>function</c></term>.
     </p>
-   <figure xml:id="fig_6">
+   <figure xml:id="fig-16-6">
       <caption>A blank function titled <c>untitled()</c>.</caption>
-      <image source="assets/chapter_16/fig_6.png" width="70%"> </image>
+      <image source="chapter_16/fig_6.png" width="70%"> </image>
     </figure> 
     <p>
       Take a second to look at this template function. Let’s breakdown the very first line of code in this template function:
@@ -371,16 +388,16 @@ biggest = max(array)
     <p>
       At this point go ahead and edit the function template according to my first line above (or even better, use your own variables) and then save your function. Click the save button in the MATLAB GUI. When the save dialogue box opens up, notice how it automatically fills in the function name in the <c>“File Name”</c> text edit box (figure 16.2.4 below). DO NOT CHANGE THE FILE NAME! If you change it, your function will not work. Don’t forget about the current working directory!
     </p>
-    <figure xml:id="fig_7">
+    <figure xml:id="fig-16-7">
       <caption>Notice how MATLAB automatically makes the function name the file name!</caption>
-      <image source="assets/chapter_16/fig_7.png" width="70%"> </image>
+      <image source="chapter_16/fig_7.png" width="70%"> </image>
     </figure>
     <p>
       The last thing to notice is your <c>“Current Folder”</c> browser. Notice the icon looks different than a script file! It has a little <m>f_x</m> in the icon instead of the MATLAB logo. This is another little visual indicator when you are browsing your folders that it isn’t a script file, but is a function file.
     </p>
-    <figure xml:id="fig_8">
+    <figure xml:id="fig-16-8">
       <caption>Notice the icon in the current folder browser is different.</caption>
-      <image source="assets/chapter_16/fig_8.png" width="70%"> </image>
+      <image source="chapter_16/fig_8.png" width="70%"> </image>
     </figure>
     <p>
       <term>Creating Helpful <c>help</c> Text</term>

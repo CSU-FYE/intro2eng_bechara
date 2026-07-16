@@ -4,9 +4,9 @@
   <title>Technical Presentations</title>
 
   <introduction>
-    <figure xml:id="fig_1">
+    <figure xml:id="fig-17-1">
       <caption>It can be scary looking at a large audience, even for us who do it a lot.</caption>
-      <image source="assets/chapter_17/fig_1.jpeg" width="70%"> </image>
+      <image source="chapter_17/fig_1.jpeg" width="70%"> </image>
     </figure>
     <p>
       One important, but often overlooked, skill in engineering is presenting. From talking with students, I have noticed that a lot of engineering students are intimidated by public speaking. In fact, I have almost a decade of experience lecturing, but I still am a <term>little</term> scared standing in front of a large classroom! It is OK to be a little nervous. I tell students being a little nervous means that you care, and caring is part of successful presentations. This chapter aims to reduce your presentation anxiety by teaching you the skills you need. The main key is to practice, know the format, and be prepared.
@@ -75,9 +75,9 @@ The art of PowerPoint and how to use the features in a non-distracting way.
   <p>
     Before we jump into some examples and tips, I wanted to take a quick note on presentation anxiety. As I mentioned before, there is no getting around it, you will probably be a little nervous when you present. That is ok! Almost everyone feels a little nervous. However, there are tactics that you can use to reduce your anxiety when stepping up in front of an audience.
   </p>
-  <figure xml:id="fig_2">
+  <figure xml:id="fig-17-2">
       <caption>The Key is to Not Panic!</caption>
-      <image source="assets/chapter_17/fig_2.jpeg" width="70%"> </image>
+      <image source="chapter_17/fig_2.jpeg" width="70%"> </image>
     </figure>
     <p>
       One of the biggest keys to reducing your anxiety is <term>preparation</term>. In fact, there is no such thing as “over preparing”. The more you prepare for your presentation the better you will feel because you will be more confident about what you are speaking on.
@@ -161,7 +161,7 @@ The art of PowerPoint and how to use the features in a non-distracting way.
     <p>
       So as part of your preparation, <term>relax</term>. The selfish and narcissistic tendencies of your classmates ensure that they won’t be paying as much attention to you as you think they might. Hopefully, that relieves a little bit of the pressure.
     </p>
-    <exercise xml:id="presentation-anxiety">
+    <exercise xml:id="presentation-anxiety" exercise-interactive="shortanswer">
 
   <title>How do you feel about presentation anxiety?</title>
 
@@ -196,9 +196,9 @@ The art of PowerPoint and how to use the features in a non-distracting way.
  <p>
   Keep it simple.
  </p>
- <figure xml:id="fig_3">
+ <figure xml:id="fig-17-3">
       <caption>A Title Slide. This specific presentation talked about how forcing students to read via textbooks like this one where there are homework points associated with reading, actually improves educational outcomes.</caption>
-      <image source="assets/chapter_17/fig_3.png" width="70%"> </image>
+      <image source="chapter_17/fig_3.png" width="70%"> </image>
     </figure>
     <p>
       <term>Introduction/Background Slide(s)</term>
@@ -223,9 +223,9 @@ The art of PowerPoint and how to use the features in a non-distracting way.
         </p>
       </li>
       </ul>
-      <figure xml:id="fig_4">
+      <figure xml:id="fig-17-4">
       <caption>An example introduction slide. In this slide, I talked about the motivation for the project. Specifically, why don’t students just read the textbook?</caption>
-      <image source="assets/chapter_17/fig_4.png" width="70%"> </image>
+      <image source="chapter_17/fig_4.png" width="70%"> </image>
     </figure>
     <p>
       <term>Material and Methods</term>
@@ -250,9 +250,9 @@ The art of PowerPoint and how to use the features in a non-distracting way.
         </p>
       </li>
     </ul>
-    <figure xml:id="fig_5">
+    <figure xml:id="fig-17-5">
       <caption>An example materials and methods slide. In this slide, I talked about how I set up the research project in specific detail.</caption>
-      <image source="assets/chapter_17/fig_5.png" width="70%"> </image>
+      <image source="chapter_17/fig_5.png" width="70%"> </image>
     </figure>
     <p>
       <term>Results</term>
@@ -277,9 +277,9 @@ The art of PowerPoint and how to use the features in a non-distracting way.
         </p>
       </li>
     </ul>
-    <figure xml:id="fig_6">
+    <figure xml:id="fig-17-6">
       <caption>An example results slide. This particular slide shows that students that read more (the “HTC” group) scored statistically significantly higher overall in the course than the students that didn’t read as much (the “LTC” group)</caption>
-      <image source="assets/chapter_17/fig_6.png" width="70%"> </image>
+      <image source="chapter_17/fig_6.png" width="70%"> </image>
     </figure>
     <p>
       <term>Discussion</term>
@@ -314,9 +314,9 @@ The art of PowerPoint and how to use the features in a non-distracting way.
         </p>
       </li>
     </ul>
-<figure xml:id="fig_7">
+<figure xml:id="fig-17-7">
       <caption>An example discussion slide. In this particular slide, I talked about the results and tried to frame them in terms of what I considered to be the limitations of my presentation.</caption>
-      <image source="assets/chapter_17/fig_7.png" width="70%"> </image>
+      <image source="chapter_17/fig_7.png" width="70%"> </image>
     </figure>
     <p>
       <term>Conclusion/Significance</term>
@@ -341,9 +341,9 @@ The art of PowerPoint and how to use the features in a non-distracting way.
         </p>
       </li>
     </ul>
-<figure xml:id="fig_8">
+<figure xml:id="fig-17-8">
       <caption>An example conclusion slide.</caption>
-      <image source="assets/chapter_17/fig_8.png" width="70%"> </image>
+      <image source="chapter_17/fig_8.png" width="70%"> </image>
     </figure>
 </section>
 <section xml:id="dynamic-pres">
@@ -366,7 +366,7 @@ The art of PowerPoint and how to use the features in a non-distracting way.
 <p>
   I am truly sorry for putting you through that. However, I hope you agree that it gives you some ideas of what NOT to do when trying to give a dynamic and interesting presentation. Here are some more tips about both the content of your presentations and tips for you.
 </p>
-<exercise xml:id="atrocious-pres">
+<exercise xml:id="atrocious-pres" exercise-interactive="shortanswer">
 
   <title>An atrocious presentation</title>
 

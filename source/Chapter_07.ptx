@@ -6,7 +6,7 @@
   <introduction>
     <figure xml:id="fig_7_1">
       <caption>Mathematical models are just math ways of talking about natural phenomena.</caption>
-      <image source="assets/chapter_07/fig_1.jpeg" width="70%"> </image>
+      <image source="chapter_07/fig_1.jpeg" width="70%"> </image>
     </figure>
     <p>
       The last thing we will cover about Excel is how to select a trendline type and what that actually means. It would be better to phrase that as “how to select the correct mathematical model”. <term>Mathematical modeling</term> is the process of using math to represent real-world phenomena. The reason the second terminology is better is because it correctly expresses the <term>thinking</term> that you must do to select a correct model. Before we jump into the different types of mathematical models (and associated trendlines) that you are expected to learn, we need to have a quick word on <term>thinking</term>.
@@ -30,7 +30,7 @@
     </p>
     <figure xml:id="fig_7_2">
       <caption>Think twice, model once!</caption>
-      <image source="assets/chapter_07/fig_2.jpeg" width="70%"> </image>
+      <image source="chapter_07/fig_2.jpeg" width="70%"> </image>
     </figure>
     <p>
       The danger with mathematical modeling is that sometimes your data may <term>look</term> like they fit a certain type of model so you select that trendline type and move on. It is easier that way and uses less brain power. Humans are all lazy, and in fact, our laziness has led to some of our greatest inventions! However, your laziness can get the best of you when it comes to mathematical modeling.
@@ -67,7 +67,7 @@
       </p>
       <figure xml:id="fig_7_3">
       <caption>An example of what linear models look like when plotted</caption>
-      <image source="assets/chapter_07/fig_3.png" width="70%"> </image>
+      <image source="chapter_07/fig_3.png" width="70%"> </image>
     </figure>
     <p>
       <heading><term>Example of Linear Model-Hooke's Law</term></heading>
@@ -151,7 +151,7 @@
     </p>
    <figure xml:id="fig_7_4">
       <caption>Load up the Excel file you saved with this chart.</caption>
-      <image source="assets/chapter_07/fig_4.png" width="70%"> </image>
+      <image source="chapter_07/fig_4.png" width="70%"> </image>
     </figure>
 <p>
   The process for adding a trendline is identical regardless of the mathematical model being used. Let’s see how to add a trendline to our spring data and start with the spring 1 data. The process is also very similar to adding a legend or other chart element so this should be easy for you.
@@ -206,7 +206,7 @@
     </p>
     <figure xml:id="fig_7_5">
       <caption>Example of Spring 1 data series being selected.</caption>
-      <image source="assets/chapter_07/fig_5.png" width="70%"> </image>
+      <image source="chapter_07/fig_5.png" width="70%"> </image>
     </figure>
   </li>
   <li>
@@ -220,7 +220,7 @@
     </p>
     <figure xml:id="fig_7_6">
       <caption>What your chart should look like after you add the linear trendline to the spring 1 dataset.</caption>
-      <image source="assets/chapter_07/fig_6.png" width="70%"> </image>
+      <image source="chapter_07/fig_6.png" width="70%"> </image>
     </figure>
   </li>
   <li>
@@ -234,7 +234,7 @@
     </p>
     <figure xml:id="fig_7_7">
       <caption>Format Trendline Options</caption>
-      <image source="assets/chapter_07/fig_7.png" width="70%"> </image>
+      <image source="chapter_07/fig_7.png" width="70%"> </image>
     </figure>
   </li>
   <li>
@@ -257,7 +257,7 @@
     <p>
       Hint: make sure that you set the y-intercept = 0 so that you get the same answer I did! Also, round to 1 decimal place. It doesn’t make sense to include those non-significant figures. There is no way our measurements had that much precision.
     </p>
-    <exercise xml:id="spring2-constant">
+    <exercise xml:id="spring2-constant" exercise-interactive="fillin">
   <title>What about spring 2?</title>
   <statement>
     <p>
@@ -265,12 +265,17 @@
     </p>
     <p>
       The spring constant for Spring 2 is
-      <fillin>
-        <answer>10.7</answer>
-      </fillin>
+      <fillin answer="10.7" mode="number"/>
       <m>N/m</m>.
     </p>
   </statement>
+  <evaluation>
+    <evaluate>
+      <test correct="yes">
+        <numcmp use-answer="yes" tolerance="0.05"/>
+      </test>
+    </evaluate>
+  </evaluation>
 </exercise>
 <p>
   A quick video recap of this process is provided below.
@@ -279,7 +284,7 @@
           <video youtube="MCWWXoz9SJs"/>
           <caption>How to add a trendline to an Excel data series</caption>
         </figure>
-        <exercise xml:id="real-linear-model">
+        <exercise xml:id="real-linear-model" exercise-interactive="shortanswer">
   <title>Linear Model Real World Examples</title>
   <statement>
     <p>
@@ -302,7 +307,7 @@
   </p>
   <figure xml:id="fig_7_8">
       <caption>Example of two different power models. The blue line has a positive “slope” (m value) and the orange line has a “negative” slope.</caption>
-      <image source="assets/chapter_07/fig_8.png" width="70%"> </image>
+      <image source="chapter_07/fig_8.png" width="70%"> </image>
     </figure>
     <p>
       There are a few interesting things to note about power models:
@@ -345,7 +350,7 @@
   </p>
   <figure xml:id="fig_7_9">
       <caption>Don’t worry about him growing to the size of a person anytime soon. Worry about him going extinct.</caption>
-      <image source="assets/chapter_07/fig_9.jpeg" width="70%"> </image>
+      <image source="chapter_07/fig_9.jpeg" width="70%"> </image>
     </figure>
     <p>
       Identifying the units in this equation is a lot easier. We know that <m>\pi</m> is a dimensionless number, so the only dimensions are on <m>V</m> (<m>L^3</m>) and on the other <m>r^3</m> (<m>L*L*L=L^3</m>) which checks out.
@@ -401,14 +406,14 @@
   </ul>
   <figure xml:id="fig_7_10">
       <caption>Examples of exponential models. The blue line has a positive m, the orange line has a negative m.</caption>
-      <image source="assets/chapter_07/fig_10.png" width="70%"> </image>
+      <image source="chapter_07/fig_10.png" width="70%"> </image>
     </figure>
     <p>
       <heading><term>Example of an Exponential Model- Atmospheric Pressure</term></heading>
     </p>
      <figure xml:id="fig_7_11">
       <caption>It is hard to breathe up there or so I am told. But not just because of all the <url href="https://www.cnn.com/2018/08/05/health/mount-everest-biogas-project/index.html">poop</url>.</caption>
-      <image source="assets/chapter_07/fig_11.jpeg" width="70%"> </image>
+      <image source="chapter_07/fig_11.jpeg" width="70%"> </image>
     </figure>
     <p>
       The “standard” pressure at sea level is <term> 101,325 Pascals</term>. The reason standard is in quotes is because realistically it varies with the weather, temperature, etc. but that is the number scientists commonly use to calculate things. Furthermore, it is known that atmospheric pressure, if you could provide existing plans, decreases by about 12% for every <term> 1,000 meters</term> that you go up. Intuitively, you can see that this is an example of exponential decay! Furthermore, with a little cleverness, we can create a mathematical model and guess what the pressure should be in Fort Collins, CO (elevation <term> 5,003 feet</term>) and on the top of Mount Elbert, the highest peak in Colorado (elevation <term>14,439 feet</term> or <term>4,041 meters</term>).
@@ -416,7 +421,7 @@
     <p>
       The elevation of Fort Collins is listed at <term> 5,003 feet</term>. Take a minute to take out a piece of paper, look at your conversion sheet, and convert this elevation to meters. This is a good brain workout review! Don’t skip it!
     </p>
-    <exercise xml:id="fort-collins-elevation">
+    <exercise xml:id="fort-collins-elevation" exercise-interactive="fillin">
   <title>Unit Practice: Elevation of Fort Collins</title>
   <statement>
     <p>
@@ -424,12 +429,17 @@
     </p>
     <p>
       The elevation of Fort Collins is
-      <fillin>
-        <answer>1525</answer>
-      </fillin>
+      <fillin answer="1525" mode="number"/>
       meters.
     </p>
   </statement>
+  <evaluation>
+    <evaluate>
+      <test correct="yes">
+        <numcmp use-answer="yes" tolerance="2"/>
+      </test>
+    </evaluate>
+  </evaluation>
 </exercise>
 <p>
   Looking at our model:
@@ -488,7 +498,7 @@
 <p>
   Using the mathematical model we just developed for atmospheric pressure, what is the predicted atmospheric pressure in Fort Collins, Colorado?
 </p>
-<exercise xml:id="fort-collins-pressure">
+<exercise xml:id="fort-collins-pressure" exercise-interactive="fillin">
   <title> Atmospheric Pressure in Fort Collins</title>
   <statement>
     <p>
@@ -496,12 +506,17 @@
     </p>
     <p>
       The predicted atmospheric pressure is
-      <fillin>
-        <answer>83378</answer>
-      </fillin>
+      <fillin answer="83378" mode="number"/>
       Pa.
     </p>
   </statement>
+  <evaluation>
+    <evaluate>
+      <test correct="yes">
+        <numcmp use-answer="yes" tolerance="0.5"/>
+      </test>
+    </evaluate>
+  </evaluation>
 </exercise>
 </section>
 <section xml:id="end-item">
@@ -509,7 +524,7 @@
   <p>
     Please complete the end of chapter quiz.
   </p>
-  <exercise xml:id="chapter-mantra">
+  <exercise xml:id="chapter-mantra" exercise-interactive="fillin">
   <title>Chapter Mantra</title>
   <statement>
     <p>
@@ -517,15 +532,23 @@
     </p>
     <p>
       Think
-      <fillin>
-        <answer>twice</answer>
-      </fillin>,
+      <fillin name="blank1" answer="twice" mode="string"/>,
       model
-      <fillin>
-        <answer>once</answer>
-      </fillin>.
+      <fillin name="blank2" answer="once" mode="string"/>.
     </p>
   </statement>
+  <evaluation>
+    <evaluate name="blank1">
+      <test correct="yes">
+        <strcmp use-answer="yes" case="insensitive"/>
+      </test>
+    </evaluate>
+    <evaluate name="blank2">
+      <test correct="yes">
+        <strcmp use-answer="yes" case="insensitive"/>
+      </test>
+    </evaluate>
+  </evaluation>
 </exercise>
 </section>
 </chapter>

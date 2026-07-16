@@ -5,7 +5,7 @@
   <introduction>
     <figure xml:id="fig_4_1">
       <caption>The important part is to understand when you need to convert units</caption>
-      <image source="assets/chapter_04/fig_1.jpg" width="70%"> </image>
+      <image source="chapter_04/fig_1.jpg" width="70%"> </image>
     </figure>
     <p>
       Although it seems basic, one of the first steps of becoming a successful engineer is having an <term>intuitive</term> understanding of units and dimensions. Intuitive means that when you see 4 <term>inches</term> or 4 <term>milimeters</term> you can “see” the difference between those two and understand how they are different. Intuitive means that when someone says that they are 6 meters tall, you raise your eyebrows and likely reply “I don’t think meters means what you think it means”. Unfortunately, it takes practice and time to have an intuitive understanding of anything (that is one of the reasons why we expect engineers to spend 4 years in school!). Therefore, the goal of this chapter is not that you will have an intuitive understanding by the time you are finished. It is important to understand that the learning process does not end at the completion of each chapter but instead is a lifelong process. The goal is that by the end of the chapter you will know how to appropriately look things up and that you understand how to be careful when converting units.
@@ -31,7 +31,7 @@
     </p>
     <figure xml:id="fig_4_2">
       <caption>The Gimli Glider before it crashed…duh</caption>
-      <image source="assets/chapter_04/fig_2.jpg" width="70%"> </image>
+      <image source="chapter_04/fig_2.jpg" width="70%"> </image>
     </figure>
     <p>
       <heading><term>Why did it crash?</term></heading>
@@ -47,7 +47,7 @@
     </p>
     <figure xml:id="fig_4_3">
       <caption>In basketball, taller is usually better.</caption>
-      <image source="assets/chapter_04/fig_3.jpg" width="70%"> </image>
+      <image source="chapter_04/fig_3.jpg" width="70%"> </image>
     </figure>
     <p>
       As an example, let’s say you are recruiting someone to play on your basketball team. You know that in basketball, there are significant advantages for tall players. You might ask a potential Canadian player “How tall are you?” and she might reply “I am <term>1.8 meters</term> tall”. In this case, the <term>dimension</term> we are considering is <term>length</term> (aka “height” in colloquial terms), and the <term>unit</term> we are using to describe the dimension length is <term>meters</term>. However, if you ask an American player who is the exact same height as the Canadian player, she might reply “I am <term> 5 feet 11 inches </term> tall”. In this case, the <term>dimension is still length</term>, but now the units being used to describe that dimension, are now <term>feet and inches</term>.
@@ -66,7 +66,7 @@
   </p>
   <figure xml:id="fig_4_4">
       <caption>The fundamental dimensions of the universe and their corresponding symbols.</caption>
-      <image source="assets/chapter_04/fig_4.png" width="70%"> </image>
+      <image source="chapter_04/fig_4.png" width="70%"> </image>
     </figure>
     <p>
       Figure 4.2.1 shows the seven fundamental dimensions and the symbol used to define them. That is it. That is all the dimensions you need to describe everything in the universe.
@@ -189,7 +189,7 @@
   <p>
     Work can be defined as the transfer of energy, so it turns out the Work and Energy share the same dimensions. That means you also now know the dimensions for Energy as well. Now try and do this on your own by filling in the blanks to Checkpoint 4.3.2 where electric charge has dimensions of electric intensity * time and electric potential is defined as the work done to move a unit of charge.
   </p>
-  <exercise xml:id="electric-potential-dimensions">
+  <exercise xml:id="electric-potential-dimensions" exercise-interactive="fillin">
   <title>Dimensions of Electric Potential</title>
   <statement>
     <p>
@@ -197,29 +197,39 @@
     </p>
     <p>
       Consider electric potential. Electric potential is defined as the
-      <fillin>
-        <answer>work</answer>
-        <answer>energy</answer>
-      </fillin>
+      <fillin name="blank1" mode="string"/>
       needed per unit charge to move a test charge between two points.
       Analyzing the dimensions of electric potential shows that it should be
-      <fillin>
-        <answer>M</answer>
-      </fillin>
+      <fillin name="blank2" answer="M" mode="string"/>
       <m>L^{2}T^{-3}</m>
-      <fillin>
-        <answer>I</answer>
-      </fillin>
+      <fillin name="blank3" answer="I" mode="string"/>
       <m>^{-1}</m>.
     </p>
   </statement>
+  <evaluation>
+    <evaluate name="blank1">
+      <test correct="yes">
+        <strcmp case="insensitive">(work|energy)</strcmp>
+      </test>
+    </evaluate>
+    <evaluate name="blank2">
+      <test correct="yes">
+        <strcmp use-answer="yes"/>
+      </test>
+    </evaluate>
+    <evaluate name="blank3">
+      <test correct="yes">
+        <strcmp use-answer="yes"/>
+      </test>
+    </evaluate>
+  </evaluation>
 </exercise>
 <p>
   I tricked you into learning something, surprise! You have just done <term>dimensional analysis!</term> Dimensional analysis is a powerful tool in engineering. It allows us to understand a physical quantity by understanding the underlying fundamental dimensions of the quantity. In fact, if you go to the Wikipedia page for <url href="https://en.wikipedia.org/wiki/Work_(physics)">work</url> you will see they list the dimensions of work as part of the summary.
 </p>
     <figure xml:id="fig_4_5">
       <caption>Screenshot of Wikipedia page for Work showing the dimensions. I told you it’s important.</caption>
-      <image source="assets/chapter_04/fig_5.png" width="70%"> </image>
+      <image source="chapter_04/fig_5.png" width="70%"> </image>
     </figure>
 </section>
 <section xml:id="unit-systems">
@@ -240,7 +250,7 @@
         <p>
           Let’s say that you get elected President of the United States and you make the decision that the US should switch to SI. You make an executive order, and overnight, the US is supposed to switch to the metric system. For this discussion, think of one good consequence, and one potentially disastrous consequence from America switching to metric overnight. 
         </p>
-        <exercise xml:id="switch-to-SI">
+        <exercise xml:id="switch-to-SI" exercise-interactive="shortanswer">
         <title>Should America switch to SI?</title>
         <statement>
           <p>
@@ -266,7 +276,7 @@
   </p>
   <figure xml:id="fig_4_6">
       <caption>The fundamental dimensions matched to the SI unit.</caption>
-      <image source="assets/chapter_04/fig_6.png" width="70%"> </image>
+      <image source="chapter_04/fig_6.png" width="70%"> </image>
     </figure>
     <p>
       So when we want to talk about the height of a basketball player, a scientist (or as we learned from the video, anyone not in the US, Myanmar, or Liberia) would say that Nikola Jokic is <term>2.11 meters</term> tall. The dimension is <term>length</term> and the SI unit for <term>length</term> is the meter. Similarly, in the SI system Michael Jordan is listed as having a <term>mass</term> of <term>98 kg</term>. The dimension, in this case, is <term>mass</term>, and the associated SI unit is the kilogram.
@@ -291,7 +301,7 @@
   </p>
   <figure xml:id="fig_4_7">
       <caption>If we ever meet aliens they WILL know about length, but they WON’T know what a meter is.</caption>
-      <image source="assets/chapter_04/fig_7.jpeg" width="70%"> </image>
+      <image source="chapter_04/fig_7.jpeg" width="70%"> </image>
     </figure>
     <p>
       Some of the derived units are pretty easy. Consider <term>area</term>. Since the base SI unit for <term>length</term> is the meter, and we know that <term><m>area=length*length</m></term>, it follows that the SI unit for area is simply <term><m>meter*meter=meters^2</m></term>.
@@ -331,7 +341,7 @@
 </p>
 <figure xml:id="fig_4_8">
       <caption>A small collection of the derived units.</caption>
-      <image source="assets/chapter_04/fig_8.png" width="70%"> </image>
+      <image source="chapter_04/fig_8.png" width="70%"> </image>
     </figure>
 </section>
 <section xml:id="metric-prefixes">
@@ -344,7 +354,7 @@
   </p>
   <figure xml:id="fig_4_9">
       <caption>A small collection of SI prefixes.</caption>
-      <image source="assets/chapter_04/fig_9.png" width="70%"> </image>
+      <image source="chapter_04/fig_9.png" width="70%"> </image>
     </figure>
     <p>
       Keep in mind that there are more metric prefixes than this. For a complete list, <url href="https://en.wikipedia.org/wiki/Metric_prefix">check out this page.</url>
@@ -354,7 +364,7 @@
     </p>
     <figure xml:id="fig_4_10">
       <caption>In the blink of an eye...</caption>
-      <image source="assets/chapter_04/fig_10.jpeg" width="70%"> </image>
+      <image source="chapter_04/fig_10.jpeg" width="70%"> </image>
     </figure>
     <p>
       It takes about 0.3 to 0.4 seconds to blink your eye. We could say that it takes 3 to 4 deciseconds because the prefix “deci” corresponds to <m>10^{-1}</m>.
@@ -368,7 +378,7 @@
 <p>
   Make sure to work out your brain until this concept makes sense to you! You can make up your own problems easily here depending on what you are into. Do you like swimming? How many centimeters are there in a <term>100 meter</term> swim? You get the idea.
 </p>
-<exercise xml:id="grams-in-kilogram">
+<exercise xml:id="grams-in-kilogram" exercise-interactive="fillin">
   <title>Metric Prefix Practice</title>
   <statement>
     <p>
@@ -376,13 +386,17 @@
     </p>
     <p>
       There are
-      <fillin>
-        <answer>1000</answer>
-        <answer>1,000</answer>
-      </fillin>
+      <fillin answer="1000" mode="number"/>
       grams in a kilogram.
     </p>
   </statement>
+  <evaluation>
+    <evaluate>
+      <test correct="yes">
+        <numcmp use-answer="yes" tolerance="0.5"/>
+      </test>
+    </evaluate>
+  </evaluation>
 </exercise>
 <p>
   <heading><term>Metric Prefixes and Derived Units</term></heading>
@@ -392,7 +406,7 @@
 </p>
 <figure xml:id="fig_4_11">
       <caption>Solving for Force</caption>
-      <image source="assets/chapter_04/fig_11.png" width="70%"> </image>
+      <image source="chapter_04/fig_11.png" width="70%"> </image>
     </figure>
 </section>
 <section xml:id="united-customary-system">
@@ -482,7 +496,7 @@
   </p>
  <figure xml:id="fig_4_12">
       <caption>Some conversion factors for length</caption>
-      <image source="assets/chapter_04/fig_12.png" width="70%"> </image>
+      <image source="chapter_04/fig_12.png" width="70%"> </image>
     </figure>
     <figure xml:id="mass-force-conversions">
   <caption>Some conversion factors for mass and force.</caption>
@@ -513,7 +527,7 @@
 <p>
   It is important to note that since <m>0.621\,mi=1\,km</m> that the ratio <m>\frac{0.621\,mi}{1\,km}</m> is actually a dimensionless 1. Now, time for a quick math problem…
 </p>
-<exercise xml:id="one-times-number">
+<exercise xml:id="one-times-number" exercise-interactive="fillin">
   <title>What do you know about 1?</title>
   <statement>
     <p>
@@ -522,11 +536,16 @@
     </p>
     <p>
       <m>1 \times 1881</m> equals
-      <fillin>
-        <answer>1881</answer>
-      </fillin>.
+      <fillin answer="1881" mode="number"/>.
     </p>
   </statement>
+  <evaluation>
+    <evaluate>
+      <test correct="yes">
+        <numcmp use-answer="yes" tolerance="0.5"/>
+      </test>
+    </evaluate>
+  </evaluation>
 </exercise>
 <p>
   OK, well that was an easy question but the idea is to get you to consider that the ratio of <m>\frac{0.621\,mi}{1\,km}</m> is the same as <m>\frac{1\,km}{0.621,\mi}</m> which is the same as the number 1. We also know that we can multiply any number by 1 without changing the number. OK, so why is this useful? Let’s look at an example to illustrate.
@@ -539,7 +558,7 @@
 </p>
  <figure xml:id="fig_4_13">
       <caption>Marathons are hard. 26.219 miles? Running? Ouch</caption>
-      <image source="assets/chapter_04/fig_13.jpeg" width="70%"> </image>
+      <image source="chapter_04/fig_13.jpeg" width="70%"> </image>
     </figure>
     <p>
       If we try the first ratio we get: <m> 26.219\,mi*\frac{0.621\,mi}{1\,km}=16.282 \frac{mi^2}{km}</m> which is clearly a completely meaningless answer. What are the units <m>\frac{mi^2}{km}</m> and what does that have to do with distance? We acknowledge that technically that answer is correct because the quantity <m>\frac{0.621\,mi}{1\,km}</m> is just the number 1, <term>but it does not answer our original question.</term>
@@ -558,7 +577,7 @@
         <li>Set up a ratio based on the conversion factor that will result in the current unit being eliminated, and the unit of interest being preserved.</li>
         <li>Perform multiplication and algebra.</li>
         </ol>
-        <exercise xml:id="phone-height-conversion">
+        <exercise xml:id="phone-height-conversion" exercise-interactive="fillin">
   <title>Converting Length Units</title>
   <statement>
     <p>
@@ -573,12 +592,17 @@
     </p>
     <p>
       The height of the phone is
-      <fillin>
-        <answer>15.24</answer>
-      </fillin>
+      <fillin answer="15.24" mode="number"/>
       centimeters.
     </p>
   </statement>
+  <evaluation>
+    <evaluate>
+      <test correct="yes">
+        <numcmp use-answer="yes" tolerance="0.01"/>
+      </test>
+    </evaluate>
+  </evaluation>
 </exercise>
 </section>
 <section xml:id="complicated-conversion">
@@ -627,7 +651,7 @@
           </p>
         </li>
         </ol>
-        <exercise xml:id="gpm-to-lps">
+        <exercise xml:id="gpm-to-lps" exercise-interactive="fillin">
   <title>Complicated Conversions</title>
   <statement>
     <p>
@@ -637,12 +661,17 @@
       <m>\text{L/s}</m>.
     </p>
     <p>
-      <fillin>
-        <answer>1.26</answer>
-      </fillin>
+      <fillin answer="1.26" mode="number"/>
       liters/sec
     </p>
   </statement>
+  <evaluation>
+    <evaluate>
+      <test correct="yes">
+        <numcmp use-answer="yes" tolerance="0.01"/>
+      </test>
+    </evaluate>
+  </evaluation>
 </exercise>
 <p>
   <heading><term>Units with Exponents</term></heading>
@@ -688,7 +717,7 @@
           </p>
         </li>
         </ol>
-        <exercise xml:id="in3-to-m3">
+        <exercise xml:id="in3-to-m3" exercise-interactive="fillin">
 
   <title>Complicated Conversions (Area)</title>
   <statement>
@@ -701,17 +730,22 @@
     </p>
     <p>
       <m>0.</m>
-      <fillin>
-        <answer>000233</answer>
-      </fillin>
+      <fillin answer="000233" mode="string"/>
       <m>\text{m}^3</m>
     </p>
     <p>
       <em>Hint:</em> Enter three significant digits!
     </p>
   </statement>
+  <evaluation>
+    <evaluate>
+      <test correct="yes">
+        <strcmp use-answer="yes"/>
+      </test>
+    </evaluate>
+  </evaluation>
 </exercise>
-<exercise xml:id="smoot-bridge">
+<exercise xml:id="smoot-bridge" exercise-interactive="fillin">
   <title>The Smoot</title>
   <statement>
     <p>
@@ -736,12 +770,17 @@
     </p>
     <p>
       The Harvard Bridge is
-      <fillin>
-        <answer>2032</answer>
-      </fillin>
+      <fillin answer="2032" mode="number"/>
       feet.
     </p>
   </statement>
+  <evaluation>
+    <evaluate>
+      <test correct="yes">
+        <numcmp use-answer="yes" tolerance="5"/>
+      </test>
+    </evaluate>
+  </evaluation>
 </exercise>
 </section>
 <section xml:id="warning-and-ethics">
@@ -782,7 +821,7 @@
   <p>
     The ethics questions I would like you to consider for this chapter is: who is to blame and how should we punish them?
   </p>
- <exercise xml:id="ethics-dilemma">
+ <exercise xml:id="ethics-dilemma" exercise-interactive="shortanswer">
         <title>Ethics in an Engineering Disaster</title>
         <statement>
           <p>

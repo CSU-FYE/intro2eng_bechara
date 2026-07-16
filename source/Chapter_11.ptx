@@ -4,9 +4,9 @@
   <title>MATLAB Plotting</title>
 
   <introduction>
-   <figure xml:id="fig_1">
+   <figure xml:id="fig-11-1">
       <caption>A picture is worth a thousand words!</caption>
-      <image source="assets/chapter_11/fig_1.png" width="70%"> </image>
+      <image source="chapter_11/fig_1.png" width="70%"> </image>
     </figure>
     <p>
       Remember, most cliches are cliches because there is a hint of truth in them. For example, the adage “a picture is worth a thousand words” is persistent because graphs and plots are extremely useful at portraying information in a compact manner. MATLAB has robust plotting and graphing capabilities and can generate plots in very few lines of code. Unlike Excel, there is very little in terms of buttons or menus that you have to navigate. Instead with MATLAB, you need to remember a few lines of code but in the end, it is much faster and much more flexible in generating your plots.
@@ -58,9 +58,9 @@ How to use what we have already learned about arrays to streamline making plots 
   <p>
     Remember, the philosophy of this book is that diving in and getting your hands dirty (metaphorically at least) is good for learning! So before we dive into too many details about plotting, let’s consider the case of a real engineering application, the tension test. Don’t worry, we won’t dive into too many of the details as you will learn all this in a later class, just the basics so we do not have to work on a contrived example.
   </p>
-  <figure xml:id="fig_2">
+  <figure xml:id="fig-11-2">
       <caption>A typical tensile specimen with labels. The black dots indicate what is called the gauge length (<m>L_0</m>) and the red lines indicate the direction of the applied force (<m>F</m>).</caption>
-      <image source="assets/chapter_11/fig_2.png" width="70%"> </image>
+      <image source="chapter_11/fig_2.png" width="70%"> </image>
     </figure>
 <p>
   The goal of a tensile test is usually to determine the materials <url href="https://en.wikipedia.org/wiki/Elastic_modulus">elastic modulus</url>.
@@ -152,7 +152,7 @@ How to use what we have already learned about arrays to streamline making plots 
 <p>
 <term>Stop and Think</term>
 </p>
-<exercise xml:id="elastic-modulus-importance">
+<exercise xml:id="elastic-modulus-importance" exercise-interactive="shortanswer">
 
   <title>Why is Elastic Modulus Important?</title>
 
@@ -173,9 +173,9 @@ How to use what we have already learned about arrays to streamline making plots 
 <p>
   Let’s consider a specimen made of high-density polyethylene (HDPE). The specimen has a round cross-section with a radius of <m>5 \;mm</m> (this implies that the cross-sectional area is  <m>7.854*10^{-5}\;meters^2</m>, make sure you can calculate this on your own! It is good units practice). Consider the following Force <m>N</m> and gauge length <m>L</m> data from a tensile test experiment shown below in figure 11.1.4.
 </p>
-<figure xml:id="fig_3">
+<figure xml:id="fig-11-3">
       <caption>The results from a tensile test experiment.</caption>
-      <image source="assets/chapter_11/fig_3.png" width="70%"> </image>
+      <image source="chapter_11/fig_3.png" width="70%"> </image>
     </figure>
 <p>
   <term>Try It!</term>
@@ -244,9 +244,9 @@ e_strain = (len-len_0)/len_0;
 <p>
   <c>plot(e_strain,e_stress)</c>
 </p>
-<figure xml:id="fig_4">
+<figure xml:id="fig-11-4">
       <caption>The MATLAB plot of stress vs strain.</caption>
-      <image source="assets/chapter_11/fig_4.png" width="70%"> </image>
+      <image source="chapter_11/fig_4.png" width="70%"> </image>
     </figure>
     <p>
       When you hit the run button, you should see the following figure pop up (see figure 11.1.7 above). Congratulations! You just plotted in MATLAB! Plotting in MATLAB is really that easy. The line isn’t perfectly straight because experimental data is never perfect. But here we can observe that there is a linear relationship between how much strain the specimen is under and how much it deforms! Just for fun, the slope of this line would be the elastic modulus for HDPE.
@@ -292,9 +292,9 @@ help plot
 </program>
 </statement>
 </example>
-<figure xml:id="fig_5">
+<figure xml:id="fig-11-5">
       <caption>Example of the <c>plot()</c> help text that is most important for our Chapter.</caption>
-      <image source="assets/chapter_11/fig_5.png" width="70%"> </image>
+      <image source="chapter_11/fig_5.png" width="70%"> </image>
     </figure>
     <p>
       <term>Plot Colors</term>
@@ -311,9 +311,9 @@ help plot
     <p>
       <c>plot(e_strain,e_stress,'g');</c>
     </p>
-    <figure xml:id="fig_6">
+    <figure xml:id="fig-11-6">
       <caption>New green line, and it is so easy and fast!</caption>
-      <image source="assets/chapter_11/fig_6.png" width="70%"> </image>
+      <image source="chapter_11/fig_6.png" width="70%"> </image>
     </figure>
     <p>
       When you re-run your script, you should notice that the line color has changed to green (Figure 11.1.10)!
@@ -336,7 +336,7 @@ help plot
 </program>
 </statement>
 </example>
-<exercise xml:id="plot-format-string">
+<exercise xml:id="plot-format-string" exercise-interactive="fillin">
 
   <title>Yellow Circle Dashdot</title>
 
@@ -347,12 +347,17 @@ help plot
 
     <p>
       <c>plot(e_strain, e_stress, '</c>
-      <fillin>
-        <answer>yo-.</answer>
-      </fillin>
+      <fillin answer="yo\-\." mode="string"/>
       <c>')</c>
     </p>
   </statement>
+  <evaluation>
+    <evaluate>
+      <test correct="yes">
+        <strcmp use-answer="yes"/>
+      </test>
+    </evaluate>
+  </evaluation>
 </exercise>
 <p>
   <term>Plot Symbols</term>
@@ -372,9 +377,9 @@ help plot
 <p>
   <c>plot(e_strain,e_stress,'mp');</c>
 </p>
-<figure xml:id="fig_7">
+<figure xml:id="fig-11-7">
       <caption>Magenta pentagrams.</caption>
-      <image source="assets/chapter_11/fig_7.png" width="70%"> </image>
+      <image source="chapter_11/fig_7.png" width="70%"> </image>
     </figure>
     <p>
       Voila! Our plot is now magenta pentagrams!
@@ -400,9 +405,9 @@ help plot
 <p>
   <c>plot(e_strain,e_stress,'k&lt;-.');</c>
 </p>
-<figure xml:id="fig_8">
+<figure xml:id="fig-11-8">
       <caption>Black left arrows connected by a dash-dot line.</caption>
-      <image source="assets/chapter_11/fig_8.png" width="70%"> </image>
+      <image source="chapter_11/fig_8.png" width="70%"> </image>
     </figure>
     <p>
       And that is all there is to it! Remember, the order of the character strings <term>does not matter</term>. You should also remember that you <term>do not have to memorize these character string codes!</term> Just remember that you can look them up at any time from the command window by typing in
@@ -529,9 +534,9 @@ plot (e_strain, e_stress, 'k&lt;-.') % plot black left arrows (dashdot line)
   <p>
     A lot of the time it is useful to show someone multiple plots. Perhaps you want to compare two materials or show different projections. MATLAB has the capability to plot multiple plots on the same axes or display multiple plots in the same figure. See figure 11.2.1 below for an example.
   </p>
-  <figure xml:id="fig_9">
+  <figure xml:id="fig-11-9">
       <caption>Examples of the different kinds of multiple plotting you can accomplish in MATLAB.</caption>
-      <image source="assets/chapter_11/fig_9.png" width="70%"> </image>
+      <image source="chapter_11/fig_9.png" width="70%"> </image>
     </figure>
     <p>
       You should have also noticed that the plots in Figure 11.2.1 above have titles, axes labels, and legends (where appropriate). In the next section of this chapter, we will learn how to accomplish this. For now, let’s concentrate on what we need to learn to do either:
@@ -588,9 +593,9 @@ e_strain_teflon =
 <p>
   Now that we have two sets of data, we can practice plotting them on the same axes. To do so, you just need to pretend you are a cowboy, and that MATLAB is a horse. So we just need to tell MATLAB “to hold on there partner, I want to plot multiple plots on the same axes”.
 </p>
-<figure xml:id="fig_10">
+<figure xml:id="fig-11-10">
       <caption>Woah there, partner. Hold on.</caption>
-      <image source="assets/chapter_11/fig_10.jpeg" width="70%"> </image>
+      <image source="chapter_11/fig_10.jpeg" width="70%"> </image>
     </figure>
     <p>
       I wasn’t kidding! You really just have to add the line <c>hold on</c> to your script! For example, if we wanted to plot the HDPE and Teflon tensile test data on the same axes, we can just type in:
@@ -650,9 +655,9 @@ hold off
 <p>
   In this particular example (tensile test data of HDPE and Teflon) it makes the most sense to plot the graphs on the same axes. But for the sake of learning, let’s go ahead and create a new figure window and create multiple plots in the same figure window. To do so, we will need to use the <c>subplot()</c> function.
 </p>
-  <figure xml:id="fig_11">
+  <figure xml:id="fig-11-11">
       <caption>Example of how to use the subplot() function and what m, n, and p should be.</caption>
-      <image source="assets/chapter_11/fig_11.png" width="70%"> </image>
+      <image source="chapter_11/fig_11.png" width="70%"> </image>
     </figure>
     <p>
       First, take a second and type in <c>help subplot</c> into the command window and read the help text.
@@ -698,9 +703,9 @@ hold off
     <p>
       And so on and so forth.
     </p>
-    <figure xml:id="fig_12">
+    <figure xml:id="fig-11-12">
       <caption>Example of 6 plots in the same figure using the <c>subplot()</c> command.</caption>
-      <image source="assets/chapter_11/fig_12.png" width="70%"> </image>
+      <image source="chapter_11/fig_12.png" width="70%"> </image>
     </figure>
     <p>
       <term>Try It!</term>
@@ -708,9 +713,9 @@ hold off
     <p>
       Go ahead and try creating a 2x3 subplot grid with our tensile test data. You can reuse the data, so this IS a contrived example after all! But it is good practice.
     </p>
-    <figure xml:id="fig_13">
+    <figure xml:id="fig-11-13">
       <caption>My sketch of how I wanted my subplots to look.</caption>
-      <image source="assets/chapter_11/fig_13.jpeg" width="70%"> </image>
+      <image source="chapter_11/fig_13.jpeg" width="70%"> </image>
     </figure>
     <p>
       I suggest sketching out your plan. Change the colors between each subplot and write them out on paper BEFORE you code to make sure you understand what is going to happen.
@@ -842,9 +847,9 @@ plot (e_strain, e_stress, 'y*--')
   <p>
     For now, comment out all of the stuff you have about subplots. We are going to concentrate on the plot with the HDPE and Teflon data on the same axes. If you have been following along, you should have something very similar to figure 11.3.1 below. We are going to start at line 34, just below all this stuff.
   </p>
-  <figure xml:id="fig_14">
+  <figure xml:id="fig-11-14">
       <caption>Example script of where you need to be. You need to have this and be ready to type on line 34.</caption>
-      <image source="assets/chapter_11/fig_14.png" width="70%"> </image>
+      <image source="chapter_11/fig_14.png" width="70%"> </image>
     </figure>
   <p>
     When you hit run on the script above, you should get a figure with magenta pentagrams connected by a dotted line and green stars connected by a dotted line on the same axes. Note that the magenta stars are the HDPE data and the green stars are the Teflon data.
@@ -1067,9 +1072,9 @@ ylabel ('Stress (Pa)')
 <p>
   Notice that when you add that line to your script and re-run it, you get a nice little legend! Nifty huh? There are some more advanced functionalities to the <c>legend()</c> function that won’t be discussed in this book. But if you are interested type in <c>help legend</c> and check out some of the other features!
 </p>
-<figure xml:id="fig_15">
+<figure xml:id="fig-11-15">
       <caption>Sadly, this legend cannot be created in MATLAB.</caption>
-      <image source="assets/chapter_11/fig_15.jpeg" width="70%"> </image>
+      <image source="chapter_11/fig_15.jpeg" width="70%"> </image>
     </figure>
 <p>
   <term>The Final Script</term>
@@ -1160,7 +1165,7 @@ legend('HDPE','Teflon')
   <p>
     Now, lets plot ( x ) versus ( y ).
   </p>
-  <exercise xml:id="plot-x-versus-y">
+  <exercise xml:id="plot-x-versus-y" exercise-interactive="fillin">
 
   <title>Plot x Versus y</title>
 
@@ -1171,21 +1176,26 @@ legend('HDPE','Teflon')
 
     <p>
       &gt;&gt;
-      <fillin>
-        <answer>plot(x,y)</answer>
-      </fillin>
+      <fillin answer="plot\(x,y\)" mode="string"/>
     </p>
   </statement>
+  <evaluation>
+    <evaluate>
+      <test correct="yes">
+        <strcmp use-answer="yes"/>
+      </test>
+    </evaluate>
+  </evaluation>
 
 </exercise>
 <p>
   You should see a graph pop up that looks like figure 11.4.2. That’s all there is to it!
 </p>
-<figure xml:id="fig_16">
+<figure xml:id="fig-11-16">
       <caption>What your MATLAB plot of x versus y should look like.</caption>
-      <image source="assets/chapter_11/fig_16.png" width="70%"> </image>
+      <image source="chapter_11/fig_16.png" width="70%"> </image>
     </figure>
-    <exercise xml:id="chart-improvements">
+    <exercise xml:id="chart-improvements" exercise-interactive="shortanswer">
 
   <title>Missing Chart Elements</title>
 

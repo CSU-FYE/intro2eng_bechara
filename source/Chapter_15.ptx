@@ -4,9 +4,9 @@
   <title>MATLAB Loops</title>
 
   <introduction>
-     <figure xml:id="fig_1">
+     <figure xml:id="fig-15-1">
       <caption>A little different but perhaps equally as terrifying of a loop!</caption>
-      <image source="assets/chapter_15/fig_1.jpeg" width="70%"> </image>
+      <image source="chapter_15/fig_1.jpeg" width="70%"> </image>
     </figure>
     <p>
       There are over 2.38 billion active Facebook users every month. Somehow, Facebook can send a “Happy Birthday” message to every single person that has Facebook. When you think about it, that is a remarkable feat!
@@ -41,9 +41,9 @@
     <p>
       Remember our mantra and guiding process for writing complex programs is: <term>think, sketch, code, test, repeat</term>.
     </p>
-    <figure xml:id="fig_2">
+    <figure xml:id="fig-15-2">
       <caption>Our mantra. Breathe it in. LIVE it.</caption>
-      <image source="assets/chapter_15/fig_2.png" width="70%"> </image>
+      <image source="chapter_15/fig_2.png" width="70%"> </image>
     </figure>
     <p>
       In this chapter, we will learn how to program loops in MATLAB. That means learning:
@@ -210,7 +210,7 @@ Recall, this is saying that we can represent <m>sin(x)</m> as an infinite polyno
     </p>
   </li>
 </ul>
-<exercise xml:id="code-planning-reflection">
+<exercise xml:id="code-planning-reflection" exercise-interactive="shortanswer">
 
   <title>Maclaurin Expansion</title>
 
@@ -268,9 +268,9 @@ Recall, this is saying that we can represent <m>sin(x)</m> as an infinite polyno
 <p>
   Keep in mind that it is OK if you are confused or stuck as <term>long as you gave it an honest try!</term> Here is my flowchart for this problem:
 </p>
-<figure xml:id="fig_3">
+<figure xml:id="fig-15-3">
       <caption>My flowchart for the Maclaurin series expansion of sin(x)</caption>
-      <image source="assets/chapter_15/fig_3.png" width="70%"> </image>
+      <image source="chapter_15/fig_3.png" width="70%"> </image>
     </figure>
 <p>
   Now is a good time to go back to the <term>think</term> step. Look at my flowchart in figure 15.1.4 above and see if you can answer the following questions.
@@ -368,16 +368,16 @@ Recall, this is saying that we can represent <m>sin(x)</m> as an infinite polyno
       </p>
     </li>
   </ul>
-  <figure xml:id="fig_4">
+  <figure xml:id="fig-15-4">
       <caption>Generic MATLAB <c>for</c> loop flowchart. The variable names are a little different than in the generic code example above (e.g. <c>index_variable</c> was shortened to <term>index</term>, etc) to preserve space but the logic is the same.</caption>
-      <image source="assets/chapter_15/fig_4.png" width="70%"> </image>
+      <image source="chapter_15/fig_4.png" width="70%"> </image>
     </figure>
     <p>
       As an example, consider the example code below in figure 15.2.2. This may look complicated but in practice, it <term>looks</term> more complicated than it really is. See if you can follow the logic presented in the figure. It would also help to try and “follow along” on your own on a sheet of paper. See if you can follow the <c>value</c> variable throughout the looping process.
     </p>
-    <figure xml:id="fig_5">
+    <figure xml:id="fig-15-5">
       <caption>An example of a for loop execution process. You can confirm this by executing the sample code in MATLAB on your own!</caption>
-      <image source="assets/chapter_15/fig_5.png" width="70%"> </image>
+      <image source="chapter_15/fig_5.png" width="70%"> </image>
     </figure>
     <p>
       <term>Stop and Think</term>
@@ -392,7 +392,7 @@ Recall, this is saying that we can represent <m>sin(x)</m> as an infinite polyno
           <video youtube="1VKkuIRx-e0"/>
           <caption>Youtube Video on <c>for</c> Loops</caption>
         </figure>
-        <exercise xml:id="for-loops-reflection">
+        <exercise xml:id="for-loops-reflection" exercise-interactive="shortanswer">
 
   <title>For Loops</title>
 
@@ -414,9 +414,9 @@ Recall, this is saying that we can represent <m>sin(x)</m> as an infinite polyno
 <p>
   In the example loop: <c>for z = 1:2:5</c> we can see that this loop will only run a total of three times. The first time through the loop <c>z = 1</c>, the second time through, <c>z = 3</c>, and the last time through, <c>z = 5</c>. The key to remember is that the for-end loop will only run a specified number of times that is pre-determined based on the first line of the loop.
 </p>
-<figure xml:id="fig_6">
+<figure xml:id="fig-15-6">
       <caption>The loop will only run a specified number of times. Unlike the roll of the dice, this is predetermined by the programmer.</caption>
-      <image source="assets/chapter_15/fig_6.jpeg" width="70%"> </image>
+      <image source="chapter_15/fig_6.jpeg" width="70%"> </image>
     </figure>
     <p>
       When designing your programs, it is important to think about how to define your <c>index_variable</c> and what values to specify for it so that you can control the number of passes through the loop.
@@ -643,9 +643,9 @@ end
       </p>
     </li>
   </ul>
-  <figure xml:id="fig_7">
+  <figure xml:id="fig-15-7">
       <caption>I know this is difficult but no pain no gain! Give it your best shot!</caption>
-      <image source="assets/chapter_15/fig_7.png" width="70%"> </image>
+      <image source="chapter_15/fig_7.png" width="70%"> </image>
     </figure>
     <p>
       My solution is shown below in Example 15.3.2:
@@ -683,7 +683,7 @@ end
 <p>
   If you didn’t get this exactly it is OK as long as you tried. Spend some time with the script above in Example 15.3.2 until you understand how it works. Keep practicing, reading, and watching YouTube video tutorials until this is starting to click!
 </p>
-<exercise xml:id="success-vs-failure">
+<exercise xml:id="success-vs-failure" exercise-interactive="shortanswer">
 
   <title>Successes and Failures</title>
 
@@ -705,9 +705,9 @@ end
   <p>
     This chapter would not be complete without a mention of <c>while-end</c> loops. They will be described below, however, I encourage you to <term>only</term> use <c>while-end</c> loops in cases where it is impossible to use <c>for-end</c> loops.
   </p>
-<figure xml:id="fig_8">
+<figure xml:id="fig-15-8">
       <caption>Warning: while loops are DANGEROUS</caption>
-      <image source="assets/chapter_15/fig_8.png" width="70%"> </image>
+      <image source="chapter_15/fig_8.png" width="70%"> </image>
     </figure>
     <p>
       The reason I am warning about while-end loops before discussing them is that they are the only thing that we will learn in this book that can create <m>\infty</m> loops.
@@ -724,9 +724,9 @@ end
     <p>
       To stop an infinite loop, select the MATLAB command window and hit <c>ctrl+c</c> on your keyboard. OK, ready to create an infinite loop? Create the following script, save it as <c>to_infinity_and_beyond.m</c>, and click run. Once you get bored of seeing the numbers fly by, hit <c>Ctrl+c</c> on your keyboard to stop it.
     </p>
-    <figure xml:id="fig_9">
+    <figure xml:id="fig-15-9">
       <caption>To infinity, AND BEYOND! I hope Disney doesn’t sue me…</caption>
-      <image source="assets/chapter_15/fig_9.png" width="70%"> </image>
+      <image source="chapter_15/fig_9.png" width="70%"> </image>
     </figure>
     <p>
       What was going on there? The reason that <c>while</c> loops are dangerous is because <term>they do not have a predetermined number of times that they run</term>. Instead, while loops run until the condition they were initialized with is false. The reason this loop keeps running forever is that the initialized condition, <c>z &gt;= 0</c> was never made false. Since <c>z</c> started equal to <c>0</c>, and all we did in the loop was keep adding positive values to it, <c>z &gt;= 0</c> was always true.
@@ -767,16 +767,16 @@ end
   <p>
     You can think of <c>while</c> loops as over-eager dogs. They will run themselves to death unless you tell them to stop. The way that you tell a while loop to stop is to make sure that at some point in the loop, the initial conditional expression becomes false.
   </p>
-  <figure xml:id="fig_10">
+  <figure xml:id="fig-15-10">
       <caption>The while loop is the overenthusiastic sled dog of the loop world. <url href="https://animals.howstuffworks.com/animal-facts/peta-oppose-iditarod.htm#pt1">Sled dogs do actually run themselves to death.</url></caption>
-      <image source="assets/chapter_15/fig_10.jpeg" width="70%"> </image>
+      <image source="chapter_15/fig_10.jpeg" width="70%"> </image>
     </figure>
     <p>
       The flowchart for the generic while loop is shown below in figure 15.5.2:
     </p>
-    <figure xml:id="fig_11">
+    <figure xml:id="fig-15-11">
       <caption>A generic while loop flowchart</caption>
-      <image source="assets/chapter_15/fig_11.png" width="70%"> </image>
+      <image source="chapter_15/fig_11.png" width="70%"> </image>
     </figure>
     <p>
       The beauty of <c>while</c> loops is that you can ensure that your code repeats itself until a specific condition is met. However, <c>while</c> loops should only be used in instances where you do not already know how many times the loop needs to be run.
@@ -846,7 +846,7 @@ end
         </p>
       </li>
     </ul>
-    <exercise xml:id="what-flowchart">
+    <exercise xml:id="what-flowchart" exercise-interactive="shortanswer">
 
   <title>What is your flowchart?</title>
 
@@ -968,9 +968,9 @@ num_terms = index + 1;
   <p>
     Speaking of practice, here is one last challenge question to end the chapter with. Remember the last chapter when we used decisions to assign a letter grade to a numeric grade? Now consider the case where instead of a single numeric grade, you instead have an array of grades. Let’s say that we have an array called <c>grades</c> that is a column vector that contains the final grades for everyone in a class. When you are working on this, only consider 10 or so grades but understand that your algorithm should work for any number of grades (my classes can often be 200+ students!).
   </p>
-  <figure xml:id="fig_12">
+  <figure xml:id="fig-15-12">
       <caption>How letter grades are calculated from numeric grades</caption>
-      <image source="assets/chapter_15/fig_12.png" width="70%"> </image>
+      <image source="chapter_15/fig_12.png" width="70%"> </image>
     </figure>
     <p>
       Can you create a MATLAB script that:

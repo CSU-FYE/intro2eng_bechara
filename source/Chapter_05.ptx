@@ -5,7 +5,7 @@
   <introduction>
     <figure xml:id="fig_5_1">
       <caption>The dreaded spreadsheet</caption>
-      <image source="assets/chapter_05/fig_1.jpeg" width="70%"> </image>
+      <image source="chapter_05/fig_1.jpeg" width="70%"> </image>
     </figure>
     <p>
       <term>What is data analysis and why is it important?</term>
@@ -36,7 +36,7 @@
 
 <section xml:id="before-begin-excel">
   <title>Before We Begin Excel: How to Learn Software</title>
-<exercise xml:id="excel-familiarity">
+<exercise xml:id="excel-familiarity" exercise-interactive="shortanswer">
   <title>Excel Familiarity</title>
   <statement>
     <p>
@@ -57,7 +57,7 @@
 </p>
  <figure xml:id="fig_5_2">
       <caption>Roll up those sleeves and get your hands dirty!</caption>
-      <image source="assets/chapter_05/fig_2.jpeg" width="70%"> </image>
+      <image source="chapter_05/fig_2.jpeg" width="70%"> </image>
     </figure>
     <p>
       Before we dive into Excel, I think it is necessary to remind you of <term>how I expect you to approach learning this material. The key to learning how to use software is to roll up your sleeves and get your hands dirty (proverbially).</term> What I am trying to say is that just <term>reading</term> about Excel (or any software package really) is insufficient for learning Excel. What you really need to do is open up Microsoft Excel, and follow along with the material <term>as you are reading about it.</term> Reading alone will not be enough to help you learn how to use it. For example, if you are reading about how to enter data into cells in Excel, you need to take a minute to practice that and actually enter data into cells in Excel.
@@ -67,7 +67,7 @@
     </p>
      <figure xml:id="fig_5_3">
       <caption>Example of how I expect your desktop to look when learning about software packages.</caption>
-      <image source="assets/chapter_05/fig_3.png" width="70%"> </image>
+      <image source="chapter_05/fig_3.png" width="70%"> </image>
     </figure>
     <p>
       Remember, <term>learning is working out your brain muscles.</term> Some of you are stronger than others in certain areas. For example, maybe your Excel brain muscle is very strong because you have worked it out a lot in High School. Then you don’t need to put as much time into the mental gym (i.e. practicing Excel) because you are already strong! Others of you have never used Excel and will need to put a LOT of time in the mental gym to get up to speed. That is okay too! The point is, that <term>you</term> need to figure out how much <term>you</term> need to practice so that <term>you</term> are successful. See how all the “you” are bolded in that previous statement? That is because learning is an individual effort and you should never compare yourself to others, just worry about your own learning. Do not skip your brain workouts if you want to build brain muscle!
@@ -83,7 +83,7 @@
   </p>
    <figure xml:id="fig_5_4">
       <caption>What you are presented with when you open Microsoft Excel.</caption>
-      <image source="assets/chapter_05/fig_4.png" width="70%"> </image>
+      <image source="chapter_05/fig_4.png" width="70%"> </image>
     </figure>
     <p>
       There is a LOT going on here, especially if you are new to Excel. Let’s dive into what all this stuff means, and how we can use it to analyze data.
@@ -102,7 +102,7 @@
   </p>
   <figure xml:id="fig_5_5">
       <caption>A cell address is just like your home address.</caption>
-      <image source="assets/chapter_05/fig_5.png" width="70%"> </image>
+      <image source="chapter_05/fig_5.png" width="70%"> </image>
     </figure>
   <p>
     The analogy of a home address is particularly apt here. Just like your home address is likely identified by a number and name (e.g. 1374 Mulberry Street), <term>the home of each cell in a spreadsheet is identified by a letter and number.</term>
@@ -115,14 +115,14 @@
   </p>
    <figure xml:id="fig_5_6">
       <caption>Example of using Excel for simple data entry.</caption>
-      <image source="assets/chapter_05/fig_6.png" width="70%"> </image>
+      <image source="chapter_05/fig_6.png" width="70%"> </image>
     </figure>
     <p>
       The main formatting tools you need to know about are located on the “Home” tab on the main tool banner. The two most important are inside the “Font” box (this is highlighted in red Figure 5.3.3) and inside the “Alignment” box on the same tab (highlighted in blue in Figure 5.3.3).
     </p>
      <figure xml:id="fig_5_7">
       <caption>Screenshot and highlights of areas of interest on the “Home” tab of the main tool banner.</caption>
-      <image source="assets/chapter_05/fig_7.png" width="70%"> </image>
+      <image source="chapter_05/fig_7.png" width="70%"> </image>
     </figure>
     <p>
       <heading><term>Try It!</term></heading>
@@ -150,7 +150,7 @@
 </p>
 <figure xml:id="fig_5_8">
       <caption>Example spreadsheet we will work on.</caption>
-      <image source="assets/chapter_05/fig_8.png" width="70%"> </image>
+      <image source="chapter_05/fig_8.png" width="70%"> </image>
     </figure>
     <p>
       So now all we need to do is tell Excel to calculate those values and store the corresponding area in the appropriate B cell. To do that, we <term>could</term> just type in an individual formula into each appropriate cell.
@@ -200,7 +200,7 @@
       </p>
       <figure xml:id="fig_5_9">
       <caption>Add 22/7 in cell D4 as an approximation of Pi.</caption>
-      <image source="assets/chapter_05/fig_9.png" width="70%"> </image>
+      <image source="chapter_05/fig_9.png" width="70%"> </image>
     </figure>
     <p>
       Hopefully, you can see that <term>relative cell addressing</term> will be a problem in this case. To see what I mean, type <c>=D4*A4^2</c> into cell <c>B4</c>. Everything should be ok. But when you try to copy the formula down to <c>B10</c> you should notice that everything is filled with <c>0</c>. What is going on? If you look at one of the formulas (for example see the new formula in cell <c>B6</c>), you should notice that instead of cell <c>D4</c> which corresponds to our approximation of <m> \pi</m>, Excel assumed we wanted to try and use a value in <c>D6</c> for the calculation. Since there is nothing in <c>D6</c>, the calculation is equal to <c>0</c>!
@@ -223,7 +223,7 @@
     <li><term>Relative Addressing:</term> in this case, Excel will refer to the cell in the same relative position as the cell containing the formula, no matter where the formula is copied in the worksheet. (e.g. <c>B5</c>)</li>
     <li><term>Mixed Addressing:</term> in this case, either the row or the column is fixed. (e.g. <c>$B5</c>)</li>
   </ol>
-  <exercise xml:id="absolute-cell-addressing">
+  <exercise xml:id="absolute-cell-addressing" exercise-interactive="fillin">
   <title>Cell Addressing and Formulas</title>
   <statement>
     <p>
@@ -237,19 +237,27 @@
     </p>
     <p>
       This is an example of
-      <fillin>
-        <answer>absolute</answer>
-      </fillin>
+      <fillin name="blank1" answer="absolute" mode="string"/>
       cell addressing.
     </p>
     <p>
       The value
-      <fillin>
-        <answer>34</answer>
-      </fillin>
+      <fillin name="blank2" answer="34" mode="number"/>
       is displayed in cell D9.
     </p>
   </statement>
+  <evaluation>
+    <evaluate name="blank1">
+      <test correct="yes">
+        <strcmp use-answer="yes" case="insensitive"/>
+      </test>
+    </evaluate>
+    <evaluate name="blank2">
+      <test correct="yes">
+        <numcmp use-answer="yes" tolerance="0.5"/>
+      </test>
+    </evaluate>
+  </evaluation>
 </exercise>
 </section>
 <section xml:id="built-in-functions">
@@ -277,7 +285,7 @@
   </p>
   <figure xml:id="fig_5_10">
       <caption>For following along, change <c>D4</c> to <c>=pi()</c> and add a total row.</caption>
-      <image source="assets/chapter_05/fig_10.png" width="70%"> </image>
+      <image source="chapter_05/fig_10.png" width="70%"> </image>
     </figure>
   <p>
      To illustrate a use of an Excel function that <term>does</term> require input arguments, let’s consider the case that we need to add all of our area calculations in column B. See figure 5.5.1 above for what your Excel spreadsheet should look like. As it would be extremely tedious to type in a formula that adds up all the areas, we can use the Excel function <c>sum()</c> to add all of the cells in that range automatically! 
@@ -306,7 +314,7 @@
   </p>
   <figure xml:id="fig_5_11">
       <caption>A non-comprehensive but important list of Excel functions to learn how to use.</caption>
-      <image source="assets/chapter_05/fig_11.png" width="70%"> </image>
+      <image source="chapter_05/fig_11.png" width="70%"> </image>
     </figure>
 </section>
 <section xml:id="ethics-rush-to-finish">
@@ -320,7 +328,7 @@
   <p>
     Excel is a great tool that when used properly, can show how data was used to calculate results. This is also why its really important to use formulas and address cells as opposed to typing in numbers. If your spreadsheet never shows which values you used to determine your results, it would be really difficult for someone to recreate your results. Your professors will often stress the importance of "showing your work" and that is because it is necessary to be able to see how you obtained an answer so that it can be replicated. With Excel, the way you show your work is by properly using formulas and addressing cells.
   </p>
-   <exercise xml:id="ethics-rushed-at-work">
+   <exercise xml:id="ethics-rushed-at-work" exercise-interactive="shortanswer">
         <title>Ethics of Being Rushed at Work</title>
         <statement>
           <p>
