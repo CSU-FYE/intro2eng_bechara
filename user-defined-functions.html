@@ -1,0 +1,513 @@
+<!DOCTYPE html>
+<!--********************************************-->
+<!--*       Generated from PreTeXt source      *-->
+<!--*                                          *-->
+<!--*         https://pretextbook.org          *-->
+<!--*                                          *-->
+<!--********************************************-->
+<html lang="en-US" dir="ltr">
+<!--******************************************-->
+<!--*  Authored with PreTeXt                 *-->
+<!--*  pretextbook.org                       *-->
+<!--*  Theme: default-modern                 *-->
+<!--*  Palette:                              *-->
+<!--******************************************-->
+<head xmlns:og="http://ogp.me/ns#" xmlns:book="https://ogp.me/ns/book#">
+<meta http-equiv="Content-Type" content="text/html; charset=UTF-8">
+<title>User Defined Functions</title>
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin="">
+<link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Material+Symbols+Outlined:opsz,wght,FILL,GRAD@24,400,0,0">
+<link href="_static/pretext/css/theme.css" rel="stylesheet" type="text/css">
+<script type="module">import { startMathJax } from './_static/pretext/js/mathjax_startup.js';
+startMathJax({
+hasWebworkReps: false,
+hasSage: false,
+isReact: false,
+htmlPresentation: false,
+});
+</script><script defer src="https://cdn.jsdelivr.net/npm/mathjax@4/tex-mml-chtml.js"></script><meta name="Keywords" content="Authored in PreTeXt">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<meta property="og:type" content="book">
+<meta property="book:title" content="Introduction to Engineering">
+<meta property="book:author" content="Samuel Bechara, PhD">
+<script src="_static/pretext/js/jquery.min.js"></script><script src="_static/pretext/js/pretext.js"></script><script src="_static/pretext/js/pretext_add_on.js?x=1"></script><!--** eBookCongig is necessary to configure interactive       **-->
+<!--** Runestone components to run locally in reader's browser **-->
+<!--** No external communication:                              **-->
+<!--**     log level is 0, Runestone Services are disabled     **-->
+<script type="text/javascript">
+eBookConfig = {};
+eBookConfig.useRunestoneServices = false;
+eBookConfig.host = 'http://127.0.0.1:8000';
+eBookConfig.course = 'PTX_Course_Title_Here';
+eBookConfig.basecourse = 'PTX_Base_Course';
+eBookConfig.isLoggedIn = false;
+eBookConfig.email = '';
+eBookConfig.isInstructor = false;
+eBookConfig.logLevel = 0;
+eBookConfig.username = '';
+eBookConfig.readings = null;
+eBookConfig.activities = null;
+eBookConfig.downloadsEnabled = false;
+eBookConfig.allow_pairs = false;
+eBookConfig.enableScratchAC = false;
+eBookConfig.build_info = "";
+eBookConfig.python3 = null;
+eBookConfig.runestone_version = '8.1.14';
+eBookConfig.jobehost = '';
+eBookConfig.proxyuri_runs = '';
+eBookConfig.proxyuri_files = '';
+eBookConfig.enable_chatcodes =  false;
+</script>
+<!--*** Runestone Services ***-->
+<script src="_static/prefix-runtime.cb5af2e851de3574.bundle.js"></script><script src="_static/prefix-926.5c7038c8ef173faf.bundle.js"></script><script src="_static/prefix-runestone.f51cd4153b45055d.bundle.js"></script><link rel="stylesheet" type="text/css" href="_static/prefix-926.229729d09512acc9.css">
+<link rel="stylesheet" type="text/css" href="_static/prefix-runestone.66fa8a682a32c0ac.css">
+<script src="_static/pretext/js/lti_iframe_resizer.js"></script><script src="https://cdnjs.cloudflare.com/ajax/libs/prism/1.26.0/components/prism-core.min.js"></script><script src="https://cdnjs.cloudflare.com/ajax/libs/prism/1.26.0/plugins/autoloader/prism-autoloader.min.js"></script><script src="https://cdnjs.cloudflare.com/ajax/libs/prism/1.26.0/plugins/line-numbers/prism-line-numbers.min.js" integrity="sha512-dubtf8xMHSQlExGRQ5R7toxHLgSDZ0K7AunqPWHXmJQ8XyVIG19S1T95gBxlAeGOK02P4Da2RTnQz0Za0H0ebQ==" crossorigin="anonymous" referrerpolicy="no-referrer"></script><script src="https://cdnjs.cloudflare.com/ajax/libs/prism/1.26.0/plugins/line-highlight/prism-line-highlight.min.js" integrity="sha512-93uCmm0q+qO5Lb1huDqr7tywS8A2TFA+1/WHvyiWaK6/pvsFl6USnILagntBx8JnVbQH5s3n0vQZY6xNthNfKA==" crossorigin="anonymous" referrerpolicy="no-referrer"></script><script src="https://cdnjs.cloudflare.com/ajax/libs/lunr.js/2.3.9/lunr.min.js" integrity="sha512-4xUl/d6D6THrAnXAwGajXkoWaeMNwEKK4iNfq5DotEbLPAfk6FSxSP3ydNxqDgCw1c/0Z1Jg6L8h2j+++9BZmg==" crossorigin="anonymous" referrerpolicy="no-referrer"></script><script src="lunr-pretext-search-index.js" async=""></script><script src="_static/pretext/js/pretext_search.js"></script><script src="_static/pretext/js/knowl.js"></script><!--knowl.js code controls Sage Cells within knowls--><script>sagecellEvalName='Evaluate (Sage)';
+</script>
+</head>
+<body id="changeme" class="pretext book ignore-math">
+<a class="assistive" href="#ptx-content">Skip to main content</a><header id="ptx-masthead" class="ptx-masthead"><div class="ptx-banner"><div class="title-container">
+<h1 class="heading"><a href="introduction-to-engineering.html"><span class="title">Introduction to Engineering</span> <span class="subtitle">Exploration of Fundamental Engineering Concepts</span></a></h1>
+<p class="byline">Samuel Bechara, PhD</p>
+</div></div></header><nav id="ptx-navbar" class="ptx-navbar navbar"><div class="ptx-navbar-contents">
+<button class="toc-toggle button" title="Contents"><span class="icon material-symbols-outlined" aria-hidden="true">&#xe5d2;</span><span class="name">Contents</span></button><div class="searchbox">
+<div class="searchwidget"><button id="searchbutton" class="searchbutton button" type="button" title="Search book"><span class="icon material-symbols-outlined" aria-hidden="true">&#xe8b6;</span><span class="name">Search Book</span></button></div>
+<div id="searchresultsplaceholder" class="searchresultsplaceholder" style="display: none">
+<div class="search-results-controls">
+<input aria-label="Search term" id="ptxsearch" class="ptxsearch" type="text" name="terms" placeholder="Search term"><button title="Close search" id="closesearchresults" class="closesearchresults"><span class="material-symbols-outlined">close</span></button>
+</div>
+<h2 class="search-results-heading">Search Results: </h2>
+<div id="searchempty" class="searchempty"><span>No results.</span></div>
+<ol id="searchresults" class="searchresults"></ol>
+</div>
+</div>
+<span class="nav-other-controls"><button id="light-dark-button" class="light-dark-button button" title="Dark Mode"><span class="icon material-symbols-outlined" aria-hidden="true">&#xe51c;</span><span class="name">Dark Mode</span></button></span><span class="treebuttons"><a class="previous-button button" href="built-in.html" title="Previous"><span class="icon material-symbols-outlined" aria-hidden="true">&#xe5cb;</span><span class="name">Prev</span></a><a class="up-button button" href="Chapter_16.html" title="Up"><span class="icon material-symbols-outlined" aria-hidden="true">&#xe5ce;</span><span class="name">Up</span></a><a class="next-button button" href="func-v-user.html" title="Next"><span class="name">Next</span><span class="icon material-symbols-outlined" aria-hidden="true">&#xe5cc;</span></a></span>
+</div></nav><div id="latex-macros" class="hidden-content process-math" style="display:none"><span class="process-math">\(\newcommand{\N}{\mathbb N} \newcommand{\Z}{\mathbb Z} \newcommand{\Q}{\mathbb Q} \newcommand{\R}{\mathbb R}
+\newcommand{\lt}{&lt;}
+\newcommand{\gt}{&gt;}
+\newcommand{\amp}{&amp;}
+\definecolor{fillinmathshade}{gray}{0.9}
+\newcommand{\fillinmath}[1]{\mathchoice{\colorbox{fillinmathshade}{$\displaystyle     \phantom{\,#1\,}$}}{\colorbox{fillinmathshade}{$\textstyle        \phantom{\,#1\,}$}}{\colorbox{fillinmathshade}{$\scriptstyle      \phantom{\,#1\,}$}}{\colorbox{fillinmathshade}{$\scriptscriptstyle\phantom{\,#1\,}$}}}
+\)</span></div>
+<div class="ptx-page">
+<div id="ptx-sidebar" class="ptx-sidebar"><nav id="ptx-toc" class="ptx-toc depth2 focused" data-preexpanded-levels="0" data-max-levels="2"><ul class="structural toc-item-list contains-active">
+<li class="toc-item toc-frontmatter"><div class="toc-title-box"><a href="frontmatter.html" class="internal"><span class="title">Front Matter</span></a></div></li>
+<li class="toc-item toc-chapter">
+<div class="toc-title-box"><a href="Chapter_01.html" class="internal"><span class="codenumber">1</span> <span class="title">How To Use This Textbook</span></a></div>
+<ul class="structural toc-item-list">
+<li class="toc-item toc-section"><div class="toc-title-box"><a href="uni-journey.html" class="internal"><span class="codenumber">1.1</span> <span class="title">Let’s Start Your University Journey!</span></a></div></li>
+<li class="toc-item toc-section"><div class="toc-title-box"><a href="brain-note.html" class="internal"><span class="codenumber">1.2</span> <span class="title">A Note on Your Brain</span></a></div></li>
+<li class="toc-item toc-section"><div class="toc-title-box"><a href="learning-goals.html" class="internal"><span class="codenumber">1.3</span> <span class="title">Learning Goals</span></a></div></li>
+<li class="toc-item toc-section"><div class="toc-title-box"><a href="software-how-to.html" class="internal"><span class="codenumber">1.4</span> <span class="title">How to Learn Software</span></a></div></li>
+</ul>
+</li>
+<li class="toc-item toc-chapter">
+<div class="toc-title-box"><a href="Chapter_02.html" class="internal"><span class="codenumber">2</span> <span class="title">Is it a Bird? Is it a Plane?</span></a></div>
+<ul class="structural toc-item-list">
+<li class="toc-item toc-section"><div class="toc-title-box"><a href="engineer-superpowers.html" class="internal"><span class="codenumber">2.1</span> <span class="title">Engineers Create Superpowers</span></a></div></li>
+<li class="toc-item toc-section"><div class="toc-title-box"><a href="engieering-disciplines.html" class="internal"><span class="codenumber">2.2</span> <span class="title">Engineering Disciplines</span></a></div></li>
+<li class="toc-item toc-section"><div class="toc-title-box"><a href="why-engineering.html" class="internal"><span class="codenumber">2.3</span> <span class="title">Why Study Engineering?</span></a></div></li>
+<li class="toc-item toc-section"><div class="toc-title-box"><a href="non-cognitive-skills.html" class="internal"><span class="codenumber">2.4</span> <span class="title">Non-Cognitive Skills For Success</span></a></div></li>
+<li class="toc-item toc-section"><div class="toc-title-box"><a href="ethics.html" class="internal"><span class="codenumber">2.5</span> <span class="title">Ethics is Hard</span></a></div></li>
+<li class="toc-item toc-section"><div class="toc-title-box"><a href="mindset.html" class="internal"><span class="codenumber">2.6</span> <span class="title">Mindset: Engineering as a language, not as a puzzle</span></a></div></li>
+</ul>
+</li>
+<li class="toc-item toc-chapter">
+<div class="toc-title-box"><a href="Chapter_03.html" class="internal"><span class="codenumber">3</span> <span class="title">Engineers Are Professionals</span></a></div>
+<ul class="structural toc-item-list">
+<li class="toc-item toc-section"><div class="toc-title-box"><a href="who-you-know.html" class="internal"><span class="codenumber">3.1</span> <span class="title">It’s Not What You Know, It’s Who You Know</span></a></div></li>
+<li class="toc-item toc-section"><div class="toc-title-box"><a href="communication.html" class="internal"><span class="codenumber">3.2</span> <span class="title">How to Communicate Professionally and Courteously</span></a></div></li>
+<li class="toc-item toc-section"><div class="toc-title-box"><a href="networking.html" class="internal"><span class="codenumber">3.3</span> <span class="title">Tips For Networking</span></a></div></li>
+<li class="toc-item toc-section"><div class="toc-title-box"><a href="modesty-respect.html" class="internal"><span class="codenumber">3.4</span> <span class="title">The Power of Modesty and Respect</span></a></div></li>
+<li class="toc-item toc-section"><div class="toc-title-box"><a href="career-culture.html" class="internal"><span class="codenumber">3.5</span> <span class="title">Be Mindful of Your Desired Career Culture</span></a></div></li>
+<li class="toc-item toc-section"><div class="toc-title-box"><a href="good-impression.html" class="internal"><span class="codenumber">3.6</span> <span class="title">How to Make a Good Impression</span></a></div></li>
+<li class="toc-item toc-section"><div class="toc-title-box"><a href="emails.html" class="internal"><span class="codenumber">3.7</span> <span class="title">Professional Emails and Communication</span></a></div></li>
+<li class="toc-item toc-section"><div class="toc-title-box"><a href="ethics-work.html" class="internal"><span class="codenumber">3.8</span> <span class="title">Ethics- We Still Have Work to Do</span></a></div></li>
+</ul>
+</li>
+<li class="toc-item toc-chapter">
+<div class="toc-title-box"><a href="Chapter_04.html" class="internal"><span class="codenumber">4</span> <span class="title">Units, Dimensions, and Conversions</span></a></div>
+<ul class="structural toc-item-list">
+<li class="toc-item toc-section"><div class="toc-title-box"><a href="units-dimensions.html" class="internal"><span class="codenumber">4.1</span> <span class="title">Units vs Dimensions</span></a></div></li>
+<li class="toc-item toc-section"><div class="toc-title-box"><a href="dimensions.html" class="internal"><span class="codenumber">4.2</span> <span class="title">Dimensions</span></a></div></li>
+<li class="toc-item toc-section"><div class="toc-title-box"><a href="deep-dive.html" class="internal"><span class="codenumber">4.3</span> <span class="title">Deep Dive Into the Dimensions of Something a Bit More Complex</span></a></div></li>
+<li class="toc-item toc-section"><div class="toc-title-box"><a href="unit-systems.html" class="internal"><span class="codenumber">4.4</span> <span class="title">Unit Systems and History</span></a></div></li>
+<li class="toc-item toc-section"><div class="toc-title-box"><a href="base-units.html" class="internal"><span class="codenumber">4.5</span> <span class="title">The Base Units</span></a></div></li>
+<li class="toc-item toc-section"><div class="toc-title-box"><a href="derived-units.html" class="internal"><span class="codenumber">4.6</span> <span class="title">Derived Units</span></a></div></li>
+<li class="toc-item toc-section"><div class="toc-title-box"><a href="metric-prefixes.html" class="internal"><span class="codenumber">4.7</span> <span class="title">Metric Prefixes</span></a></div></li>
+<li class="toc-item toc-section"><div class="toc-title-box"><a href="united-customary-system.html" class="internal"><span class="codenumber">4.8</span> <span class="title">The United Customary System Unit System</span></a></div></li>
+<li class="toc-item toc-section"><div class="toc-title-box"><a href="change-magnitde.html" class="internal"><span class="codenumber">4.9</span> <span class="title">Changing Magnitude of the Dimension</span></a></div></li>
+<li class="toc-item toc-section"><div class="toc-title-box"><a href="converting-units.html" class="internal"><span class="codenumber">4.10</span> <span class="title">Converting Units and Conversion Factors</span></a></div></li>
+<li class="toc-item toc-section"><div class="toc-title-box"><a href="complicated-conversion.html" class="internal"><span class="codenumber">4.11</span> <span class="title">Complicated Conversions</span></a></div></li>
+<li class="toc-item toc-section"><div class="toc-title-box"><a href="warning-and-ethics.html" class="internal"><span class="codenumber">4.12</span> <span class="title">Warning on Unit Conversions and Ethics</span></a></div></li>
+</ul>
+</li>
+<li class="toc-item toc-chapter">
+<div class="toc-title-box"><a href="Chapter_05.html" class="internal"><span class="codenumber">5</span> <span class="title">Excel Basics</span></a></div>
+<ul class="structural toc-item-list">
+<li class="toc-item toc-section"><div class="toc-title-box"><a href="before-begin-excel.html" class="internal"><span class="codenumber">5.1</span> <span class="title">Before We Begin Excel: How to Learn Software</span></a></div></li>
+<li class="toc-item toc-section"><div class="toc-title-box"><a href="open-excel.html" class="internal"><span class="codenumber">5.2</span> <span class="title">Open Excel</span></a></div></li>
+<li class="toc-item toc-section"><div class="toc-title-box"><a href="cell-addressing.html" class="internal"><span class="codenumber">5.3</span> <span class="title">Cell Addressing</span></a></div></li>
+<li class="toc-item toc-section"><div class="toc-title-box"><a href="formulas-cell-referencing.html" class="internal"><span class="codenumber">5.4</span> <span class="title">Formulas (<span class="process-math">\(=\)</span>) and Cell Referencing</span></a></div></li>
+<li class="toc-item toc-section"><div class="toc-title-box"><a href="built-in-functions.html" class="internal"><span class="codenumber">5.5</span> <span class="title">Built-In Functions</span></a></div></li>
+<li class="toc-item toc-section"><div class="toc-title-box"><a href="ethics-rush-to-finish.html" class="internal"><span class="codenumber">5.6</span> <span class="title">Ethics: Rush to Finish</span></a></div></li>
+</ul>
+</li>
+<li class="toc-item toc-chapter">
+<div class="toc-title-box"><a href="Chapter_06.html" class="internal"><span class="codenumber">6</span> <span class="title">Creating Charts in Excel</span></a></div>
+<ul class="structural toc-item-list">
+<li class="toc-item toc-section"><div class="toc-title-box"><a href="elements-of-good-graph.html" class="internal"><span class="codenumber">6.1</span> <span class="title">The Elements of a Good Graph</span></a></div></li>
+<li class="toc-item toc-section"><div class="toc-title-box"><a href="graphing-guidlines.html" class="internal"><span class="codenumber">6.2</span> <span class="title">Graphing Guidelines</span></a></div></li>
+<li class="toc-item toc-section"><div class="toc-title-box"><a href="chart-type.html" class="internal"><span class="codenumber">6.3</span> <span class="title">What is the Right Chart Type?</span></a></div></li>
+<li class="toc-item toc-section"><div class="toc-title-box"><a href="how-to-scatter.html" class="internal"><span class="codenumber">6.4</span> <span class="title">How to Make a Scatter Plot in Excel</span></a></div></li>
+<li class="toc-item toc-section"><div class="toc-title-box"><a href="column-chart.html" class="internal"><span class="codenumber">6.5</span> <span class="title">How to Make a Column Chart in Excel</span></a></div></li>
+<li class="toc-item toc-section"><div class="toc-title-box"><a href="ethics-misleading-graphs.html" class="internal"><span class="codenumber">6.6</span> <span class="title">Ethics: Misleading Graphs</span></a></div></li>
+</ul>
+</li>
+<li class="toc-item toc-chapter">
+<div class="toc-title-box"><a href="Chapter_07.html" class="internal"><span class="codenumber">7</span> <span class="title">Mathematical Models</span></a></div>
+<ul class="structural toc-item-list">
+<li class="toc-item toc-section"><div class="toc-title-box"><a href="what-math-model.html" class="internal"><span class="codenumber">7.1</span> <span class="title">What is a Mathematical Model?</span></a></div></li>
+<li class="toc-item toc-section"><div class="toc-title-box"><a href="linear-models.html" class="internal"><span class="codenumber">7.2</span> <span class="title">Linear Models</span></a></div></li>
+<li class="toc-item toc-section"><div class="toc-title-box"><a href="how-to-add-trendline.html" class="internal"><span class="codenumber">7.3</span> <span class="title">How to Add a Trendline</span></a></div></li>
+<li class="toc-item toc-section"><div class="toc-title-box"><a href="power-models.html" class="internal"><span class="codenumber">7.4</span> <span class="title">Power Models</span></a></div></li>
+<li class="toc-item toc-section"><div class="toc-title-box"><a href="exponential-models.html" class="internal"><span class="codenumber">7.5</span> <span class="title">Exponential Models</span></a></div></li>
+<li class="toc-item toc-section"><div class="toc-title-box"><a href="end-item.html" class="internal"><span class="codenumber">7.6</span> <span class="title">End of Chapter Quiz</span></a></div></li>
+</ul>
+</li>
+<li class="toc-item toc-chapter">
+<div class="toc-title-box"><a href="Chapter_08.html" class="internal"><span class="codenumber">8</span> <span class="title">Introduction to MATLAB</span></a></div>
+<ul class="structural toc-item-list">
+<li class="toc-item toc-section"><div class="toc-title-box"><a href="why-matlab.html" class="internal"><span class="codenumber">8.1</span> <span class="title">Why MATLAB instead of 〈insert_programming_language_here〉?</span></a></div></li>
+<li class="toc-item toc-section"><div class="toc-title-box"><a href="gui-components.html" class="internal"><span class="codenumber">8.2</span> <span class="title">MATLAB GUI</span></a></div></li>
+<li class="toc-item toc-section"><div class="toc-title-box"><a href="command-window.html" class="internal"><span class="codenumber">8.3</span> <span class="title">Command Window</span></a></div></li>
+<li class="toc-item toc-section"><div class="toc-title-box"><a href="current-folder.html" class="internal"><span class="codenumber">8.4</span> <span class="title">Current Folder</span></a></div></li>
+<li class="toc-item toc-section"><div class="toc-title-box"><a href="workspace.html" class="internal"><span class="codenumber">8.5</span> <span class="title">Workspace</span></a></div></li>
+<li class="toc-item toc-section"><div class="toc-title-box"><a href="matlab-banner.html" class="internal"><span class="codenumber">8.6</span> <span class="title">MATLAB Banner</span></a></div></li>
+<li class="toc-item toc-section"><div class="toc-title-box"><a href="quick-recap.html" class="internal"><span class="codenumber">8.7</span> <span class="title">Quick Recap</span></a></div></li>
+<li class="toc-item toc-section"><div class="toc-title-box"><a href="matlab-calc.html" class="internal"><span class="codenumber">8.8</span> <span class="title">MATLAB as a Glorified Calculator</span></a></div></li>
+<li class="toc-item toc-section"><div class="toc-title-box"><a href="variable-basics.html" class="internal"><span class="codenumber">8.9</span> <span class="title">Variable Basics</span></a></div></li>
+<li class="toc-item toc-section"><div class="toc-title-box"><a href="important-functions.html" class="internal"><span class="codenumber">8.10</span> <span class="title">Important Functions</span></a></div></li>
+<li class="toc-item toc-section"><div class="toc-title-box"><a href="get-help.html" class="internal"><span class="codenumber">8.11</span> <span class="title">Getting Help</span></a></div></li>
+<li class="toc-item toc-section"><div class="toc-title-box"><a href="practice.html" class="internal"><span class="codenumber">8.12</span> <span class="title">Practice, Practice, Practice!</span></a></div></li>
+</ul>
+</li>
+<li class="toc-item toc-chapter">
+<div class="toc-title-box"><a href="Chapter_09.html" class="internal"><span class="codenumber">9</span> <span class="title">MATLAB Scripting and Arrays</span></a></div>
+<ul class="structural toc-item-list">
+<li class="toc-item toc-section"><div class="toc-title-box"><a href="script-files.html" class="internal"><span class="codenumber">9.1</span> <span class="title">Script Files</span></a></div></li>
+<li class="toc-item toc-section"><div class="toc-title-box"><a href="arrays-fundamental.html" class="internal"><span class="codenumber">9.2</span> <span class="title">Arrays- The Fundamental Data Type of MATLAB</span></a></div></li>
+<li class="toc-item toc-section"><div class="toc-title-box"><a href="creating-matricies.html" class="internal"><span class="codenumber">9.3</span> <span class="title">Creating Matrices</span></a></div></li>
+<li class="toc-item toc-section"><div class="toc-title-box"><a href="array-matrix-addressing.html" class="internal"><span class="codenumber">9.4</span> <span class="title">Array and Matrix Addressing</span></a></div></li>
+<li class="toc-item toc-section"><div class="toc-title-box"><a href="quick-array-recap.html" class="internal"><span class="codenumber">9.5</span> <span class="title">Quick Recap on Arrays</span></a></div></li>
+<li class="toc-item toc-section"><div class="toc-title-box"><a href="adavanced-array-addressing.html" class="internal"><span class="codenumber">9.6</span> <span class="title">Advanced Array Addressing with the <code class="code-inline tex2jax_ignore">:</code> Operator</span></a></div></li>
+</ul>
+</li>
+<li class="toc-item toc-chapter">
+<div class="toc-title-box"><a href="Chapter_10.html" class="internal"><span class="codenumber">10</span> <span class="title">Math Operations with Arrays</span></a></div>
+<ul class="structural toc-item-list">
+<li class="toc-item toc-section"><div class="toc-title-box"><a href="add-sub-arrays.html" class="internal"><span class="codenumber">10.1</span> <span class="title">Addition and Subtraction with Arrays</span></a></div></li>
+<li class="toc-item toc-section"><div class="toc-title-box"><a href="mult-div-expo-array.html" class="internal"><span class="codenumber">10.2</span> <span class="title">Multiplication, Division, and Exponentiation with Arrays</span></a></div></li>
+<li class="toc-item toc-section"><div class="toc-title-box"><a href="challenge-prob-10.html" class="internal"><span class="codenumber">10.3</span> <span class="title">Challenge Problem</span></a></div></li>
+<li class="toc-item toc-section"><div class="toc-title-box"><a href="functions-with-arrays.html" class="internal"><span class="codenumber">10.4</span> <span class="title">MATLAB Functions for Working With Arrays</span></a></div></li>
+</ul>
+</li>
+<li class="toc-item toc-chapter">
+<div class="toc-title-box"><a href="Chapter_11.html" class="internal"><span class="codenumber">11</span> <span class="title">MATLAB Plotting</span></a></div>
+<ul class="structural toc-item-list">
+<li class="toc-item toc-section"><div class="toc-title-box"><a href="let-make-plot.html" class="internal"><span class="codenumber">11.1</span> <span class="title">Let’s Make a Plot!</span></a></div></li>
+<li class="toc-item toc-section"><div class="toc-title-box"><a href="multiple-plots.html" class="internal"><span class="codenumber">11.2</span> <span class="title">Multiple Plots</span></a></div></li>
+<li class="toc-item toc-section"><div class="toc-title-box"><a href="title-label-legend.html" class="internal"><span class="codenumber">11.3</span> <span class="title">Titles, Labels, and Legends</span></a></div></li>
+<li class="toc-item toc-section"><div class="toc-title-box"><a href="plot-func.html" class="internal"><span class="codenumber">11.4</span> <span class="title">Plotting Functions</span></a></div></li>
+</ul>
+</li>
+<li class="toc-item toc-chapter">
+<div class="toc-title-box"><a href="Chapter_12.html" class="internal"><span class="codenumber">12</span> <span class="title">Relational and Logical Operators</span></a></div>
+<ul class="structural toc-item-list">
+<li class="toc-item toc-section"><div class="toc-title-box"><a href="relational-operators.html" class="internal"><span class="codenumber">12.1</span> <span class="title">Relational Operators</span></a></div></li>
+<li class="toc-item toc-section"><div class="toc-title-box"><a href="true-and-false.html" class="internal"><span class="codenumber">12.2</span> <span class="title">True and False</span></a></div></li>
+<li class="toc-item toc-section"><div class="toc-title-box"><a href="order-of-precedence.html" class="internal"><span class="codenumber">12.3</span> <span class="title">The Order of Precedence</span></a></div></li>
+<li class="toc-item toc-section"><div class="toc-title-box"><a href="logical-operator.html" class="internal"><span class="codenumber">12.4</span> <span class="title">Logical Operator</span></a></div></li>
+<li class="toc-item toc-section"><div class="toc-title-box"><a href="putting-it-together.html" class="internal"><span class="codenumber">12.5</span> <span class="title">Putting It All Together</span></a></div></li>
+</ul>
+</li>
+<li class="toc-item toc-chapter">
+<div class="toc-title-box"><a href="Chapter_13.html" class="internal"><span class="codenumber">13</span> <span class="title">Thinking Algorithmically</span></a></div>
+<ul class="structural toc-item-list">
+<li class="toc-item toc-section"><div class="toc-title-box"><a href="eight-am-attendance.html" class="internal"><span class="codenumber">13.1</span> <span class="title">The 8 AM Attendance Problem</span></a></div></li>
+<li class="toc-item toc-section"><div class="toc-title-box"><a href="write-algorithms.html" class="internal"><span class="codenumber">13.2</span> <span class="title">How to write algorithms people (or computers) can actually follow</span></a></div></li>
+<li class="toc-item toc-section"><div class="toc-title-box"><a href="decisions-and-loops.html" class="internal"><span class="codenumber">13.3</span> <span class="title">Decisions and Loops</span></a></div></li>
+<li class="toc-item toc-section"><div class="toc-title-box"><a href="nested-statements.html" class="internal"><span class="codenumber">13.4</span> <span class="title">Nested Statements</span></a></div></li>
+<li class="toc-item toc-section"><div class="toc-title-box"><a href="communicating-algorithms.html" class="internal"><span class="codenumber">13.5</span> <span class="title">Communciating Algorithms</span></a></div></li>
+</ul>
+</li>
+<li class="toc-item toc-chapter">
+<div class="toc-title-box"><a href="Chapter_14.html" class="internal"><span class="codenumber">14</span> <span class="title">MATLAB Decisions</span></a></div>
+<ul class="structural toc-item-list">
+<li class="toc-item toc-section"><div class="toc-title-box"><a href="conditional-statements.html" class="internal"><span class="codenumber">14.1</span> <span class="title">Conditional Statements</span></a></div></li>
+<li class="toc-item toc-section"><div class="toc-title-box"><a href="matlab-if-end-statements.html" class="internal"><span class="codenumber">14.2</span> <span class="title">MATLAB <code class="code-inline tex2jax_ignore">if-end</code> Statements</span></a></div></li>
+<li class="toc-item toc-section"><div class="toc-title-box"><a href="if-else-end.html" class="internal"><span class="codenumber">14.3</span> <span class="title">MATLAB <code class="code-inline tex2jax_ignore">if-else-end</code> Statements</span></a></div></li>
+<li class="toc-item toc-section"><div class="toc-title-box"><a href="if-elseif-else-end.html" class="internal"><span class="codenumber">14.4</span> <span class="title">MATALB <code class="code-inline tex2jax_ignore">if-elseif-else-end</code> Statements</span></a></div></li>
+<li class="toc-item toc-section"><div class="toc-title-box"><a href="nested-decisions.html" class="internal"><span class="codenumber">14.5</span> <span class="title">Nested Decisions</span></a></div></li>
+</ul>
+</li>
+<li class="toc-item toc-chapter">
+<div class="toc-title-box"><a href="Chapter_15.html" class="internal"><span class="codenumber">15</span> <span class="title">MATLAB Loops</span></a></div>
+<ul class="structural toc-item-list">
+<li class="toc-item toc-section"><div class="toc-title-box"><a href="maclaurin-tedious-sin.html" class="internal"><span class="codenumber">15.1</span> <span class="title">Maclaurin Expansion of <span class="process-math">\(sin(x)\)</span> - A Tedious Example</span></a></div></li>
+<li class="toc-item toc-section"><div class="toc-title-box"><a href="matlab-for-end.html" class="internal"><span class="codenumber">15.2</span> <span class="title">MATLAB <code class="code-inline tex2jax_ignore">for-end</code> Loops</span></a></div></li>
+<li class="toc-item toc-section"><div class="toc-title-box"><a href="finishing-the-maclaurin.html" class="internal"><span class="codenumber">15.3</span> <span class="title">Finishing the Maclaurin Example&gt;</span></a></div></li>
+<li class="toc-item toc-section"><div class="toc-title-box"><a href="dangerous-loop.html" class="internal"><span class="codenumber">15.4</span> <span class="title">The Dangerous Loop</span></a></div></li>
+<li class="toc-item toc-section"><div class="toc-title-box"><a href="while-end-loops.html" class="internal"><span class="codenumber">15.5</span> <span class="title">MATLAB <code class="code-inline tex2jax_ignore">while-end</code> Loops</span></a></div></li>
+<li class="toc-item toc-section"><div class="toc-title-box"><a href="final-note.html" class="internal"><span class="codenumber">15.6</span> <span class="title">A Final Note on Loops</span></a></div></li>
+</ul>
+</li>
+<li class="toc-item toc-chapter contains-active">
+<div class="toc-title-box"><a href="Chapter_16.html" class="internal"><span class="codenumber">16</span> <span class="title">User Defined Functions</span></a></div>
+<ul class="structural toc-item-list contains-active">
+<li class="toc-item toc-section"><div class="toc-title-box"><a href="built-in.html" class="internal"><span class="codenumber">16.1</span> <span class="title">MATLAB Built-In Function</span></a></div></li>
+<li class="toc-item toc-section active"><div class="toc-title-box"><a href="user-defined-functions.html" class="internal"><span class="codenumber">16.2</span> <span class="title">User Defined Functions</span></a></div></li>
+<li class="toc-item toc-section"><div class="toc-title-box"><a href="func-v-user.html" class="internal"><span class="codenumber">16.3</span> <span class="title">Function Variables vs User Variables</span></a></div></li>
+</ul>
+</li>
+<li class="toc-item toc-chapter">
+<div class="toc-title-box"><a href="Chapter_17.html" class="internal"><span class="codenumber">17</span> <span class="title">Technical Presentations</span></a></div>
+<ul class="structural toc-item-list">
+<li class="toc-item toc-section"><div class="toc-title-box"><a href="how-to-present-important.html" class="internal"><span class="codenumber">17.1</span> <span class="title">Why Learning How to Present Is Important</span></a></div></li>
+<li class="toc-item toc-section"><div class="toc-title-box"><a href="presentation-entail.html" class="internal"><span class="codenumber">17.2</span> <span class="title">What Your Presentation Should Entail</span></a></div></li>
+<li class="toc-item toc-section"><div class="toc-title-box"><a href="dynamic-pres.html" class="internal"><span class="codenumber">17.3</span> <span class="title">How To Give a Dynamic Engineering Presentation</span></a></div></li>
+</ul>
+</li>
+<li class="toc-item toc-backmatter"><div class="toc-title-box"><a href="backmatter.html" class="internal"><span class="title">Backmatter</span></a></div></li>
+</ul></nav></div>
+<main class="ptx-main"><div id="ptx-content" class="ptx-content">
+<section class="section" id="user-defined-functions">
+<h2 class="heading hide-type">
+<span class="type">Section</span><span class="space heading-divison-mark heading-divison-mark__space"> </span><span class="codenumber">16.2</span><span class="space heading-divison-mark heading-divison-mark__space"> </span><span class="title">User Defined Functions</span>
+</h2>
+<div class="para" id="user-defined-functions-2">
+<dfn class="terminology">The Importance of the Current Working Directory</dfn><div class="autopermalink" data-description="Paragraph"><a href="#user-defined-functions-2" title="Copy heading and permalink for Paragraph" aria-label="Copy heading and permalink for Paragraph">🔗</a></div>
+</div>
+<div class="para" id="user-defined-functions-3">Up until this point, you could have gotten away with bad file management. You could store all of your files in the same folder, and put them all on your Desktop, it hasn’t mattered. However, if you want to use your function files, you are going to have to be cognizant of your current working directory and your path.<div class="autopermalink" data-description="Paragraph"><a href="#user-defined-functions-3" title="Copy heading and permalink for Paragraph" aria-label="Copy heading and permalink for Paragraph">🔗</a></div>
+</div>
+<div class="para" id="user-defined-functions-4">As an analogy, think of MATLAB as a mechanics garage and think of functions as different tools. MATLAB comes pre-loaded with a bunch of tools (<code class="code-inline tex2jax_ignore">sin()</code>, <code class="code-inline tex2jax_ignore">length()</code>, <code class="code-inline tex2jax_ignore">max()</code>, etc) and already knows where they are located. When you make a new tool called <code class="code-inline tex2jax_ignore">impact_driver()</code>, you can store it anywhere. Maybe you are storing your new <code class="code-inline tex2jax_ignore">impact_driver()</code> in the shed out back (your <code class="code-inline tex2jax_ignore">My Documents</code> folder). Maybe you threw it into the lake. MATLAB has no idea where to look for it. So when you tell MATLAB you want to use your new <code class="code-inline tex2jax_ignore">impact_driver()</code> it does the logical thing, it looks where you are standing (your current working directory). So if you tell MATLAB, “I want to use my new <code class="code-inline tex2jax_ignore">impact_driver()</code>”, and you are standing in your shed, MATLAB will check the shed for the tool. If it can’t find it in the shed, MATLAB will check the garage (this is called the path). If it can’t find it where you currently are (your current working directory) or the garage (the path) then it gives up. I don’t blame it! It isn’t a magician.<div class="autopermalink" data-description="Paragraph"><a href="#user-defined-functions-4" title="Copy heading and permalink for Paragraph" aria-label="Copy heading and permalink for Paragraph">🔗</a></div>
+</div>
+<div class="para" id="user-defined-functions-5">The moral of the story is that MATLAB will <dfn class="terminology">always look in the current working directory for your user-defined functions</dfn>.<div class="autopermalink" data-description="Paragraph"><a href="#user-defined-functions-5" title="Copy heading and permalink for Paragraph" aria-label="Copy heading and permalink for Paragraph">🔗</a></div>
+</div>
+<figure class="figure figure-like" id="fig-16-4"><div class="image-box" style="width: 70%; margin-left: 15%; margin-right: 15%;"><img src="external/chapter_16/fig_4.jpeg" class="contained"></div>
+<figcaption><span class="type">Figure</span><span class="space heading-divison-mark heading-divison-mark__space"> </span><span class="codenumber">16.2.1<span class="period heading-divison-mark heading-divison-mark__period">.</span></span><span class="space heading-divison-mark heading-divison-mark__space"> </span>Maybe you throw your new <code class="code-inline tex2jax_ignore">impact_driver()</code> into this shed. How is MATLAB supposed to know?<div class="autopermalink" data-description="Figure 16.2.1"><a href="#fig-16-4" title="Copy heading and permalink for Figure 16.2.1" aria-label="Copy heading and permalink for Figure 16.2.1">🔗</a></div></figcaption>
+</figure>
+<div class="para" id="user-defined-functions-7">This is important to remember when you save a function and are trying to run it. If the function is not located in either the path (the garage in our analogy) or the current working directory, it will throw an error.<div class="autopermalink" data-description="Paragraph"><a href="#user-defined-functions-7" title="Copy heading and permalink for Paragraph" aria-label="Copy heading and permalink for Paragraph">🔗</a></div>
+</div>
+<div class="para" id="user-defined-functions-8">
+<dfn class="terminology"><code class="code-inline tex2jax_ignore">sphere_vol()</code>- Your First Function</dfn><div class="autopermalink" data-description="Paragraph"><a href="#user-defined-functions-8" title="Copy heading and permalink for Paragraph" aria-label="Copy heading and permalink for Paragraph">🔗</a></div>
+</div>
+<div class="para" id="user-defined-functions-9">Before we start creating functions remember our mantra! <dfn class="terminology">Think, sketch, code, test, repeat</dfn>! This will help us organize our thoughts and make sure that we are making the function correctly.<div class="autopermalink" data-description="Paragraph"><a href="#user-defined-functions-9" title="Copy heading and permalink for Paragraph" aria-label="Copy heading and permalink for Paragraph">🔗</a></div>
+</div>
+<div class="para" id="user-defined-functions-10">Imagine that you are working on a program that requires you to calculate the volume of a sphere several times. Recall:  <span class="process-math">\(volume\;of\;sphere=\frac{4}{3\pi r^3}\)</span> so you are constantly writing that formula over and over again.<div class="autopermalink" data-description="Paragraph"><a href="#user-defined-functions-10" title="Copy heading and permalink for Paragraph" aria-label="Copy heading and permalink for Paragraph">🔗</a></div>
+</div>
+<div class="para" id="user-defined-functions-11">
+<code class="code-inline tex2jax_ignore">volume1 = 4/3*pi*2^3;</code><div class="autopermalink" data-description="Paragraph"><a href="#user-defined-functions-11" title="Copy heading and permalink for Paragraph" aria-label="Copy heading and permalink for Paragraph">🔗</a></div>
+</div>
+<div class="para" id="user-defined-functions-12">
+<code class="code-inline tex2jax_ignore">volume2 = 4/3*pi*3^3;</code><div class="autopermalink" data-description="Paragraph"><a href="#user-defined-functions-12" title="Copy heading and permalink for Paragraph" aria-label="Copy heading and permalink for Paragraph">🔗</a></div>
+</div>
+<div class="para" id="user-defined-functions-13">This is a perfect candidate for a function! We can create a function that automatically calculates the volume and returns it. This will simplify our code! Now it will look like this:<div class="autopermalink" data-description="Paragraph"><a href="#user-defined-functions-13" title="Copy heading and permalink for Paragraph" aria-label="Copy heading and permalink for Paragraph">🔗</a></div>
+</div>
+<div class="para" id="user-defined-functions-14">
+<code class="code-inline tex2jax_ignore">volume1 = sphere_vol(2)</code><div class="autopermalink" data-description="Paragraph"><a href="#user-defined-functions-14" title="Copy heading and permalink for Paragraph" aria-label="Copy heading and permalink for Paragraph">🔗</a></div>
+</div>
+<div class="para" id="user-defined-functions-15">
+<code class="code-inline tex2jax_ignore">volume2 = sphere_vol(3)</code><div class="autopermalink" data-description="Paragraph"><a href="#user-defined-functions-15" title="Copy heading and permalink for Paragraph" aria-label="Copy heading and permalink for Paragraph">🔗</a></div>
+</div>
+<div class="para" id="user-defined-functions-16">Notice how it is much easier to read and understand. In the lower example, it is clear that the input is 2 for <code class="code-inline tex2jax_ignore">volume1</code> and 3 for <code class="code-inline tex2jax_ignore">volume2</code>. Not only that, but it is easier to type and the user is less likely to have errors.<div class="autopermalink" data-description="Paragraph"><a href="#user-defined-functions-16" title="Copy heading and permalink for Paragraph" aria-label="Copy heading and permalink for Paragraph">🔗</a></div>
+</div>
+<div class="para" id="user-defined-functions-17">
+<dfn class="terminology">Think</dfn>- What will the input variables be? Will your user expect your function to work with an array of radii? What about the output variables? What will the user expect to get back? The mathematics in this function isn’t super complicated but make sure that you understand how to program MATLAB to correctly calculate the volume from an array and scalar input.<div class="autopermalink" data-description="Paragraph"><a href="#user-defined-functions-17" title="Copy heading and permalink for Paragraph" aria-label="Copy heading and permalink for Paragraph">🔗</a></div>
+</div>
+<div class="para" id="user-defined-functions-18">
+<dfn class="terminology">How to Create a Function</dfn><div class="autopermalink" data-description="Paragraph"><a href="#user-defined-functions-18" title="Copy heading and permalink for Paragraph" aria-label="Copy heading and permalink for Paragraph">🔗</a></div>
+</div>
+<div class="para" id="user-defined-functions-19">Now that you understand the importance of the current working directory, navigate to a folder (or better yet create a new folder) to store your new function file. We are going to create a function called <code class="code-inline tex2jax_ignore">sphere_vol()</code> that will take radius, <code class="code-inline tex2jax_ignore">r</code>, as an <dfn class="terminology">input</dfn>, and return the volume, <code class="code-inline tex2jax_ignore">V</code> as an <dfn class="terminology">output</dfn>.<div class="autopermalink" data-description="Paragraph"><a href="#user-defined-functions-19" title="Copy heading and permalink for Paragraph" aria-label="Copy heading and permalink for Paragraph">🔗</a></div>
+</div>
+<div class="para" id="user-defined-functions-20">To start, click the <code class="code-inline tex2jax_ignore">“New”</code> drop-down arrow on the <code class="code-inline tex2jax_ignore">“Home”</code> tab of the MATLAB GUI toolbar. Click the <code class="code-inline tex2jax_ignore">“Function”</code> option (see figure 16.2.2 below).<div class="autopermalink" data-description="Paragraph"><a href="#user-defined-functions-20" title="Copy heading and permalink for Paragraph" aria-label="Copy heading and permalink for Paragraph">🔗</a></div>
+</div>
+<figure class="figure figure-like" id="fig-16-5"><div class="image-box" style="width: 70%; margin-left: 15%; margin-right: 15%;"><img src="external/chapter_16/fig_5.png" class="contained"></div>
+<figcaption><span class="type">Figure</span><span class="space heading-divison-mark heading-divison-mark__space"> </span><span class="codenumber">16.2.2<span class="period heading-divison-mark heading-divison-mark__period">.</span></span><span class="space heading-divison-mark heading-divison-mark__space"> </span>What to click on to create a new function in MATLAB.<div class="autopermalink" data-description="Figure 16.2.2"><a href="#fig-16-5" title="Copy heading and permalink for Figure 16.2.2" aria-label="Copy heading and permalink for Figure 16.2.2">🔗</a></div></figcaption>
+</figure>
+<div class="para" id="user-defined-functions-22">Once click the correct button, a new editor window should pop up that looks like figure 16.2.3 below. MATLAB creates a template function that we can then modify to fit our needs. The reality is there is no difference between a script file and a function <dfn class="terminology">except that a function must begin with the keyword <code class="code-inline tex2jax_ignore">function</code></dfn>.<div class="autopermalink" data-description="Paragraph"><a href="#user-defined-functions-22" title="Copy heading and permalink for Paragraph" aria-label="Copy heading and permalink for Paragraph">🔗</a></div>
+</div>
+<figure class="figure figure-like" id="fig-16-6"><div class="image-box" style="width: 70%; margin-left: 15%; margin-right: 15%;"><img src="external/chapter_16/fig_6.png" class="contained"></div>
+<figcaption><span class="type">Figure</span><span class="space heading-divison-mark heading-divison-mark__space"> </span><span class="codenumber">16.2.3<span class="period heading-divison-mark heading-divison-mark__period">.</span></span><span class="space heading-divison-mark heading-divison-mark__space"> </span>A blank function titled <code class="code-inline tex2jax_ignore">untitled()</code>.<div class="autopermalink" data-description="Figure 16.2.3"><a href="#fig-16-6" title="Copy heading and permalink for Figure 16.2.3" aria-label="Copy heading and permalink for Figure 16.2.3">🔗</a></div></figcaption>
+</figure>
+<div class="para" id="user-defined-functions-24">Take a second to look at this template function. Let’s breakdown the very first line of code in this template function:<div class="autopermalink" data-description="Paragraph"><a href="#user-defined-functions-24" title="Copy heading and permalink for Paragraph" aria-label="Copy heading and permalink for Paragraph">🔗</a></div>
+</div>
+<div class="para" id="user-defined-functions-25">
+<code class="code-inline tex2jax_ignore">function [outputArg1, outputArg2] = untitled(inputArg1, inputArg2)</code><div class="autopermalink" data-description="Paragraph"><a href="#user-defined-functions-25" title="Copy heading and permalink for Paragraph" aria-label="Copy heading and permalink for Paragraph">🔗</a></div>
+</div>
+<ul class="disc" id="user-defined-functions-26">
+<li id="user-defined-functions-26-1">
+<div class="para" id="user-defined-functions-26-1-1">The very first thing to notice is that the function template is <dfn class="terminology">structured in the exact same way as you would use a function</dfn>. For example, when we talked about the <code class="code-inline tex2jax_ignore">max()</code> function above we did:<div class="autopermalink" data-description="Paragraph"><a href="#user-defined-functions-26-1-1" title="Copy heading and permalink for Paragraph" aria-label="Copy heading and permalink for Paragraph">🔗</a></div>
+</div>
+<div class="para" id="user-defined-functions-26-1-2">
+<code class="code-inline tex2jax_ignore">[maximum, index] = max(array);</code><div class="autopermalink" data-description="Paragraph"><a href="#user-defined-functions-26-1-2" title="Copy heading and permalink for Paragraph" aria-label="Copy heading and permalink for Paragraph">🔗</a></div>
+</div>
+<div class="para" id="user-defined-functions-26-1-3">The only difference is that the function definition starts with the word <code class="code-inline tex2jax_ignore">function</code>. Makes it easy to remember!<div class="autopermalink" data-description="Paragraph"><a href="#user-defined-functions-26-1-3" title="Copy heading and permalink for Paragraph" aria-label="Copy heading and permalink for Paragraph">🔗</a></div>
+</div>
+<div class="autopermalink" data-description="Item"><a href="#user-defined-functions-26-1" title="Copy heading and permalink for Item" aria-label="Copy heading and permalink for Item">🔗</a></div>
+</li>
+<li id="user-defined-functions-26-2">
+<div class="para" id="user-defined-functions-26-2-1">Notice how the <dfn class="terminology">very first word on the very first line is <code class="code-inline tex2jax_ignore">function</code></dfn>. This must be true for MATLAB to understand this file as a function. You can not put anything above that word. Even a comment <code class="code-inline tex2jax_ignore">%</code> preceding the word <code class="code-inline tex2jax_ignore">function</code> will fool MATLAB.<div class="autopermalink" data-description="Paragraph"><a href="#user-defined-functions-26-2-1" title="Copy heading and permalink for Paragraph" aria-label="Copy heading and permalink for Paragraph">🔗</a></div>
+</div>
+<div class="autopermalink" data-description="Item"><a href="#user-defined-functions-26-2" title="Copy heading and permalink for Item" aria-label="Copy heading and permalink for Item">🔗</a></div>
+</li>
+<li id="user-defined-functions-26-3">
+<div class="para" id="user-defined-functions-26-3-1">After <code class="code-inline tex2jax_ignore">function</code> you can see the two <dfn class="terminology">output</dfn> variables, <code class="code-inline tex2jax_ignore">[outputArg1, outputArg2]</code>. You list your output arguments in square brackets <code class="code-inline tex2jax_ignore">[]</code> separated by a comma.<div class="autopermalink" data-description="Paragraph"><a href="#user-defined-functions-26-3-1" title="Copy heading and permalink for Paragraph" aria-label="Copy heading and permalink for Paragraph">🔗</a></div>
+</div>
+<div class="autopermalink" data-description="Item"><a href="#user-defined-functions-26-3" title="Copy heading and permalink for Item" aria-label="Copy heading and permalink for Item">🔗</a></div>
+</li>
+<li id="user-defined-functions-26-4">
+<div class="para" id="user-defined-functions-26-4-1">Next, we have an <code class="code-inline tex2jax_ignore">=</code> sign. Again, this mimics how you would use a function.<div class="autopermalink" data-description="Paragraph"><a href="#user-defined-functions-26-4-1" title="Copy heading and permalink for Paragraph" aria-label="Copy heading and permalink for Paragraph">🔗</a></div>
+</div>
+<div class="autopermalink" data-description="Item"><a href="#user-defined-functions-26-4" title="Copy heading and permalink for Item" aria-label="Copy heading and permalink for Item">🔗</a></div>
+</li>
+<li id="user-defined-functions-26-5">
+<div class="para" id="user-defined-functions-26-5-1">The function name comes after the <code class="code-inline tex2jax_ignore">=</code> sign and precedes the parenthesis. In the default case, the function name is <code class="code-inline tex2jax_ignore">untitled()</code>. I will mention this again, but the function name needs to be exactly the same as the filename.<div class="autopermalink" data-description="Paragraph"><a href="#user-defined-functions-26-5-1" title="Copy heading and permalink for Paragraph" aria-label="Copy heading and permalink for Paragraph">🔗</a></div>
+</div>
+<div class="autopermalink" data-description="Item"><a href="#user-defined-functions-26-5" title="Copy heading and permalink for Item" aria-label="Copy heading and permalink for Item">🔗</a></div>
+</li>
+<li id="user-defined-functions-26-6">
+<div class="para" id="user-defined-functions-26-6-1">Notice the <dfn class="terminology">input</dfn> variables <code class="code-inline tex2jax_ignore">(inputArg1, inputArg2)</code> are listed inside <code class="code-inline tex2jax_ignore">()</code> and separated by a comma.<div class="autopermalink" data-description="Paragraph"><a href="#user-defined-functions-26-6-1" title="Copy heading and permalink for Paragraph" aria-label="Copy heading and permalink for Paragraph">🔗</a></div>
+</div>
+<div class="autopermalink" data-description="Item"><a href="#user-defined-functions-26-6" title="Copy heading and permalink for Item" aria-label="Copy heading and permalink for Item">🔗</a></div>
+</li>
+<li id="user-defined-functions-26-7">
+<div class="para" id="user-defined-functions-26-7-1">Finally, there is no <code class="code-inline tex2jax_ignore">;</code> at the end of a function line! This is a common mistake introductory programmers make.<div class="autopermalink" data-description="Paragraph"><a href="#user-defined-functions-26-7-1" title="Copy heading and permalink for Paragraph" aria-label="Copy heading and permalink for Paragraph">🔗</a></div>
+</div>
+<div class="autopermalink" data-description="Item"><a href="#user-defined-functions-26-7" title="Copy heading and permalink for Item" aria-label="Copy heading and permalink for Item">🔗</a></div>
+</li>
+</ul>
+<div class="para" id="user-defined-functions-27">
+<dfn class="terminology">Try It!</dfn><div class="autopermalink" data-description="Paragraph"><a href="#user-defined-functions-27" title="Copy heading and permalink for Paragraph" aria-label="Copy heading and permalink for Paragraph">🔗</a></div>
+</div>
+<div class="para" id="user-defined-functions-28">Brain workout time. This is a great opportunity to push your mental muscles a bit.<div class="autopermalink" data-description="Paragraph"><a href="#user-defined-functions-28" title="Copy heading and permalink for Paragraph" aria-label="Copy heading and permalink for Paragraph">🔗</a></div>
+</div>
+<div class="para" id="user-defined-functions-29">
+<dfn class="terminology">Sketch</dfn>- Remember our goal is to create a function that can calculate the volume of a sphere. Before you start changing things in MATLAB, grab a pen and a piece of paper and write out what you <dfn class="terminology">think</dfn> the first line should be. Recall that our function name is going to be <code class="code-inline tex2jax_ignore">sphere_vol()</code>. We are going to have an <dfn class="terminology">input</dfn> variable that is a scalar radius or array of radii. We will have an <dfn class="terminology">output</dfn> variable that is a scalar volume or an array of volumes.<div class="autopermalink" data-description="Paragraph"><a href="#user-defined-functions-29" title="Copy heading and permalink for Paragraph" aria-label="Copy heading and permalink for Paragraph">🔗</a></div>
+</div>
+<div class="para" id="user-defined-functions-30">Did you give it your best shot? This is what I came up with.<div class="autopermalink" data-description="Paragraph"><a href="#user-defined-functions-30" title="Copy heading and permalink for Paragraph" aria-label="Copy heading and permalink for Paragraph">🔗</a></div>
+</div>
+<div class="para" id="user-defined-functions-31">
+<code class="code-inline tex2jax_ignore">function [volume] = sphere_vol(radii)</code><div class="autopermalink" data-description="Paragraph"><a href="#user-defined-functions-31" title="Copy heading and permalink for Paragraph" aria-label="Copy heading and permalink for Paragraph">🔗</a></div>
+</div>
+<div class="para" id="user-defined-functions-32">Does yours look similar? Keep in mind that the variables <code class="code-inline tex2jax_ignore">volume</code> and <code class="code-inline tex2jax_ignore">radii</code> are what I <dfn class="terminology">chose</dfn>. They could have been anything. You could still be 100% correct if you picked different variable names!<div class="autopermalink" data-description="Paragraph"><a href="#user-defined-functions-32" title="Copy heading and permalink for Paragraph" aria-label="Copy heading and permalink for Paragraph">🔗</a></div>
+</div>
+<div class="para" id="user-defined-functions-33">At this point go ahead and edit the function template according to my first line above (or even better, use your own variables) and then save your function. Click the save button in the MATLAB GUI. When the save dialogue box opens up, notice how it automatically fills in the function name in the <code class="code-inline tex2jax_ignore">“File Name”</code> text edit box (figure 16.2.4 below). DO NOT CHANGE THE FILE NAME! If you change it, your function will not work. Don’t forget about the current working directory!<div class="autopermalink" data-description="Paragraph"><a href="#user-defined-functions-33" title="Copy heading and permalink for Paragraph" aria-label="Copy heading and permalink for Paragraph">🔗</a></div>
+</div>
+<figure class="figure figure-like" id="fig-16-7"><div class="image-box" style="width: 70%; margin-left: 15%; margin-right: 15%;"><img src="external/chapter_16/fig_7.png" class="contained"></div>
+<figcaption><span class="type">Figure</span><span class="space heading-divison-mark heading-divison-mark__space"> </span><span class="codenumber">16.2.4<span class="period heading-divison-mark heading-divison-mark__period">.</span></span><span class="space heading-divison-mark heading-divison-mark__space"> </span>Notice how MATLAB automatically makes the function name the file name!<div class="autopermalink" data-description="Figure 16.2.4"><a href="#fig-16-7" title="Copy heading and permalink for Figure 16.2.4" aria-label="Copy heading and permalink for Figure 16.2.4">🔗</a></div></figcaption>
+</figure>
+<div class="para" id="user-defined-functions-35">The last thing to notice is your <code class="code-inline tex2jax_ignore">“Current Folder”</code> browser. Notice the icon looks different than a script file! It has a little <span class="process-math">\(f_x\)</span> in the icon instead of the MATLAB logo. This is another little visual indicator when you are browsing your folders that it isn’t a script file, but is a function file.<div class="autopermalink" data-description="Paragraph"><a href="#user-defined-functions-35" title="Copy heading and permalink for Paragraph" aria-label="Copy heading and permalink for Paragraph">🔗</a></div>
+</div>
+<figure class="figure figure-like" id="fig-16-8"><div class="image-box" style="width: 70%; margin-left: 15%; margin-right: 15%;"><img src="external/chapter_16/fig_8.png" class="contained"></div>
+<figcaption><span class="type">Figure</span><span class="space heading-divison-mark heading-divison-mark__space"> </span><span class="codenumber">16.2.5<span class="period heading-divison-mark heading-divison-mark__period">.</span></span><span class="space heading-divison-mark heading-divison-mark__space"> </span>Notice the icon in the current folder browser is different.<div class="autopermalink" data-description="Figure 16.2.5"><a href="#fig-16-8" title="Copy heading and permalink for Figure 16.2.5" aria-label="Copy heading and permalink for Figure 16.2.5">🔗</a></div></figcaption>
+</figure>
+<div class="para" id="user-defined-functions-37">
+<dfn class="terminology">Creating Helpful <code class="code-inline tex2jax_ignore">help</code> Text</dfn><div class="autopermalink" data-description="Paragraph"><a href="#user-defined-functions-37" title="Copy heading and permalink for Paragraph" aria-label="Copy heading and permalink for Paragraph">🔗</a></div>
+</div>
+<div class="para" id="user-defined-functions-38">Remember that helpful text that popped up when we typed in <code class="code-inline tex2jax_ignore">help max</code> into the command window? We need to create that for our functions too. In our <dfn class="terminology">think</dfn> and <dfn class="terminology">sketch</dfn> phases, we have come up with an idea for how this program should work. Now let’s create help text so that when someone types in <code class="code-inline tex2jax_ignore">help sphere_vol</code> into the command window, they get helpful hints for how to use our function.<div class="autopermalink" data-description="Paragraph"><a href="#user-defined-functions-38" title="Copy heading and permalink for Paragraph" aria-label="Copy heading and permalink for Paragraph">🔗</a></div>
+</div>
+<div class="para" id="user-defined-functions-39">When someone types in <code class="code-inline tex2jax_ignore">help function_name</code> MATLAB returns all commented lines <code class="code-inline tex2jax_ignore">%</code> below the initial function definition line. In the case of our template function, that is:<div class="autopermalink" data-description="Paragraph"><a href="#user-defined-functions-39" title="Copy heading and permalink for Paragraph" aria-label="Copy heading and permalink for Paragraph">🔗</a></div>
+</div>
+<div class="para" id="user-defined-functions-40">
+<code class="code-inline tex2jax_ignore">%UNTITLED Summary of this function goes here</code><div class="autopermalink" data-description="Paragraph"><a href="#user-defined-functions-40" title="Copy heading and permalink for Paragraph" aria-label="Copy heading and permalink for Paragraph">🔗</a></div>
+</div>
+<div class="para" id="user-defined-functions-41">
+<code class="code-inline tex2jax_ignore">%   Detailed explanation goes here</code><div class="autopermalink" data-description="Paragraph"><a href="#user-defined-functions-41" title="Copy heading and permalink for Paragraph" aria-label="Copy heading and permalink for Paragraph">🔗</a></div>
+</div>
+<div class="para" id="user-defined-functions-42">You can see this in action! Go ahead and type <code class="code-inline tex2jax_ignore">help sphere_vol</code> in the command window. See the text? Well, that isn’t very helpful. So let’s replace it so that it is actually helpful. See figure 16.2.6 below for how I defined my help text.<div class="autopermalink" data-description="Paragraph"><a href="#user-defined-functions-42" title="Copy heading and permalink for Paragraph" aria-label="Copy heading and permalink for Paragraph">🔗</a></div>
+</div>
+<article class="example example-like" id="function-example"><h3 class="heading">
+<span class="type">Example</span><span class="space heading-divison-mark heading-divison-mark__space"> </span><span class="codenumber">16.2.6</span><span class="period heading-divison-mark heading-divison-mark__period">.</span><span class="space heading-divison-mark heading-divison-mark__space"> </span><span class="title"><code class="code-inline tex2jax_ignore">sphere_vol()</code> help text.</span>
+</h3>
+<div class="para" id="function-example-2-1">Here is an interactive code box that functions identically to the MATLAB command window.<div class="autopermalink" data-description="Paragraph"><a href="#function-example-2-1" title="Copy heading and permalink for Paragraph" aria-label="Copy heading and permalink for Paragraph">🔗</a></div>
+</div> <div class="code-box"><pre class="program clipboardable"><code class="language-matlab">function [volume] = sphere_vol(radii)
+
+% sphere_vol calculates the volume of a sphere
+%    This function accepts either a scalar radius or array of radii and returns a scalr or array of volumes respectively.
+% Inputs:
+%    radii - a scalar radius or array of radii
+% Outputs:
+%    volume - a scalar volume or array of volumes
+
+outputArg1 = inputArg1;
+outputArg2 = inputArg2;
+
+end
+</code></pre></div>
+<div class="autopermalink" data-description="Example 16.2.6: sphere_vol() help text"><a href="#function-example" title="Copy heading and permalink for Example 16.2.6: sphere_vol() help text" aria-label="Copy heading and permalink for Example 16.2.6: sphere_vol() help text">🔗</a></div>
+</article>
+<div class="para" id="user-defined-functions-44">There are a couple of good practices to notice. You can technically put whatever you want for your help text. However, good practices state that you should include:<div class="autopermalink" data-description="Paragraph"><a href="#user-defined-functions-44" title="Copy heading and permalink for Paragraph" aria-label="Copy heading and permalink for Paragraph">🔗</a></div>
+</div>
+<ul class="disc" id="user-defined-functions-45">
+<li id="user-defined-functions-45-1">
+<div class="para" id="user-defined-functions-45-1-1">The first line should be the function name, followed by a short description of the function.<div class="autopermalink" data-description="Paragraph"><a href="#user-defined-functions-45-1-1" title="Copy heading and permalink for Paragraph" aria-label="Copy heading and permalink for Paragraph">🔗</a></div>
+</div>
+<div class="autopermalink" data-description="Item"><a href="#user-defined-functions-45-1" title="Copy heading and permalink for Item" aria-label="Copy heading and permalink for Item">🔗</a></div>
+</li>
+<li id="user-defined-functions-45-2">
+<div class="para" id="user-defined-functions-45-2-1">The next line(s) should then include a more detailed description of the function. Its purpose, and how it works. In this case, our function is pretty straightforward but as you make more functions, they will likely get more complicated and require more descriptions.<div class="autopermalink" data-description="Paragraph"><a href="#user-defined-functions-45-2-1" title="Copy heading and permalink for Paragraph" aria-label="Copy heading and permalink for Paragraph">🔗</a></div>
+</div>
+<div class="autopermalink" data-description="Item"><a href="#user-defined-functions-45-2" title="Copy heading and permalink for Item" aria-label="Copy heading and permalink for Item">🔗</a></div>
+</li>
+<li id="user-defined-functions-45-3">
+<div class="para" id="user-defined-functions-45-3-1">After the description, include a list of all <dfn class="terminology">input</dfn> and <dfn class="terminology">output</dfn> variables and what they should be.<div class="autopermalink" data-description="Paragraph"><a href="#user-defined-functions-45-3-1" title="Copy heading and permalink for Paragraph" aria-label="Copy heading and permalink for Paragraph">🔗</a></div>
+</div>
+<div class="autopermalink" data-description="Item"><a href="#user-defined-functions-45-3" title="Copy heading and permalink for Item" aria-label="Copy heading and permalink for Item">🔗</a></div>
+</li>
+</ul>
+<div class="para" id="user-defined-functions-46">When you type this help text in, save the file, and then try typing <code class="code-inline tex2jax_ignore">help sphere_vol</code> into the command window again. Notice how you now get your useful help text! Neat huh?<div class="autopermalink" data-description="Paragraph"><a href="#user-defined-functions-46" title="Copy heading and permalink for Paragraph" aria-label="Copy heading and permalink for Paragraph">🔗</a></div>
+</div>
+<div class="para" id="user-defined-functions-47">
+<dfn class="terminology">The Meat (i.e. Math) of the Function</dfn><div class="autopermalink" data-description="Paragraph"><a href="#user-defined-functions-47" title="Copy heading and permalink for Paragraph" aria-label="Copy heading and permalink for Paragraph">🔗</a></div>
+</div>
+<div class="para" id="user-defined-functions-48">Now that we have everything defined and sketched out, it is time to program the function’s functionality! To do so let’s erase the two <code class="code-inline tex2jax_ignore">outputArg...</code> lines that came with the template and program in our function. Make sure not to delete the last line, the <code class="code-inline tex2jax_ignore">end</code> keyword! All functions must start with the word <code class="code-inline tex2jax_ignore">function</code>, and end with a line that just has <code class="code-inline tex2jax_ignore">end</code> on it.<div class="autopermalink" data-description="Paragraph"><a href="#user-defined-functions-48" title="Copy heading and permalink for Paragraph" aria-label="Copy heading and permalink for Paragraph">🔗</a></div>
+</div>
+<div class="para" id="user-defined-functions-49">
+<dfn class="terminology">Code</dfn>- Since this is just a simple function, we can accomplish this in one line of code:<div class="autopermalink" data-description="Paragraph"><a href="#user-defined-functions-49" title="Copy heading and permalink for Paragraph" aria-label="Copy heading and permalink for Paragraph">🔗</a></div>
+</div>
+<div class="para" id="user-defined-functions-50">
+<code class="code-inline tex2jax_ignore">volume = (4/3)*pi*(radii.^3);</code><div class="autopermalink" data-description="Paragraph"><a href="#user-defined-functions-50" title="Copy heading and permalink for Paragraph" aria-label="Copy heading and permalink for Paragraph">🔗</a></div>
+</div>
+<div class="para" id="user-defined-functions-51">That is it! Notice that we had to use the <code class="code-inline tex2jax_ignore">.^</code> to account for the possibility that our user would input an array of radii. If the user just inputs a scalar value, the function will still work. At this point, we have completed the function. It should look similar (if you used your own variable names, those will be slightly different) to example 16.2.7 below.<div class="autopermalink" data-description="Paragraph"><a href="#user-defined-functions-51" title="Copy heading and permalink for Paragraph" aria-label="Copy heading and permalink for Paragraph">🔗</a></div>
+</div>
+<article class="example example-like" id="function-example-complete"><h3 class="heading">
+<span class="type">Example</span><span class="space heading-divison-mark heading-divison-mark__space"> </span><span class="codenumber">16.2.7</span><span class="period heading-divison-mark heading-divison-mark__period">.</span><span class="space heading-divison-mark heading-divison-mark__space"> </span><span class="title"><code class="code-inline tex2jax_ignore">sphere_vol()</code> complete.</span>
+</h3>
+<div class="para" id="function-example-complete-2-1">Here is an interactive code box that functions identically to the MATLAB command window.<div class="autopermalink" data-description="Paragraph"><a href="#function-example-complete-2-1" title="Copy heading and permalink for Paragraph" aria-label="Copy heading and permalink for Paragraph">🔗</a></div>
+</div> <div class="code-box"><pre class="program clipboardable"><code class="language-matlab">function [volume] = sphere_vol(radii)
+
+% sphere_vol calculates the volume of a sphere
+%    This function accepts either a scalar radius or array of radii and returns a scalr or array of volumes respectively.
+% Inputs:
+%    radii - a scalar radius or array of radii
+% Outputs:
+%    volume - a scalar volume or array of volumes
+
+volume = (4/3)*pi*(radii.^3)
+
+end
+</code></pre></div>
+<div class="autopermalink" data-description="Example 16.2.7: sphere_vol() complete"><a href="#function-example-complete" title="Copy heading and permalink for Example 16.2.7: sphere_vol() complete" aria-label="Copy heading and permalink for Example 16.2.7: sphere_vol() complete">🔗</a></div>
+</article><div class="autopermalink" data-description="Section 16.2: User Defined Functions"><a href="#user-defined-functions" title="Copy heading and permalink for Section 16.2: User Defined Functions" aria-label="Copy heading and permalink for Section 16.2: User Defined Functions">🔗</a></div>
+</section>
+</div>
+<div id="ptx-content-footer" class="ptx-content-footer">
+<a class="previous-button button" href="built-in.html" title="Previous"><span class="icon material-symbols-outlined" aria-hidden="true">&#xe5cb;</span><span class="name">Prev</span></a><a class="top-button button" href="#" title="Top"><span class="icon material-symbols-outlined" aria-hidden="true">&#xe5ce;</span><span class="name">Top</span></a><a class="next-button button" href="func-v-user.html" title="Next"><span class="name">Next</span><span class="icon material-symbols-outlined" aria-hidden="true">&#xe5cc;</span></a>
+</div></main>
+</div>
+<div id="ptx-page-footer" class="ptx-page-footer">
+<a class="pretext-link" href="https://pretextbook.org" title="PreTeXt"><div class="logo"><svg xmlns="http://www.w3.org/2000/svg" height="100%" viewBox="338 3000 8772 6866" role="img"><title>PreTeXt logo</title><g style="stroke-width:.025in; stroke:currentColor; fill:none"><polyline points="472,3590 472,9732 " style="stroke-width:174; stroke-linejoin:miter; stroke-linecap:round; "></polyline><path style="stroke-width:126;stroke-linecap:butt;" d="M 4724,9448 A 4660 4660  0  0  1  8598  9259"></path><path style="stroke-width:174;stroke-linecap:butt;" d="M 4488,9685 A 4228 4228  0  0  0   472  9732"></path><path style="stroke-width:126;stroke-linecap:butt;" d="M 4724,3590 A 4241 4241  0  0  1  8598  3496"></path><path style="stroke-width:126;stroke-linecap:round;" d="M 850,3496  A 4241 4241  0  0  1  4724  3590"></path><path style="stroke-width:126;stroke-linecap:round;" d="M 850,9259  A 4507 4507  0  0  1  4724  9448"></path><polyline points="5385,4299 4062,8125" style="stroke-width:300; stroke-linejoin:miter; stroke-linecap:round;"></polyline><polyline points="8598,3496 8598,9259" style="stroke-width:126; stroke-linejoin:miter; stroke-linecap:round;"></polyline><polyline points="850,3496 850,9259" style="stroke-width:126; stroke-linejoin:miter; stroke-linecap:round;"></polyline><polyline points="4960,9685 4488,9685" style="stroke-width:174; stroke-linejoin:miter; stroke-linecap:round;"></polyline><polyline points="3070,4582 1889,6141 3070,7700" style="stroke-width:300; stroke-linejoin:miter; stroke-linecap:round;"></polyline><polyline points="6418,4582 7600,6141 6418,7700" style="stroke-width:300; stroke-linejoin:miter; stroke-linecap:round;"></polyline><polyline points="8976,3590 8976,9732" style="stroke-width:174; stroke-linejoin:miter; stroke-linecap:round;"></polyline><path style="stroke-width:174;stroke-linecap:butt;" d="M 4960,9685 A 4228 4228  0  0  1  8976  9732"></path></g></svg></div></a><a class="runestone-link" href="https://runestone.academy" title="Runestone Academy"><img class="logo" src="https://runestone.academy/runestone/static/images/RAIcon_cropped.png" alt="Runstone Academy logo"></a><a class="mathjax-link" href="https://www.mathjax.org" title="MathJax"><img class="logo" src="https://www.mathjax.org/badge/badge-square-2.png" alt="MathJax logo"></a>
+</div>
+</body>
+</html>
