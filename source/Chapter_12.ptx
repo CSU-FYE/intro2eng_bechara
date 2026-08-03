@@ -107,7 +107,7 @@
    <title>Logical Example</title>
     <statement>
         <p>Here is an interactive code box that functions identically to the MATLAB command window.</p>
-<program language="octave">
+<program language="octave" interactive="activecode" xml:id="prog-12-1" label="prog-12-1">
 % Try It 12.2.1
 tomato = 23;
 
@@ -209,7 +209,7 @@ tomato > cucumber
    <title>Order of Operations?</title>
     <statement>
         <p>Here is an interactive code box that functions identically to the MATLAB command window.</p>
-<program language="octave">
+<program language="octave" interactive="activecode" xml:id="prog-12-2" label="prog-12-2">
 tomato = 23;
 
 cucumber = -12;

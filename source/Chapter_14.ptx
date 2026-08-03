@@ -305,7 +305,7 @@
     <title>Follow Along with Me</title>
     <statement>
         <p>Here is an interactive code box that functions identically to the MATLAB command window.</p>
-<program language="octave">
+<program language="octave" interactive="activecode" xml:id="prog-14-1" label="prog-14-1">
 %% Chapter 14 Work
 % Created on: 12 June 2019
 % By: Samuel Bechara, PhD
@@ -343,7 +343,7 @@ pay
     <title>Fix the Code</title>
     <statement>
         <p>Here is an interactive code box that functions identically to the MATLAB command window.</p>
-<program language="octave">
+<program language="octave" interactive="activecode" xml:id="prog-14-2" label="prog-14-2">
 % Fix the code and use it to solve Question 13.1
 % This script contains two errors that prevents the code from running properly
 hours_worked = 75.6;
@@ -621,7 +621,7 @@ end
     <p>
       Now is your chance to try and do the code, test, and repeat part of our process on your own to finish the problem! Even if you can’t get it working perfectly, take some time and give it your best shot! Make sure you have a pen and paper handy and jot down notes, ideas, and snippets of code as you are working. You got this!
     </p>
-    <program language="octave">
+    <program language="octave" interactive="activecode" xml:id="prog-14-3" label="prog-14-3">
 % Here is a code box for you to try this problem
 </program>
 <p>
@@ -631,7 +631,7 @@ end
    <title>Chapter 14 Grading Script Solution</title>
     <statement>
         <p>Here is an interactive code box that functions identically to the MATLAB command window.</p>
-<program language="octave">
+<program language="octave" interactive="activecode" xml:id="prog-14-4" label="prog-14-4">
 % Grading Script
 % This script takes a 'grade' and assigns a letter grade based on a rubric presented in chapter 13
 

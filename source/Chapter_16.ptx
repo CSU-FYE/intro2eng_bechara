@@ -84,7 +84,7 @@
     <title> <c>sin()</c> Built-In Function</title>
     <statement>
         <p>Here is an interactive code box that functions identically to the MATLAB command window.</p>
-<program language="octave">
+<program language="octave" interactive="activecode" xml:id="prog-16-1" label="prog-16-1">
 x = 2.1; % in radians
 
 ratio = sin(x)
@@ -116,7 +116,7 @@ ratio = sin(x)
     <title> <c>mean()</c> Built-In Function</title>
     <statement>
         <p>Here is an interactive code box that functions identically to the MATLAB command window.</p>
-<program language="octave">
+<program language="octave" interactive="activecode" xml:id="prog-16-2" label="prog-16-2">
 array = [9 3 1 3 5];
 
 avg = mean(array)
@@ -185,7 +185,7 @@ avg = mean(array)
     <title> <c>max()</c> Built-In Function</title>
     <statement>
         <p>Here is an interactive code box that functions identically to the MATLAB command window.</p>
-<program language="octave">
+<program language="octave" interactive="activecode" xml:id="prog-16-3" label="prog-16-3">
 array = [9 3 1 3 5];
 
 biggest = max(array)
@@ -421,7 +421,7 @@ biggest = max(array)
     <title> <c>sphere_vol()</c> help text</title>
     <statement>
         <p>Here is an interactive code box that functions identically to the MATLAB command window.</p>
-<program language="octave">
+<program language="octave" interactive="activecode" xml:id="prog-16-4" label="prog-16-4">
 function [volume] = sphere_vol(radii)
 
 % sphere_vol calculates the volume of a sphere
@@ -480,7 +480,7 @@ end
     <title> <c>sphere_vol()</c> complete</title>
     <statement>
         <p>Here is an interactive code box that functions identically to the MATLAB command window.</p>
-<program language="octave">
+<program language="octave" interactive="activecode" xml:id="prog-16-5" label="prog-16-5">
 function [volume] = sphere_vol(radii)
 
 % sphere_vol calculates the volume of a sphere
@@ -521,7 +521,7 @@ end
     <title> <c>sphere_vol()</c> in action</title>
     <statement>
         <p>Here is an interactive code box that functions identically to the MATLAB command window.</p>
-<program language="octave">
+<program language="octave" interactive="activecode" xml:id="prog-16-6" label="prog-16-6">
 function [volume] = sphere_vol(radii)
 
 % sphere_vol calculates the volume of a sphere

@@ -82,7 +82,7 @@
     <title>Converting Degrees to Radians</title>
     <statement>
         <p>Here is an interactive code box that functions identically to the MATLAB command window.</p>
-<program language="octave">
+<program language="octave" interactive="activecode" xml:id="prog-8-1" label="prog-8-1">
 
 % These code boxes will be used throughout the upcoming chapters as a way to run code within the textbook.
 % Octave is a free programming language that for your purposes will work the same as MATLAB
@@ -283,7 +283,7 @@ deg2rad(15.23)
             <statement>
         <p>Here is an interactive code box for checkpoint 8.8.2</p>
 
-<program language="octave">
+<program language="octave" interactive="activecode" xml:id="prog-8-2" label="prog-8-2">
 
 % Use this code box to calculate the answer to the question below.
 
@@ -501,7 +501,7 @@ deg2rad(15.23)
           Will work the exact same way.
         </p>
 
-<program language="octave">
+<program language="octave" interactive="activecode" xml:id="prog-8-3" label="prog-8-3">
 
 % Here is a code box to try the sqrt() function
 
@@ -520,7 +520,7 @@ sqrt(number)
           <image source="chapter_08/fig_12.jpeg" width="70%"> </image>
         </figure>
 
-<program language="octave">
+<program language="octave" interactive="activecode" xml:id="prog-8-4" label="prog-8-4">
 % Question 7.5: Degrees or Radians
 % Use this code box to compare the value for sin of 360 radians verus 360 degrees
 
@@ -602,7 +602,7 @@ sqrt(number)
         At this point, the best thing you can do is play around with MATLAB as a calculator. Do some arithmetic operations, assign some variables, use the semi-colon, omit the semi-colon, try typing in clear to see what happens, etc. DO NOT SKIP THE PLAYING STEP. You can read about these concepts, but if you want to learn you need to see them in practice. The best way to do that? PLAY!
       </p>
 
-<program language="octave">
+<program language="octave" interactive="activecode" xml:id="prog-8-5" label="prog-8-5">
 % Use this code box to mess around with some MATLAB skills you have learned in this textbook
 </program>
 <exercise xml:id="something-new-8" exercise-interactive="shortanswer">

@@ -20,7 +20,7 @@
     <title>Test Computing the Average of Your Three Exams</title>
     <statement>
         <p>Here is an interactive code box that functions identically to the MATLAB command window.</p>
-<program language="octave">
+<program language="octave" interactive="activecode" xml:id="prog-9-1" label="prog-9-1">
 % Try It 9.0.2
 
 midterm_1 = 86;
@@ -49,7 +49,7 @@ average_exam_score = (midterm_1 + midterm_2 + midterm_3 + final
     <title>Test Computing the Average of With a New Final Grade</title>
     <statement>
         <p>Here is an interactive code box that functions identically to the MATLAB command window.</p>
-<program language="octave">
+<program language="octave" interactive="activecode" xml:id="prog-9-2" label="prog-9-2">
 % Try It 9.0.4
 
 midterm_1 = 86;
@@ -310,7 +310,7 @@ average_exam_score = (midterm_1 + midterm_2 + midterm_3 + final
     <title>Creating Row Vectors</title>
     <statement>
         <p>Here is an interactive code box that functions identically to the MATLAB command window.</p>
-<program language="octave">
+<program language="octave" interactive="activecode" xml:id="prog-9-3" label="prog-9-3">
 final = [88 89 90 91 92 93 94 95 96 97 98 99]
 </program>
 </statement>
@@ -331,7 +331,7 @@ final = [88 89 90 91 92 93 94 95 96 97 98 99]
     <title>Creating Column Vectors</title>
     <statement>
         <p>Here is an interactive code box that functions identically to the MATLAB command window.</p>
-<program language="octave">
+<program language="octave" interactive="activecode" xml:id="prog-9-4" label="prog-9-4">
 final = [88;89;90;91;92;93;94;95;96;97;98;99]
 </program>
 </statement>
@@ -436,7 +436,7 @@ final = [88;89;90;91;92;93;94;95;96;97;98;99]
     <title>Creating Equally Spaced Vectors</title>
     <statement>
         <p>Here is an interactive code box that functions identically to the MATLAB command window.</p>
-<program language="octave">
+<program language="octave" interactive="activecode" xml:id="prog-9-5" label="prog-9-5">
 final = [88:1:99]
 </program>
 </statement>
@@ -488,7 +488,7 @@ final = [88:1:99]
     <title>Efficiently Creating Equally Spaced Vectors</title>
     <statement>
         <p>Here is an interactive code box that functions identically to the MATLAB command window.</p>
-<program language="octave">
+<program language="octave" interactive="activecode" xml:id="prog-9-6" label="prog-9-6">
 %This will create an array from 88 to 99 spaced by 1 automatically.
 final = [88:99]
 </program>
@@ -572,7 +572,7 @@ final = [88:99]
     <title>Experimenting with <c>linspace()</c></title>
     <statement>
         <p>Here is an interactive code box that functions identically to the MATLAB command window.</p>
-<program language="octave">
+<program language="octave" interactive="activecode" xml:id="prog-9-7" label="prog-9-7">
 linear_boi = linspace(2,4,12)
 </program>
 </statement>
@@ -612,7 +612,7 @@ linear_boi = linspace(2,4,12)
     <title>Code Your Own Matrix</title>
     <statement>
         <p>Here is an interactive code box that functions identically to the MATLAB command window.</p>
-<program language="octave">
+<program language="octave" interactive="activecode" xml:id="prog-9-8" label="prog-9-8">
 neo = [1 2 3; 4 5 6; 7 8 9]
 </program>
 </statement>
@@ -851,7 +851,7 @@ neo = [1 2 3; 4 5 6; 7 8 9]
     <title>Vector Addressing Practice</title>
     <statement>
         <p>Here is an interactive code box that functions identically to the MATLAB command window.</p>
-<program language="octave">
+<program language="octave" interactive="activecode" xml:id="prog-9-9" label="prog-9-9">
 time = [0:5:20] % time in seconds 
 
 position = [0, 4, 8, 12, 30] % position in meters
@@ -971,7 +971,7 @@ position = [0, 4, 8, 12, 30] % position in meters
     <title>Array Practice</title>
     <statement>
         <p>Here is an interactive code box that functions identically to the MATLAB command window.</p>
-<program language="octave">
+<program language="octave" interactive="activecode" xml:id="prog-9-10" label="prog-9-10">
 % Use this code box to construct your practice arrays
 </program>
 </statement>
@@ -1151,7 +1151,7 @@ position = [0, 4, 8, 12, 30] % position in meters
     <title><c>:</c> with Vector Practice</title>
     <statement>
         <p>Here is an interactive code box that functions identically to the MATLAB command window.</p>
-<program language="octave">
+<program language="octave" interactive="activecode" xml:id="prog-9-11" label="prog-9-11">
 v_man = [22 61 45 51 68 98 11 90 17];
 
 two_to_five = v_man(2:5)</program>
@@ -1213,7 +1213,7 @@ two_to_five = v_man(2:5)</program>
     <title><c>:</c> with Matrix Practice</title>
     <statement>
         <p>Here is an interactive code box that functions identically to the MATLAB command window.</p>
-<program language="octave">
+<program language="octave" interactive="activecode" xml:id="prog-9-12" label="prog-9-12">
 % Experiment with all the examples above
 </program>
 </statement>

@@ -162,7 +162,7 @@ vec1=
     <title>Creating Matricies</title>
     <statement>
         <p>Here is an interactive code box that functions identically to the MATLAB command window.</p>
-<program language="octave">
+<program language="octave" interactive="activecode" xml:id="prog-10-1" label="prog-10-1">
 % Try It 10.1.1
 % Do your arrays look liked the ones above? Did you switch your rows and columns?
 % Insert your matlab code here:
@@ -188,7 +188,7 @@ vec2 =
     <title>Adding <c>mat1</c> and <c>mat2</c></title>
     <statement>
         <p>Here is an interactive code box that functions identically to the MATLAB command window.</p>
-<program language="octave">
+<program language="octave" interactive="activecode" xml:id="prog-10-2" label="prog-10-2">
 % Try It 10.1.3
 % What is the value of mat3?
 clc; clear; close all;
@@ -258,7 +258,7 @@ mat3 =
 
   <statement>
     <p>Here is an interactive code box that functions identically to the MATLAB command window.</p>
-<program language="octave">
+<program language="octave" interactive="activecode" xml:id="prog-10-3" label="prog-10-3">
 % Checkpoint 10.1.5
 % What is the value of vec3?
 clc; clear; close all;
@@ -299,7 +299,7 @@ vec3 =
     <title>Adding <c>mat1</c> and <c>vec1</c></title>
     <statement>
         <p>Here is an interactive code box that functions identically to the MATLAB command window.</p>
-<program language="octave">
+<program language="octave" interactive="activecode" xml:id="prog-10-4" label="prog-10-4">
 % Try It 10.1.6
 % What error do you get trying to add mat1 and vec1?
 clc; clear; close all;
@@ -342,7 +342,7 @@ a_{21}+s &amp; a_{22}+s
 
   <statement>
     <p>Here is an interactive code box that functions identically to the MATLAB command window.</p>
-<program language="octave">
+<program language="octave" interactive="activecode" xml:id="prog-10-5" label="prog-10-5">
 % Checkpoint 10.1.7
 % What value did you get for mat4(1,1)?
 clc; clear; close all;
@@ -398,7 +398,7 @@ a_{21}*b_{21} &amp; a_{22}*b_{22}
     <title>Multiplying <c>mat1</c> and <c>mat2</c> (Part 1)</title>
     <statement>
         <p>Here is an interactive code box that functions identically to the MATLAB command window.</p>
-<program language="octave">
+<program language="octave" interactive="activecode" xml:id="prog-10-6" label="prog-10-6">
 % Try It 10.2.1
 % huh is the product of multiplying mat1 by mat2. Find huh:
 clc; clear; close all;
@@ -463,7 +463,7 @@ huh =
     <title>Multiplying <c>mat1</c> and <c>mat2</c> (Part 2)</title>
     <statement>
         <p>Here is an interactive code box that functions identically to the MATLAB command window.</p>
-<program language="octave">
+<program language="octave" interactive="activecode" xml:id="prog-10-7" label="prog-10-7">
 % Try It 10.2.3
 % huh is the product of multiplying mat1 by mat2. Find huh:
 % Put a period (.) before the * multiplying mat1 by mat2:
@@ -561,7 +561,7 @@ oh_okay =
     <title>Challenge Problem</title>
     <statement>
         <p>Here is an interactive code box that functions identically to the MATLAB command window.</p>
-<program language="octave">
+<program language="octave" interactive="activecode" xml:id="prog-10-8" label="prog-10-8">
 % Try It 10.3.1
 % Here is a code box to begin the challenge problem. 
 % Remember to add comments to your code to make it easier to read.
@@ -598,7 +598,7 @@ clc; clear; close all;
     <title>Challenge Problem Solution</title>
     <statement>
         <p>Here is an interactive code box that functions identically to the MATLAB command window.</p>
-<program language="octave">
+<program language="octave" interactive="activecode" xml:id="prog-10-9" label="prog-10-9">
 % Chapter 10 Challenge Problem
 % Created on: 1 July 2019
 % By Samuel Bechara, PhD
@@ -623,7 +623,7 @@ fun = x.^3 - 6 * x.^2 + x - 10
 
   <statement>
     <p>Here is an interactive code box that functions identically to the MATLAB command window.</p>
-<program language="octave">
+<program language="octave" interactive="activecode" xml:id="prog-10-10" label="prog-10-10">
 % Here is a code box to paste your code from the challenge problem. 
 % Insert your matlab code here:
 clc; clear; close all;
@@ -679,7 +679,7 @@ clc; clear; close all;
 
   <statement>
     <p>Here is an interactive code box that functions identically to the MATLAB command window.</p>
-<program language="octave">
+<program language="octave" interactive="activecode" xml:id="prog-10-11" label="prog-10-11">
 % Here is a code box to write code for this problem.
 % Insert your matlab code here:
 clc; clear; close all;

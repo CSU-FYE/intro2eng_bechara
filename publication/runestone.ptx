@@ -1,0 +1,19 @@
+<?xml version="1.0" encoding="UTF-8"?>
+
+<!-- Runestone-specific publication file. This is used only by the       -->
+<!-- "runestone" build target in project.ptx. It layers Runestone-only   -->
+<!-- settings (like the platform host) on top of the normal HTML output; -->
+<!-- everything else about the book renders the same way it does on the  -->
+<!-- "web" target.                                                        -->
+<!-- See https://pretextbook.org/doc/guide/html/sec-publishing-to-runestone-academy.html -->
+
+<publication>
+  <source>
+    <directories external="../assets" generated="../generated-assets" />
+  </source>
+
+  <html short-answer-responses="always">
+    <platform host="runestone"/>
+    <knowl exercise-inline="no" example="no" />
+  </html>
+</publication>

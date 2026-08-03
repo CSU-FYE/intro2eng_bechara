@@ -520,7 +520,7 @@ end
     <title>man_bear_pig</title>
     <statement>
         <p>Here is an interactive code box that functions identically to the MATLAB command window.</p>
-<program language="octave">
+<program language="octave" interactive="activecode" xml:id="prog-15-1" label="prog-15-1">
 sum = 0;
 
 man_bear_pig = [1, 1, 2, 1, 4, 2, 4, 5];
@@ -654,7 +654,7 @@ end
     <title>Maclaurin Solution</title>
     <statement>
         <p>Here is an interactive code box that functions identically to the MATLAB command window.</p>
-<program language="octave">
+<program language="octave" interactive="activecode" xml:id="prog-15-2" label="prog-15-2">
 % sin_maclaurin.m
 % Created on 1 June 2019
 % By: Samuel Bechara, PhD
@@ -869,7 +869,7 @@ end
     <title>Maclaurin Solution(<c>while</c> loop)</title>
     <statement>
         <p>Here is an interactive code box that functions identically to the MATLAB command window.</p>
-<program language="octave">
+<program language="octave" interactive="activecode" xml:id="prog-15-3" label="prog-15-3">
 % sin_maclaurin_num_terms.m
 % Created on: 3 June 2019
 % By: Samuel Bechara
