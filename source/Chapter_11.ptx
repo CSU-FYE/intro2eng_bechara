@@ -209,7 +209,7 @@ e_strain =
 <example xml:id="try-it-11-1-sol">
    <title>Chapter 11 Follow Along</title>
     <statement>
-        <p>Here is an interactive code box that functions identically to the MATLAB command window.</p>
+        <p>Here is an interactive code box that functions similarly to the MATLAB command window. Note that this web version does NOT support graphics so you'll need to copy this code into your MATLAB window!</p>
 <program language="octave" interactive="activecode" xml:id="prog-11-2" label="prog-11-2">
 %% Chapter 11 Follow Along Work
 
