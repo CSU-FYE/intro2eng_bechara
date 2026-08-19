@@ -186,7 +186,7 @@ How to use what we have already learned about arrays to streamline making plots 
 <example xml:id="try-it-11-1">
    <title>Creating Matricies</title>
     <statement>
-        <p>Here is an interactive code box that functions identically to the MATLAB command window.</p>
+        <p>Here is an interactive code box that functions similarly to the MATLAB command window.</p>
 <program language="octave" interactive="activecode" xml:id="prog-12-1" label="prog-12-1">
 % Try It 11.1.5
 % Create a "force" and "len" variable using the data above.
@@ -209,7 +209,7 @@ e_strain =
 <example xml:id="try-it-11-1-sol">
    <title>Chapter 12 Follow Along</title>
     <statement>
-        <p>Here is an interactive code box that functions identically to the MATLAB command window.</p>
+        <p>Here is an interactive code box that functions similarly to the MATLAB command window. Note that this web version does NOT support graphics so you'll need to copy this code into your MATLAB window!</p>
 <program language="octave" interactive="activecode" xml:id="prog-12-2" label="prog-12-2">
 %% Chapter 12 Follow Along Work
 
@@ -283,7 +283,7 @@ e_strain = (len-len_0)/len_0;
     <example xml:id="try-it-11-3">
    <title><c>help</c> Exploration</title>
     <statement>
-        <p>Here is an interactive code box that functions identically to the MATLAB command window.</p>
+        <p>Here is an interactive code box that functions similarly to the MATLAB command window.</p>
 <program language="octave" interactive="activecode" xml:id="prog-12-3" label="prog-12-3">
 % The code boxes in this textbook also have the help function built in.
 % Check it out:
@@ -327,7 +327,7 @@ help plot
     <example xml:id="try-it-11-4">
    <title>Plot Color Testing</title>
     <statement>
-        <p>Here is an interactive code box that functions identically to the MATLAB command window.</p>
+        <p>Here is an interactive code box that functions similarly to the MATLAB command window. Note that this web version does NOT support graphics so you'll need to copy this code into your MATLAB window!</p>
 <program language="octave" interactive="activecode" xml:id="prog-12-4" label="prog-12-4">
 % Try It 11.1.11
 
@@ -497,7 +497,7 @@ help plot
 <example xml:id="try-it-11-5">
    <title>Updated Example Code</title>
     <statement>
-        <p>Here is an interactive code box that functions identically to the MATLAB command window.</p>
+        <p>Here is an interactive code box that functions similarly to the MATLAB command window. Note that this web version does NOT support graphics so you'll need to copy this code into your MATLAB window!</p>
 <program language="octave" interactive="activecode" xml:id="prog-12-5" label="prog-12-5">
 %% Chapter 12 Follow Along Work
 
@@ -568,7 +568,7 @@ plot (e_strain, e_stress, 'k&lt;-.') % plot black left arrows (dashdot line)
     <example xml:id="try-it-11-6">
    <title>Stress and Strain Calculation</title>
     <statement>
-        <p>Here is an interactive code box that functions identically to the MATLAB command window.</p>
+        <p>Here is an interactive code box that functions similarly to the MATLAB command window.</p>
 <program language="octave" interactive="activecode" xml:id="prog-12-6" label="prog-12-6">
 % Try It 11.2.2
 % Insert your code here:
@@ -603,7 +603,7 @@ e_strain_teflon =
     <example xml:id="try-it-11-7">
    <title>Updated Example Code</title>
     <statement>
-        <p>Here is an interactive code box that functions identically to the MATLAB command window.</p>
+        <p>Here is an interactive code box that functions similarly to the MATLAB command window. Note that this web version does NOT support graphics so you'll need to copy this code into your MATLAB window!</p>
 <program language="octave" interactive="activecode" xml:id="prog-12-7" label="prog-12-7">
 %% Chapter 12 Follow Along Work
 
@@ -780,7 +780,7 @@ hold off
  <example xml:id="try-it-11-10">
    <title>Subplot Updated Code</title>
     <statement>
-        <p>Here is an interactive code box that functions identically to the MATLAB command window.</p>
+        <p>Here is an interactive code box that functions similarly to the MATLAB command window. Note that this web version does NOT support graphics so you'll need to copy this code into your MATLAB window!</p>
 <program language="octave" interactive="activecode" xml:id="prog-12-8" label="prog-12-8">
 %% Chapter 12 Follow Along Work
 
@@ -869,7 +869,7 @@ plot (e_strain, e_stress, 'y*--')
   <example xml:id="try-it-11-11">
    <title>Adding a Title</title>
     <statement>
-        <p>Here is an interactive code box that functions identically to the MATLAB command window.</p>
+        <p>Here is an interactive code box that functions similarly to the MATLAB command window. Note that this web version does NOT support graphics so you'll need to copy this code into your MATLAB window!</p>
 <program language="octave" interactive="activecode" xml:id="prog-12-9" label="prog-12-9">
 % Try it 11.3.2
 % Add a title to the plot
@@ -941,7 +941,7 @@ hold off
   <example xml:id="try-it-11-12">
    <title>Adding Axis Labels</title>
     <statement>
-        <p>Here is an interactive code box that functions identically to the MATLAB command window.</p>
+        <p>Here is an interactive code box that functions similarly to the MATLAB command window. Note that this web version does NOT support graphics so you'll need to copy this code into your MATLAB window!</p>
 <program language="octave" interactive="activecode" xml:id="prog-12-10" label="prog-12-10">
 % Try it 11.3.2
 % Add a axis labels to the plot
@@ -1009,7 +1009,7 @@ title('Tensile Test Data')
 <example xml:id="try-it-11-13">
    <title>Adding a Legend</title>
     <statement>
-        <p>Here is an interactive code box that functions identically to the MATLAB command window.</p>
+        <p>Here is an interactive code box that functions similarly to the MATLAB command window. Note that this web version does NOT support graphics so you'll need to copy this code into your MATLAB window!</p>
 <program language="octave" interactive="activecode" xml:id="prog-12-11" label="prog-12-11">
 % Try it 11.3.3
 % Add a legend to the plot
@@ -1085,7 +1085,7 @@ ylabel ('Stress (Pa)')
 <example xml:id="try-it-11-14">
    <title>Final Script</title>
     <statement>
-        <p>Here is an interactive code box that functions identically to the MATLAB command window.</p>
+        <p>Here is an interactive code box that functions similarly to the MATLAB command window. Note that this web version does NOT support graphics so you'll need to copy this code into your MATLAB window!</p>
 <program language="octave" interactive="activecode" xml:id="prog-12-12" label="prog-12-12">
 % My Final Script
 
