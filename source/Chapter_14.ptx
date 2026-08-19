@@ -633,7 +633,7 @@ end
         <p>Here is an interactive code box that functions identically to the MATLAB command window.</p>
 <program language="octave" interactive="activecode" xml:id="prog-14-4" label="prog-14-4">
 % Grading Script
-% This script takes a 'grade' and assigns a letter grade based on a rubric presented in chapter 13
+% This script takes a 'grade' and assigns a letter grade based on a rubric presented in chapter 7
 
 grade = 88; % can change as necessary
 

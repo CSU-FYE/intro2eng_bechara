@@ -1,621 +1,554 @@
 <?xml version="1.0" encoding="UTF-8"?>
 
 <chapter xml:id="Chapter_08" xmlns:xi="http://www.w3.org/2001/XInclude">
-  <title>Introduction to MATLAB</title>
+  <title>Mathematical Models</title>
 
   <introduction>
-    <p> 
-      MATLAB is a professional software suite and programming language that is commonly used by engineers to analyze data, create complex algorithms (more about these in Chapter 12), and more. MATLAB stands for <term>mat</term>rix <term>lab</term>oratory and is designed to work well with matrices and other types of arrays. MATLAB can help with digital signal processing, control systems, computer vision, and the list goes on. It is stable, robust, relatively fast, well optimized, and can run on Windows, Mac, Linux, and even on Embedded Systems. MATLAB is a pretty amazing bit of software that is well maintained, regularly updated, and well supported.
-    </p> 
-    <p>
-      But...
-    </p>
-        <figure xml:id="fig_8_1">
-          <caption>MATLAB is so expensive it should be featured in rap videos as “bling”. Dolla Dolla bills, y’all.</caption>
-            <image source="chapter_08/fig_1.jpeg" width="70%"> </image>
+    <figure xml:id="fig_8_1">
+      <caption>Mathematical models are just math ways of talking about natural phenomena.</caption>
+      <image source="chapter_08/fig_1.jpeg" width="70%"> </image>
     </figure>
-   <p> 
-    MATLAB is pricey. Currently, a single standard license is <term>$2150</term>. Obviously, any piece of software that can cost $2150 per user to a company must be worth learning about but I would understand the hesitation to purchase that as a student.
-  </p>
-  <p>
-    Luckily, if you are a student you can sometimes get MATLAB for the low, low price of $0. Some universities pay for their engineering students to have MATLAB licenses! Inquire with your University’s IT departments to see if you can download MATLAB for free on your personal computer. If your university does not have a site license, you can purchase a student license for <term>$49</term>, which isn’t that bad. Since this book is going to use MATLAB in every chapter, you will need to figure out a way to have access to a MATLAB installation.
-   </p>
-   
     <p>
-      In this chapter, we will explore the basics of MATLAB which will culminate in learning how to use MATLAB as an overpriced calculator. That means learning:
+      The last thing we will cover about Excel is how to select a trendline type and what that actually means. It would be better to phrase that as “how to select the correct mathematical model”. <term>Mathematical modeling</term> is the process of using math to represent real-world phenomena. The reason the second terminology is better is because it correctly expresses the <term>thinking</term> that you must do to select a correct model. Before we jump into the different types of mathematical models (and associated trendlines) that you are expected to learn, we need to have a quick word on <term>thinking</term>.
+    </p>
+    <p>
+      The emphasis of this chapter will be on thinking. You need to think before you choose a model type. We will also learn how to:
     </p>
     <objectives>
       <ul>
-        <li>Why you should bother to learn MATLAB instead of <term> <angles>insert_programming_language_here</angles> </term>?</li>
-        <li>What the different components of the MATLAB GUI are.</li>
-        <li>How your computer stores files and why that is important to MATLAB</li>
-        <li>How to use MATLAB as a glorified calculator.</li>
-        <li>How to use variables to store information and simplify your calculations.</li>
+        <li>Explain what a model is and how it is used</li>
+        <li>Recognize how to identify a linear, power, or exponential function</li>
+        <li>Identify whether an equation represents a linear, power, or exponential model</li>
+        <li>Determine the physical meaning and units of parameters of a linear, power, and exponential function.</li>
       </ul>
     </objectives>
+    <p>
+      <heading><term>Think Twice, Model Once</term></heading>
+    </p>
+    <p>
+      There is an old saying in carpentry that you should measure twice and cut once. The idea is that you can’t un-cut a piece of wood so you better be sure you are cutting it correctly. While this analogy doesn’t perfectly translate to mathematical modeling (you could technically re-run the model), the reality is that once you choose your model and think it is good enough, it is unlikely you will re-scrutinize it.
+    </p>
+    <figure xml:id="fig_8_2">
+      <caption>Think twice, model once!</caption>
+      <image source="chapter_08/fig_2.jpeg" width="70%"> </image>
+    </figure>
+    <p>
+      The danger with mathematical modeling is that sometimes your data may <term>look</term> like they fit a certain type of model so you select that trendline type and move on. It is easier that way and uses less brain power. Humans are all lazy, and in fact, our laziness has led to some of our greatest inventions! However, your laziness can get the best of you when it comes to mathematical modeling.
+    </p>
+    <p>
+      You need to <term>think</term> about what you would expect the model would be off on your understanding of the underlying physics before you model it. What I am trying to convey is that you <term>think</term>, then choose your trendline type later. <term>Think twice, model once</term> will be our trendline selection mantra! Now that we have that out of the way, let’s look at the different model types that we will consider: linear, power, and exponential.
+    </p>
   </introduction>
-
-         <section xml:id="why-matlab">
-      <title>Why MATLAB instead of <angles>insert_programming_language_here</angles>?</title>
-      <p>
-        At this point in your life, you have probably been exposed to different software, you might even have programming experience, and it is even possible that you have a preference for a specific programming language. So why MATLAB instead of Python? Instead of C++? Instead of Go? (Clearly, the list could go on and on).
-      </p>
-      <p>
-        The reason this book concentrates on MATLAB is that as of the publication of this book, <term>MATLAB is an extremely popular programming suite that engineers are expected to know how to use.</term> MATLAB is popular because it is a general-purpose language that lends itself to productivity. MATLAB is worth knowing because…
-      </p>
-      <ul>
-        <li>It is easy to express computational mathematics. (You will see this shortly later in the chapter!)</li>
-        <li>MATLAB is <term>specifically designed for engineers</term> which means the documentation and functions are easy to use and remember.</li>
-        <li>The environment is tuned for iterative workflows and rapid prototyping.</li>
-        <li>There are a TON of toolboxes which means that a lot of code is already available for you to use. You do not need to reinvent the wheel.</li>
-        <li>The MATLAB debugging tool is extremely powerful and easy to use.</li>
-        <li>MATLAB is <term>fast</term>. It is optimized and can solve big problems quickly.</li>
+<section xml:id="what-math-model">
+  <title>What is a Mathematical Model?</title>
+  <p>
+    Engineers use mathematical models <term>all the time</term> to represent physical phenomena. For example, in the last chapter we learned about Hooke’s Law, <m>F=kx</m> for springs, which is a mathematical model. You may have also heard about Ohm’s Law in physics, <m>V=IR</m> for circuits, which is also a mathematical model. There is also Pascal’s Law for fluid pressure, <m>\Delta P =\rho g \Delta H</m>, Stoke’s Law for drag force, <m>F_d = 6\pi \mu R v,</m> and the list goes on and on.
+  </p>
+  <p>
+    The point is that these mathematical models tell us something about the way things actually occur in the real world. Again, returning to Hooke’s Law from the previous chapter, we saw that as we increase the force stretching a spring, the spring will stretch <term>linearly proportional</term> to the force applied. That means if we double the force, the distance the spring will stretch will double. We can intuitively understand this because we have all played with springs, and we can also see this reflected in the mathematical equation that describes the phenomena.
+  </p>
+  <p>
+    Almost all mathematical models will have the following characteristics:
+  </p>
+  <ul>
+        <li>They will take the form of an equation <m> y=</m> something with an <m>x</m>, <m>m</m>, and <m>b</m>.</li>
+        <li><m>y</m> and <m>x</m> are variables of interest.</li>
+        <li><m>b</m> is a constant (keep in mind sometimes it is 0 or 1 meaning it might be invisible)</li>
+        <li><m>m</m> is the “slope”. This will intuitively make sense to you for linear models but you need to keep in mind that the interpretation of slope with the other models will be slightly different.</li>
       </ul>
+    </section>
+    <section xml:id="linear-models">
+      <title>Linear Models</title>
       <p>
-        The list goes on and on but MATLAB is expensive for a reason. The reason is that it is a powerful, easy-to-use software development suite designed for rapid prototyping. Furthermore it was designed specifically for engineers which means the documentation is excellent and tuned toward engineers and the functions available were written with engineers in mind.
+        Linear models are straight lines and take on the form of the equation:
       </p>
- </section>
-  <section xml:id="gui-components">
-    <title>MATLAB GUI</title>
-    <p>
-      When you are first learning MATLAB it may seem easy to ignore the MATLAB graphical user interface (GUI) and just focus on the command window. It is important to learn what each section of the MATLAB GUI does, and how you can use it to your advantage. When you first open MATLAB, you should see something very similar to the default GUI shown below.
-    </p>
-        <figure xml:id="fig_8_2">
-          <caption>The default MATLAB GUI layout.</caption>
-            <image source="chapter_08/fig_2.png" width="70%"> </image>
-    </figure>
-      </section>
-      <section xml:id="command-window">
-        <title>Command Window</title>
-        <figure xml:id="fig_8_3">
-          <caption>The MATLAB Command Window is boxed in red.</caption>
-            <image source="chapter_08/fig_3.png" width="70%"> </image>
-    </figure>
-        <p>
-          The command window provides flexibility to MATLAB and how users interact with your programs. It is the place where you can issue a single line of code to be executed by MATLAB. <term>You can issue any command that is a valid line of MATLAB code.</term> The command window is a unique feature of MATLAB and is an invaluable tool for debugging programs, testing functions, making quick calculations, and more.
-        </p>
-        <p>
-          In your career, you will often use the Command Window for quick calculations or to check your work (in essence turning it into a very expensive calculator). For example, lets say that you are working on a problem and need to convert <term> 15.23 degrees</term> to <term>radians</term>. You remember the conversion factor is <m>\frac{\pi\text{ rad}}{180^\circ}</m>, and when you calculate it by hand you get <m> 15.23 \text{ degrees} = 0.27 \text{ radians}</m>.You want to check your answer in MATLAB and you remember that MATLAB has a built-in function to automatically convert a number from degrees to radians <c>(deg2rad())</c>. So you quickly type the following in the command window (see Example 8.3.2). Voila! You were right. Don’t panic yet! I don’t expect you to know the function <c>deg2rad()</c> yet, I am just showing an example of how to use the command window.
-        </p>
-        
-        <example xml:id="example-deg2rad-conversion">
-    <title>Converting Degrees to Radians</title>
-    <statement>
-        <p>Here is an interactive code box that functions identically to the MATLAB command window.</p>
-<program language="octave" interactive="activecode" xml:id="prog-8-1" label="prog-8-1">
-
-% These code boxes will be used throughout the upcoming chapters as a way to run code within the textbook.
-% Octave is a free programming language that for your purposes will work the same as MATLAB
-% Hit run to see the output of this degrees to radian function
-
-deg2rad(15.23)
-
-</program>
-</statement>
-</example>
-</section>
-      <section xml:id="current-folder">
-        <title>Current Folder</title>
-        <figure xml:id="fig_8_4">
-            <caption>The Current Folder Path and the Current Folder Browser are boxed in red.</caption>
-              <image source="chapter_08/fig_4.png" width="70%"> </image>
-        </figure>
-        <p>
-          It is very important to organize your files and folders when working with MATLAB. One of the most common problems students have when starting to learn MATLAB is improper file management. They start storing all of their script files, functions, and algorithms inside the same folder. While this works for 2 or 3 files when you have 200 or 300 in the same folder, things get messy. Today is the day to get your digital life organized! I suggest creating a new folder in your documents folder that is named after the name of your course. So if you are taking MECH103: Intro to Mechanical Engineering, name your folder <code>mech103</code> (or something else that makes sense and makes you happy). Then add folders into <term>that</term> folder as appropriate. For example, it might be a good idea to create a folder called <code>assignments</code> that you use to store your assignments into, etc. It is assumed that you understand how and where to store things on a computer.
-        </p>
-        <figure xml:id="fig_8_5">
-            <caption>Example of a Windows File Explorer file management scheme.</caption>
-              <image source="chapter_08/fig_5.png" width="70%"> </image>
-        </figure>
-        <p>
-          You do not need to be an IT Professional to understand MATLAB. But a critical skill is understanding file structures and directories. For example, you should know that the “path” to the folder shown in Figure 8.4.2 above is <code>C:\Users\sbechara\Documents\mech103</code>. If you need a quick refresher on Windows File Structures, try watching the following video to catch up. I personally use GNU/Linux operating systems so when you see screenshots of MATLAB you may notice that the path is a little different (UNIX-like systems such as macOS and Linux use <code>/</code> instead of <code>\</code> and do not have drive letters like <code>C:\</code> or <code>D:\</code>).
-        </p>
-        <figure xml:id="fig-matlab-video">
-          <video youtube="4xS5IOg_nDw"/>
-          <caption>Windows File Structures Review Video</caption>
-        </figure>
-        <p>
-          To illustrate the similarities between MATLAB’s current folder browser and the current folder path to Windows Explorer, see figure 8.4.4 below. In figure 8.4.4, <term>the green boxes indicate the folder path (also sometimes called the current working directory)</term> (note: in figure 8.4.4 Windows truncated and doesn’t show the full path, to see the full path click the &lt;&lt; to the left of Documents) which in this case is <code>C:\Users\sbechara\Documents\mech103\handsonengineering</code>. The <term>red boxes indicate the current folder contents</term>, since the folder is the same we would expect both the Windows File Explorer and MATLAB File Explorer to contain the same files, and they do! The only difference is that MATLAB puts different cute icons to help you quickly understand what your files are. Isn’t that nice? 
-        </p>
-        <figure xml:id="fig_8_6">
-            <caption>Showing the similarities between MATLAB and Windows File Explorer. The green box indicates the folder path and the red box indicates the folder contents.</caption>
-              <image source="chapter_08/fig_6.png" width="70%"> </image>
-        </figure>
-        <p>
-          The next thing to learn is how to navigate your computer’s file system inside MATLAB. <term>You do it the same way that you navigate Windows File Explorer in Windows or Finder in macOS.</term> The problem here is that there are a ton of options. I encourage you to take a small brain workout and try each of these in MATLAB on your own.
-        </p>
-          <ul>
-            <li>You can click inside the path and type in a new path</li>
-            <li>You can double-click the folders displayed in the current folder</li>
-            <li>You can click on the little + symbols to show sub-directories and their contents</li>
-            <li>You can right-click inside the current folder window and add new folders and files</li>
-            <li>More?</li>
-          </ul>
-          <p>
-            I created a video showing me navigating a file system. See Figure 8.4.5 below for an example. Again, <term>do not let this be a substitute for actually trying it on your own!</term>
-          </p>
-           <figure xml:id="fig-matlab-file-video">
-          <video youtube="7dZKGjWnvnE"/>
-          <caption>Examples of MATLAB file and folder organization and manipulation capabilities.</caption>
-        </figure>
-        <p>
-          So the main thing to remember is that the “Current Folder” window in the MATLAB workspace is showing the files in the folder MATLAB is currently working out of. The way to navigate files and folders within MATLAB should be familiar to any Windows, macOS, or Linux user. The keys are to be able to know where you are and what is in the folder you are currently in.
-        </p>
-      
-        <exercise xml:id="ex-matlab-gui">
-<title>Determine the file path</title>
-    <statement>
-        <p>Look at the MATLAB screenshot taken on a Windows computer. What is the user’s current path (also called the current working directory) based on this image?</p>
-
-        <figure xml:id="fig-matlab-gui-question">
-            <image source="chapter_08/question_1.png" width="70%"/>
-            <caption>The MATLAB graphical user interface.</caption>
-        </figure>
-
-        <p>
-            What is the correct file path the user is in?
-        </p>
-    </statement>
-
-    <choices>
-    <choice>
-        <statement>
-            <p><c>C:/Users/sbechara/Documents/MATLAB/</c></p>
-        </statement>
-        <feedback>
-            <p>Incorrect. This path does not include the current folder.</p>
-        </feedback>
-    </choice>
-
-    <choice correct="yes">
-        <statement>
-            <p><c>C:\Users\sbechara\Documents\MATLAB\question</c></p>
-        </statement>
-        <feedback>
-            <p>Correct. This is the current working directory shown in MATLAB.</p>
-        </feedback>
-    </choice>
-
-    <choice>
-        <statement>
-            <p><c>C:/Users/sbechara/Documents/MATLAB/question</c></p>
-        </statement>
-        <feedback>
-            <p>Incorrect. The path format shown in Windows uses backslashes.</p>
-        </feedback>
-    </choice>
-
-    <choice>
-        <statement>
-            <p><c>C:\Users\sbechara\Documents\MATLAB\question\problem1.m</c></p>
-        </statement>
-        <feedback>
-            <p>Incorrect. This is a file, not the current folder.</p>
-        </feedback>
-    </choice>
-
-    <choice>
-        <statement>
-            <p><c>C:\Users\sbechara\Documents\MATLAB\</c></p>
-        </statement>
-        <feedback>
-            <p>Incorrect. This is the parent folder.</p>
-        </feedback>
-    </choice>
-</choices>
-
-</exercise>
-      </section>
-      <section xml:id="workspace">
-        <title>Workspace</title>
-        <figure xml:id="fig_8_7">
-          <caption>The MATLAB Workspace is boxed in red. Currently, it is empty indicating that there are no workspace variables available to the user.</caption>
-            <image source="chapter_08/fig_7.jpeg" width="70%"> </image>
-    </figure>
-    <p>
-      The area labeled “Workspace” and boxed in red above in figure 8.5.1, is the place where MATLAB lets the user know what variables are loaded and available to the user. We will learn about variables below, but for now, you can think of them as a string of letters that can be used to store a number.
-    </p>
-    <figure xml:id="fig_8_8">
-          <caption>Example workspace variables</caption>
-            <image source="chapter_08/fig_8.jpeg" width="70%"> </image>
-    </figure>
-    <p>
-      In figure 8.5.2 to the left, notice that there are workspace variables. In this case, there are 3: “apples” has the value 10 stored in it, “bananas” has the value 20 stored in it, and “pie” has pi stored in it.
-    </p>
-    <p>
-      Again, you will learn later how to create your own variables and use them, but for now, it is just important that you understand how MATLAB displays the information to you about what variables are currently defined and what numbers they contain.
-    </p>
-      </section>
-      <section xml:id="matlab-banner">
-        <title>MATLAB Banner</title>
-        <figure xml:id="fig_8_9">
-          <caption>The MATLAB Banner</caption>
-          <image source="chapter_08/fig_9.jpeg" width="70%"> </image>
-        </figure>
-        <p>
-          The MATLAB banner is the part of the GUI that sits on top of everything else. There are multiple tabs (that will actually change depending on what you are doing) and there are a bunch of buttons with a little descriptive text. Almost all of the buttons are labeled in such a way that it should be pretty obvious as to their function.
-        </p>
-        <p>
-          For example, the “New Variable” button creates a new variable in the workspace. The “Preferences” button opens up a modal dialogue box that contains a whole bunch of options that you can change in MATLAB.
-        </p>
-        <p>
-          Take some time to familiarize yourself with the banner and the buttons located on it (especially the buttons in the “Home” tab). In the next chapters, I will refer to the buttons on the banner so you must know where to look.
-        </p>
-        <p>
-        <heading><term>Try It!</term></heading>
-        </p>
-        <p>
-         Take a second or two to play around with the buttons on the “Home” tab of the banner. You can’t really break anything and it is good to explore them to see what happens. Also, take a second to click through the other available tabs to see what buttons are available on those. A lot of what we will be learning throughout the rest of this book will rely on your ability to find the correct button on the banner so don’t skip this step! 
-        </p>
-      </section>
-      <section xml:id="quick-recap">
-        <title>Quick Recap</title>
-        <p>
-          If you were paying attention, working out your brain muscles, and following along, hopefully now you know:
-          <ul>
-            <li>What the command window is and what it is used for.</li>
-            <li>What the current folder path and current folder browser are, how to navigate your file system using the current folder browser, and know how to add and remove files from your file system using MATLAB.</li>
-            <li>What the Workspace area is for, how to interpret what variables are currently stored in MATLAB, and get a quick idea about the values they contain.</li>
-          </ul>
-        </p>
-        <p>
-          If any of the above three bullet points seem fuzzy to you, please take some time to re-read those sections or seek help elsewhere. From this point forward, it will be assumed that you understand these three areas of the MATLAB GUI and what they are used for.
-        </p>
-      </section>
-       <section xml:id="matlab-calc">
-        <title>MATLAB as a Glorified Calculator</title>
-        <p>
-          Even though we spent the preceding section praising MATLAB for its powerful capabilities we are going to spend the rest of this chapter learning how to use it as a calculator. It is going to seem that this is boring and easy, however, there are key concepts that are easy to miss! To best learn, I recommend that you open MATLAB and practice these concepts in the MATLAB command window.
-        </p>
-        <p>
-          <heading><term>Arithmetic Operators (for Scalar)</term></heading>
-        </p>
-        <p>
-          To use MATLAB as a calculator, we first need to learn what symbols are reserved for use as arithmetic operators. Keep in mind this section only applies to arithmetic performed on <term>scalars</term> (A quantity (such as mass or time) that has a magnitude describable by a real number and no direction. In other words, it is NOT a vector!). Future chapters will cover mathematical operations with vectors. Most of the following operators should seem pretty obvious to you.
-        </p>
-         <figure xml:id="fig_8_10">
-          <caption>The basic MATLAB mathematical operators</caption>
-          <image source="chapter_08/fig_10.jpeg" width="70%"> </image>
-        </figure>
-        <p>
-          Now that we know the symbols, we can execute basic mathematical operations in MATLAB!
-        </p>
-            <statement>
-        <p>Here is an interactive code box for checkpoint 8.8.2</p>
-
-<program language="octave" interactive="activecode" xml:id="prog-8-2" label="prog-8-2">
-
-% Use this code box to calculate the answer to the question below.
-
-</program>
-</statement>
-     <exercise xml:id="matlab-matching">
-
-  <title>Mathematical Operators in MATLAB</title>
-
-    <statement>
-        <p>Match the description of the mathematical operation with the MATLAB command.</p>
-    </statement>
-
-    <matches>
-        <match>
-            <premise>
-                <p>Four plus five</p>
-            </premise>
-            <response>
-                <p><c>4+5</c></p>
-            </response>
-        </match>
-
-        <match>
-            <premise>
-                <p>Three to the power of six</p>
-            </premise>
-            <response>
-                <p><c>3^6</c></p>
-            </response>
-        </match>
-
-        <match>
-            <premise>
-                <p>Fifteen divided by three squared</p>
-            </premise>
-            <response>
-                <p><c>15/3^2</c></p>
-            </response>
-        </match>
-
-        <match>
-            <premise>
-                <p>Six minus seven times eight</p>
-            </premise>
-            <response>
-                <p><c>6-7*8</c></p>
-            </response>
-        </match>
-    </matches>
-</exercise>   
-<p>
-<heading><term>Important Symbols and Commands</term></heading>
-</p>
-<p>
-  As we continue throughout this book, we will be adding to the list of MATLAB commands and reserved symbols. For now, these symbols and commands are the ones that I think are the most important for you to learn.
-</p>
-<figure xml:id="fig_8_11">
-          <caption>Other important MATLAB commands and symbols.</caption>
-          <image source="chapter_08/fig_11.jpeg" width="70%"> </image>
-        </figure>
-        <p>
-          <heading><term>Order of Precedence</term></heading>
-        </p>
-        <p>
-          Analogous to what you learned in previous mathematics courses about <term>order of operations</term> (A lot of you probably learned an acronym like PEMDAS: Parenthesis, Exponents, Multiplication/Division, Addition/Subtraction) MATLAB has a built-in <term>order of precedence</term>. The concept is the same, the order of precedence is built into MATLAB and specifies the order in which mathematical operations will be performed.
-        </p>
-        <p>
-          As we learn new operators (specifically logical and relational) we will be updating this list. For now, the MATLAB Order of Precedence is as follows.
-        </p>
-        <p>
-  <ol>
-    <li>Parentheses</li>
-    <li>Exponentiation</li>
-    <li>Multiplication / Division</li>
-    <li>Addition / Subtraction</li>
-  </ol>
-        </p>
-        <p>
-          <heading><term>Try It!</term></heading>
-        </p>
-        <p>
-          For example, consider if MATLAB were to execute the following two mathematical operations:
-        </p>
-        <p>
-          <c>&gt;&gt; 4 + 6 * 2</c>
-        </p>
-        <p>
-          and
-        </p>
-        <p>
-          <c>&gt;&gt; (4 + 6) * 2</c>
-        </p>
-        <p>
-          In the first instance, based on the order of precedence, the result would be <c>16</c>. Why? MATLAB will evaluate the <c>6 * 2</c> portion of the operation first, as it is higher in order of precedence than addition.
-        </p>
-        <p>
-          In the second instance, the result would be <c>20</c>. In this case, the operations in the parentheses will be evaluated first <c>(4 + 6)</c> and then the result of that will be multiplied by <c>2</c>.
-        </p>
-        <exercise xml:id="order-precedence-fillin" exercise-interactive="fillin">
-           <title>Order of Precedence with Arithmetic</title>
-    <statement>
-        <p>
-            Consider MATLAB evaluating the expression
-            <c>(4 * 4 ^ 2 / 2) + (3 - 34 * 2)</c>.
-            Based on MATLAB's order of precedence, what should the result be?
-        </p>
-        <p>
-            The result should be
-            <fillin answer="-33" mode="number"/>.
-        </p>
-    </statement>
-    <evaluation>
-        <evaluate>
-            <test correct="yes">
-                <numcmp use-answer="yes" tolerance="0.5"/>
-            </test>
-        </evaluate>
-    </evaluation>
-</exercise>
-       </section>
-       <section xml:id="variable-basics">
-        <title>Variable Basics</title>
-        <p>
-        To complete our lesson on how to use MATLAB as a calculator we need to discuss variables. Luckily, assigning variables in MATLAB is very easy and MATLAB is very forgiving with its variable naming rules. To assign a variable, you simply use the <c>=</c> operator. (Note: you don’t need to type in the <c>&gt;&gt;</c>. From now on I will put the <c>&gt;&gt;</c> in when you should type a command into the command window. Notice how the command window prompt in MATLAB is <c>&gt;&gt;</c>.)
-        </p>
-        <p>
-          <c>&gt;&gt; csu=1881;</c>
-        </p>
-        <p>
-          In this case, the variable named <c>csu</c> will be assigned the value <c>1881</c> (recall that the semicolon simply suppresses the output to the command window. Try typing the example into MATLAB yourself with and without the semicolon to see it in action!). At this point, you should notice that a new variable <c>csu</c> has been added to the workspace. Now we can use the variable csu in any mathematical operation.
-        </p>
-        <p>
-          <c>&gt;&gt; csu+19;</c>
-        </p>
-        <p>
-          You should notice that without the semicolon, <c>1900</c> is output to the command window. Sure enough, that is <c>1881 + 19</c>! The other thing to notice is that if you do not specify a variable to store an operation in, MATLAB will default to storing the value in a variable named <c>ans</c>. You can see this in the workspace. The ans variable is OK, but it is not a safe place to store information. MATLAB will overwrite the <c>ans</c> variable every time an operation is performed that does not include an assignment. Let’s re-try that last operation and this time assign the resultant to a new variable called total.
-        </p>
-        <p>
-          <c>&gt;&gt; total = csu+19;</c>
-        </p>
-        <p>
-          When you try this, you should notice a NEW variable named <c>total</c> added to the workspace and that it contains the value <c>1900</c>. If you have been following along, you should have three variables in your workspace; <c>csu</c>, <c>ans</c>, and <c>total</c>.
-        </p>
-        <p>
-          The last thing we should mention about variables is the variable naming rules:
-          <ul>
-            <li>MATLAB variables <term>must start with a letter</term></li>
-            <li>After the first letter, other letters, digits, or underscores can follow. No other characters can be used</li>
-            <li>Variables are case sensitive meaning the variable <c>RAMS</c> and <c>rams</c> are NOT the same</li>
-            <li>This is just a guideline but your variable names should be descriptive of the quantity that they are storing</li>
-          </ul>
-        </p>
-<exercise xml:id="varname-x7">
-  <title>Variable Name Validity</title>
-    <statement>
-        <p>
-            Is the following variable name valid or invalid?
-        </p>
-        <p>
-            <c>&gt;&gt;x7</c>
-        </p>
-    </statement>
-    <choices>
-        <choice>
-            <statement>
-                <p>Invalid</p>
-            </statement>
-            <feedback>
-                <p>
-                    Incorrect. Variable names in MATLAB may contain letters and numbers as long as they begin with a letter.
-                </p>
-            </feedback>
-        </choice>
-        <choice correct="yes">
-            <statement>
-                <p>Valid</p>
-            </statement>
-            <feedback>
-                <p>
-                    Correct! <c>x7</c> is a valid MATLAB variable name because it begins with a letter and contains only letters and numbers.
-                </p>
-            </feedback>
-        </choice>
-    </choices>
-</exercise>
-       </section>
-       <section xml:id="important-functions">
-        <title>Important Functions</title>
-        <p>
-          MATLAB includes thousands of built-in functions that can do calculations for you. That is actually one of the reasons why it is so expensive (it costs a lot of money to pay programmers to make those functions for you!). Functions in MATLAB work very similar to functions in Excel in that you give them some input (typically a number or variable that has a number stored in it) and they return a value based on some calculation. For example, if you wanted to calculate the square root of 16, you could type the following into the command window:
-        </p>
-        <p>
-          <c>&gt;&gt; sqrt(16)</c>
-        </p>
-        <p>
-          In this case, the function is <c>sqrt()</c> and the input is <c>16</c>. When you hit enter you should see that MATLAB spits out:
-        </p>
-        <p>
-          <c>&gt;&gt;</c>
-        </p>
-        <p>
-         <c>ans = 4</c>
-        </p>
-        <p>
-          Which is the square root of 16 (remember to leave off the semi-colon when we want to see the answer displayed in the command window). We could have also stored 16 in a variable and asked for the square root of the variable.
-        </p>
-        <p>
-          <c>&gt;&gt; number=16</c>
-        </p>
-        <p>
-          <c>&gt;&gt; sqrt(number)</c>
-        </p>
-        <p>
-          Will work the exact same way.
-        </p>
-
-<program language="octave" interactive="activecode" xml:id="prog-8-3" label="prog-8-3">
-
-% Here is a code box to try the sqrt() function
-
-% Try entering different numbers and mathematical expressions and see what happens
-
-number = 16;
-
-sqrt(number)
-
-</program>
-<p>
-  We won’t be learning about every MATLAB built-in function available, but here are a few that you may find useful right away. For your brain workout, spend a few minutes looking over table 7.3 below and practicing using those functions. I suggest trying a combination of numbers and variables as input arguments to the function.
-</p>
-<figure xml:id="fig_8_12">
-          <caption>Some important built-in functions that you should be able to use.</caption>
-          <image source="chapter_08/fig_12.jpeg" width="70%"> </image>
-        </figure>
-
-<program language="octave" interactive="activecode" xml:id="prog-8-4" label="prog-8-4">
-% Question 7.5: Degrees or Radians
-% Use this code box to compare the value for sin of 360 radians verus 360 degrees
-
-</program>
-<exercise xml:id="sin-360-comparison">
-  <title>Evaluating <c>sin</c> in MATLAB</title>
-    <statement>
-        <p>
-            Using MATLAB, evaluate <c>sin(360)</c> assuming the angle is measured in radians and then assuming the angle is measured in degrees. Which result is greater?
-        </p>
-    </statement>
-    <choices>
-        <choice correct="yes">
-            <statement>
-                <p>Radians</p>
-            </statement>
-            <feedback>
-                <p>
-                    Correct! MATLAB's <c>sin()</c> function expects radians by default. 
-                    <c>sin(360)</c> is approximately 0.959, while
-                    <c>sind(360)</c> is 0.
-                </p>
-            </feedback>
-        </choice>
-        <choice>
-            <statement>
-                <p>Degrees</p>
-            </statement>
-            <feedback>
-                <p>
-                    Incorrect. <c>sind(360)</c> equals 0, while
-                    <c>sin(360)</c> (with 360 interpreted as radians) is approximately 0.959.
-                </p>
-            </feedback>
-        </choice>
-    </choices>
-</exercise>
-       </section>
-       <section xml:id="get-help">
-        <title>Getting Help</title>
-        <p>
-          As you can probably already tell, there is a <term>lot</term> to learn when you are studying MATLAB. <term>It is not likely that you will remember everything you read about in this book.</term> While the book is and will continue to be a resource for you, I thought it would be useful to point out two tools that can help you when you feel like you are stuck. I recommend that you attempt to seek out help in the following order:
-        </p>
-        <ol>
-          <li>First try: MATLAB Built-In <c>help</c></li>
-          <li>If that doesn’t work, try: Google (<term>dangerous</term>)</li>
-        </ol>
-        <p>
-          Be honest with yourself and remember that we are here to work out our brains! It is OK to seek out help from external resources but you need to make sure that you are <term>learning</term> the material.
-        </p>
-        <p>
-          <heading><term>MATLAB Built-In <c>help</c></term></heading>
-        </p>
-        <p>
-          The MATLAB help documentation is very good and is a good place to start when you are stuck. The only problem is it will only help you if you know what function or command you need help with. For example, if you are confused about how to use the <c>cosd()</c> function you can type in:
-        </p>
-        <p>
-          <c>&gt;&gt; help cosd</c>
-        </p>
-        <p>
-          and MATLAB will display a descriptive help text explaining what the function is and how it works. <term>This is the best way to get help when you are first learning MATLAB.</term> It forces you to think about what you need help with specifically and it doesn’t answer your problem exactly. That is a good thing when you are practicing. It is OK to get a little spot when you are working out, but you don’t want your spotter pulling the bar up for you because then you wouldn’t be working out your muscles! In fact, a good brain workout would be to go into the list of functions above in figure 8.10.1 and read through the help text on each of those functions. Some of the text may be gibberish to you, but it is a good idea to start practicing reading technical documentation now.
-        </p>
-        <p>
-          <heading><term>Using Google For Help</term></heading>
-        </p>
-        <p>
-          If you are stuck and you have read through MATLAB help text and you still need a little extra help, you can usually use google to search for and quickly find an answer to your problem. However, I caution you to do this only in extreme circumstances! This is the equivalent of having your spotter lift the bar for you above. If you are totally maxed out and can’t figure it out, it is OK, but you need to go back a little later and try it again for yourself to make sure you learn how to do it on your own.
-        </p>
-        <p>
-          Another good resource is the <url href="https://www.reddit.com/r/MATLAB/">MATLAB subreddit</url>. If you are not familiar, Reddit is a forum website where users can submit questions and get answers from a community. I actually frequently respond to posts on the MATLAB subreddit so if you post a question there, I might be the one answering it for you!
-        </p>
-        <p>
-          In the end, it is important to remember, that the goal of this book is to work out your brain. I will trust that you will use the internet with discretion, understanding that learning the material is more important than “getting the answer”.
-        </p>
-      </section>
-      <section xml:id="practice">
-        <title>Practice, Practice, Practice!</title>
       <p>
-        At this point, the best thing you can do is play around with MATLAB as a calculator. Do some arithmetic operations, assign some variables, use the semi-colon, omit the semi-colon, try typing in clear to see what happens, etc. DO NOT SKIP THE PLAYING STEP. You can read about these concepts, but if you want to learn you need to see them in practice. The best way to do that? PLAY!
+        <m>y=mx+b</m>
       </p>
-
-<program language="octave" interactive="activecode" xml:id="prog-8-5" label="prog-8-5">
-% Use this code box to mess around with some MATLAB skills you have learned in this textbook
-</program>
-<exercise xml:id="something-new-8" exercise-interactive="shortanswer">
-        <title>Something new?</title>
-        <statement>
-          <p>
-          After messing around with the code box above, talk about three different things you have learned in this chapter. If you were already familiar with MATLAB, talk about a function you did not know existed.
-        </p>
-        <p>
-          If you are familiar with another coding language like Python, compare it to what you have learned about MATLAB so far. What are some similarities? What are some differences?
-        </p>        
+      <figure xml:id="fig_8_3">
+      <caption>An example of what linear models look like when plotted</caption>
+      <image source="chapter_08/fig_3.png" width="70%"> </image>
+    </figure>
+    <p>
+      <heading><term>Example of Linear Model-Hooke's Law</term></heading>
+    </p>
+    <p>
+      Let’s look at Hooke’s Law again: 
+    </p>
+    <p>
+      <m>F=kx</m>
+    </p>
+    <p>
+      recall that <m>F</m> is the force deforming the spring, <m>x</m>is the distance it deforms, and <m>k</m> is a spring constant which is a characteristic of the spring (meaning it does not change). We can trust that this law is true so let’s go ahead and determine what the units of <m>k</m> should be.
+    </p>
+    <p>
+      <heading><term>Stop and Think</term></heading>
+    </p>
+    <p>
+      Remember from our units chapter that we can use dimensional analysis to determine the units of <m>k</m> since we know that for this equation to be true, the dimensions on each side of the equal sign must be equal. It follows that the units must be equal on each side as well. I’ll be honest, I tell you what the units are for <m>k</m> below. You will only be cheating yourself if you skip this quick brain workout.
+    </p>
+    <exercise xml:id="hookes-law-units">
+      <title>Units of k</title>
+  <statement>
+    <p>
+      What should the SI units of <m>k</m> from Hooke's Law be?
+    </p>
+  </statement>
+  <choices>
+    <choice>
+      <statement>
+        <p><m>M</m></p>
       </statement>
-       <response />
-      </exercise>
+      <feedback>
+        <p>Incorrect. Hooke's constant is not measured in units of mass.</p>
+      </feedback>
+    </choice>
+    <choice>
+      <statement>
+        <p><m>\frac{m}{N}</m></p>
+      </statement>
+      <feedback>
+        <p>Incorrect. This is the reciprocal of the correct units.</p>
+      </feedback>
+    </choice>
+    <choice>
+      <statement>
+        <p><m>N \cdot m</m></p>
+      </statement>
+      <feedback>
+        <p>Incorrect. These are units of work or energy, not a spring constant.</p>
+      </feedback>
+    </choice>
+    <choice>
+      <statement>
+        <p><m>N</m></p>
+      </statement>
+      <feedback>
+        <p>Incorrect. Hooke's constant relates force to displacement, so length must appear in the denominator.</p>
+      </feedback>
+    </choice>
+    <choice correct="yes">
+      <statement>
+        <p><m>\frac{N}{m}</m></p>
+      </statement>
+      <feedback>
+        <p>Correct. From Hooke's Law, <m>F = kx</m>, so <m>k = \frac{F}{x}</m>. Since force is measured in newtons and displacement in meters, the SI units of <m>k</m> are <m>\frac{N}{m}</m>.</p>
+      </feedback>
+    </choice>
+  </choices>
+</exercise>
+<p>
+  Hopefully you actually tried this on your own and found that the SI units for <m>k</m> are <m>\frac{N}{m}</m>. If you google search “buying springs” you can see that this specification is always listed for springs that are for sale. It may be in US units (<m>\frac{lbs}{in}</m> …gross) but you get the idea.
+</p>
+</section>
+<section xml:id="how-to-add-trendline">
+  <title>How to Add a Trendline</title>
+    <p>
+      Now, let’s return to the Excel worksheet we were working on in the previous chapter. When we left off, we had a chart with two series plotted on it (we called them <c>Spring 1</c> and <c>Spring 2</c>).
+    </p>
+    <p>
+      We know that these are springs and that they should obey Hooke’s Law so we can use Excel to add a linear trendline which will effectively mathematically model these equations.
+    </p>
+   <figure xml:id="fig_8_4">
+      <caption>Load up the Excel file you saved with this chart.</caption>
+      <image source="chapter_08/fig_4.png" width="70%"> </image>
+    </figure>
+<p>
+  The process for adding a trendline is identical regardless of the mathematical model being used. Let’s see how to add a trendline to our spring data and start with the spring 1 data. The process is also very similar to adding a legend or other chart element so this should be easy for you.
+</p>
+    <p>
+      <term>Step 0:</term> Think! What are we mathematically modeling? What type of trendline will we need to use?
+    </p>
+  <exercise xml:id="hookes-law-trendline">
+      <title>Trendline for Hooke's Law</title>
+  <statement>
+    <p>
+      Hooke's Law is given by <m>F = kx</m>, where <m>F</m> is force, <m>x</m> is displacement, and <m>k</m> is the spring constant.
+    </p>
+    <p>
+      What type of trendline should be used to fit this mathematical model?
+    </p>
+  </statement>
+  <choices>
+    <choice>
+      <statement>
+        <p>Power</p>
+      </statement>
+      <feedback>
+        <p>Incorrect. A power trendline is used for models of the form <m>y=ax^b</m>. Hooke's Law is directly proportional to displacement.</p>
+      </feedback>
+    </choice>
+    <choice correct="yes">
+      <statement>
+        <p>Linear</p>
+      </statement>
+      <feedback>
+        <p>Correct. Hooke's Law, <m>F=kx</m>, is a linear relationship between force and displacement. The slope of the line is the spring constant <m>k</m>.</p>
+      </feedback>
+    </choice>
+    <choice>
+      <statement>
+        <p>Exponential</p>
+      </statement>
+      <feedback>
+        <p>Incorrect. Exponential trendlines are used for relationships where the rate of change increases or decreases exponentially. Hooke's Law is linear.</p>
+      </feedback>
+    </choice>
+  </choices>
+</exercise>
+<p>
+  Now that we have determined what trendline we need, let's look at how to create it in Excel!
+</p>
+<ol>
+  <li>
+    <p>
+      Click on one of the data points for the spring 1 dataset. You can click on any of them within the graph and you should notice that they are all selected. You can tell they are selected because Excel will put little circles around all the data points in the series (Figure 8.2.3)
+    </p>
+    <figure xml:id="fig_8_5">
+      <caption>Example of Spring 1 data series being selected.</caption>
+      <image source="chapter_08/fig_5.png" width="70%"> </image>
+    </figure>
+  </li>
+  <li>
+    <p>
+      Click on our old friend the <c>“Add Chart Element”</c> menu and select the <c>“Trendline”</c> option.
+    </p>
+  </li>
+  <li>
+    <p>
+      In the sub-menu that presents itself, you can choose the type of trendline you want, in this case, it is the <c>“Linear”</c> type. Select the <c>“Linear”</c> option and the trendline should automatically be added to the plot!
+    </p>
+    <figure xml:id="fig_8_6">
+      <caption>What your chart should look like after you add the linear trendline to the spring 1 dataset.</caption>
+      <image source="chapter_08/fig_6.png" width="70%"> </image>
+    </figure>
+  </li>
+  <li>
+    <p>
+     We have the trendline, but we are still missing the mathematical model that represents the line. To get the model, you need to double-click on the actual trendline itself. That will bring up the <c>“Format Trendline”</c> options (a menu should pop up similar to the one to the left in figure 8.2.5). It is here that you can change the trendline type if you need to. 
+    </p>
+  </li>
+  <li>
+    <p>
+      THINK AGAIN. We know this mathematical model should be linear so we don’t need to change that. But should we set the intercept? Does that make sense in this case? Recall: <m> F=kx</m> and <m>y=mx+b</m>. See what I am getting at here? Notice how in Hooke’s Law we are assuming that before the spring has mass added to it, we are expecting it to stretch 0 meters. Does that sound like an intercept?
+    </p>
+    <figure xml:id="fig_8_7">
+      <caption>Format Trendline Options</caption>
+      <image source="chapter_08/fig_7.png" width="70%"> </image>
+    </figure>
+  </li>
+  <li>
+    <p>
+      Yes! Check the <c>“Set Intercept”</c> box and make sure that the value is <m>0</m>. The <c>b = 0</c> in Hooke’s Law so we should set the intercept = 0. Any deviation from that in our mathematical model will be from measurement errors, it would not be representing actual physical phenomena!
+    </p>
+  </li>
+  <li>
+    <p>
+      Click the <c>“Display Equation on the chart”</c> and <c>“Display R-squared value on chart”</c> options. Then close the <c>“Format Trendline”</c> menu.
+    </p>
+  </li>
+</ol>
+    <p>
+      Now you can see the mathematical equation displayed on the graph! Notice that the equation is <m>y=3.1485x</m>. The equation is giving us <m>k</m>, the spring constant! In this case, we can say that the spring constant is: <m>k \approx 3.1</m>
+    </p>
+    <p>
+      Follow the exact same process for the spring 2 data in the Excel spreadsheet. What is the spring constant for spring 2?
+    </p>
+    <p>
+      Hint: make sure that you set the y-intercept = 0 so that you get the same answer I did! Also, round to 1 decimal place. It doesn’t make sense to include those non-significant figures. There is no way our measurements had that much precision.
+    </p>
+    <exercise xml:id="spring2-constant" exercise-interactive="fillin">
+  <title>What about spring 2?</title>
+  <statement>
+    <p>
+      Using the trendline equation for Spring 2, determine the value of the spring constant <m>k</m>.
+    </p>
+    <p>
+      The spring constant for Spring 2 is
+      <fillin answer="10.7" mode="number"/>
+      <m>N/m</m>.
+    </p>
+  </statement>
+  <evaluation>
+    <evaluate>
+      <test correct="yes">
+        <numcmp use-answer="yes" tolerance="0.05"/>
+      </test>
+    </evaluate>
+  </evaluation>
+</exercise>
+<p>
+  A quick video recap of this process is provided below.
+</p>
+<figure xml:id="fig-add-trendline">
+          <video youtube="MCWWXoz9SJs"/>
+          <caption>How to add a trendline to an Excel data series</caption>
+        </figure>
+        <exercise xml:id="real-linear-model" exercise-interactive="shortanswer">
+  <title>Linear Model Real World Examples</title>
+  <statement>
+    <p>
+     Name two other real world examples not mentioned in the book that can be mathematically modeled linearly.
+    </p>
+    <p>
+   What is the relationship between variables that follow a linear mathematical model? You can write your own scenario or use examples you have learned in other classes.
+    </p>
+  </statement>
+  <response />
+</exercise> 
+</section>
+<section xml:id="power-models">
+  <title>Power Models</title>
+  <p>
+    Power models are swoopy lines and take the form of the equation:
+  </p>
+  <p>
+    <m>y=bx^m</m>
+  </p>
+  <figure xml:id="fig_8_8">
+      <caption>Example of two different power models. The blue line has a positive “slope” (m value) and the orange line has a “negative” slope.</caption>
+      <image source="chapter_08/fig_8.png" width="70%"> </image>
+    </figure>
+    <p>
+      There are a few interesting things to note about power models:
+    </p>
+    <ul>
+      <li>
+        <p>
+         When <m>m</m> is positive, the power model has a value of 0 at <m>x=0</m>
+        </p>
+      </li>
+      <li>
+        <p>
+          When <m>m</m> is negative, the power model has a value of <m>\infty</m> at <m>x=0</m>  
+        </p>
+      </li>
+    </ul>
+  <p>
+    <heading><term>Example of a Power Model- Volume of a Sphere</term></heading>
+  </p>
+  <p>
+    There are many examples of power models in engineering but perhaps the one that you are the most familiar with might be geometric functions. For example, consider the volume of a sphere.
+  </p>
+  <p>
+    <m>V=\frac{4}{3} \pi r^3</m>
+  </p>
+  <p> 
+    in this particular example, <m>V</m> and <m>r</m> are the variables and correspond to the volume and radius of the sphere respectively, <m> \frac{4}{3} \pi</m> is the constant, and <m>3</m> (the three in the exponent) is the slope. We can see that if we double the radius, we do not double the volume of the sphere, we increase it by 8 times!
+  </p>
+  <p>
+    If <m>r=1</m>, <m>V= \frac{4}{3} \pi</m>
+  </p>
+  <p>
+    If <m>r=2</m>, <m>V= \frac{4}{3} \pi (2^3) = \frac{32}{3} \pi</m>
+  </p>
+  <p>
+    <heading><term>Fun Fact</term></heading>
+  </p>
+  <p>
+    This is the reason why insects are small and you don’t see human-sized ants running around. Since insects “breathe” by diffusing oxygen through their shell they do not scale up nicely. <url href="https://www.nature.com/news/2003/030120/full/news030120-9.html">Technically, it is a little more complicated</url> than just straight diffusion but the fact is, geometry limits their size. If an ant was two times bigger, it would have about 8 times more volume which is much more difficult to diffuse oxygen!
+  </p>
+  <figure xml:id="fig_8_9">
+      <caption>Don’t worry about him growing to the size of a person anytime soon. Worry about him going extinct.</caption>
+      <image source="chapter_08/fig_9.jpeg" width="70%"> </image>
+    </figure>
+    <p>
+      Identifying the units in this equation is a lot easier. We know that <m>\pi</m> is a dimensionless number, so the only dimensions are on <m>V</m> (<m>L^3</m>) and on the other <m>r^3</m> (<m>L*L*L=L^3</m>) which checks out.
+    </p>
+    <p>
+      Other examples of power models in engineering include but are not limited to:
+    </p>
+    <ul>
+      <li>
+        <p>
+          Kinetic Energy: <m>KE= \frac{1}{2}*m*v^2</m>
+        </p>
+      </li>
+      <li>
+        <p>
+          Ideal gas law: <m>V= \frac{nRT}{P}</m>
+        </p>
+      </li>
+    </ul>
+</section>
+<section xml:id="exponential-models">
+  <title>Exponential Models</title>
+  <p>
+    Exponential models are also swoopy (and hence the reason you need to think to make sure you don’t confuse it for a power model!) and take on the form of the equation:
+  </p>
+  <p>
+    <m>y=be^{mx}</m>
+  </p>
+  <p>
+    Keep in mind that the <m>e</m> in this equation refers to <url href="https://en.wikipedia.org/wiki/E_(mathematical_constant)">the mathematical constant, the base of the natural logarithm</url>. There are a couple of other interesting things to note about exponential models:
+  </p>
+  <ul>
+    <li>
+      <p>
+        The value <m>b</m>is the value at the start of the exponential growth (or decay).
+      </p>
+    </li>
+    <li>
+      <p>
+        The <m>m</m> is called the rate of growth.
+      </p>
+    </li>
+    <li>
+      <p>
+        When <m>m</m> is positive, the model is <url href="https://www.mathsisfun.com/algebra/asymptote.html">asymptotic</url> to 0 for large negative values of <m>x</m>. This scenario is called <term>exponential growth</term>.
+      </p>
+    </li>
+    <li>
+      <p>
+        Conversely, when <m>m</m> is negative, the model is asymptotic to 0 at large positive values of <m>x</m>. This scenario is called <term>exponential decay</term>.
+      </p>
+    </li>
+  </ul>
+  <figure xml:id="fig_8_10">
+      <caption>Examples of exponential models. The blue line has a positive m, the orange line has a negative m.</caption>
+      <image source="chapter_08/fig_10.png" width="70%"> </image>
+    </figure>
+    <p>
+      <heading><term>Example of an Exponential Model- Atmospheric Pressure</term></heading>
+    </p>
+     <figure xml:id="fig_8_11">
+      <caption>It is hard to breathe up there or so I am told. But not just because of all the <url href="https://www.cnn.com/2018/08/05/health/mount-everest-biogas-project/index.html">poop</url>.</caption>
+      <image source="chapter_08/fig_11.jpeg" width="70%"> </image>
+    </figure>
+    <p>
+      The “standard” pressure at sea level is <term> 101,325 Pascals</term>. The reason standard is in quotes is because realistically it varies with the weather, temperature, etc. but that is the number scientists commonly use to calculate things. Furthermore, it is known that atmospheric pressure, if you could provide existing plans, decreases by about 12% for every <term> 1,000 meters</term> that you go up. Intuitively, you can see that this is an example of exponential decay! Furthermore, with a little cleverness, we can create a mathematical model and guess what the pressure should be in Fort Collins, CO (elevation <term> 5,003 feet</term>) and on the top of Mount Elbert, the highest peak in Colorado (elevation <term>14,439 feet</term> or <term>4,041 meters</term>).
+    </p>
+    <p>
+      The elevation of Fort Collins is listed at <term> 5,003 feet</term>. Take a minute to take out a piece of paper, look at your conversion sheet, and convert this elevation to meters. This is a good brain workout review! Don’t skip it!
+    </p>
+    <exercise xml:id="fort-collins-elevation" exercise-interactive="fillin">
+  <title>Unit Practice: Elevation of Fort Collins</title>
+  <statement>
+    <p>
+      Fill in the elevation of Fort Collins in meters.
+    </p>
+    <p>
+      The elevation of Fort Collins is
+      <fillin answer="1525" mode="number"/>
+      meters.
+    </p>
+  </statement>
+  <evaluation>
+    <evaluate>
+      <test correct="yes">
+        <numcmp use-answer="yes" tolerance="2"/>
+      </test>
+    </evaluate>
+  </evaluation>
+</exercise>
+<p>
+  Looking at our model:
+</p>
+<ul>
+  <li>
+    <p>
+      We know that <m>b=101325</m> because that is the pressure at sea level in Pa and the <m>b</m> is the value of what we are modeling before the decay.
+    </p>
+  </li>
+  <li>
+    <p>
+      We know <m>y</m> is our pressure in Pascals and <m>x</m> is the distance above sea level in meters.
+    </p>
+  </li>
+  <li>
+    <p>
+      We know that at <m>x=1000</m>, <m>y</m> is <m>12</m>% less than at sea level. We can use this to figure out what <m>m</m> is equal to!
+    </p>
+  </li>
+</ul>
+<p>
+   <m>12</m>% of <m>101325</m> is <m>12,159</m>. That means that <m>y(1000)=1010325-12159=89166</m>. This implies that the pressure at 1000 meters is 89,166 Pascals. Make sure you can follow this logic!
+</p>
+<p>
+  Plugging in everything we know to solve <m>m</m>: 
+</p>
+<p>
+  <m>89166=101325e^{1000m}</m>
+</p>
+<p>
+  Solving for <m>m</m>:
+</p>
+<p>
+  <m>m=\frac{ln(0.88)}{1000}</m>
+</p>
+<p>
+  Now our mathematical model becomes:
+</p>
+<p>
+  <m>y=101325e^{\frac{ln(0.88)}{1000}x}</m>
+</p>
+<p>
+   and we can use this to calculate the expected atmospheric pressure on the top of Mount Elbert!
+</p>
+<p>
+  <heading><term>Atmospheric Pressure on the top of Mount Elbert</term></heading>
+</p>
+<p>
+  <m>x=4401</m>
+  <m>y==101325e^{\frac{ln(0.88)}{1000}4401}=57727\,Pa</m>
+</p>
+<p>
+  You can validate for yourself with a quick google search that this is a pretty accurate model!
+</p>
+<p>
+  Using the mathematical model we just developed for atmospheric pressure, what is the predicted atmospheric pressure in Fort Collins, Colorado?
+</p>
+<exercise xml:id="fort-collins-pressure" exercise-interactive="fillin">
+  <title> Atmospheric Pressure in Fort Collins</title>
+  <statement>
+    <p>
+      Fill in the predicted atmospheric pressure of Fort Collins, Colorado. Enter your answer as a whole number.
+    </p>
+    <p>
+      The predicted atmospheric pressure is
+      <fillin answer="83378" mode="number"/>
+      Pa.
+    </p>
+  </statement>
+  <evaluation>
+    <evaluate>
+      <test correct="yes">
+        <numcmp use-answer="yes" tolerance="0.5"/>
+      </test>
+    </evaluate>
+  </evaluation>
+</exercise>
+</section>
+<section xml:id="end-item">
+  <title>End of Chapter Quiz</title>
+  <p>
+    Please complete the end of chapter quiz.
+  </p>
+  <exercise xml:id="chapter-mantra" exercise-interactive="fillin">
+  <title>Chapter Mantra</title>
+  <statement>
+    <p>
+      Fill in the mantra of this chapter.
+    </p>
+    <p>
+      Think
+      <fillin name="blank1" answer="twice" mode="string"/>,
+      model
+      <fillin name="blank2" answer="once" mode="string"/>.
+    </p>
+  </statement>
+  <evaluation>
+    <evaluate name="blank1">
+      <test correct="yes">
+        <strcmp use-answer="yes" case="insensitive"/>
+      </test>
+    </evaluate>
+    <evaluate name="blank2">
+      <test correct="yes">
+        <strcmp use-answer="yes" case="insensitive"/>
+      </test>
+    </evaluate>
+  </evaluation>
+</exercise>
 </section>
 </chapter>

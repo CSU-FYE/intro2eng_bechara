@@ -1,540 +1,180 @@
 <?xml version="1.0" encoding="UTF-8"?>
 
 <chapter xml:id="Chapter_07" xmlns:xi="http://www.w3.org/2001/XInclude">
-  <title>Mathematical Models</title>
+  <title>Thinking Algorithmically</title>
 
   <introduction>
-    <figure xml:id="fig_7_1">
-      <caption>Mathematical models are just math ways of talking about natural phenomena.</caption>
-      <image source="chapter_07/fig_1.jpeg" width="70%"> </image>
+    <figure xml:id="fig-7-1">
+      <caption>Think algorithmic thoughts.</caption>
+      <image source="chapter_07/fig_1.png" width="70%"> </image>
     </figure>
     <p>
-      The last thing we will cover about Excel is how to select a trendline type and what that actually means. It would be better to phrase that as “how to select the correct mathematical model”. <term>Mathematical modeling</term> is the process of using math to represent real-world phenomena. The reason the second terminology is better is because it correctly expresses the <term>thinking</term> that you must do to select a correct model. Before we jump into the different types of mathematical models (and associated trendlines) that you are expected to learn, we need to have a quick word on <term>thinking</term>.
+      Professional engineers are well known for their ability to solve complex problems. Throughout the rest of this book, we will continue to learn how to use MATLAB as a tool to solve problems. However, before we jump back into MATLAB syntax and usage, it is important to remember the end goal: <term>to learn how to solve problems algorithmically.</term>
     </p>
     <p>
-      The emphasis of this chapter will be on thinking. You need to think before you choose a model type. We will also learn how to:
+      In the spirit of learning how to think algorithmically, in this chapter you will be presented with material that will help you start to <term>think</term> like a computer. The key to it all is to remember that computers are really, really, really, dumb.
+    </p>
+    <p>
+      In this chapter, we will take a break from MATLAB to learn how to think algorithmically. That means we will explore the following:
     </p>
     <objectives>
       <ul>
-        <li>Explain what a model is and how it is used</li>
-        <li>Recognize how to identify a linear, power, or exponential function</li>
-        <li>Identify whether an equation represents a linear, power, or exponential model</li>
-        <li>Determine the physical meaning and units of parameters of a linear, power, and exponential function.</li>
-      </ul>
+      <li>
+        <p>
+          How to approach solutions to problems
+        </p>
+      </li>
+      <li>
+        <p>
+          What an algorithm is
+        </p>
+      </li>
+      <li>
+        <p>
+          Where algorithms arise in everyday life and in engineering contexts
+        </p>
+      </li>
+      <li>
+        <p>
+          How to “think algorithmically”
+        </p>
+      </li>
+      <li>
+        <p>
+          How to write pseudocode
+        </p>
+      </li>
+      <li>
+        <p>
+          How to create flowcharts
+        </p>
+      </li>
+    </ul>
     </objectives>
-    <p>
-      <heading><term>Think Twice, Model Once</term></heading>
-    </p>
-    <p>
-      There is an old saying in carpentry that you should measure twice and cut once. The idea is that you can’t un-cut a piece of wood so you better be sure you are cutting it correctly. While this analogy doesn’t perfectly translate to mathematical modeling (you could technically re-run the model), the reality is that once you choose your model and think it is good enough, it is unlikely you will re-scrutinize it.
-    </p>
-    <figure xml:id="fig_7_2">
-      <caption>Think twice, model once!</caption>
+    
+  </introduction>
+<section xml:id="eight-am-attendance">
+  <title>The 8 AM Attendance Problem</title>
+  <p>
+    Getting to a class that is held early in the morning is a problem that some college freshmen and professors can relate to. Although, we professors typically complain about it much less (<term>and some of us, myself included, even enjoy early classes!</term>). Based on the attendance of classes I have taught at 8 AM, <term>it really is a problem that doesn’t have a definite solution yet!</term> There are a ton of things that you need to do, to solve the problem of attending class at 8 AM. First, you have to start by waking up at a specific time that is often earlier than the time you are accustomed to waking up at. Presumably, your solution to this problem will look similar to my solution. Certain details may be different but you get the idea.
+  </p>
+  <figure xml:id="fig-7-2">
+      <caption><url href="https://lifehacker.com/why-you-should-stop-using-your-phone-to-wake-up-and-buy-1789840303">PSA - Science says you shouldn’t use your phone as an alarm clock!</url></caption>
       <image source="chapter_07/fig_2.jpeg" width="70%"> </image>
     </figure>
     <p>
-      The danger with mathematical modeling is that sometimes your data may <term>look</term> like they fit a certain type of model so you select that trendline type and move on. It is easier that way and uses less brain power. Humans are all lazy, and in fact, our laziness has led to some of our greatest inventions! However, your laziness can get the best of you when it comes to mathematical modeling.
+      <term>Professor's Solution- Speech</term>
     </p>
     <p>
-      You need to <term>think</term> about what you would expect the model would be off on your understanding of the underlying physics before you model it. What I am trying to convey is that you <term>think</term>, then choose your trendline type later. <term>Think twice, model once</term> will be our trendline selection mantra! Now that we have that out of the way, let’s look at the different model types that we will consider: linear, power, and exponential.
+      I wake up using a cheap digital alarm clock I have on my bedside table set for 6 AM. It cost me about $4 and as a bonus, I avoid the temptation to check my smartphone before I go to bed. I found that I sleep better that way. I am not really a “snooze” guy, so I just pop up out of bed as soon as the alarm goes off. I take a shower, appreciating the clean, reliable, hot water, being delivered to my wall. If only my ancestors could imagine such luxury, such magnificence! Next, I check the weather on the internet, then put on some weather-appropriate clothing for bike riding. I hop on my bike and ride towards Colorado State University. I am fortunate that my commuting route doubles as a scenic route. It travels through an area of Fort Collins known for its beautiful turn-of-the-century houses and great, big, old, happy, trees. As I pedal through Old Town, I remind myself how lucky I am to live in a city with drivers that are educated on bicycle safety and are respectful to riders. I arrive at CSU, lock my bike, and get to class at 7:50 am.
     </p>
-  </introduction>
-<section xml:id="what-math-model">
-  <title>What is a Mathematical Model?</title>
-  <p>
-    Engineers use mathematical models <term>all the time</term> to represent physical phenomena. For example, in the last chapter we learned about Hooke’s Law, <m>F=kx</m> for springs, which is a mathematical model. You may have also heard about Ohm’s Law in physics, <m>V=IR</m> for circuits, which is also a mathematical model. There is also Pascal’s Law for fluid pressure, <m>\Delta P =\rho g \Delta H</m>, Stoke’s Law for drag force, <m>F_d = 6\pi \mu R v,</m> and the list goes on and on.
-  </p>
-  <p>
-    The point is that these mathematical models tell us something about the way things actually occur in the real world. Again, returning to Hooke’s Law from the previous chapter, we saw that as we increase the force stretching a spring, the spring will stretch <term>linearly proportional</term> to the force applied. That means if we double the force, the distance the spring will stretch will double. We can intuitively understand this because we have all played with springs, and we can also see this reflected in the mathematical equation that describes the phenomena.
-  </p>
-  <p>
-    Almost all mathematical models will have the following characteristics:
-  </p>
-  <ul>
-        <li>They will take the form of an equation <m> y=</m> something with an <m>x</m>, <m>m</m>, and <m>b</m>.</li>
-        <li><m>y</m> and <m>x</m> are variables of interest.</li>
-        <li><m>b</m> is a constant (keep in mind sometimes it is 0 or 1 meaning it might be invisible)</li>
-        <li><m>m</m> is the “slope”. This will intuitively make sense to you for linear models but you need to keep in mind that the interpretation of slope with the other models will be slightly different.</li>
-      </ul>
-    </section>
-    <section xml:id="linear-models">
-      <title>Linear Models</title>
-      <p>
-        Linear models are straight lines and take on the form of the equation:
-      </p>
-      <p>
-        <m>y=mx+b</m>
-      </p>
-      <figure xml:id="fig_7_3">
-      <caption>An example of what linear models look like when plotted</caption>
-      <image source="chapter_07/fig_3.png" width="70%"> </image>
-    </figure>
-    <p>
-      <heading><term>Example of Linear Model-Hooke's Law</term></heading>
-    </p>
-    <p>
-      Let’s look at Hooke’s Law again: 
-    </p>
-    <p>
-      <m>F=kx</m>
-    </p>
-    <p>
-      recall that <m>F</m> is the force deforming the spring, <m>x</m>is the distance it deforms, and <m>k</m> is a spring constant which is a characteristic of the spring (meaning it does not change). We can trust that this law is true so let’s go ahead and determine what the units of <m>k</m> should be.
-    </p>
-    <p>
-      <heading><term>Stop and Think</term></heading>
-    </p>
-    <p>
-      Remember from our units chapter that we can use dimensional analysis to determine the units of <m>k</m> since we know that for this equation to be true, the dimensions on each side of the equal sign must be equal. It follows that the units must be equal on each side as well. I’ll be honest, I tell you what the units are for <m>k</m> below. You will only be cheating yourself if you skip this quick brain workout.
-    </p>
-    <exercise xml:id="hookes-law-units">
-      <title>Units of k</title>
+  <exercise xml:id="attending-class-algorithm" exercise-interactive="shortanswer">
+
+  <title>Your 8 AM Algorithm</title>
+
   <statement>
     <p>
-      What should the SI units of <m>k</m> from Hooke's Law be?
+      What are the individual steps you take to solve the problem of attending class and arriving on time for lectures?
+    </p>
+
+    <p>
+      Feel free to describe as much or as little as you would like, but be sure to list your solution as a sequence of step-by-step instructions, similar to the examples in this chapter.
+    </p>
+
+    <p>
+      List the steps you take to get to class on time.
     </p>
   </statement>
-  <choices>
-    <choice>
-      <statement>
-        <p><m>M</m></p>
-      </statement>
-      <feedback>
-        <p>Incorrect. Hooke's constant is not measured in units of mass.</p>
-      </feedback>
-    </choice>
-    <choice>
-      <statement>
-        <p><m>\frac{m}{N}</m></p>
-      </statement>
-      <feedback>
-        <p>Incorrect. This is the reciprocal of the correct units.</p>
-      </feedback>
-    </choice>
-    <choice>
-      <statement>
-        <p><m>N \cdot m</m></p>
-      </statement>
-      <feedback>
-        <p>Incorrect. These are units of work or energy, not a spring constant.</p>
-      </feedback>
-    </choice>
-    <choice>
-      <statement>
-        <p><m>N</m></p>
-      </statement>
-      <feedback>
-        <p>Incorrect. Hooke's constant relates force to displacement, so length must appear in the denominator.</p>
-      </feedback>
-    </choice>
-    <choice correct="yes">
-      <statement>
-        <p><m>\frac{N}{m}</m></p>
-      </statement>
-      <feedback>
-        <p>Correct. From Hooke's Law, <m>F = kx</m>, so <m>k = \frac{F}{x}</m>. Since force is measured in newtons and displacement in meters, the SI units of <m>k</m> are <m>\frac{N}{m}</m>.</p>
-      </feedback>
-    </choice>
-  </choices>
-</exercise>
-<p>
-  Hopefully you actually tried this on your own and found that the SI units for <m>k</m> are <m>\frac{N}{m}</m>. If you google search “buying springs” you can see that this specification is always listed for springs that are for sale. It may be in US units (<m>\frac{lbs}{in}</m> …gross) but you get the idea.
-</p>
-</section>
-<section xml:id="how-to-add-trendline">
-  <title>How to Add a Trendline</title>
-    <p>
-      Now, let’s return to the Excel worksheet we were working on in the previous chapter. When we left off, we had a chart with two series plotted on it (we called them <c>Spring 1</c> and <c>Spring 2</c>).
-    </p>
-    <p>
-      We know that these are springs and that they should obey Hooke’s Law so we can use Excel to add a linear trendline which will effectively mathematically model these equations.
-    </p>
-   <figure xml:id="fig_7_4">
-      <caption>Load up the Excel file you saved with this chart.</caption>
-      <image source="chapter_07/fig_4.png" width="70%"> </image>
-    </figure>
-<p>
-  The process for adding a trendline is identical regardless of the mathematical model being used. Let’s see how to add a trendline to our spring data and start with the spring 1 data. The process is also very similar to adding a legend or other chart element so this should be easy for you.
-</p>
-    <p>
-      <term>Step 0:</term> Think! What are we mathematically modeling? What type of trendline will we need to use?
-    </p>
-  <exercise xml:id="hookes-law-trendline">
-      <title>Trendline for Hooke's Law</title>
-  <statement>
-    <p>
-      Hooke's Law is given by <m>F = kx</m>, where <m>F</m> is force, <m>x</m> is displacement, and <m>k</m> is the spring constant.
-    </p>
-    <p>
-      What type of trendline should be used to fit this mathematical model?
-    </p>
-  </statement>
-  <choices>
-    <choice>
-      <statement>
-        <p>Power</p>
-      </statement>
-      <feedback>
-        <p>Incorrect. A power trendline is used for models of the form <m>y=ax^b</m>. Hooke's Law is directly proportional to displacement.</p>
-      </feedback>
-    </choice>
-    <choice correct="yes">
-      <statement>
-        <p>Linear</p>
-      </statement>
-      <feedback>
-        <p>Correct. Hooke's Law, <m>F=kx</m>, is a linear relationship between force and displacement. The slope of the line is the spring constant <m>k</m>.</p>
-      </feedback>
-    </choice>
-    <choice>
-      <statement>
-        <p>Exponential</p>
-      </statement>
-      <feedback>
-        <p>Incorrect. Exponential trendlines are used for relationships where the rate of change increases or decreases exponentially. Hooke's Law is linear.</p>
-      </feedback>
-    </choice>
-  </choices>
-</exercise>
-<p>
-  Now that we have determined what trendline we need, let's look at how to create it in Excel!
-</p>
-<ol>
-  <li>
-    <p>
-      Click on one of the data points for the spring 1 dataset. You can click on any of them within the graph and you should notice that they are all selected. You can tell they are selected because Excel will put little circles around all the data points in the series (Figure 7.2.3)
-    </p>
-    <figure xml:id="fig_7_5">
-      <caption>Example of Spring 1 data series being selected.</caption>
-      <image source="chapter_07/fig_5.png" width="70%"> </image>
-    </figure>
-  </li>
-  <li>
-    <p>
-      Click on our old friend the <c>“Add Chart Element”</c> menu and select the <c>“Trendline”</c> option.
-    </p>
-  </li>
-  <li>
-    <p>
-      In the sub-menu that presents itself, you can choose the type of trendline you want, in this case, it is the <c>“Linear”</c> type. Select the <c>“Linear”</c> option and the trendline should automatically be added to the plot!
-    </p>
-    <figure xml:id="fig_7_6">
-      <caption>What your chart should look like after you add the linear trendline to the spring 1 dataset.</caption>
-      <image source="chapter_07/fig_6.png" width="70%"> </image>
-    </figure>
-  </li>
-  <li>
-    <p>
-     We have the trendline, but we are still missing the mathematical model that represents the line. To get the model, you need to double-click on the actual trendline itself. That will bring up the <c>“Format Trendline”</c> options (a menu should pop up similar to the one to the left in figure 7.2.5). It is here that you can change the trendline type if you need to. 
-    </p>
-  </li>
-  <li>
-    <p>
-      THINK AGAIN. We know this mathematical model should be linear so we don’t need to change that. But should we set the intercept? Does that make sense in this case? Recall: <m> F=kx</m> and <m>y=mx+b</m>. See what I am getting at here? Notice how in Hooke’s Law we are assuming that before the spring has mass added to it, we are expecting it to stretch 0 meters. Does that sound like an intercept?
-    </p>
-    <figure xml:id="fig_7_7">
-      <caption>Format Trendline Options</caption>
-      <image source="chapter_07/fig_7.png" width="70%"> </image>
-    </figure>
-  </li>
-  <li>
-    <p>
-      Yes! Check the <c>“Set Intercept”</c> box and make sure that the value is <m>0</m>. The <c>b = 0</c> in Hooke’s Law so we should set the intercept = 0. Any deviation from that in our mathematical model will be from measurement errors, it would not be representing actual physical phenomena!
-    </p>
-  </li>
-  <li>
-    <p>
-      Click the <c>“Display Equation on the chart”</c> and <c>“Display R-squared value on chart”</c> options. Then close the <c>“Format Trendline”</c> menu.
-    </p>
-  </li>
-</ol>
-    <p>
-      Now you can see the mathematical equation displayed on the graph! Notice that the equation is <m>y=3.1485x</m>. The equation is giving us <m>k</m>, the spring constant! In this case, we can say that the spring constant is: <m>k \approx 3.1</m>
-    </p>
-    <p>
-      Follow the exact same process for the spring 2 data in the Excel spreadsheet. What is the spring constant for spring 2?
-    </p>
-    <p>
-      Hint: make sure that you set the y-intercept = 0 so that you get the same answer I did! Also, round to 1 decimal place. It doesn’t make sense to include those non-significant figures. There is no way our measurements had that much precision.
-    </p>
-    <exercise xml:id="spring2-constant" exercise-interactive="fillin">
-  <title>What about spring 2?</title>
-  <statement>
-    <p>
-      Using the trendline equation for Spring 2, determine the value of the spring constant <m>k</m>.
-    </p>
-    <p>
-      The spring constant for Spring 2 is
-      <fillin answer="10.7" mode="number"/>
-      <m>N/m</m>.
-    </p>
-  </statement>
-  <evaluation>
-    <evaluate>
-      <test correct="yes">
-        <numcmp use-answer="yes" tolerance="0.05"/>
-      </test>
-    </evaluate>
-  </evaluation>
-</exercise>
-<p>
-  A quick video recap of this process is provided below.
-</p>
-<figure xml:id="fig-add-trendline">
-          <video youtube="MCWWXoz9SJs"/>
-          <caption>How to add a trendline to an Excel data series</caption>
-        </figure>
-        <exercise xml:id="real-linear-model" exercise-interactive="shortanswer">
-  <title>Linear Model Real World Examples</title>
-  <statement>
-    <p>
-     Name two other real world examples not mentioned in the book that can be mathematically modeled linearly.
-    </p>
-    <p>
-   What is the relationship between variables that follow a linear mathematical model? You can write your own scenario or use examples you have learned in other classes.
-    </p>
-  </statement>
+
   <response />
-</exercise> 
+
+</exercise>
+<p>
+  Congratulations you just wrote out an algorithm! You just authored a list of step-by-step instructions to solve a problem. That is what an algorithm is!
+</p>
+<p>
+  <term>An algorithm is a set of instructions for solving a problem, step-by-step.</term>
+</p>
+<p>
+  Millions of algorithms are present in our everyday life, it is just not common for us to acknowledge them as such. When we bake, we follow recipes that are just baking algorithms. That one is obvious but there are many more examples! When you are buying groceries you automatically gravitate towards the checkout line that <term>appears</term> as if it will take the least amount of time. Think about how complicated <term>that</term> algorithm is. You would likely prefer to be behind two people with three items each than one person with 50 items. Most of the algorithms that humans follow are just outside of our conscious thought so we don’t realize that they are there even though our human algorithms govern almost every decision we make and every action we take.
+</p>
 </section>
-<section xml:id="power-models">
-  <title>Power Models</title>
+<section xml:id="write-algorithms">
+  <title>How to write algorithms people (or computers) can actually follow</title>
   <p>
-    Power models are swoopy lines and take the form of the equation:
+    Part of learning how to be a professional engineer is learning how to do things efficiently, in a way that is repeatable by others. It is important that if you solve a unique problem, that others don’t need to solve it all over again.
   </p>
   <p>
-    <m>y=bx^m</m>
-  </p>
-  <figure xml:id="fig_7_8">
-      <caption>Example of two different power models. The blue line has a positive “slope” (m value) and the orange line has a “negative” slope.</caption>
-      <image source="chapter_07/fig_8.png" width="70%"> </image>
-    </figure>
-    <p>
-      There are a few interesting things to note about power models:
-    </p>
-    <ul>
-      <li>
-        <p>
-         When <m>m</m> is positive, the power model has a value of 0 at <m>x=0</m>
-        </p>
-      </li>
-      <li>
-        <p>
-          When <m>m</m> is negative, the power model has a value of <m>\infty</m> at <m>x=0</m>  
-        </p>
-      </li>
-    </ul>
-  <p>
-    <heading><term>Example of a Power Model- Volume of a Sphere</term></heading>
+    Now, if I wanted to describe to someone my solution to the 8 AM attendance problem, I could write it out as I did above (see Professor’s Solution). However, there are some language flourishes that are unnecessary, take up space, and <term>do not contribute to your understanding of how I arrive at the solution.</term> If we strip those away, it then becomes clear that there are a lot of details that are missing. For example, if you wanted to copy my solution exactly, you may wonder what types of clothes I wear and when I wear them. Also, you may wonder if I ride my bike to work in all weather conditions. Do I ever drive? Etc.
   </p>
   <p>
-    There are many examples of power models in engineering but perhaps the one that you are the most familiar with might be geometric functions. For example, consider the volume of a sphere.
+    For your algorithms to be usable by other people, <term>the algorithm needs to be as specific as possible.</term> You need to write algorithms down in such a way that a computer (sometimes, but less often, a human) can follow the steps to complete the solution. It is important to write your algorithms so that <term>nothing is implied!</term> To make sure I am writing my algorithms appropriately, I pretend that I am writing them for a really, really, dumb person. Even though we say things with computers are “smart” (i.e. smartphones), in reality, computers are shockingly dumb. They are just really <term>fast</term> which we can confuse as smart. For now, when crafting algorithms, remember to be as specific as you possibly can.
   </p>
   <p>
-    <m>V=\frac{4}{3} \pi r^3</m>
-  </p>
-  <p> 
-    in this particular example, <m>V</m> and <m>r</m> are the variables and correspond to the volume and radius of the sphere respectively, <m> \frac{4}{3} \pi</m> is the constant, and <m>3</m> (the three in the exponent) is the slope. We can see that if we double the radius, we do not double the volume of the sphere, we increase it by 8 times!
+    <term>It is important to write your algorithms so that nothing is implied!</term>
   </p>
   <p>
-    If <m>r=1</m>, <m>V= \frac{4}{3} \pi</m>
+    Let’s break down the Professor’s Solution to the problem as an ordered list of instructions that should be followed step-by-step:
   </p>
   <p>
-    If <m>r=2</m>, <m>V= \frac{4}{3} \pi (2^3) = \frac{32}{3} \pi</m>
+    <term>Professor's Solution- Algorithm</term>
   </p>
   <p>
-    <heading><term>Fun Fact</term></heading>
+    Below, is the Professor’s Solution to the 8 AM attendance problem.
   </p>
   <p>
-    This is the reason why insects are small and you don’t see human-sized ants running around. Since insects “breathe” by diffusing oxygen through their shell they do not scale up nicely. <url href="https://www.nature.com/news/2003/030120/full/news030120-9.html">Technically, it is a little more complicated</url> than just straight diffusion but the fact is, geometry limits their size. If an ant was two times bigger, it would have about 8 times more volume which is much more difficult to diffuse oxygen!
-  </p>
-  <figure xml:id="fig_7_9">
-      <caption>Don’t worry about him growing to the size of a person anytime soon. Worry about him going extinct.</caption>
-      <image source="chapter_07/fig_9.jpeg" width="70%"> </image>
-    </figure>
-    <p>
-      Identifying the units in this equation is a lot easier. We know that <m>\pi</m> is a dimensionless number, so the only dimensions are on <m>V</m> (<m>L^3</m>) and on the other <m>r^3</m> (<m>L*L*L=L^3</m>) which checks out.
-    </p>
-    <p>
-      Other examples of power models in engineering include but are not limited to:
-    </p>
-    <ul>
-      <li>
-        <p>
-          Kinetic Energy: <m>KE= \frac{1}{2}*m*v^2</m>
-        </p>
-      </li>
-      <li>
-        <p>
-          Ideal gas law: <m>V= \frac{nRT}{P}</m>
-        </p>
-      </li>
-    </ul>
-</section>
-<section xml:id="exponential-models">
-  <title>Exponential Models</title>
-  <p>
-    Exponential models are also swoopy (and hence the reason you need to think to make sure you don’t confuse it for a power model!) and take on the form of the equation:
-  </p>
-  <p>
-    <m>y=be^{mx}</m>
-  </p>
-  <p>
-    Keep in mind that the <m>e</m> in this equation refers to <url href="https://en.wikipedia.org/wiki/E_(mathematical_constant)">the mathematical constant, the base of the natural logarithm</url>. There are a couple of other interesting things to note about exponential models:
+    Instructions to ensure success when following the algorithm that solves the 8 AM attendance problem:
   </p>
   <ul>
     <li>
       <p>
-        The value <m>b</m>is the value at the start of the exponential growth (or decay).
+        Steps should be read from the top to bottom (line numbers are displayed in yellow to the left)
       </p>
     </li>
     <li>
       <p>
-        The <m>m</m> is called the rate of growth.
+        Follow the instructions on each line to their logical conclusion
       </p>
     </li>
     <li>
       <p>
-        When <m>m</m> is positive, the model is <url href="https://www.mathsisfun.com/algebra/asymptote.html">asymptotic</url> to 0 for large negative values of <m>x</m>. This scenario is called <term>exponential growth</term>.
-      </p>
-    </li>
-    <li>
-      <p>
-        Conversely, when <m>m</m> is negative, the model is asymptotic to 0 at large positive values of <m>x</m>. This scenario is called <term>exponential decay</term>.
+        Either continue <term>one line down</term> OR <term>follow the instruction on line designating skip location</term>
       </p>
     </li>
   </ul>
-  <figure xml:id="fig_7_10">
-      <caption>Examples of exponential models. The blue line has a positive m, the orange line has a negative m.</caption>
-      <image source="chapter_07/fig_10.png" width="70%"> </image>
+  <figure xml:id="fig-7-3">
+      <caption>Professor’s solution to the 8 AM problem.</caption>
+      <image source="chapter_07/fig_3.png" width="70%"> </image>
     </figure>
-    <p>
-      <heading><term>Example of an Exponential Model- Atmospheric Pressure</term></heading>
-    </p>
-     <figure xml:id="fig_7_11">
-      <caption>It is hard to breathe up there or so I am told. But not just because of all the <url href="https://www.cnn.com/2018/08/05/health/mount-everest-biogas-project/index.html">poop</url>.</caption>
-      <image source="chapter_07/fig_11.jpeg" width="70%"> </image>
-    </figure>
-    <p>
-      The “standard” pressure at sea level is <term> 101,325 Pascals</term>. The reason standard is in quotes is because realistically it varies with the weather, temperature, etc. but that is the number scientists commonly use to calculate things. Furthermore, it is known that atmospheric pressure, if you could provide existing plans, decreases by about 12% for every <term> 1,000 meters</term> that you go up. Intuitively, you can see that this is an example of exponential decay! Furthermore, with a little cleverness, we can create a mathematical model and guess what the pressure should be in Fort Collins, CO (elevation <term> 5,003 feet</term>) and on the top of Mount Elbert, the highest peak in Colorado (elevation <term>14,439 feet</term> or <term>4,041 meters</term>).
-    </p>
-    <p>
-      The elevation of Fort Collins is listed at <term> 5,003 feet</term>. Take a minute to take out a piece of paper, look at your conversion sheet, and convert this elevation to meters. This is a good brain workout review! Don’t skip it!
-    </p>
-    <exercise xml:id="fort-collins-elevation" exercise-interactive="fillin">
-  <title>Unit Practice: Elevation of Fort Collins</title>
+<p>
+  Let’s take a look at line 4:
+</p>
+<p>
+  <c>If forecast >= 70 continue, else go to line 7</c>
+</p>
+<p>
+  Translated from Algorithm-ese into English, that is equivalent to saying:
+</p>
+<p>
+  <term>If</term> the temperature is <term>forecast</term> to be <term>greater than or equal to</term> 70 degrees F, <term>continue</term> to <c>line 8</c> which tells you to wear a t-shirt and shorts. Or <term>else</term> you should consider other clothing options.
+</p>
+<p>
+  Let’s say the forecast indicates it will be 61 degrees today. Therefore when I evaluate my algorithm, the statement <c>If forecast >= 70</c> continue, evaluates to false. It isn’t true, so I shouldn’t follow the instruction. This is where the algorithm following rule. <term>Follow the instructions on each line to their logical conclusion comes into play.</term> Since it is not true that it is 61 degrees, I should follow the else go to <c>line 7</c> bit. So I skip to <c>line 7</c> and am on my merry way.
+</p>
+<exercise xml:id="weather-algorithm-clothing" exercise-interactive="fillin">
+
+  <title>What Should You Wear?</title>
+
   <statement>
     <p>
-      Fill in the elevation of Fort Collins in meters.
+      Let <c>forecast = 56</c>.
     </p>
+
     <p>
-      The elevation of Fort Collins is
-      <fillin answer="1525" mode="number"/>
-      meters.
-    </p>
-  </statement>
-  <evaluation>
-    <evaluate>
-      <test correct="yes">
-        <numcmp use-answer="yes" tolerance="2"/>
-      </test>
-    </evaluate>
-  </evaluation>
-</exercise>
-<p>
-  Looking at our model:
-</p>
-<ul>
-  <li>
-    <p>
-      We know that <m>b=101325</m> because that is the pressure at sea level in Pa and the <m>b</m> is the value of what we are modeling before the decay.
-    </p>
-  </li>
-  <li>
-    <p>
-      We know <m>y</m> is our pressure in Pascals and <m>x</m> is the distance above sea level in meters.
-    </p>
-  </li>
-  <li>
-    <p>
-      We know that at <m>x=1000</m>, <m>y</m> is <m>12</m>% less than at sea level. We can use this to figure out what <m>m</m> is equal to!
-    </p>
-  </li>
-</ul>
-<p>
-   <m>12</m>% of <m>101325</m> is <m>12,159</m>. That means that <m>y(1000)=1010325-12159=89166</m>. This implies that the pressure at 1000 meters is 89,166 Pascals. Make sure you can follow this logic!
-</p>
-<p>
-  Plugging in everything we know to solve <m>m</m>: 
-</p>
-<p>
-  <m>89166=101325e^{1000m}</m>
-</p>
-<p>
-  Solving for <m>m</m>:
-</p>
-<p>
-  <m>m=\frac{ln(0.88)}{1000}</m>
-</p>
-<p>
-  Now our mathematical model becomes:
-</p>
-<p>
-  <m>y=101325e^{\frac{ln(0.88)}{1000}x}</m>
-</p>
-<p>
-   and we can use this to calculate the expected atmospheric pressure on the top of Mount Elbert!
-</p>
-<p>
-  <heading><term>Atmospheric Pressure on the top of Mount Elbert</term></heading>
-</p>
-<p>
-  <m>x=4401</m>
-  <m>y==101325e^{\frac{ln(0.88)}{1000}4401}=57727\,Pa</m>
-</p>
-<p>
-  You can validate for yourself with a quick google search that this is a pretty accurate model!
-</p>
-<p>
-  Using the mathematical model we just developed for atmospheric pressure, what is the predicted atmospheric pressure in Fort Collins, Colorado?
-</p>
-<exercise xml:id="fort-collins-pressure" exercise-interactive="fillin">
-  <title> Atmospheric Pressure in Fort Collins</title>
-  <statement>
-    <p>
-      Fill in the predicted atmospheric pressure of Fort Collins, Colorado. Enter your answer as a whole number.
-    </p>
-    <p>
-      The predicted atmospheric pressure is
-      <fillin answer="83378" mode="number"/>
-      Pa.
-    </p>
-  </statement>
-  <evaluation>
-    <evaluate>
-      <test correct="yes">
-        <numcmp use-answer="yes" tolerance="0.5"/>
-      </test>
-    </evaluate>
-  </evaluation>
-</exercise>
-</section>
-<section xml:id="end-item">
-  <title>End of Chapter Quiz</title>
-  <p>
-    Please complete the end of chapter quiz.
-  </p>
-  <exercise xml:id="chapter-mantra" exercise-interactive="fillin">
-  <title>Chapter Mantra</title>
-  <statement>
-    <p>
-      Fill in the mantra of this chapter.
-    </p>
-    <p>
-      Think
-      <fillin name="blank1" answer="twice" mode="string"/>,
-      model
-      <fillin name="blank2" answer="once" mode="string"/>.
+      The algorithm suggests that you wear
+      <fillin name="blank1" answer="long\s*sleeve shirt" mode="string"/>
+      and
+      <fillin name="blank2" answer="jeans" mode="string"/>.
     </p>
   </statement>
   <evaluation>
@@ -549,6 +189,330 @@
       </test>
     </evaluate>
   </evaluation>
+
+</exercise>
+<p>
+  <term>Bugs</term>
+</p>
+<p>
+  Notice how the steps are written in such a way, <term>that you can not mess them up if you follow the instructions.</term> If you start from the top and follow the instructions, you can’t both ride the bike AND drive the car at the same time. You will not be instructed to wear both a t-shirt and a long sleeve, etc. You may think the way of writing <c>go to line 7</c> is unnecessary because you are smart and can understand that some things are implied. However, it is crucial to ensure that someone following the algorithm does not wear multiple items of clothing if they are dumb.
+</p>
+<p>
+  <term>A bug in your algorithm is an erroneous instruction(s) included in your steps that causes your algorithm to behave in a way you didn’t anticipate</term>
+</p>
+<figure xml:id="fig-7-4">
+      <caption>Always check for bugs in your code.</caption>
+      <image source="chapter_07/fig_4.jpeg" width="70%"> </image>
+    </figure>
+    <p>
+      Remember, it might be useful to you to think about writing algorithms for a very, very, very dumb person. For example, consider the following Professor’s Solution - Algorithm with the following, small, yet critical change (figure 7.2.4 below). Now, read it and pretend that you are exceptionally dumb and just follow the instructions blindly. Furthermore, let’s say that the forecast is 61 degrees F. Before continuing reading the text, look at the picture below and see if you can find the bug.
+    </p>
+    <figure xml:id="fig-7-5">
+      <caption>Can you find the bug?</caption>
+      <image source="chapter_07/fig_5.png" width="70%"> </image>
+    </figure>
+    <p>
+      The dumb person MIGHT start at the top of the list, notice that the forecast is NOT greater than or equal to 70, deduce that the tabs imply that you should only follow the instructions if the preceding statement is true, then skip to line 6 (doubtful, but let’s say that this particular dumb person is having a good day). When the dumb person gets to <c>line 6</c>, they notice that hey, <c>If forecast >= 50</c> is true so they continue and put on a long sleeve shirt and jeans. When they get to <c>line 8</c>, they notice that <c>If forecast >= 30</c> is ALSO true! So they put on a jacket and jeans over the long sleeve shirt and jeans they already have on. <term>That is the bug!</term> We didn’t intend for someone to remember that an algorithm is a step-by-step process that should be written with nothing implied. Wear two pairs of jeans or two tops!
+    </p>
+    <exercise xml:id="restaurant-algorithm-bug">
+
+  <title>Finding the Bug</title>
+
+  <statement>
+    <p>
+      For the next question, consider the following algorithm for determining where to go out to eat with a boyfriend or girlfriend.
+    </p>
+
+    <p>
+      Find the bug in the algorithm and select the line number that contains the error.
+    </p>
+    <image source="chapter_07/fig_6.png" width="70%"> </image>
+  </statement>
+
+  <choices>
+
+    <choice>
+      <statement>
+        <p>Line 1</p>
+      </statement>
+      <feedback>
+        <p>
+          Incorrect. The bug is not on line 1.
+        </p>
+      </feedback>
+    </choice>
+
+    <choice>
+      <statement>
+        <p>Line 3</p>
+      </statement>
+      <feedback>
+        <p>
+          Incorrect. The bug is not on line 3.
+        </p>
+      </feedback>
+    </choice>
+
+    <choice>
+      <statement>
+        <p>Line 5</p>
+      </statement>
+      <feedback>
+        <p>
+          Incorrect. The bug is not on line 5.
+        </p>
+      </feedback>
+    </choice>
+
+    <choice correct="yes">
+      <statement>
+        <p>Line 7</p>
+      </statement>
+      <feedback>
+        <p>
+          Correct. The bug is located on line 7.
+        </p>
+      </feedback>
+    </choice>
+
+    <choice>
+      <statement>
+        <p>Line 9</p>
+      </statement>
+      <feedback>
+        <p>
+          Incorrect. The bug is not on line 9.
+        </p>
+      </feedback>
+    </choice>
+
+  </choices>
+
+</exercise>
+</section>
+<section xml:id="decisions-and-loops">
+  <title>Decisions and Loops</title>
+  <p>
+    Almost always, an algorithm needs to make a decision. We saw that in the 8 am attendance problem solution. The algorithm helped choose clothing based on the variable forecast. As mentioned earlier, computers are fast but really dumb. We can’t just ask a computer what we should wear. We need to be specific in the steps it needs to follow to determine what we wear. Whenever we need to have a computer make a <term>decision</term>, we use an <c>if</c> statement. (e.g. <c>if forecast >= 60</c>)
+  </p>
+  <p>
+    Another thing that computers are really good at is doing boring, repetitive tasks over and over. For example, let’s think about a computer program that assigns people to a military draft. Let’s say that we need to draft 20,000 men into the armed services. We can write a computer program that randomly assigns all eligible men a draft number, then randomly chooses 20,000 numbers. If a human had to do this, it would take a very long time, but a computer can get this done very quickly! Whenever we need a computer to do a task over and over again (aka: <term>loop</term>) we use a <c>for</c> statement.
+  </p>
+  <p>
+    <term>Decisions- <c>if</c> Statements</term>
+  </p>
+  <p>
+    <c>if</c> statements are actually very simple and elegant ways to get computers to make decisions. They work by evaluating some conditional statements. If the statement evaluates to <c>true</c>, you do what follows. Optionally, you can include an <c>else</c> to specify what to do if the if statement evaluates to <term>false</term>.
+  </p>
+  <p>
+    Generically, if statements look like this:
+  </p>
+  <p>
+    <c>If conditions then do</c>
+  </p>
+  <p>
+    <c>sequence 1</c>
+  </p>
+  <p>
+    <c>Else do</c>
+  </p>
+  <p>
+    <c>sequence 2</c>
+  </p>
+  <p>
+    For example, consider line 4 in the pseudocode in figure 7.2.4:
+  </p>
+  <p>
+    <c>If forecast >= 70, continue, else go to line 7.</c>
+  </p>
+  <p>
+    The decision is made based on the conditional statement. If the forecast temperature is greater than or equal to 70 degrees you continue, else you go to line 7. That is the decision! Hopefully, you know and understand how this works, and if you do, you are already thinking algorithmically!
+  </p>
+  <p>
+    Consider that a student designs an algorithm that informs them how much they should be studying each school day for an exam. The algorithm makes a decision about how much the student should study based on how far away the exam is. The student “runs” the algorithm once a day in the morning. Consider that the exam is 9 days away.
+  </p>
+<exercise xml:id="study-time-algorithm">
+
+  <title>Study Time</title>
+
+  <statement>
+    <p>
+      How much time does the student spend studying according to this algorithm?
+    </p>
+    <image source="chapter_07/fig_7.png" width="70%"> </image>
+  </statement>
+
+  <choices>
+
+    <choice>
+      <statement>
+        <p>30 minutes</p>
+      </statement>
+      <feedback>
+        <p>
+          Incorrect. Carefully follow each step of the algorithm and add up the total study time.
+        </p>
+      </feedback>
+    </choice>
+
+    <choice>
+      <statement>
+        <p>15 minutes</p>
+      </statement>
+      <feedback>
+        <p>
+          Incorrect. The student spends more time studying than this.
+        </p>
+      </feedback>
+    </choice>
+
+    <choice correct="yes">
+      <statement>
+        <p>1 hour</p>
+      </statement>
+      <feedback>
+        <p>
+          Correct. Following the algorithm step-by-step shows that the student spends a total of 1 hour studying.
+        </p>
+      </feedback>
+    </choice>
+
+    <choice>
+      <statement>
+        <p>2 hours</p>
+      </statement>
+      <feedback>
+        <p>
+          Incorrect. The total study time is less than 2 hours.
+        </p>
+      </feedback>
+    </choice>
+
+  </choices>
+
+</exercise>
+<p>
+  <term>Loopd- <c>for</c> Statements</term>
+</p>
+<p>
+  <c>for</c> statements allow us to write down repetitive actions algorithmically. Consider the generic <c>for</c> statement to get an idea of how it works:
+</p>
+<p>
+  <c>for number of iterations</c>
+</p>
+<p>
+  <c>sequence repeats a number of iterations</c>
+</p>
+<p>
+  The idea of a <c>for</c> statement is that you already have an idea of how many iterations need to be performed, then you algorithmically define the sequence that is to be performed beneath it. Let’s return to the military drafting example to illustrate this. Consider the algorithm below that assigns all eligible men a draft number, then randomly chooses 20,000 numbers.
+</p>
+ <figure xml:id="fig-7-8">
+      <caption><c>for</c> statement example algorithm</caption>
+      <image source="chapter_07/fig_8.png" width="70%"> </image>
+    </figure>
+    <p>
+      Looking at figure 7.3.2 above, hopefully, you can see why it is called a <term>loop</term>. Starting at the top, we first assign all eligible men a draft number. Let’s say there are 150,000 eligible men, so the next line tells us to set the variable <c>number_eligible</c> to 150,000. On line three we have our <c>for</c> statement and <term>enter the loop</term>. The statement is telling us to start drafting at 1 and continue until 20,000. On line 4 we choose a random number, then on line 5, we draft the person with that number. Now the loop comes into play. Because we are in a <c>for</c> loop, we <term>automatically</term> increment <c>draft</c> by one and continue repeating lines 4 and 5 19,999 more times.
+    </p>
+    <p>
+      I understand that <c>for</c> loops can be tricky. Take some time to think about this section and if you are still confused supplement your reading with the <url href="https://en.wikipedia.org/wiki/For_loop">Wikipedia page on for loops</url>. Don’t skip your brain workouts!
+    </p>
+</section>
+<section xml:id="nested-statements">
+  <title>Nested Statements</title>
+  <p>
+    The last thing we should mention about algorithms is that you can <c>nest</c> statements within each other. For example, look at the following algorithm below in figure 7.4.1.
+  </p>
+  <figure xml:id="fig-7-9">
+      <caption>Example of nesting statements</caption>
+      <image source="chapter_07/fig_9.png" width="70%"> </image>
+    </figure>
+    <p>
+      Notice how we nested a <c>for</c> statement within an <c>if</c> statement. Nesting is a way to allow your algorithms to only loop if certain conditions are met (<c>for</c> within an <c>if</c>), or to make certain decisions a number of times (<c>if</c> within a <c>for</c>).
+    </p>
+    <p>
+      <term>Good Algorithm Checklist</term>
+    </p>
+    <p>
+      All good algorithms have the following characteristics:
+    </p>
+    <ul>
+      <li>
+        <p>
+          Consider the variables that will be used in the algorithm. For example, in the 8 am the solution, the variable was forecast. Thinking about this ahead of time will make writing computer algorithms in MATLAB easier.
+        </p>
+      </li>
+      <li>
+        <p>
+          Check for bugs. To do this it is best to pretend you are <term>really</term> dumb (this can actually be difficult to do). Make sure that the algorithm performs exactly the way that you want it to
+        </p>
+      </li>
+      <li>
+        <p>
+          If there are decisions or loops necessary, make sure that they are written out in such a way that they are easy to read and understand. Only use them if necessary.
+        </p>
+      </li>
+    </ul>
+</section>
+<section xml:id="communicating-algorithms">
+  <title>Communciating Algorithms</title>
+  <p>
+    There are probably other ways to communicate algorithms, but for this class, we will only consider two: pseudocode and flowcharts. I highly recommend getting used to both ways of communicating algorithms as they are often most useful when used in conjunction. I have worked at several engineering companies and I can safely affirm that engineers often use both pseudocode and flowcharts in conjunction.
+  </p>
+  <p>
+    The last thing to note is that there are no <term>rules</term> when it comes to pseudocode or flowcharting there are just guidelines. I once had a student that used to draw elaborate pictures for her “flowcharts”. Elephants meant something I can’t remember, but it was crazy. Her technique worked for her, but it was impossible for anyone else to follow. The guidelines that I will present below are standardized and should be understandable by your professors, tutors, or TAs.
+  </p>
+  <p>
+    <term>Pseudocode</term>
+  </p>
+  <p>
+    Lucky for us we have already seen examples of pseudocode. <term>Pseudocode is just an implementation of an algorithm in plain English.</term> Writing pseudocode can be helpful because you <term>think</term> about how your algorithm will work before you start to worry about programming it. The only real rule for pseudocode is that it needs to describe the logic of the algorithm so that when you go to translate the algorithm into a computer programming language, it is simply a task of changing English to MATLAB.
+  </p>
+  <p>
+    <term>Flowcharting</term>
+  </p>
+  <p>
+    Another common way to write down algorithms is using a flowchart. Before we talk about some general rules for flowcharting, look at the flowchart for the 8 am problem shown below in figure 7.5.1. I think the best way to learn about how to flowchart, is to look at a flowchart and discover its logic on your own.
+  </p>
+   <figure xml:id="fig-7-10">
+      <caption>Flowchart showing solution to the 8 AM Attendance Problem</caption>
+      <image source="chapter_07/fig_10.png" width="70%"> </image>
+    </figure>
+    <p>
+      As you can see, flowcharts are nice because they are pictures with arrows which makes it easy to follow along. Just like your pseudocode, in order for flowcharts to be effective, they need to fully describe the logic of the algorithm. Again, that makes copying the algorithm into MATLAB (or whatever programming language) much easier.
+    </p>
+    <p>
+      There are some generally accepted standards for flowcharting presented below in figure 7.5.2.
+    </p>
+     <figure xml:id="fig-7-11">
+      <caption>Flowchart standards</caption>
+      <image source="chapter_07/fig_11.png" width="70%"> </image>
+    </figure>
+<p>
+  The only real rule with flowcharts is that they are useful to you. Honestly, I prefer flowcharting to pseudocode but in my professional life, I use both to help organize my thoughts and force me to think algorithmically. Whichever you decide to use is a matter of personal taste, but all good engineers <term>will use at least one of these techniques.</term>
+</p>
+<p>
+  Think about an algorithm that only you would know (or very few of your classmates), and explain it “algorithmically” as either a flowchart OR pseudo-code. The only requirement is that it should have some decisions to make and should contain no bugs. My suggestion is to avoid recipes, they are kind of boring and aren’t really unique TO YOU. Perhaps you are a gifted gardener and know exactly how to prune apple trees? Are you into repairing cars and know the best procedure to follow to diagnose and replace an alternator? I am willing to bet that there is something that you know how to do that a lot of your classmates would not understand (it doesn’t matter how nerdy or weird it is).
+</p>
+<exercise xml:id="personal-algorithm" exercise-interactive="shortanswer">
+
+  <title>Your Own Algorithm</title>
+
+  <statement>
+    <p>
+      What is an algorithm you use in everyday life that is unique to you?
+    </p>
+
+    <p>
+      Describe a task or decision-making process that you perform regularly and explain the steps you follow.
+    </p>
+
+    <p>
+      Examples might include choosing what to eat for breakfast, deciding what to wear, planning your day, selecting a parking spot, or organizing your homework.
+    </p>
+  </statement>
+
+  <response />
+
 </exercise>
 </section>
 </chapter>

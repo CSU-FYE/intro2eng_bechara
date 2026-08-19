@@ -1,279 +1,92 @@
 <?xml version="1.0" encoding="UTF-8"?>
 
 <chapter xml:id="Chapter_12" xmlns:xi="http://www.w3.org/2001/XInclude">
-  <title>Relational and Logical Operators</title>
+  <title>MATLAB Plotting</title>
 
   <introduction>
-    <figure xml:id="fig-12-1">
-      <caption>“Give me a lever long enough and a fulcrum on which to place it, and I shall move the world.” - Archimedes " - Sam Bechara</caption>
+   <figure xml:id="fig-12-1">
+      <caption>A picture is worth a thousand words!</caption>
       <image source="chapter_12/fig_1.png" width="70%"> </image>
     </figure>
     <p>
-      This chapter is a little weird. We are going to learn about relational and logical operators but it will seem out of place because we will not learn how to apply them until the next chapter. Eventually, we will use what we learn in this chapter to give our programs the ability to <term>flow</term> and <term>make</term> decisions. Until then, concentrate on learning how these operators work with my promise that it will make more sense why they are important in the coming chapters.
+      Remember, most cliches are cliches because there is a hint of truth in them. For example, the adage “a picture is worth a thousand words” is persistent because graphs and plots are extremely useful at portraying information in a compact manner. MATLAB has robust plotting and graphing capabilities and can generate plots in very few lines of code. Unlike Excel, there is very little in terms of buttons or menus that you have to navigate. Instead with MATLAB, you need to remember a few lines of code but in the end, it is much faster and much more flexible in generating your plots.
     </p>
     <p>
-      Before we jump in, a quick warning on this chapter. It is <term>really easy</term> to skip your brain workouts for this chapter. It is so tempting to type everything into MATLAB to get the answers without thinking. I urge you not to do this! When evaluating relational and logical expressions it is important to understand how they work in order to use them correctly. Be honest, follow along with this text, and be sure to not skip your brain workouts! Without further ado…
+      As I did in Chapter 10, <term>I highly recommend that you create a new script</term> called <c>chapter12_examples.m</c> and save it somewhere that you will remember. When you are following along with this chapter, make notes and comments to that script so that you can refer to it later and what you have learned.
     </p>
     <p>
-      In this chapter, we will learn what the relational and logical operators are and how they work. We will save for <term>why</term> we need them until the next chapter. For now, we will learn:
+      In this chapter, we will learn how to create good plots in MATLAB. We will remember everything we learned in Chapter 6 and in addition will learn:
     </p>
     <objectives>
       <ul>
         <li>
           <p>
-            What the relational and logical operators are and how do they work.
+How to use what we have already learned about arrays to streamline making plots in MATLAB.
           </p>
         </li>
         <li>
           <p>
-            What the order of precedence is and why it matters.
+            How to appropriately label axes, titles, and add legends to our plots.
           </p>
         </li>
         <li>
           <p>
-            How to evaluate statements with mathematical, relational, and logical operators.
+            What does <c>hold on</c> and <c>hold off</c> mean and when and how to use them.
+          </p>
+        </li>
+        <li>
+          <p>
+            How to format our plots with different colors, line styles, and other advanced formatting options.
+          </p>
+        </li>
+        <li>
+          <p>
+            Subplots
+          </p>
+        </li>
+        <li>
+          <p>
+            Histograms
           </p>
         </li>
       </ul>
     </objectives>
   </introduction>
-<section xml:id="relational-operators">
-  <title>Relational Operators</title>
+
+<section xml:id="let-make-plot">
+  <title>Let's Make a Plot!</title>
   <p>
-    Before we can start creating programs that can make decisions we have to learn the framework to have our programs start comparing entities. That is where the relational operators come in. The relational operators look the same as math inequalities and they work in a similar fashion. The difference is, with math you are typically looking to <url href="https://www.mathsisfun.com/algebra/inequality-solving.html">“solve” the inequality</url>, when we use the relational operators, we are simply interested if the operation is <term>True</term> or <term>False</term>.
-  </p>
-  <p>
-    For example, consider the following:
-  </p>
-  <p>
-    <m>7+2>8</m>
-  </p>
-  <p>
-    Does it evaluate to True or False? Well since <m>7+2=9</m> and <m>9>8</m> this particular statement evaluated to True! We will learn how this helps our programs make decisions in the sections below. For now, the important thing is to understand what the relational operators are (figure 12.1.1 below) and how they are used in MATLAB.
+    Remember, the philosophy of this book is that diving in and getting your hands dirty (metaphorically at least) is good for learning! So before we dive into too many details about plotting, let’s consider the case of a real engineering application, the tension test. Don’t worry, we won’t dive into too many of the details as you will learn all this in a later class, just the basics so we do not have to work on a contrived example.
   </p>
   <figure xml:id="fig-12-2">
-      <caption>The Relational Operators</caption>
+      <caption>A typical tensile specimen with labels. The black dots indicate what is called the gauge length (<m>L_0</m>) and the red lines indicate the direction of the applied force (<m>F</m>).</caption>
       <image source="chapter_12/fig_2.png" width="70%"> </image>
     </figure>
-    <p>
-      The relational operators can be used to compare variables, combinations of variables and numbers, or even mathematical operations. The important thing to remember is that when the operation is completed, either <term>True</term> or <term>False</term> comes out.
-    </p>
-    <p>
-      The only ones that might not seem intuitive are <c>==</c> and <c>~=</c> but again, they are very similar. For example, consider the following:
-    </p>
-    <p>
-      <c>4==4</c>
-    </p>
-    <p>
-      Since 4 does in fact equal 4, the preceding statement equals <term>True</term>. Nothing groundbreaking here. Let’s consider one more:
-    </p>
-    <p>
-      <c>4~=4</c>
-    </p>
-    <p>
-      In figure 12.1.1 above you can see that the ~= operator is the not equal operator. In this case, 4 does equal 4 so the statement 4 is not equal to 4 is <term>False</term>.
-    </p>
-</section>
-<section xml:id="true-and-false">
-  <title>True and False</title>
-  <p>
-    We saw above that the relational operations evaluate to either <term>True</term> or <term>False</term>. In computer science <term>True</term> and <term>False</term> are referred to as <url href="https://en.wikipedia.org/wiki/Boolean_data_type">booleans</url>. That isn’t super important to remember for now. Instead, the important thing to learn is that, unlike other programming languages, <term>MATLAB is extremely flexible and allows both True and False to be represented in a number of ways</term>.
-  </p>
-  <p>
-    In MATLAB, the keyword <c>true</c> can be used or the number <c>1</c> can be used to represent <term>True</term>. Similarly, the keyword <c>false</c> and the number <c>0</c> can be used to represent <term>False</term>.
-  </p>
-  <p>
-    <term>Try It!</term>
-  </p>
-  <p>
-    The best way to understand what I am trying to say is to try it yourself. So fire up MATLAB and let’s investigate how the relational operators work. The brain workout part of this is that <term>you should stop and think about what should happen before you run any of the following commands!</term> It will be impossible for anyone to know if you skip this step or not but do not skimp on your brain workouts!
-  </p>
-  <p>
-    To begin, let’s define a few variables in the workspace to work with (we will use them in other examples so it is a good idea to keep them around):
-  </p>
-  <p>
-    <c>tomato=23;</c>
-  </p>
-  <p>
-    <c>cucumber=-12;</c>
-  </p>
-  <p>
-    <c>salmon=7*8;</c>
-  </p>
-  <p>
-    Next, we can use those variables to investigate how the relational operators work. For example, try executing the following operation in the command window. Before you hit enter, what do you <term>think</term> should happen?
-  </p>
-  <example xml:id="try-it-12-1">
-   <title>Logical Example</title>
-    <statement>
-        <p>Here is an interactive code box that functions identically to the MATLAB command window.</p>
-<program language="octave" interactive="activecode" xml:id="prog-12-1" label="prog-12-1">
-% Try It 12.2.1
-tomato = 23;
+<p>
+  The goal of a tensile test is usually to determine the materials <url href="https://en.wikipedia.org/wiki/Elastic_modulus">elastic modulus</url>.
+</p>
+<p>
+  When the tensile specimen is pulled, the material will deform and the initial <m>L_0</m> will increase to a new length <m>L</m>. We call this <term>engineering strain</term> and it is defined as:
+</p>
+<p>
+  <m>\epsilon = \frac{L-L_0}{L_0}</m>
+</p>
+<p>
+  Note that the units for engineering strain are <m>\frac{Length}{Length}</m> which means it is a unit-less quantity! It is just a ratio of the change in the length to the original length of the specimen.
+</p>
+<p>
+  The force used to deform the specimen divided by the specimen’s cross-sectional area is called the <term>engineering stress</term>:
+</p>
+<p>
+  <m>\sigma_{e}=\frac{F}{A_0}</m>
+</p>
+<exercise xml:id="stress-si-unit">
 
-cucumber = -12;
-
-salmon = 7 * 8;
-
-tomato > cucumber
-</program>
-</statement>
-</example>
-  <p>
-  Hopefully, you aren’t jumping ahead and are actually taking a moment to think. In any case, you should notice that MATLAB assigns the automatic variable <c>ans</c> the value of <c>1</c> which is to say that the operation is evaluated as <c>true</c>. That makes sense since tomato is a variable storing the number <c>23</c> and <c>cucumber</c> is storing <c>-12</c>, it is clear that <m>23>-12</m> and we would expect MATLAB to think this is <term>true</term>.
-  </p>
-  <p>
-    We can also <term>assign the output of a relational operation to a variable</term>. To see this in action try:
-  </p>
-  <p>
-    <c>result_1=salmon&lt;tomato</c>
-  </p>
-  <p>
-    Notice that MATLAB creates a new variable in the workspace called <c>result_1</c> and that it is storing the number <c>0</c> which is the same thing as false. That is what we would have expected the following operation to evaluate to.
-  </p>
-  <exercise xml:id="relational-operators-results" exercise-interactive="fillin">
-
-  <title>Output for Relational Operators</title>
+  <title>SI Units for Engineering Stress</title>
 
   <statement>
     <p>
-      For this question, fill in the correct result of the relational operations. Assume that the following variables are already loaded into the workspace:
-    </p>
-
-    <pre>
->> pie = pi*2;
-
->> cake = 5*4;
-
->> pear = -6;
-
->> apple = 20;
-    </pre>
-
-    <p>
-      <c>cake == apple</c>
-      <fillin name="blank1" answer="1" mode="number"/>
-    </p>
-
-    <p>
-      <c>pear &gt; pie</c>
-      <fillin name="blank2" answer="0" mode="number"/>
-    </p>
-
-    <p>
-      <c>apple &lt;= pear</c>
-      <fillin name="blank3" answer="0" mode="number"/>
-    </p>
-
-    <p>
-      <c>pie ~= cake</c>
-      <fillin name="blank4" answer="1" mode="number"/>
-    </p>
-
-  </statement>
-  <evaluation>
-    <evaluate name="blank1">
-      <test correct="yes">
-        <numcmp use-answer="yes" tolerance="0.5"/>
-      </test>
-    </evaluate>
-    <evaluate name="blank2">
-      <test correct="yes">
-        <numcmp use-answer="yes" tolerance="0.5"/>
-      </test>
-    </evaluate>
-    <evaluate name="blank3">
-      <test correct="yes">
-        <numcmp use-answer="yes" tolerance="0.5"/>
-      </test>
-    </evaluate>
-    <evaluate name="blank4">
-      <test correct="yes">
-        <numcmp use-answer="yes" tolerance="0.5"/>
-      </test>
-    </evaluate>
-  </evaluation>
-
-</exercise>
-</section>
-<section xml:id="order-of-precedence">
-  <title>The Order of Precedence</title>
-  <figure xml:id="fig-12-3">
-      <caption>MATLAB operators have to wait for their turn.</caption>
-      <image source="chapter_12/fig_3.jpeg" width="70%"> </image>
-    </figure>
-  <p>
-    There is actually one more important way that we can use relational operators, we can use them in combination with mathematical operators. For example, we COULD perform an operation like this.
-  </p>
-  <example xml:id="try-it-12-2">
-   <title>Order of Operations?</title>
-    <statement>
-        <p>Here is an interactive code box that functions identically to the MATLAB command window.</p>
-<program language="octave" interactive="activecode" xml:id="prog-12-2" label="prog-12-2">
-tomato = 23;
-
-cucumber = -12;
-
-salmon = 7 * 8;
-
-pie = pi * 2;
-
-pie + salmon^2 > tomato * salmon + 2
-</program>
-</statement>
-</example>
-<p>
-  The problem is that we have not discussed <url href="https://www.mathworks.com/help/matlab/matlab_prog/operator-precedence.html">the order of precedence</url> (link is to MATLAB’s description). This is very similar to the mathematical concept of the order of operations. The only difference is that the order of operations does not include the relational or logical operators (we will talk about them later). Just like the order of operations, the order of precedence lets us know what mathematical, relational, and logical operation steps will happen in what order. MATLAB’s order of precedence is presented in figure 12.3.3 below.
-</p>
-<p>
-  You can think about it like the operators are waiting in line to get into a club. The bouncer is going to let everyone in but they don’t all get to come in first come first serve. There is a hierarchy, and that hierarchy is listed in table 12.3.3 below.
-</p>
-  <figure xml:id="fig-12-4">
-      <caption>The MATLAB Order of Precedence</caption>
-      <image source="chapter_12/fig_4.png" width="70%"> </image>
-    </figure>
-    <p>
-      You should note that this is slightly different than what MATLAB presents as the order of precedence, I truncated the <url href="https://www.mathworks.com/help/matlab/matlab_prog/operator-precedence.html">official list</url> down to what we will be using in this book. Let’s take another look at that MATLAB statement we started this section with:
-    </p>
-    <p>
-      <c>pie + salmon^2 > tomato * salmon + 2</c>
-    </p>
-    <p>
-      Now we can see how to apply the order of precedence and evaluate this statement! <term>The best way to solve these types of statements is to reduce according to the order of precedence and then continue.</term> For example:
-    </p>
-    <ol>
-      <li>
-        <p>
-          There are no parenthesis so we can skip that
-        </p>
-      </li>
-      <li>
-        <p>
-          We need to evaluate the power. Since we have <m>salmon^2</m> we can evaluate that first. <c>salmon = 7*8</c> implies that <c>salmon^2</c> = <m>56^2= 3136</m>
-        </p>
-      </li>
-      <li>
-        <p>
-          Now our statement has reduced to: <c>pie + 3136 > tomato * salmon + 2</c> Next on the order of precedence is <c>.*</c>. We have one multiplication operation, <c>tomato * salmon</c> = <m>23*56=1288</m>.
-        </p>
-      </li>
-      <li>
-        <p>
-          Now our statement has reduced to: <c>pie + 3136 > 1288 + 2</c> We now perform the math operations. Recall <c>pie = pi*2</c> which is <m>\approx 6.2832</m>. So… <c>pie + 3136</c> =  <m>6.2832+3136=314.2832</m> and <c>1288 + 2</c> = <m>1230</m>
-        </p>
-      </li>
-      <li>
-        <p>
-          We are almost done. At this point we have: <c>3142.2832 > 1230</c> Lastly, we have a relational operator, &gt;. We are now ready to evaluate it!
-        </p>
-      </li>
-    </ol><exercise xml:id="relational-operation-result">
-
-  <title>Relational Operation Result</title>
-
-  <statement>
-    <p>
-      Continuing with the previous example, what is the result of the relational operation?
+      Remembering what you learned about SI units, what should the SI unit for engineering stress be?
     </p>
   </statement>
 
@@ -281,22 +94,393 @@ pie + salmon^2 > tomato * salmon + 2
 
     <choice>
       <statement>
-        <p>False (0)</p>
+        <p>Newton/Meter</p>
       </statement>
       <feedback>
         <p>
-          Incorrect. Re-evaluate the relational expression from the previous example.
+          Incorrect. Stress is force divided by area, not force divided by length.
+        </p>
+      </feedback>
+    </choice>
+
+    <choice>
+      <statement>
+        <p>Newton</p>
+      </statement>
+      <feedback>
+        <p>
+          Incorrect. Newtons are units of force, while stress is force distributed over an area.
         </p>
       </feedback>
     </choice>
 
     <choice correct="yes">
       <statement>
-        <p>True (1)</p>
+        <p>Pascal</p>
       </statement>
       <feedback>
         <p>
-          Correct. The relational operation evaluates to true, which MATLAB represents as 1.
+          Correct. Engineering stress is defined as force divided by area, giving units of N/m<sup>2</sup>, which is called a Pascal (Pa).
+        </p>
+      </feedback>
+    </choice>
+
+    <choice>
+      <statement>
+        <p>Newton-Meter</p>
+      </statement>
+      <feedback>
+        <p>
+          Incorrect. Newton-meters are units of work or torque, not stress.
+        </p>
+      </feedback>
+    </choice>
+  </choices>
+</exercise>
+<p>
+  You can probably intuit that as the force keeps increasing, the specimen keeps getting pulled further and further apart, and eventually, it will break. But before it breaks if you let go of the force, the material will return to its original shape and size. A property of the material (before it breaks) called elastic modulus can be determined by the ratio of the stress and strain:
+</p>
+<p>
+  <m>E=\frac{/sigma_e}{\epsilon_e}</m>
+</p>
+<p>
+  Since we determined that the units of stress were Pascals, and strain is unitless, the units of elastic modulus are also Pascals.
+</p>
+<p>
+  There is a lot more to learn about elastic modulus and tensile testing but this information should give you enough knowledge to start!
+</p>
+<p>
+<term>Stop and Think</term>
+</p>
+<exercise xml:id="elastic-modulus-importance" exercise-interactive="shortanswer">
+
+  <title>Why is Elastic Modulus Important?</title>
+
+  <statement>
+    <p>
+      Explain why you think the elastic modulus is important.
+    </p>
+
+    <p>
+      Look at the equation to determine a material's elastic modulus. What does each variable separately tell us about the tool? Why does this equation make sense? What is a practical application of this information?
+    </p>
+  </statement>
+  <response />
+</exercise>
+<p>
+  Now that we have that out of the way, let’s do a real-world example of how to plot in MATLAB!
+</p>
+<p>
+  Let’s consider a specimen made of high-density polyethylene (HDPE). The specimen has a round cross-section with a radius of <m>5 \;mm</m> (this implies that the cross-sectional area is  <m>7.854*10^{-5}\;meters^2</m>, make sure you can calculate this on your own! It is good units practice). Consider the following Force <m>N</m> and gauge length <m>L</m> data from a tensile test experiment shown below in figure 12.1.4.
+</p>
+<figure xml:id="fig-12-3">
+      <caption>The results from a tensile test experiment.</caption>
+      <image source="chapter_12/fig_3.png" width="70%"> </image>
+    </figure>
+<p>
+  <term>Try It!</term>
+</p>
+<p>
+  Enter the values of Force in as a vector <c>force</c>, and enter the values for the length in as a vector variable <c>len</c> (Don’t use the variable name <c>‘length’</c> because that will overwrite the built-in function that we learned about the last chapter.) in a new script. Now that we have these in, we need to create vectors called <c>e_stress</c> and <c>e_strain</c> that correspond to the engineering stress and engineering strain respectively. Can you do this on your own? Try before reading on below! Don’t skip your brain workout!
+</p>
+<example xml:id="try-it-11-1">
+   <title>Creating Matricies</title>
+    <statement>
+        <p>Here is an interactive code box that functions identically to the MATLAB command window.</p>
+<program language="octave" interactive="activecode" xml:id="prog-12-1" label="prog-12-1">
+% Try It 11.1.5
+% Create a "force" and "len" variable using the data above.
+
+force =
+
+len = 
+
+% Calculate the stress and strain variables based on the equation listed earlier in the chapter.
+
+e_stress =
+
+e_strain =
+</program>
+</statement>
+</example>
+<p>
+  Your script should look very similar to mine shown below in example 12.1.6:
+</p> 
+<example xml:id="try-it-11-1-sol">
+   <title>Chapter 12 Follow Along</title>
+    <statement>
+        <p>Here is an interactive code box that functions identically to the MATLAB command window.</p>
+<program language="octave" interactive="activecode" xml:id="prog-12-2" label="prog-12-2">
+%% Chapter 12 Follow Along Work
+
+% Define the force vector
+
+force = 0:5000:40000;
+
+% Define the length vector 
+
+len = [25,27,29,31.1,32.9,35,37,39,40.8]/1000;
+
+%Calculate area based off information 
+
+area = pi*0.005^2;
+
+len_0 = 0.025; %inital length
+
+%Calculate stress and strain according to equations
+
+e_stress = force / area;
+
+e_strain = (len-len_0)/len_0;
+</program>
+</statement>
+</example>
+<p>
+  10.3: What your script should look like, or should at least be VERY similar. I took a shortcut on line 7 and typed in the lengths in mm then converted them to meters at the end by dividing by 1000. Sneaky!
+</p>
+<p>
+  Now to the plotting! Since we have arrays <c>e_strain</c> and <c>e_stress</c> already defined in the MATLAB workspace, we simply need to tell MATLAB to plot them! Engineers typically look at stress vs strain plots with strain on the x-axis and stress on the y-axis. To accomplish this in MATLAB, add the following line to your script:
+</p>
+<p>
+  <c>plot(e_strain,e_stress)</c>
+</p>
+<figure xml:id="fig-12-4">
+      <caption>The MATLAB plot of stress vs strain.</caption>
+      <image source="chapter_12/fig_4.png" width="70%"> </image>
+    </figure>
+    <p>
+      When you hit the run button, you should see the following figure pop up (see figure 12.1.7 above). Congratulations! You just plotted in MATLAB! Plotting in MATLAB is really that easy. The line isn’t perfectly straight because experimental data is never perfect. But here we can observe that there is a linear relationship between how much strain the specimen is under and how much it deforms! Just for fun, the slope of this line would be the elastic modulus for HDPE.
+    </p>
+    <p>
+      Now we just need to learn some of the details. For example, the plot in Figure 12.1.17 looks nice but it is missing labels, titles, and legends which we learned in Chapter 6 are important to have. For the next section, I will assume that you have vectors <c>e_stress</c> and <c>e_strain</c> loaded into your workspace so that you can follow along.
+    </p>
+    <p>
+      <term>The <c>plot()</c> function</term>
+    </p>
+    <p>
+      As you have just seen, MATLAB has a built-in <c>plot()</c> function that can accept single or multiple vector inputs. In our example the inputs were <c>e_stress</c> and <c>e_strain</c> but keep in mind they can be <term>any variable that is a vector to generate plots.</term>
+    </p>
+    <p>
+      There are lots of advanced plotting functionalities, to see a comprehensive list of available options, type <c>help plot</c> at the command line and read the help text for the <c>plot()</c> function. <term>Go ahead and take a second to skim through the help text.</term> Don’t skip this step, it will help set up our discussion for the rest of this chapter. The most important section of the help text is displayed below in Figure 12.1.9. In this chapter, the three main options of the <c>plot()</c> function that we will concentrate on will be:
+    </p>
+    <ol>
+      <li>
+        <p>
+          Plot Colors
+        </p>
+      </li>
+      <li>
+        <p>
+          Plot Symbols
+        </p>
+      </li>
+      <li>
+        <p>
+          Plot Lines
+        </p>
+      </li>
+    </ol>
+    <example xml:id="try-it-11-3">
+   <title><c>help</c> Exploration</title>
+    <statement>
+        <p>Here is an interactive code box that functions identically to the MATLAB command window.</p>
+<program language="octave" interactive="activecode" xml:id="prog-12-3" label="prog-12-3">
+% The code boxes in this textbook also have the help function built in.
+% Check it out:
+
+help plot
+</program>
+</statement>
+</example>
+<figure xml:id="fig-12-5">
+      <caption>Example of the <c>plot()</c> help text that is most important for our Chapter.</caption>
+      <image source="chapter_12/fig_5.png" width="70%"> </image>
+    </figure>
+    <p>
+      <term>Plot Colors</term>
+    </p>
+    <p>
+      The default blue color is nice, but MATLAB includes easy-to-use commands to change the colors of your graphs. For example, let’s say we wanted the same plot that we just completed but we want the line to be green. You should have noticed from the help text that there is an <term>optional</term> third input to the <c>plot()</c> function that allows us to change the plot colors.
+    </p>
+    <p>
+      To change the color of your plot to green, simply add the third input to the <c>plot()</c> function as a character string (A character string is surrounded by single quotes. So for the color green, the third input to the function needs to be <c>'g'</c>. So you need to change the line in your script from:
+    </p>
+    <p>
+      <c>plot(e_strain,e_stress);</c> change to
+    </p>
+    <p>
+      <c>plot(e_strain,e_stress,'g');</c>
+    </p>
+    <figure xml:id="fig-12-6">
+      <caption>New green line, and it is so easy and fast!</caption>
+      <image source="chapter_12/fig_6.png" width="70%"> </image>
+    </figure>
+    <p>
+      When you re-run your script, you should notice that the line color has changed to green (Figure 12.1.10)!
+    </p>
+    <p>
+      <term>Try It!</term>
+    </p>
+    <p>
+      Take a moment to play around with some of the different color options to see what they look like. Note (see the help text or Figure 12.1.9 above) that some of the color codes are a little weird. For example, to make the line black, you need to use the character string <c>'k'</c> because <c>'b'</c> is reserved for blue.
+    </p>
+    <example xml:id="try-it-11-4">
+   <title>Plot Color Testing</title>
+    <statement>
+        <p>Here is an interactive code box that functions identically to the MATLAB command window.</p>
+<program language="octave" interactive="activecode" xml:id="prog-12-4" label="prog-12-4">
+% Try It 11.1.11
+
+% Copy your code from the previous exercise but change the graph to plot yellow circles with a dash dot line.
+% Insert code here:
+</program>
+</statement>
+</example>
+<exercise xml:id="plot-format-string" exercise-interactive="fillin">
+
+  <title>Yellow Circle Dashdot</title>
+
+  <statement>
+    <p>
+      Fill in the line of code you wrote to plot yellow circles with a dash-dot line on the graph.
+    </p>
+
+    <p>
+      <c>plot(e_strain, e_stress, '</c>
+      <fillin answer="yo\-\." mode="string"/>
+      <c>')</c>
+    </p>
+  </statement>
+  <evaluation>
+    <evaluate>
+      <test correct="yes">
+        <strcmp use-answer="yes"/>
+      </test>
+    </evaluate>
+  </evaluation>
+</exercise>
+<p>
+  <term>Plot Symbols</term>
+</p>
+<p>
+  When you are displaying experimental data (as we are in this example), scientists and engineers usually prefer to represent each point of data with a symbol. This visual cue tells the reader of the plot that there is no continuity between the points, instead, each point represents a distinct measurement.
+</p>
+<p>
+  So let’s change our plot so that MATLAB displays each point as a magenta pentagram. Looking at the help text in Figure 12.1.9 above we can see that the character string, <c>'m'</c> corresponds to the color magenta and that the character string <c>'p'</c> corresponds to the pentagram symbol.
+</p>
+<p>
+  So to change our plot so that is showing magenta pentagrams we can change the line of our script from:
+</p>
+<p>
+  <c>plot(e_strain,e_stress);</c> change to
+</p>
+<p>
+  <c>plot(e_strain,e_stress,'mp');</c>
+</p>
+<figure xml:id="fig-12-7">
+      <caption>Magenta pentagrams.</caption>
+      <image source="chapter_12/fig_7.png" width="70%"> </image>
+    </figure>
+    <p>
+      Voila! Our plot is now magenta pentagrams!
+    </p>
+<p>
+  Don’t forget to take a moment and play around with some of the other symbol options! Notice that there are a bunch of different triangle options (triangle down, triangle up, etc). Play around with those symbols and see if you can see the difference!
+</p>
+<p>
+  Another thing to notice is that <term>the order of the character strings does not matter</term>. That means that <c>plot(e_strain,e_stress,'mp')</c> works the same as <c>plot(e_strain,e_stress,'pm')</c>!
+</p>
+<p>
+  <term>Plot Lines</term>
+</p>
+<p>
+  The last thing that we need to learn is how to change the plot line. Again, direct your attention to the help text for the plot function (and figure 12.1.9 above). Notice that we can add a character string to create solid, dotted, and other types of lines.
+</p>
+<p>
+  We can do so in the exact same way, by adding a character to the character string. So for this example, let’s say we wanted <term>black</term> (remember, that is character string <c>'k'</c>), <term>left triangle marks</term> connected with a <term>dash-dot line</term>. Just like before we would change the last line of our script:
+</p>
+<p>
+  <c>plot(e_strain,e_stress);</c> change to
+</p>
+<p>
+  <c>plot(e_strain,e_stress,'k&lt;-.');</c>
+</p>
+<figure xml:id="fig-12-8">
+      <caption>Black left arrows connected by a dash-dot line.</caption>
+      <image source="chapter_12/fig_8.png" width="70%"> </image>
+    </figure>
+    <p>
+      And that is all there is to it! Remember, the order of the character strings <term>does not matter</term>. You should also remember that you <term>do not have to memorize these character string codes!</term> Just remember that you can look them up at any time from the command window by typing in
+    </p>
+    <p>
+      <c>help plot</c>
+    </p>
+    <p>
+      <term>Exercise Your Knowledge</term>
+    </p>
+    <exercise xml:id="yellow-diamond-plot">
+
+  <title>Have you been paying attention?</title>
+
+  <statement>
+    <p>
+      Which of the following lines of code would create a plot with each data point represented by yellow diamonds and no line connecting the data points?
+    </p>
+  </statement>
+
+  <choices>
+
+    <choice>
+      <statement>
+        <p><c>plot(e_strain,e_stress,'yellow','diamonds')</c></p>
+      </statement>
+      <feedback>
+        <p>
+          Incorrect. MATLAB uses a compact format string such as <c>'yd'</c> rather than descriptive words.
+        </p>
+      </feedback>
+    </choice>
+
+    <choice correct="yes">
+      <statement>
+        <p><c>plot(e_strain,e_stress,'yd')</c></p>
+      </statement>
+      <feedback>
+        <p>
+          Correct. <c>y</c> specifies yellow and <c>d</c> specifies diamond markers. Since no line style is provided, MATLAB plots only the markers.
+        </p>
+      </feedback>
+    </choice>
+
+    <choice>
+      <statement>
+        <p><c>plot(e_strain,e_stress,'y''d')</c></p>
+      </statement>
+      <feedback>
+        <p>
+          Incorrect. This is not a valid MATLAB format string.
+        </p>
+      </feedback>
+    </choice>
+
+    <choice>
+      <statement>
+        <p><c>plot(e_strain,e_stress,'dy','no-line')</c></p>
+      </statement>
+      <feedback>
+        <p>
+          Incorrect. MATLAB does not use this syntax for marker colors and line styles.
+        </p>
+      </feedback>
+    </choice>
+
+    <choice>
+      <statement>
+        <p><c>plot(e_strain,e_stress,'diamonds','yellow')</c></p>
+      </statement>
+      <feedback>
+        <p>
+          Incorrect. MATLAB does not use descriptive strings such as <c>'diamonds'</c> and <c>'yellow'</c> in the plot format argument.
         </p>
       </feedback>
     </choice>
@@ -305,245 +489,727 @@ pie + salmon^2 > tomato * salmon + 2
 
 </exercise>
 <p>
-  Hopefully, you nailed Question 12.3.4 above. Let’s try one more little brain workout before we move on and discuss the Logical Operators.
+  <term>Example Script File Up to This Point</term>
 </p>
-<exercise xml:id="precedence-fillin" exercise-interactive="fillin">
+<p>
+  Hopefully, you have been following along. This is what my script looks like up to this point. Notice that I commented out the plot commands I wasn’t using (lines 22–24) because they will overwrite each other and it is nice to keep a record of what you did for studying later. You should also notice how my comments make my script easy to read!
+</p>
+<example xml:id="try-it-11-5">
+   <title>Updated Example Code</title>
+    <statement>
+        <p>Here is an interactive code box that functions identically to the MATLAB command window.</p>
+<program language="octave" interactive="activecode" xml:id="prog-12-5" label="prog-12-5">
+%% Chapter 12 Follow Along Work
 
-  <title>Order of Operations and Relational Expressions</title>
+% Define the force vector
+
+force = 0:5000:40000;
+
+% Define the length vector 
+
+len = [25,27,29,31.1,32.9,35,37,39,40.8]/1000;
+
+%Calculate area based off information 
+
+area = pi*0.005^2;
+
+len_0 = 0.025; %inital length
+
+%Calculate stress and strain according to equations
+
+e_stress = force / area;
+
+e_strain = (len-len_0)/len_0;
+
+% plot (e_strain, e_stress) % orginal plot command
+% plot (e_strain, e_stress, 'g') % plot a green line
+% plot (e_strain, e_stress, 'mp--') % plot magenta pentagrams (dashed line)
+plot (e_strain, e_stress, 'k&lt;-.') % plot black left arrows (dashdot line)
+</program>
+</statement>
+</example>
+  </section>
+<section xml:id="multiple-plots">
+  <title>Multiple Plots</title>
+  <p>
+    A lot of the time it is useful to show someone multiple plots. Perhaps you want to compare two materials or show different projections. MATLAB has the capability to plot multiple plots on the same axes or display multiple plots in the same figure. See figure 12.2.1 below for an example.
+  </p>
+  <figure xml:id="fig-12-9">
+      <caption>Examples of the different kinds of multiple plotting you can accomplish in MATLAB.</caption>
+      <image source="chapter_12/fig_9.png" width="70%"> </image>
+    </figure>
+    <p>
+      You should have also noticed that the plots in Figure 12.2.1 above have titles, axes labels, and legends (where appropriate). In the next section of this chapter, we will learn how to accomplish this. For now, let’s concentrate on what we need to learn to do either:
+    </p>
+    <ol>
+      <li>
+        <p>
+         Create two plots on the same axes. 
+        </p>
+      </li>
+      <li>
+        <p>
+          Create multiple plots in the same figure window.
+        </p>
+      </li>
+    </ol>
+    <p>
+      <term>Try It!</term>
+    </p>
+    <p>
+      Before we jump into learning those two points, you should have noticed that I added tensile testing data on Teflon to the charts. To follow along, you will need to do so as well. Go ahead and add a new array called <m>len_teflon</m> to your script with the following values:
+    </p>
+    <p>
+      <c>len_teflon = [25 28.2 31.4 34.5 37.8 40.8 44.1 47.3 50.5]/1000;</c>
+    </p>
+    <p>
+      We will consider the case where the Teflon specimen has the exact same starting dimensions as the HDPE specimen we are using before. We will also test the Teflon under the exact same engineering stresses. With that being said, calculate the engineering stress in an array called <c>e_stress_teflon</c> and the engineering strain in an array called <c>e_strain_teflon</c>. Do not skip ahead to see my solution UNTIL you have tried it yourself!
+    </p>
+    <example xml:id="try-it-11-6">
+   <title>Stress and Strain Calculation</title>
+    <statement>
+        <p>Here is an interactive code box that functions identically to the MATLAB command window.</p>
+<program language="octave" interactive="activecode" xml:id="prog-12-6" label="prog-12-6">
+% Try It 11.2.2
+% Insert your code here:
+len_teflon = [25 28.2 31.4 34.5 37.8 40.8 44.1 47.3 50.5]/1000;
+e_stress_teflon =
+e_strain_teflon =
+</program>
+</statement>
+</example>
+<p>
+  To calculate the engineering stress and engineering strain in Teflon, I added the following 2 lines to my script:
+</p>
+<p>
+  <c>e_stress_teflon = force / area;</c>
+</p>
+<p>
+  <c>e_strain_teflon = (len_teflon-len_0)/len_0;</c>
+</p>
+<p>
+  <term>Create Multiple Plots on the Same Axes</term>
+</p>
+<p>
+  Now that we have two sets of data, we can practice plotting them on the same axes. To do so, you just need to pretend you are a cowboy, and that MATLAB is a horse. So we just need to tell MATLAB “to hold on there partner, I want to plot multiple plots on the same axes”.
+</p>
+<figure xml:id="fig-12-10">
+      <caption>Woah there, partner. Hold on.</caption>
+      <image source="chapter_12/fig_10.jpeg" width="70%"> </image>
+    </figure>
+    <p>
+      I wasn’t kidding! You really just have to add the line <c>hold on</c> to your script! For example, if we wanted to plot the HDPE and Teflon tensile test data on the same axes, we can just type in:
+    </p>
+    <example xml:id="try-it-11-7">
+   <title>Updated Example Code</title>
+    <statement>
+        <p>Here is an interactive code box that functions identically to the MATLAB command window.</p>
+<program language="octave" interactive="activecode" xml:id="prog-12-7" label="prog-12-7">
+%% Chapter 12 Follow Along Work
+
+% Define the force vector
+
+force = 0:5000:40000;
+
+% Define the length vector 
+
+len = [25,27,29,31.1,32.9,35,37,39,40.8]/1000;
+
+%Calculate area based off information 
+
+area = pi*0.005^2;
+
+len_0 = 0.025; %inital length
+
+%Calculate stress and strain according to equations
+
+e_stress = force / area;
+
+e_strain = (len-len_0)/len_0;
+
+% plot (e_strain, e_stress) % orginal plot command
+% plot (e_strain, e_stress, 'g') % plot a green line
+% plot (e_strain, e_stress, 'mp--') % plot magenta pentagrams (dashed line)
+% plot (e_strain, e_stress, 'k&lt;-.') % plot black left arrows (dashdot line)
+plot(e_strain,e_stress,'mp--'); % plot magenta pentagrams (dashed line)
+
+hold on
+
+plot(e_strain_teflon,e_stress_teflon,'g*--');
+
+%any number of plotting commands can go here%
+
+hold off
+</program>
+</statement>
+</example>
+<p>
+  The first line plots the HDPE data as we have done before (make sure you know what <c>'mp--'</c> does!). The second line (<c>hold on</c>) tells MATLAB to wait and plot subsequent plots on the same axes. After you turn <c>hold on</c>, MATLAB will put ALL plots on those axes. Therefore, it is a good idea to turn <c>hold off</c> when you are done in case you need to plot other things, not on the same axes.
+</p>
+<p>
+  Go ahead and try it in your script! Notice how it plots the two plots on the same graph!
+</p>
+<p>
+  <term>Creating Multiple Plots in the Same Window</term>
+</p>
+<p>
+  In this particular example (tensile test data of HDPE and Teflon) it makes the most sense to plot the graphs on the same axes. But for the sake of learning, let’s go ahead and create a new figure window and create multiple plots in the same figure window. To do so, we will need to use the <c>subplot()</c> function.
+</p>
+  <figure xml:id="fig-12-11">
+      <caption>Example of how to use the subplot() function and what m, n, and p should be.</caption>
+      <image source="chapter_12/fig_11.png" width="70%"> </image>
+    </figure>
+    <p>
+      First, take a second and type in <c>help subplot</c> into the command window and read the help text.
+    </p>
+    <p>
+      The trick with a subplot is to follow the following steps <term>before you start coding</term>:
+    </p>
+    <ol>
+      <li>
+        <p>
+          Think about how many plots you need. For this thought experiment, let’s say we need 6 plots.
+        </p>
+      </li>
+      <li>
+        <p>
+          Then think about how you want your plots arranged. It really helps to sketch it out on a little piece of paper (kind of like in figure 12.2.5) to get a good idea. Let’s say for this example we want 2 rows and 3 columns of plots.
+        </p>
+      </li>
+      <li>
+        <p>
+          After you think, you are ready to use the <c>subplot()</c> function.
+        </p>
+      </li>
+    </ol>
+    <p>
+      The <c>subplot(m,n,p)</c> function divides the figure window into <c>m</c>x<c>n</c> rectangular plots. The <c>p</c> indicates the number of the subplot. The subplots are numbered starting at 1 in the upper left corner and increasing in number from left to right. Figure 12.2.5 is illustrating this. For the plot in the upper left corner, the user would type in:
+    </p>
+    <p>
+      <c>subplot(2,3,1)</c>
+    </p>
+    <p>
+      <c>[insert plot command here]</c>
+    </p>
+    <p>
+      Then if the user wanted to plot the next one to the left they would just continue…
+    </p>
+    <p>
+      <c>subplot(2,3,2)</c>
+    </p>
+    <p>
+      <c>[insert plot command here]</c>
+    </p>
+    <p>
+      And so on and so forth.
+    </p>
+    <figure xml:id="fig-12-12">
+      <caption>Example of 6 plots in the same figure using the <c>subplot()</c> command.</caption>
+      <image source="chapter_12/fig_12.png" width="70%"> </image>
+    </figure>
+    <p>
+      <term>Try It!</term>
+    </p>
+    <p>
+      Go ahead and try creating a 2x3 subplot grid with our tensile test data. You can reuse the data, so this IS a contrived example after all! But it is good practice.
+    </p>
+    <figure xml:id="fig-12-13">
+      <caption>My sketch of how I wanted my subplots to look.</caption>
+      <image source="chapter_12/fig_13.jpeg" width="70%"> </image>
+    </figure>
+    <p>
+      I suggest sketching out your plan. Change the colors between each subplot and write them out on paper BEFORE you code to make sure you understand what is going to happen.
+    </p>
+    <p>
+      It is ok to struggle a little bit here! Don’t jump straight to the solution until you try it! Subplots are kind of complicated and not straightforward but you need to practice.
+    </p>
+    <exercise xml:id="subplot-position">
+
+  <title>Subplot Position</title>
 
   <statement>
     <p>
-      In this question, evaluate each MATLAB expression. Assume the following variables are already loaded into the workspace:
+      What is the correct <c>subplot</c> command to plot a graph in the 3rd column of the 2nd row of a six-subplot figure?
     </p>
-
-    <pre>
-cookie = 15;
-brownie = -3;
-chocolate = 26;
-vanilla = 9;
-    </pre>
   </statement>
 
-  <statement>
+  <choices>
 
-    <p>
-      <c>cookie + brownie^3 &lt; chocolate - cookie</c> =
-      <fillin name="blank1" answer="1" mode="number"/>
-    </p>
+    <choice correct="yes">
+      <statement>
+        <p><c>subplot(2,3,6)</c></p>
+      </statement>
+      <feedback>
+        <p>
+          Correct. A 2-by-3 subplot layout has 2 rows and 3 columns. MATLAB numbers the subplots from left to right, top to bottom, making the subplot in the 3rd column of the 2nd row position 6.
+        </p>
+      </feedback>
+    </choice>
 
-    <p>
-      <c>chocolate - (cookie * brownie) / 5 &gt; vanilla * brownie + (chocolate + cookie)</c> =
-      <fillin name="blank2" answer="1" mode="number"/>
-    </p>
+    <choice>
+      <statement>
+        <p><c>subplot(3,2,6)</c></p>
+      </statement>
+      <feedback>
+        <p>
+          Incorrect. This creates a 3-by-2 subplot layout rather than a 2-by-3 layout.
+        </p>
+      </feedback>
+    </choice>
 
-    <p>
-      <c>chocolate - (vanilla * 2) ~= chocolate - cookie + brownie</c> =
-      <fillin name="blank3" answer="0" mode="number"/>
-    </p>
+    <choice>
+      <statement>
+        <p><c>subplot(6,2,3)</c></p>
+      </statement>
+      <feedback>
+        <p>
+          Incorrect. The first two arguments specify the number of rows and columns, not the total number of subplots and columns.
+        </p>
+      </feedback>
+    </choice>
 
-  </statement>
-  <evaluation>
-    <evaluate name="blank1">
-      <test correct="yes">
-        <numcmp use-answer="yes" tolerance="0.5"/>
-      </test>
-    </evaluate>
-    <evaluate name="blank2">
-      <test correct="yes">
-        <numcmp use-answer="yes" tolerance="0.5"/>
-      </test>
-    </evaluate>
-    <evaluate name="blank3">
-      <test correct="yes">
-        <numcmp use-answer="yes" tolerance="0.5"/>
-      </test>
-    </evaluate>
-  </evaluation>
+  </choices>
 
 </exercise>
-</section>
-<section xml:id="logical-operator">
-  <title>Logical Operator</title>
-  <p>
-    The last thing we need to learn before we can start having our programs make decisions is how to combine multiple relational operators together. Although it is jumping a little ahead, let’s consider <term>why</term> we need the logical operators.
-  </p>
-  <p>
-    Consider designing a piece of software that needs to make a decision about a range. For example, I personally ride my bike to work but won’t ride if the forecasted high is above <m>35C</m> or if the forecasted low is below <m>-10C</m>. If I wanted to make an app that could tell me if I should ride my bike to work or not, I would need a program that could determine if: the forecast high is less than <m>35C</m> AND forecast low is greater than <m>-10C</m>. The AND in the previous statement is formatted in code because it represents where we would have included a <c>logical and</c>.
-  </p>
-    <figure xml:id="fig-12-5">
-      <caption>You know who else is into logic? These old boys.</caption>
-      <image source="chapter_12/fig_5.jpeg" width="70%"> </image>
-    </figure>
-    <p>
-      The logical operators give us a way to string together multiple relational statements and get one <term>true</term> or <term>false</term> out. When looking at the order of precedence you may have noticed the three logical operators, shown in figure 12.4.2 below. <term>Take a minute to look at figure 12.4.2 below and read the description of each of the logical operators.</term>
-    </p>
-    <figure xml:id="fig-12-6">
-      <caption>The logical operators</caption>
-      <image source="chapter_12/fig_6.png" width="70%"> </image>
-    </figure>
-    <p>
-      You can see that the logical operators <c>&amp;</c> and <c>|</c> allow us to string together multiple relational operations! Cool! Consider the following MATLAB command:
-    </p>
-    <p>
-    <c>6 >= 7 &amp; 5 >= 6</c>
-    </p>
-    <p>
-      According to the order or precedence, we <term>evaluate the relational operators first.</term> That means that the statement reduces to:
-    </p>
-    <p>
-      <c>false &amp; true</c>
-    </p>
-    <p>
-      Looking up in figure 12.4.2 for the correct way to use the logical operator, we can see that <c>false &amp; true</c> evaluates to <term>false</term>!
-    </p>
-    <p>
-      Logical <c>&amp;</c> is the type A logical operator. It needs <term>all</term> the relational operators to evaluate to true in order to return true. If logical <c>&amp;</c> was a person they would be kind of uptight but would probably be very successful. Only the truest of the true for logical <c>&amp;</c>!
-    </p>
-    <p>
-      Logical <c>|</c> is the cool guy logical operator. If <term>any</term> of the relational operators evaluate to true, it calls the whole thing true. Logical <c>|</c> probably drives a Volkswagen bus and says “rad” a lot. All logical <c>|</c> cares about is at least one truth.
-    </p>
-    <p>
-      In the future, we will see how both <c>&amp;</c> and <c>|</c> are critical to creating complex programs. Just like yin and yang, we need both <c>&amp;</c> and | to make our programs work. Logical <c>&amp;</c> and logical <c>|</c> are a little tricky but once you understand the logic, you will be able to make some cool programs.
-    </p>
-    <exercise xml:id="logical-operator-eval" exercise-interactive="fillin">
+<p>
+  <term>Subplot Solution</term>
+</p>
+<p>
+  To create the 6 subplots shown in Figure 12.2.7 above, this is what I added to my script.
+</p>
+ <example xml:id="try-it-11-10">
+   <title>Subplot Updated Code</title>
+    <statement>
+        <p>Here is an interactive code box that functions identically to the MATLAB command window.</p>
+<program language="octave" interactive="activecode" xml:id="prog-12-8" label="prog-12-8">
+%% Chapter 12 Follow Along Work
 
-  <title>Logical and Relational Operators in MATLAB</title>
+% Define the force vector
+
+force = 0:5000:40000;
+
+% Define the length vector 
+
+len = [25,27,29,31.1,32.9,35,37,39,40.8]/1000;
+
+%Calculate area based off information 
+
+area = pi*0.005^2;
+
+len_0 = 0.025; %inital length
+
+%Calculate stress and strain according to equations
+
+e_stress = force / area;
+
+e_strain = (len-len_0)/len_0;
+
+% plot (e_strain, e_stress) % orginal plot command
+% plot (e_strain, e_stress, 'g') % plot a green line
+% plot (e_strain, e_stress, 'mp--') % plot magenta pentagrams (dashed line)
+% plot (e_strain, e_stress, 'k&lt;-.') % plot black left arrows (dashdot line)
+% plot(e_strain,e_stress,'mp--'); % plot magenta pentagrams (dashed line)
+
+%hold on
+
+%plot(e_strain_teflon,e_stress_teflon,'g*--');
+
+%any number of plotting commands can go here%
+
+%hold off
+
+subplot (2,3,1)
+plot (e_strain, e_stress, 'mp--') 
+
+subplot (2,3,2)
+plot (e_strain, e_stress, 'cp--') 
+
+subplot (2,3,3)
+plot (e_strain, e_stress, 'kp--') 
+
+subplot (2,3,4)
+plot (e_strain, e_stress, 'g*--') 
+
+subplot (2,3,5)
+plot (e_strain, e_stress, 'r*--') 
+
+subplot (2,3,6)
+plot (e_strain, e_stress, 'y*--')
+</program>
+</statement>
+</example>
+</section>
+<section xml:id="title-label-legend">
+  <title>Titles, Labels, and Legends</title>
+  <p>
+    The plots that we have created so far looked good, but they lack the information necessary to make them <term>good plots</term>. Namely, they need axes labels, titles, and legends. Don’t worry! The hardest part of this chapter is done (looking at you SUBPLOT).
+  </p>
+  <p>
+    For now, comment out all of the stuff you have about subplots. We are going to concentrate on the plot with the HDPE and Teflon data on the same axes. If you have been following along, you should have something very similar to figure 12.3.1 below. We are going to start at line 34, just below all this stuff.
+  </p>
+  <figure xml:id="fig-12-14">
+      <caption>Example script of where you need to be. You need to have this and be ready to type on line 34.</caption>
+      <image source="chapter_12/fig_14.png" width="70%"> </image>
+    </figure>
+  <p>
+    When you hit run on the script above, you should get a figure with magenta pentagrams connected by a dotted line and green stars connected by a dotted line on the same axes. Note that the magenta stars are the HDPE data and the green stars are the Teflon data.
+  </p>
+  <p>
+    <term>Adding a Title</term>
+  </p>
+  <p>
+    To add a title to the plot, use the <c>title()</c> function. That is it. The title function accepts a character string input. So if we wanted to create a title for the plot called “Tensile Test Data” we would add a new line to our script that looks like this:
+  </p>
+  <p>
+    <c>title('Tensile Test Data');</c>
+  </p>
+  <p>
+    Go ahead and add that line to your script and re-run it. I told you it was easy! Just remember that the input to the <c>title()</c> function must be a character string which just means it needs <c>'</c> marks surrounding the text.
+  </p>
+  <example xml:id="try-it-11-11">
+   <title>Adding a Title</title>
+    <statement>
+        <p>Here is an interactive code box that functions identically to the MATLAB command window.</p>
+<program language="octave" interactive="activecode" xml:id="prog-12-9" label="prog-12-9">
+% Try it 11.3.2
+% Add a title to the plot
+
+% Define the force vector
+
+force = 0:5000:40000;
+
+% Define the length vector 
+
+len = [25,27,29,31.1,32.9,35,37,39,40.8]/1000;
+
+%Calculate area based off information 
+
+area = pi*0.005^2;
+
+len_0 = 0.025; %inital length
+
+
+%Calculate stress and strain of HDPE according to equations
+
+e_stress = force / area;
+
+e_strain = (len-len_0)/len_0;
+
+%Calculate stress and strain of teflon
+
+len_teflon = [25 28.2 31.4 34.5 37.8 40.8 44.1 47.3 50.5]/1000;
+
+e_stress_teflon = force/area;
+
+e_strain_teflon = (len_teflon-len_0)/len_0;
+
+% Begin Plotting 
+
+% plot (e_strain, e_stress) % orginal plot command
+% plot (e_strain, e_stress, 'g') % plot a green line
+% plot (e_strain, e_stress, 'k&lt;-.') % plot black left arrows (dashdot line)
+
+plot(e_strain,e_stress,'mp--'); % plot magenta pentagrams (dashed line)
+
+hold on
+
+plot(e_strain_teflon,e_stress_teflon,'g*--');
+
+%any number of plotting commands can go here%
+
+hold off
+
+%INSERT TITLE COMMAND HERE%
+</program>
+</statement>
+</example>
+<p>
+  <term>Adding Axes Labels</term>
+</p>
+<p>
+  To add axes labels to the plot, we are going to use the <c>xlabel()</c> and <c>ylabel()</c> functions that correspond to the x-axis and y-axis respectively. Just like with the <c>title()</c> function we need to input the character string. Since in this particular plot the x-axis corresponds to the strain which is unitless and the y-axis corresponds to stress which has units of Pascals, we just need to add the following two lines of code:
+</p>
+  <p>
+    <c>xlabel('Strain (ratio)');</c>
+  </p>
+  <p>
+    <c>ylabel('Stress (Pa)');</c>
+  </p>
+  <p>
+    Add those lines, re-run the script and watch the magic happen!
+  </p>
+  <example xml:id="try-it-11-12">
+   <title>Adding Axis Labels</title>
+    <statement>
+        <p>Here is an interactive code box that functions identically to the MATLAB command window.</p>
+<program language="octave" interactive="activecode" xml:id="prog-12-10" label="prog-12-10">
+% Try it 11.3.2
+% Add a axis labels to the plot
+
+% Define the force vector
+
+force = 0:5000:40000;
+
+% Define the length vector 
+
+len = [25,27,29,31.1,32.9,35,37,39,40.8]/1000;
+
+%Calculate area based off information 
+
+area = pi*0.005^2;
+
+len_0 = 0.025; %inital length
+
+
+%Calculate stress and strain of HDPE according to equations
+
+e_stress = force / area;
+
+e_strain = (len-len_0)/len_0;
+
+%Calculate stress and strain of teflon
+
+len_teflon = [25 28.2 31.4 34.5 37.8 40.8 44.1 47.3 50.5]/1000;
+
+e_stress_teflon = force/area;
+
+e_strain_teflon = (len_teflon-len_0)/len_0;
+
+% Begin Plotting 
+
+% plot (e_strain, e_stress) % orginal plot command
+% plot (e_strain, e_stress, 'g') % plot a green line
+% plot (e_strain, e_stress, 'k&lt;-.') % plot black left arrows (dashdot line)
+
+plot(e_strain,e_stress,'mp--'); % plot magenta pentagrams (dashed line)
+
+hold on
+
+plot(e_strain_teflon,e_stress_teflon,'g*--');
+
+%any number of plotting commands can go here%
+
+hold off
+
+title('Tensile Test Data')
+
+%INSERT X AND Y LABEL HERE
+</program>
+</statement>
+</example>
+<p>
+  <term>Adding a Legend</term>
+</p>
+<p>
+  MATLAB makes creating legends easy, but you <term>have to remember the order in which you plotted your data.</term> In this example, we plotted the HDPE data <term>before</term> the Teflon data. So to add an appropriate legend we would use the <c>legend()</c> command, and then supply character string inputs that correspond to the data. For example:
+</p>
+<p>
+  <c>legend('HDPE','Teflon');</c>
+</p>
+<example xml:id="try-it-11-13">
+   <title>Adding a Legend</title>
+    <statement>
+        <p>Here is an interactive code box that functions identically to the MATLAB command window.</p>
+<program language="octave" interactive="activecode" xml:id="prog-12-11" label="prog-12-11">
+% Try it 11.3.3
+% Add a legend to the plot
+
+% Define the force vector
+
+force = 0:5000:40000;
+
+% Define the length vector 
+
+len = [25,27,29,31.1,32.9,35,37,39,40.8]/1000;
+
+%Calculate area based off information 
+
+area = pi*0.005^2;
+
+len_0 = 0.025; %inital length
+
+
+%Calculate stress and strain of HDPE according to equations
+
+e_stress = force / area;
+
+e_strain = (len-len_0)/len_0;
+
+%Calculate stress and strain of teflon
+
+len_teflon = [25 28.2 31.4 34.5 37.8 40.8 44.1 47.3 50.5]/1000;
+
+e_stress_teflon = force/area;
+
+e_strain_teflon = (len_teflon-len_0)/len_0;
+
+% Begin Plotting 
+
+% plot (e_strain, e_stress) % orginal plot command
+% plot (e_strain, e_stress, 'g') % plot a green line
+% plot (e_strain, e_stress, 'k&lt;-.') % plot black left arrows (dashdot line)
+
+plot(e_strain,e_stress,'mp--'); % plot magenta pentagrams (dashed line)
+
+hold on
+
+plot(e_strain_teflon,e_stress_teflon,'g*--');
+
+%any number of plotting commands can go here%
+
+hold off
+
+title('Tensile Test Data')
+
+xlabel('Strain (ratio)')
+
+ylabel ('Stress (Pa)')
+
+%INSERT LEGEND HERE%
+</program>
+</statement>
+</example>
+<p>
+  Notice that when you add that line to your script and re-run it, you get a nice little legend! Nifty huh? There are some more advanced functionalities to the <c>legend()</c> function that won’t be discussed in this book. But if you are interested type in <c>help legend</c> and check out some of the other features!
+</p>
+<figure xml:id="fig-12-15">
+      <caption>Sadly, this legend cannot be created in MATLAB.</caption>
+      <image source="chapter_12/fig_15.jpeg" width="70%"> </image>
+    </figure>
+<p>
+  <term>The Final Script</term>
+</p>
+<p>
+  If you have been following along, this is what your final script should look like. Keep in mind the subplot stuff is commented out below. If I were you, I wouldn’t delete it!
+</p>
+<example xml:id="try-it-11-14">
+   <title>Final Script</title>
+    <statement>
+        <p>Here is an interactive code box that functions identically to the MATLAB command window.</p>
+<program language="octave" interactive="activecode" xml:id="prog-12-12" label="prog-12-12">
+% My Final Script
+
+% Define the force vector
+
+force = 0:5000:40000;
+
+% Define the length vector 
+
+len = [25,27,29,31.1,32.9,35,37,39,40.8]/1000;
+
+%Calculate area based off information 
+
+area = pi*0.005^2;
+
+len_0 = 0.025; %inital length
+
+
+%Calculate stress and strain of HDPE according to equations
+
+e_stress = force / area;
+
+e_strain = (len-len_0)/len_0;
+
+%Calculate stress and strain of teflon
+
+len_teflon = [25 28.2 31.4 34.5 37.8 40.8 44.1 47.3 50.5]/1000;
+
+e_stress_teflon = force/area;
+
+e_strain_teflon = (len_teflon-len_0)/len_0;
+
+% Begin Plotting 
+
+% plot (e_strain, e_stress) % orginal plot command
+% plot (e_strain, e_stress, 'g') % plot a green line
+% plot (e_strain, e_stress, 'k&lt;-.') % plot black left arrows (dashdot line)
+
+plot(e_strain,e_stress,'mp--'); % plot magenta pentagrams (dashed line)
+
+hold on
+
+plot(e_strain_teflon,e_stress_teflon,'g*--');
+
+%any number of plotting commands can go here%
+
+hold off
+
+title('Tensile Test Data')
+
+xlabel('Strain (ratio)')
+
+ylabel ('Stress (Pa)')
+
+legend('HDPE','Teflon')
+</program>
+</statement>
+</example>
+</section>
+<section xml:id="plot-func">
+  <title>Plotting Functions</title>
+  <p>
+    Once you have mastered plotting in MATLAB plotting functions is actually very easy. For example, lets make a simple plot of <m>y=x^3-x^2</m> from <m>x=0.5</m> to <m>x=2</m>.
+  </p>
+  <p>
+    In the previous chapter, there was an example that showed us how to evaluate a function at different values. The key was to first, create an array of ( x ) values, then mathematically evaluate those ( x ) values with the mathematical function of interest. We will do the same thing here. In your script, type:
+  </p>
+  <p>
+    <c>x = -0.5:0.01:2;</c>
+  </p>
+  <p>
+    <c>y = x.^3 - x.^2;</c>
+  </p>
+  <p>
+    <term>Notes: We choose an increment of 0.01 so that the graph looks “smooth”. What we are really doing is creating a non-smooth graph but since the increment is so small, it appears smooth. Also, remember, we need the <c>.^</c> because we are performing exponentiation on the ( x ) array.</term>
+  </p>
+  <p>
+    Now, lets plot ( x ) versus ( y ).
+  </p>
+  <exercise xml:id="plot-x-versus-y" exercise-interactive="fillin">
+
+  <title>Plot x Versus y</title>
 
   <statement>
     <p>
-      Consider the following MATLAB expression:
-    </p>
-
-    <pre>
-4*4 &gt; 16 | 2 == 2
-    </pre>
-
-    <p>
-      Paying special attention to operator precedence and logical operations, what does this expression evaluate to?
+      Type in the MATLAB command to plot <c>x</c> versus <c>y</c>.
     </p>
 
     <p>
-      The result is
-      <fillin answer="1" mode="number"/>
+      &gt;&gt;
+      <fillin answer="plot\(x,y\)" mode="string"/>
     </p>
   </statement>
   <evaluation>
     <evaluate>
       <test correct="yes">
-        <numcmp use-answer="yes" tolerance="0.5"/>
+        <strcmp use-answer="yes"/>
       </test>
     </evaluate>
   </evaluation>
 
 </exercise>
 <p>
-  <term>A Short Note on Logical Not <c>~</c></term>
+  You should see a graph pop up that looks like figure 12.4.2. That’s all there is to it!
 </p>
-<p>
-  Logical <c>~</c> is a little weird because I find it redundant and unnecessary. Why? If you have a statement like:
-</p>
-<p>
-  <c>~(4>5)</c>
-</p>
-<p>
-  We can see that the <c>(4>5)</c> will evaluate as <c>false</c>. Then <c>~false</c> is <c>true</c>. Ok, but why not just put <c>4 &lt; 5</c>? See what I am getting at? If you just reverse your relational statement, you shouldn’t need to flip your Boolean value. There might be a good reason that I have not yet run into for using a logical not. If you run into a good and necessary use of logical not, please email me and let me know (samuel.bechara@colostate.edu)!
-</p>
-</section>
-<section xml:id="putting-it-together">
-  <title>Putting It All Together</title>
-  <p>
-    Using the order of precedence, you should now be able to evaluate statements with mathematical, relational, and logical operators all in tandem. The trick is to reduce the statement using the order of precedence until you are left with a single Boolean value.
-  </p>
-  <figure xml:id="fig-12-7">
-      <caption>A lovely tandem</caption>
-      <image source="chapter_12/fig_7.jpeg" width="70%"> </image>
+<figure xml:id="fig-12-16">
+      <caption>What your MATLAB plot of x versus y should look like.</caption>
+      <image source="chapter_12/fig_16.png" width="70%"> </image>
     </figure>
-  <p>
-    Let’s consider one more example together to tie it all together:
-  </p>
-  <p>
-    <c>the_answer = 3 == 3 &amp; (~ (42 == 21 * 2 | 65-2 == 65 + 3))</c>
-  </p>
-  <p>
-    <term>Try It!</term>
-  </p>
-  <p>
-    Before you move on to see my solution, make sure you try to solve it on your own! Remember, use the order of precedence, and reduce the statement until you are left with one Boolean value. You can do it! It is important to not skip your brain workouts!
-  </p>
-  <p>
-    Ok, now that you have your solution, I will show you how <term>I</term> would solve this problem:
-  </p>
-  <p>
-    Since parenthesis are first on the order of precedence, we will start with the innermost set and reduce this chunk first:
-  </p>
-  <p>
-    <c>(42 == 21 * 2 | 65-2 == 65 + 3)</c>
-  </p>
-  <p>
-    According to the order of precedence, we will want to perform the multiplication step first. I am also going to show you a shortcut.
-  </p>
-  <p>
-    <c>( 42 == 42 | &lt; some other relational operation &gt; )</c>
-  </p>
-  <p>
-    Why did I do the <c>21*2</c> but skip everything on the right side of the logical <c>|</c>? Remember, logical <c>|</c> is chill, if either of the statements being compared evaluates to <c>true</c>, the whole thing is <c>true</c>. Since <c>42 == 42</c> is <c>true</c>, it doesn’t matter what &lt; some other relational operation &gt; evaluates to! Returning to our original statement we have:
-  </p>
-  <p>
-    <c>the_answer = 3 == 3 &amp; (~ true)</c>
-  </p>
-  <p>
-    The next step would be to evaluate the parenthesis. In this case <c>~true</c> is <c>false</c> so we reduce it to:
-  </p>
-  <p>
-    <c>the_answer = 3 == 3 &amp; false</c>
-  </p>
-  <p>
-    We are almost done! Here we could take another shortcut even though the <c>3 == 3</c> is easy. Remember, logical <c>&amp;</c> is uptight. Since we have a false being compared with a logical <c>&amp;</c>, it doesn’t matter what <c>3 == 3</c> evaluates to (hopefully it is obvious to your that <c>3 == 3</c> is <c>true</c>)! The whole thing is going to turn out <c>false</c>!
-  </p>
-  <p>
-    <term>Disclaimer</term>
-  </p>
-  <p>
-    The reality is that you will never have to solve problems like this in the real world. Instead, you will be asked to utilize relational and logical operators in tandem to create complicated programs that can react intelligently to different inputs. That is what our programs have lacked so far! The ability to make decisions. Hopefully, now you can see how combinations of these operators might allow us to control the flow of our programs in the future.
-  </p>
-  <exercise xml:id="logical-challenge" exercise-interactive="fillin">
+    <exercise xml:id="chart-improvements" exercise-interactive="shortanswer">
 
-  <title>Logical Operators and Boolean Values</title>
+  <title>Missing Chart Elements</title>
 
   <statement>
     <p>
-      Consider the following MATLAB line of code:
-    </p>
-
-    <pre>
-challenge = yes &amp; yes == yes | no == ~yes
-    </pre>
-
-    <p>
-      Let the following variables be assigned in the workspace:
-    </p>
-
-    <pre>
-yes = 1
-no = 0
-    </pre>
-
-    <p>
-      Remember that in MATLAB, 1 and true are equivalent, and 0 and false are equivalent. What is the value stored in <c>challenge</c> after the code is executed?
+      What are some of the elements missing that would make this chart more effective and easier to understand?
     </p>
 
     <p>
-      The value is
-      <fillin answer="1" mode="number"/>
+      After determining what elements might be missing, how would you code for them in MATLAB?
     </p>
   </statement>
-  <evaluation>
-    <evaluate>
-      <test correct="yes">
-        <numcmp use-answer="yes" tolerance="0.5"/>
-      </test>
-    </evaluate>
-  </evaluation>
+
+  <response />
 
 </exercise>
 </section>

@@ -1,1235 +1,621 @@
 <?xml version="1.0" encoding="UTF-8"?>
 
 <chapter xml:id="Chapter_09" xmlns:xi="http://www.w3.org/2001/XInclude">
-  <title>MATLAB Scripting and Arrays</title>
+  <title>Introduction to MATLAB</title>
+
   <introduction>
-    <figure xml:id="fig_9_1">
-      <caption>Type, type, type.</caption>
-      <image source="chapter_09/fig_1.jpeg" width="70%"> </image>
+    <p> 
+      MATLAB is a professional software suite and programming language that is commonly used by engineers to analyze data, create complex algorithms (more about these in Chapter 13), and more. MATLAB stands for <term>mat</term>rix <term>lab</term>oratory and is designed to work well with matrices and other types of arrays. MATLAB can help with digital signal processing, control systems, computer vision, and the list goes on. It is stable, robust, relatively fast, well optimized, and can run on Windows, Mac, Linux, and even on Embedded Systems. MATLAB is a pretty amazing bit of software that is well maintained, regularly updated, and well supported.
+    </p> 
+    <p>
+      But...
+    </p>
+        <figure xml:id="fig_9_1">
+          <caption>MATLAB is so expensive it should be featured in rap videos as “bling”. Dolla Dolla bills, y’all.</caption>
+            <image source="chapter_09/fig_1.jpeg" width="70%"> </image>
     </figure>
+   <p> 
+    MATLAB is pricey. Currently, a single standard license is <term>$2150</term>. Obviously, any piece of software that can cost $2150 per user to a company must be worth learning about but I would understand the hesitation to purchase that as a student.
+  </p>
+  <p>
+    Luckily, if you are a student you can sometimes get MATLAB for the low, low price of $0. Some universities pay for their engineering students to have MATLAB licenses! Inquire with your University’s IT departments to see if you can download MATLAB for free on your personal computer. If your university does not have a site license, you can purchase a student license for <term>$49</term>, which isn’t that bad. Since this book is going to use MATLAB in every chapter, you will need to figure out a way to have access to a MATLAB installation.
+   </p>
+   
     <p>
-      To start this chapter I would like you to consider a situation where you need to perform the same <term>calculation</term> with <term>different numbers</term> multiple times. For example, let’s pretend that you are preparing for a final exam, and you would like to know how different final exam grades will impact your overall average. You have already taken midterm 1, midterm 2, and midterm 3 so those grades are locked. You recall that to calculate the average all you have to do is sum your values and divide the sum by the number of entries. For you math folks, the formula is:
-    </p>
-    <p>
-      <m> average= \frac{1}{n} \sum_{i=1}^{n} a_i</m>
-    </p>
-    <p>
-      Your MATLAB code might look something like this. Feel free to type this into the MATLAB command window yourself, it is good practice).
-    </p>
-    <example xml:id="try-it-9-1">
-    <title>Test Computing the Average of Your Three Exams</title>
-    <statement>
-        <p>Here is an interactive code box that functions identically to the MATLAB command window.</p>
-<program language="octave" interactive="activecode" xml:id="prog-9-1" label="prog-9-1">
-% Try It 9.0.2
-
-midterm_1 = 86;
-
-midterm_2 = 92;
-
-midterm_3 = 82;
-
-final = 91;
-
-average_exam_score = (midterm_1 + midterm_2 + midterm_3 + final
-</program>
-</statement>
-</example>
-<p>
-  <term>Note: there are actually even better and more clever ways of performing this exact same calculation in MATLAB but for now, let’s stick with this example.</term>
-</p>
-<figure xml:id="fig_9_2">
-      <caption>Example of workspace variables</caption>
-      <image source="chapter_09/fig_2.png" width="70%"> </image>
-    </figure>
-    <p>
-      Viola! You can see that your average exam score would be <c>87.75</c>. Now let’s consider how a <c>75</c> on the final would affect the average exam score. We can see that the variables for the var scores are still present in the workspace (Figure 9.0.3 above). All we need to do is overwrite the final exam score so that it is <c>75</c>, then re-run the average exam score calculation.
-    </p>
-   <example xml:id="try-it-9-2">
-    <title>Test Computing the Average of With a New Final Grade</title>
-    <statement>
-        <p>Here is an interactive code box that functions identically to the MATLAB command window.</p>
-<program language="octave" interactive="activecode" xml:id="prog-9-2" label="prog-9-2">
-% Try It 9.0.4
-
-midterm_1 = 86;
-
-midterm_2 = 92;
-
-midterm_3 = 82;
-
-final = 91;
-
-final = 75; % This overwrites the value stored in the variable final
-
-average_exam_score = (midterm_1 + midterm_2 + midterm_3 + final
-</program>
-</statement>
-</example> 
-<p>
-  Hint, you can hit the up arrow key on your keyboard to bring up your recent command history to select the previous line of code so you don’t need to retype it! This is a valuable tool to remember.
-</p>
-<figure xml:id="fig_9_3">
-      <caption>Updated workspace variables.</caption>
-      <image source="chapter_09/fig_3.png" width="70%"> </image>
-    </figure>
-    <p>
-      At this point, you can see that your <c>average_exam_score</c> variable has been updated to the value of <c>83.75</c>. If you were following along, the variables in your workspace should look like this (Figure 9.0.5 above).
-    </p>
-    <p>
-      Here is the problem. If you close MATLAB and reopen it all of those variables are lost (technically you could recover them from your command history but that is a hassle). What happens if we want to re-calculate your grade to see what would happen if you get a <c>95</c> on the final? You would have to retype all of those lines back in! Clearly, that is not very efficient. The power in MATLAB and most scripting programming languages is that you can make a script that can be changed and re-run with whatever variables you choose. The <term>script</term> is just a linear series of commands that MATLAB executes stored in a file with a .m extension.
-    </p>
-    <p>
-      In this chapter, we will expand on the previous chapter to show you the real power of MATLAB. We will learn:
+      In this chapter, we will explore the basics of MATLAB which will culminate in learning how to use MATLAB as an overpriced calculator. That means learning:
     </p>
     <objectives>
       <ul>
-        <li>How to write MATLAB programs (aka scripts) and how to save them.</li>
-        <li>What an array is and why it is so important in MATLAB.</li>
-        <li>How to create vectors with equal spacing</li>
-        <li>How to create linearly spaced vectors</li>
-        <li>How to create matrices</li>
-        <li>What the transpose operator is and how to use it</li>
-        <li>How to address vectors and matrices</li>
-        <li>Two of the built-in functions MATLAB provides for handling and manipulating arrays</li>
+        <li>Why you should bother to learn MATLAB instead of <term> <angles>insert_programming_language_here</angles> </term>?</li>
+        <li>What the different components of the MATLAB GUI are.</li>
+        <li>How your computer stores files and why that is important to MATLAB</li>
+        <li>How to use MATLAB as a glorified calculator.</li>
+        <li>How to use variables to store information and simplify your calculations.</li>
       </ul>
     </objectives>
   </introduction>
 
-  <section xml:id="script-files">
-    <title>Script Files</title>
-    <figure xml:id="fig_9_4">
-      <caption>How to create a script</caption>
-      <image source="chapter_09/fig_4.png" width="70%"> </image>
+         <section xml:id="why-matlab">
+      <title>Why MATLAB instead of <angles>insert_programming_language_here</angles>?</title>
+      <p>
+        At this point in your life, you have probably been exposed to different software, you might even have programming experience, and it is even possible that you have a preference for a specific programming language. So why MATLAB instead of Python? Instead of C++? Instead of Go? (Clearly, the list could go on and on).
+      </p>
+      <p>
+        The reason this book concentrates on MATLAB is that as of the publication of this book, <term>MATLAB is an extremely popular programming suite that engineers are expected to know how to use.</term> MATLAB is popular because it is a general-purpose language that lends itself to productivity. MATLAB is worth knowing because…
+      </p>
+      <ul>
+        <li>It is easy to express computational mathematics. (You will see this shortly later in the chapter!)</li>
+        <li>MATLAB is <term>specifically designed for engineers</term> which means the documentation and functions are easy to use and remember.</li>
+        <li>The environment is tuned for iterative workflows and rapid prototyping.</li>
+        <li>There are a TON of toolboxes which means that a lot of code is already available for you to use. You do not need to reinvent the wheel.</li>
+        <li>The MATLAB debugging tool is extremely powerful and easy to use.</li>
+        <li>MATLAB is <term>fast</term>. It is optimized and can solve big problems quickly.</li>
+      </ul>
+      <p>
+        The list goes on and on but MATLAB is expensive for a reason. The reason is that it is a powerful, easy-to-use software development suite designed for rapid prototyping. Furthermore it was designed specifically for engineers which means the documentation is excellent and tuned toward engineers and the functions available were written with engineers in mind.
+      </p>
+ </section>
+  <section xml:id="gui-components">
+    <title>MATLAB GUI</title>
+    <p>
+      When you are first learning MATLAB it may seem easy to ignore the MATLAB graphical user interface (GUI) and just focus on the command window. It is important to learn what each section of the MATLAB GUI does, and how you can use it to your advantage. When you first open MATLAB, you should see something very similar to the default GUI shown below.
+    </p>
+        <figure xml:id="fig_9_2">
+          <caption>The default MATLAB GUI layout.</caption>
+            <image source="chapter_09/fig_2.png" width="70%"> </image>
     </figure>
-    <p>
-      To work out our brain muscles, let’s create a script that calculates the average exam grade as in the example presented above. As we have learned, a script file is just a list of MATLAB commands to be executed in a specific order. So in a way, we already have the meat for our first script file. To start a new script, click the “New” button on the “Home” toolbar and then select “Script” (Figure 9.1.1, everything that you don’t need to worry about is blurred out).
-    </p>
-    <p>
-      Once you click <c>“New Script”</c>, you should have a new window open titled <c>“Editor”</c> with a little pencil and paper icon in the top left corner. That is where we will write our script file. Go ahead and type in the commands we went over. When you are done, you should have something that looks like figure 9.1.2. Make sure that you typed all of the commands into the editor window correctly.
-    </p>
-    <figure xml:id="fig_9_5">
-      <caption>What your editor window should look like</caption>
-      <image source="chapter_09/fig_5.png" width="70%"> </image>
+      </section>
+      <section xml:id="command-window">
+        <title>Command Window</title>
+        <figure xml:id="fig_9_3">
+          <caption>The MATLAB Command Window is boxed in red.</caption>
+            <image source="chapter_09/fig_3.png" width="70%"> </image>
     </figure>
-    <p>
-      <term>Saving Scripts</term>
-    </p>
-    <p>
-      Remember, the whole point of having scripts is so that we can save them and run them whenever we want and change the variables as we please. Notice that in Figure 9.1.2 that currently the editor is displaying <c>“untitled*”</c> in the window. This is mentioning to the user that the file currently does not have a name and the asterisks is indicating that the file is currently not saved. Hold your horses, don’t go saving that file yet! We need to make sure we know <term>where</term> we are saving it.
-    </p>
-<exercise xml:id="matlab-working-directory" exercise-interactive="fillin">
-  <title>What folder am I in?</title>
-  <statement>
-    <p>
-      Fill in the missing folders in the working directory shown below.
-    </p>
-    <figure xml:id="fig_9_6">
-      <image source="chapter_09/fig_6.png" width="70%"> </image>
-    </figure>
-    <p>
-      /home/
-      <fillin name="blank1" answer="sbechara" mode="string"/>
-      /
-      <fillin name="blank2" answer="Documents" mode="string"/>
-      /
-      <fillin name="blank3" answer="MATLAB" mode="string"/>
-    </p>
-  </statement>
-  <evaluation>
-    <evaluate name="blank1">
-      <test correct="yes">
-        <strcmp use-answer="yes"/>
-      </test>
-    </evaluate>
-    <evaluate name="blank2">
-      <test correct="yes">
-        <strcmp use-answer="yes"/>
-      </test>
-    </evaluate>
-    <evaluate name="blank3">
-      <test correct="yes">
-        <strcmp use-answer="yes"/>
-      </test>
-    </evaluate>
-  </evaluation>
-</exercise>
-<p>
-  In Question 9.1.3 above the current directory being displayed is <c>/home/sbechara/Documents/MATLAB</c>. That seems like an easy place to remember <term>for me</term>. <term>You need to decide where to store your file.</term> If I were you, I would create a folder in my documents folder called <c>“MATLAB Book Examples”</c> or something like that. Then navigate to that folder in MATLAB (did you forget how? No worries, you can click here to jump to the chapter of the book where that was discussed).
-</p>
-<p>
-  Now that you know where you want to save your file, click the little <c>“Save”</c> icon on the <c>“Editor”</c> tab. Notice that MATLAB automatically appends a <c>.m</c> to the file as the extension. I saved mine as <c>avgExam.m</c>. You should notice the file show up under the <c>“Current Folder”</c> portion of the workspace and notice that the asterisks are no longer listed next to the name (figure 9.1.4).
-</p>
-<figure xml:id="fig_9_7">
-      <caption>Notice that the current folder now has avgExam.m and that the asterisks are no longer next to the filename indicating that the file was successfully saved.</caption>
-      <image source="chapter_09/fig_7.png" width="70%"> </image>
-    </figure>
-  <p>
-    <term>Running Your Script</term>
-  </p>
-  <figure xml:id="fig_9_8">
-      <caption>MATLAB icon to run script file</caption>
-      <image source="chapter_09/fig_8.png" width="70%"> </image>
-    </figure>
-    <p>
-      Double-check that you have <c>avgExam.m</c> in your <c>“Current Folder”</c>. We are ready to run our first script! There are actually two ways to run the script. The first way is to click the green <c>“Run”</c> button on the <c>“Editor”</c> banner. Go ahead and click it now!
-    </p>
-    <figure xml:id="fig_9_9">
-      <caption>Current Workspace after running script file</caption>
-      <image source="chapter_09/fig_9.png" width="70%"> </image>
-    </figure>
-    <p>
-      If you typed everything in correctly, the only thing that you should notice when the program is complete is that you now have several new variables in your workspace corresponding to your variables (specifically the <c>midterm_1</c>, <c>midterm_2</c>, <c>midterm_3</c>, <c>final</c>, and <c>average_exam_score</c> variables).
-    </p>
-    <exercise xml:id="run-script-name" exercise-interactive="fillin">
-  <title>What is displayed in the command window?</title>
-  <statement>
-    <p>
-      For this question, assume that you named your file
-      <c>avgExam.m</c>. When you click the Run button in MATLAB,
-      what text is displayed in the Command Window?
-    </p>
+        <p>
+          The command window provides flexibility to MATLAB and how users interact with your programs. It is the place where you can issue a single line of code to be executed by MATLAB. <term>You can issue any command that is a valid line of MATLAB code.</term> The command window is a unique feature of MATLAB and is an invaluable tool for debugging programs, testing functions, making quick calculations, and more.
+        </p>
+        <p>
+          In your career, you will often use the Command Window for quick calculations or to check your work (in essence turning it into a very expensive calculator). For example, lets say that you are working on a problem and need to convert <term> 15.23 degrees</term> to <term>radians</term>. You remember the conversion factor is <m>\frac{\pi\text{ rad}}{180^\circ}</m>, and when you calculate it by hand you get <m> 15.23 \text{ degrees} = 0.27 \text{ radians}</m>.You want to check your answer in MATLAB and you remember that MATLAB has a built-in function to automatically convert a number from degrees to radians <c>(deg2rad())</c>. So you quickly type the following in the command window (see Example 9.3.2). Voila! You were right. Don’t panic yet! I don’t expect you to know the function <c>deg2rad()</c> yet, I am just showing an example of how to use the command window.
+        </p>
+        
+        <example xml:id="example-deg2rad-conversion">
+    <title>Converting Degrees to Radians</title>
+    <statement>
+        <p>Here is an interactive code box that functions identically to the MATLAB command window.</p>
+<program language="octave" interactive="activecode" xml:id="prog-9-1" label="prog-9-1">
 
-    <p>
-      <fillin answer="avgExam" mode="string"/>
-    </p>
-  </statement>
-  <evaluation>
-    <evaluate>
-      <test correct="yes">
-        <strcmp use-answer="yes"/>
-      </test>
-    </evaluate>
-  </evaluation>
-</exercise>
-<p>
-  The preceding question is actually the other way that you can run your <c>.m</c> files. As long as the current working directory contains a <c>.m</c> file, you can simply type the name of the <c>.m</c> file into MATLAB (omitting the <c>.m</c> extension) and it will run the script!
-</p>
-<p>
-  <term>Try It!</term>
-</p>
-<p>
-  Remember, we need to work out your brain muscles to make them stronger and to ensure that you remember how to do this! <term>Do not skip these steps!</term>
-</p>
-<ul>
-  <li>
-    <p>
-      Try playing around with the different exam scores, saving, and re-running your script.
-    </p>
-  </li>
-  <li>
-    <p>
-      Try navigating to a different folder. Then click the <c>"Run"</c> button. What does MATLAB do?
-    </p>
-  </li>
-  <li>
-    <p>
-      Try clicking <c>“Save As”</c> and changing the file name. Try both methods you learned above to re-run the script.
-    </p>
-  </li>
-</ul>
-<p>
-  <term>Script Headers and Commenting</term>
-</p>
-<p>
-  Commenting is a critical component of scripting because it allows us to understand what we did in the past so that we can work with scripts in the future. Do you remember the correct symbol for commenting in MATLAB? (If not you can click here to return to that chapter to review). Hint: <c>%</c>.
-</p>
-<p>
-  It is a good habit to create headers for your MATLAB scripts that contain useful information about your script. It may seem obvious what you are working on now, but open up this script a few weeks, months, or years, in the future and you will have no idea what it is for! That is why headers are so important. You can use comments because MATLAB ignores commented lines of code. I suggest that your script header contains the following information:
-</p>
-<ul>
-  <li>
-    <p>
-      The filename (redundant I know, but it helps in case something gets changed on accident)
-    </p>
-  </li>
-  <li>
-    <p>
-      Your name
-    </p>
-  </li>
-  <li>
-    <p>
-      The date the script was created
-    </p>
-  </li>
-  <li>
-    <p>
-      The date the script was last modified
-    </p>
-  </li>
-  <li>
-    <p>
-      A brief description of what the script does
-    </p>
-  </li>
-</ul>
-<p>
-  In general, it is a good idea to comment on all of your script files so that you can follow your scripts in the future. Script headers plus comments play a huge role in helping future you understand what you were doing with a particular script. Remember, as soon as MATLAB sees <c>%</c> it ignores everything after the <c>%</c> on the same line. That means you can have in-line or whole-line comments. It also turns it into a nice green color for the user to have a visual indication that the line is commented out.
-</p>
- <figure xml:id="fig_9_10">
-      <caption>Whole line vs in-line comments</caption>
-      <image source="chapter_09/fig_10.png" width="70%"> </image>
-    </figure>
-    <p>
-    This is where the <term>art</term> of commenting comes into play. How much commenting is too much or too little commenting? There really isn’t a hard and fast rule with this. It depends. I suggest that you comment enough so that you understand what is happening in each chunk of code. What is a chunk of code? Again it depends. See figure 9.1.10 to see my script header and how I would comment on the <c>avgExam.m</c> script we have been working on.
-    </p>
-     <figure xml:id="fig_9_11">
-      <caption>You can see my script header and comments.</caption>
-      <image source="chapter_09/fig_11.png" width="70%"> </image>
-    </figure>
-    <p>
-      Looking at figure 9.1.10 above, you can see how the header helps the user see what the script does and how it is intended to work. Keep in mind there are no right or wrong answers when it comes to commenting. Depending on where you work, your company might have specific requirements about how much commenting and what headers should look like. The important thing, for now, is to make sure that from now on you are commenting on your script files and including some form of header so that you can understand what your scripts do in the future.
-    </p>
-    <p>
-      For now, you can save this script (we will use it in the next Chapter) and close it. For the rest of the chapter, we will just work out of the command window.
-    </p>
+% These code boxes will be used throughout the upcoming chapters as a way to run code within the textbook.
+% Octave is a free programming language that for your purposes will work the same as MATLAB
+% Hit run to see the output of this degrees to radian function
+
+deg2rad(15.23)
+
+</program>
+</statement>
+</example>
 </section>
-<section xml:id="arrays-fundamental">
-  <title>Arrays- The Fundamental Data Type of MATLAB</title>
-  <p>
-    As we will see in future chapters, our script can be further improved using arrays, the fundamental data type in MATLAB. An array is a list of numbers arranged in rows and/or columns. In practice, <term>one-dimensional arrays</term> are called <term>vectors</term> and have numbers stored in either a row or a column. <term>Two-dimensional arrays</term> are called <term>matrices</term> and are collections of numbers stored in both rows and columns.
-  </p>
-   <figure xml:id="fig_9_12">
-      <caption>Examples of different kinds of arrays.</caption>
-      <image source="chapter_09/fig_12.png" width="70%"> </image>
-    </figure>
-    <p>
-      <term>Creating Vectors</term>
-    </p>
-    <p>
-      To create a <term>row vector</term> in MATLAB, you use square brackets and input your data in the brackets using either spaces or commas:
-    </p>
-    <p>
-      <c>row_vector = [vector elements go here] OR row_vector</c>
-    </p>
-    <p>
-      Try typing the following line into the <term>command window.</term> Instead of spaces, you can put commas between the numbers if you prefer. I recommend trying it both ways for your brain workout. Do not copy and paste! typing it out will help with remembering:
-    </p>
-        <example xml:id="create-row-vector">
-    <title>Creating Row Vectors</title>
-    <statement>
-        <p>Here is an interactive code box that functions identically to the MATLAB command window.</p>
-<program language="octave" interactive="activecode" xml:id="prog-9-3" label="prog-9-3">
-final = [88 89 90 91 92 93 94 95 96 97 98 99]
-</program>
-</statement>
-</example>
-<p>
-  When you hit enter, you should see MATLAB displays the row vector to you in the command window. Now we have a row vector that corresponds to a bunch of different scores for the final. This can be useful because it allows us to calculate a whole array of different averages based on the different exam scores! We will learn how to do that in the next chapter. For now, concentrate on learning the basics of arrays.
-</p>
-<p>
-  To create a <term>column vector</term> in MATLAB, you use square brackets just like before except you hit <c>ENTER</c> or use semi-colons between each data element:
-</p>
-<p>
-  <c>column_vector = [vector;elements;go;here]</c>
-</p>
-<p>
-  Try typing the following line into the command window. Like before, try hitting ENTER after each element instead for your brain workout):
-</p>
-   <example xml:id="create-column-vector">
-    <title>Creating Column Vectors</title>
-    <statement>
-        <p>Here is an interactive code box that functions identically to the MATLAB command window.</p>
-<program language="octave" interactive="activecode" xml:id="prog-9-4" label="prog-9-4">
-final = [88;89;90;91;92;93;94;95;96;97;98;99]
-</program>
-</statement>
-</example>
-<exercise xml:id="row-vector">
-  <title>Creating a Row Vector</title>
-
-  <statement>
-    <p>
-      Which of the following commands will create a row vector named
-      <c>row_boi</c> containing the values 65, 12, 1, and 5?
-      (Note: the values do not necessarily need to be in that order.)
-    </p>
-  </statement>
-
-  <choices multiple-correct="yes">
-    <choice>
-      <statement>
-        <p><c>row_vector = [65 12 1 5]</c></p>
-      </statement>
-      <feedback>
-        <p>
-          Incorrect. Although this creates a row vector, the variable name is
-          <c>row_vector</c>, not <c>row_boi</c>.
-        </p>
-      </feedback>
-    </choice>
-
-    <choice>
-      <statement>
-        <p><c>row_vector = [1;5;12;65]</c></p>
-      </statement>
-      <feedback>
-        <p>
-          Incorrect. This creates a column vector and uses the wrong variable name.
-        </p>
-      </feedback>
-    </choice>
-
-    <choice correct="yes">
-      <statement>
-        <p><c>row_boi = [1,5,12,65]</c></p>
-      </statement>
-      <feedback>
-        <p>
-          Correct. This creates a row vector named <c>row_boi</c> containing the required values.
-        </p>
-      </feedback>
-    </choice>
-
-    <choice correct="yes">
-      <statement>
-        <p><c>row_boi = [65,12,1,5]</c></p>
-      </statement>
-      <feedback>
-        <p>
-          Correct. This creates a row vector named <c>row_boi</c> containing the required values.
-        </p>
-      </feedback>
-    </choice>
-
-    <choice>
-      <statement>
-        <p><c>row_boi = [65;12;1;5]</c></p>
-      </statement>
-      <feedback>
-        <p>
-          Incorrect. Semicolons create a column vector, not a row vector.
-        </p>
-      </feedback>
-    </choice>
-  </choices>
-</exercise>
-<p>
-  <term>Creating Vectors with Constant Spacing</term>
-</p>
-<p>
-  When you were typing out
-</p>
-<p>
-  <c>final = [88 89 90 91 92 93 94 95 96 97 98 99]</c>
-</p>
-<p>
-  you may have found that tedious. It was! Whenever you find yourself doing something tedious there is a good chance that there is a better way to do it. MATLAB programming should never be tedious like that, it was designed for speed. Notice for the variable <c>final</c> as we defined it, the spacing is equal to 1 between each element.
-</p>
-<p>
-  To create vectors with constant spacing we can use the colon operator, <c>:</c> as follows:
-</p>
-<p>
-  <c>constant_spaced_variable = [start:spacing:end]</c>
-</p>
-<p>
-  In this case <c>start</c> is referring to the first term in the series, <c>spacing</c> is indicating how far apart you want your numbers to be, and <c>end</c> indicates the last number in the series.
-</p>
-<p>
-  <term>Try It!</term>
-</p>
-<p>
-  Try typing the following into the command window to see how it works:
-</p>
-   <example xml:id="create-even-spacing">
-    <title>Creating Equally Spaced Vectors</title>
-    <statement>
-        <p>Here is an interactive code box that functions identically to the MATLAB command window.</p>
-<program language="octave" interactive="activecode" xml:id="prog-9-5" label="prog-9-5">
-final = [88:1:99]
-</program>
-</statement>
-</example>
-<p>
-  I am sure you will agree that is a lot better! Brain workout time, try messing around with different numbers to see how MATLAB reacts. Try creating different equally spaced variables and name them different things. Spend a moment to see how they show up in the workspace.
-</p>
-<exercise xml:id="colon-operator-true-false">
-  <title>True or False: The Colon Operator</title>
-
-  <statement>
-    <p>
-      True or False. Typing
-      <c>variable = [2:2:11]</c>
-      will throw an error because you are starting at 2, spacing by 2, and asking MATLAB to end at 11, which is not an even number.
-    </p>
-  </statement>
-
-  <choices>
-    <choice>
-      <statement>
-        <p>True</p>
-      </statement>
-      <feedback>
-        <p>
-          Incorrect. MATLAB does not require the ending value to be reached exactly. It will create the vector
-          <c>[2 4 6 8 10]</c> and stop before exceeding 11.
-        </p>
-      </feedback>
-    </choice>
-
-    <choice correct="yes">
-      <statement>
-        <p>False</p>
-      </statement>
-      <feedback>
-        <p>
-          Correct. MATLAB will generate the vector
-          <c>[2 4 6 8 10]</c>. Since the next value (12) would exceed 11, MATLAB simply stops and does not produce an error.
-        </p>
-      </feedback>
-    </choice>
-  </choices>
-</exercise>
-<p>
-  One last note when using the <c>:</c> operator. If you want to create an equally spaced array with spacing equal to 1, you can omit the <c>spacing</c> because MATLAB will default to 1. This can save you a little time.
-</p>
-   <example xml:id="omit-colon-spacing">
-    <title>Efficiently Creating Equally Spaced Vectors</title>
-    <statement>
-        <p>Here is an interactive code box that functions identically to the MATLAB command window.</p>
-<program language="octave" interactive="activecode" xml:id="prog-9-6" label="prog-9-6">
-%This will create an array from 88 to 99 spaced by 1 automatically.
-final = [88:99]
-</program>
-</statement>
-</example>
-<exercise xml:id="negative-spaced-array">
-  <title>Creating a Negatively Spaced Array</title>
-
-  <statement>
-    <p>
-      Which of the following commands will create a negatively spaced array named
-      <c>backwards_boi</c> containing the numbers 99 through 88 in decreasing order?
-    </p>
-  </statement>
-
-  <choices>
-    <choice correct="yes">
-      <statement>
-        <p><c>backwards_boi = [99:-1:88]</c></p>
-      </statement>
-      <feedback>
-        <p>
-          Correct. This starts at 99, decreases by 1 each step, and stops at 88.
-        </p>
-      </feedback>
-    </choice>
-
-    <choice>
-      <statement>
-        <p><c>backwards_boi = [99:1:88]</c></p>
-      </statement>
-      <feedback>
-        <p>
-          Incorrect. The spacing is positive, so MATLAB cannot count upward from 99 to 88.
-        </p>
-      </feedback>
-    </choice>
-
-    <choice>
-      <statement>
-        <p><c>backwards_boi = [88:-1:99]</c></p>
-      </statement>
-      <feedback>
-        <p>
-          Incorrect. The starting value is smaller than the ending value while using a negative spacing.
-        </p>
-      </feedback>
-    </choice>
-
-    <choice>
-      <statement>
-        <p><c>backwards_boi = [88:1:99]</c></p>
-      </statement>
-      <feedback>
-        <p>
-          Incorrect. This creates an increasing array from 88 to 99, not a decreasing one.
-        </p>
-      </feedback>
-    </choice>
-  </choices>
-</exercise>
-<p>
-  <term>Creating a Vector with Linear Spacing</term>
-</p>
-<p>
-  Sometimes it is useful to create arrays that contain a <term>specific number</term> of values between two points. In these cases, it might be difficult to use the <c>:</c> operator. For example, we might need 12 equally spaced points between 2 and 4. You can do the math to figure out how to use the <c>:</c> operator but since that sounds tedious, you can bet there is a built-in MATLAB function to make our lives easier.
-</p>
-<p>
-  The <c>linspace()</c> function will do this for us. We can create these types of variables using <c>linspace()</c> as follows:
-</p>
-<p>
-  <c>linear_spaced_variable = linspace(first,last,num)</c>
-</p>
-<p>
-  This will create a variable called <c>linear_spaced_variable</c> starting at the number <c>first</c>, to the number <c>last</c>, with <c>num</c> number of elements. There are a few important things to note. Although we are creating an array, we do not use square brackets. That is because <c>linspace</c> is a function and functions are called using parenthesis. We will learn more about this in future chapters, but for now, just be careful about the parenthesis.
-</p>
-<p>
-  Let’s try it with our example above by typing the following into the command window:
-</p>
-  <example xml:id="lin-space-test">
-    <title>Experimenting with <c>linspace()</c></title>
-    <statement>
-        <p>Here is an interactive code box that functions identically to the MATLAB command window.</p>
-<program language="octave" interactive="activecode" xml:id="prog-9-7" label="prog-9-7">
-linear_boi = linspace(2,4,12)
-</program>
-</statement>
-</example>
-<p>
-  Notice how the array is equally spaced and that there are exactly 12 elements in the array. Brain workout time. Play around with <c>linspace</c> on your own. Try different combinations of numbers and variable names. Notice how they appear in the workspace. <term>DO NOT SKIP YOUR WORKOUT!</term>
-</p>
-</section>
-<section xml:id="creating-matricies">
-  <title>Creating Matrices</title>
-  <p>
-    Recall that a matrix has numbers in both rows and columns. They are used extensively in science and engineering and are useful for storing numbers in table-like formats or for other linear algebra techniques that you will learn in future classes.
-  </p>
-  <p>
-    The terminology we will use in this class is to describe matrices by the number of rows and columns they have. Furthermore, you can have either square or non-square matrices depending on the number of rows and columns. Consider the following two matrices:
-  </p>
-     <figure xml:id="fig_9_13">
-      <caption>Examples matricies.</caption>
-      <image source="chapter_09/fig_13.png" width="70%"> </image>
-    </figure>
-    <p>
-      In figure 9.3.1 above, we can see that the matrix <c>square</c> has 3 rows and 3 columns. To make it easy to write, it is common to say that this is a 3x3 (pronounced “three by three”) matrix. Square matrices have the same number of rows and columns. It follows that since <c>not_square</c> has 4 rows and 3 columns it is not square. We would say this is a 4x3 matrix (pronounced “four by three”).
-    </p>
-    <p>
-      Creating matrices in MATLAB is as easy as combining what we have learned about creating row and column matrices above. To create a matrix you type:
-    </p>
-    <p>
-      <c>matrix_name = [1st row elements; 2nd row elements; ... ; Last row elements]</c>
-    </p>
-    <p>
-      <term>Try It!</term>
-    </p>
-    <p>
-    Let’s try making our own matrix by typing the following into the command window:
-    </p>
-    <example xml:id="byo-matrix">
-    <title>Code Your Own Matrix</title>
-    <statement>
-        <p>Here is an interactive code box that functions identically to the MATLAB command window.</p>
-<program language="octave" interactive="activecode" xml:id="prog-9-8" label="prog-9-8">
-neo = [1 2 3; 4 5 6; 7 8 9]
-</program>
-</statement>
-</example>
-<p>
-  Notice that this creates a 3x3 matrix called <c>neo</c>. The only difference between matrices and vectors is that <term>all the rows must have the exact same number of elements.</term> For example, you can’t have row 2 have 3 elements, while row 3 has 4 elements.
-</p>
-<exercise xml:id="matrix-dimension-error">
-
-  <title>Matrix Dimension Error</title>
-
-  <statement>
-    <p>
-      What error is displayed if you try to create a matrix in MATLAB where the number of elements in each row is not the same?
-    </p>
-  </statement>
-
-  <choices>
-    <choice>
-      <statement>
-        <p>The dimensions requested are not available.</p>
-      </statement>
-      <feedback>
-        <p>
-          Incorrect. This is not a standard MATLAB error message for matrix construction.
-        </p>
-      </feedback>
-    </choice>
-
-    <choice>
-      <statement>
-        <p>The number of elements in each row is not equal.</p>
-      </statement>
-      <feedback>
-        <p>
-          Incorrect. This is a description of the problem, not the actual MATLAB error message.
-        </p>
-      </feedback>
-    </choice>
-
-    <choice correct="yes">
-      <statement>
-        <p>Dimensions of arrays being concatenated are not consistent.</p>
-      </statement>
-      <feedback>
-        <p>
-          Correct. MATLAB returns this error when rows have different lengths and cannot be combined into a valid matrix.
-        </p>
-      </feedback>
-    </choice>
-
-    <choice>
-      <statement>
-        <p>Should not have been checked.</p>
-      </statement>
-      <feedback>
-        <p>
-          Incorrect. This is not a MATLAB error message.
-        </p>
-      </feedback>
-    </choice>
-  </choices>
-
-</exercise>
-<p>
-  <term>Creating Arrays of all 0's or all 1's</term> 
-</p>
-<p>
-  Sometimes it is useful to create vectors or matrices with all zeros or all ones in their spots. You <term>could</term> create a 4x4 matrix with all ones by typing this:
-</p>
-<p>
-<c>tedious_ones = [1 1 1 1; 1 1 1 1; 1 1 1 1; 1 1 1 1]</c>
-</p>
-<p>
-  You can imagine that creating a 4x4 matrix with all 0’s would be equally as annoying. But as we have learned, if something sounds tedious, there is a better way to do it. MATLAB has built-in functions that will do this automatically for us.
-</p>
-<p>
-  To create an array of all 1’s you use the MATLAB function <c>ones()</c> as follows:
-</p>
-<p>
-  <c>all_ones = ones(rows,columns)</c>
-</p>
-<p>
-  Similarly, to create an array of all 0’s you use the MATLAB function (you guessed it) <c>zeros()</c> as follows:
-</p>
-<p>
-  <c>all_zeros = zeros(rows,columns)</c>
-</p>
-<p>
-  In both cases, you only specify the dimensions of the output array. For example, if you want a variable named <c>skinny_boi</c> to be a 5-element column vector with all ones you would type in:
-</p>
-<p>
-  <c>skinny_boi = ones(5,1)</c>
-</p>
-<p>
-  As always, do your brain workout. Play around with both the ones and zeros commands to make sure that you can create row vectors, column vectors, and matrices using the commands. As usual, store them in different variable names and notice how they appear in the workspace.
-</p>
-<exercise xml:id="ones-row-vector">
-
-  <title>Identifying a Row Vector of Ones</title>
-
-  <statement>
-    <p>
-      Given the following MATLAB commands:
-    </p>
-    <p>
-      <c>&gt;&gt; thomas = ones(9,1)</c><br/>
-      <c>&gt;&gt; BANANA = ones(1,9)</c><br/>
-      <c>&gt;&gt; rhino = ones(9,9)</c>
-    </p>
-    <p>
-      Which variable will be a row vector of all ones?
-    </p>
-  </statement>
-
-  <choices>
-    <choice>
-      <statement>
-        <p>rhino</p>
-      </statement>
-      <feedback>
-        <p>
-          Incorrect. This creates a 9×9 matrix of ones, not a row vector.
-        </p>
-      </feedback>
-    </choice>
-
-    <choice correct="yes">
-      <statement>
-        <p>BANANA</p>
-      </statement>
-      <feedback>
-        <p>
-          Correct. <c>ones(1,9)</c> creates a 1×9 row vector of ones.
-        </p>
-      </feedback>
-    </choice>
-
-    <choice>
-      <statement>
-        <p>thomas</p>
-      </statement>
-      <feedback>
-        <p>
-          Incorrect. <c>ones(9,1)</c> creates a column vector of ones, not a row vector.
-        </p>
-      </feedback>
-    </choice>
-  </choices>
-</exercise>
-<p>
-  <term>The Transpose Operator <c>'</c></term>
-</p>
-<p>
-  Remember, that if I want a row vector variable called rex containing the elements 2,4,6,8,10 I can simply type in <c>rex = [2:2:10]</c>. But what happens if I want a column vector that contains those elements? Tedious alert! That means there is a shortcut. In this case, we are talking about the transpose operator <c>’</c>.
-</p>
-<p>
-  <term>The transpose operator will switch the row to columns of any type of an array.</term> That means if you apply the transpose operator to a column vector, it will turn into a row vector. If you apply the transpose operator to a matrix, it will switch the rows with the columns.
-</p>
-<p>
-  If you ran the <c>rex = [2:2:10]</c> line of code above in the MATLAB command window you can create a new column vector named tex by typing in <c>tex = rex'</c>.
-</p>
-<p>
-  Given the image of the user's workspace, consider the command <c>trinity = neo'</c>.
-</p>
-<exercise xml:id="matrix-trinity-workspace">
-
-  <title>Understanding Matrix Layout in MATLAB</title>
-
-  <statement>
-    <image source="chapter_09/fig_14.png" width="70%"> </image>
-    <p>
-      What would the variable <c>trinity</c> look like in the workspace after typing the following command?
-    </p>
-    <p>
-      <c>trinity=neo'</c>
-    </p>
-  </statement>
-
-  <choices>
-    <choice>
-      <statement>
-        <p><c>trinity = ​[7,8,9;4,5,6;1,2,3]</c></p>
-      </statement>
-      <feedback>
-        <p>
-          Incorrect. This is not what the command produces.
-        </p>
-      </feedback>
-    </choice>
-
-    <choice correct="yes">
-      <statement>
-        <p><c>trinity = [1,4,7;2,5,8;3,6,9]</c></p>
-      </statement>
-      <feedback>
-        <p>
-          Correct. This rearranges the matrix into columns as rows (a transpose-like pattern).
-        </p>
-      </feedback>
-    </choice>
-
-    <choice>
-      <statement>
-        <p><c>trinity = [9,8,7;6,5,4;3,2,1]</c></p>
-      </statement>
-      <feedback>
-        <p>
-          Incorrect. This reverses each row, which is not what the command specifies.
-        </p>
-      </feedback>
-    </choice>
-
-    <choice>
-      <statement>
-        <p><c>trinity = [1,2,3;4,5,6;7,8,9]</c></p>
-      </statement>
-      <feedback>
-        <p>
-          Incorrect. This is a reordered version of the matrix, not the one produced by the command.
-        </p>
-      </feedback>
-    </choice>
-  </choices>
-</exercise>
-</section>
-<section xml:id="array-matrix-addressing">
-  <title>Array and Matrix Addressing</title>
-  <p>
-    <term>Array Addressing</term>
-  </p>
-  <p>
-    You might already be able to see why arrays are powerful tools to utilize in MATLAB. For example, we could have arrays that correspond to the position of a moving object with respect to time. Let’s pretend that we have the following position and time data. Go ahead and define the following variables in your workspace by typing them into the command window.
-  </p>
-  <example xml:id="velocity-example">
-    <title>Vector Addressing Practice</title>
-    <statement>
-        <p>Here is an interactive code box that functions identically to the MATLAB command window.</p>
-<program language="octave" interactive="activecode" xml:id="prog-9-9" label="prog-9-9">
-time = [0:5:20] % time in seconds 
-
-position = [0, 4, 8, 12, 30] % position in meters
-</program>
-</statement>
-</example>
-<p>
-  You might recall from physics that we can calculate the average velocity between two points in time using this data. We can see that the object starts at time 0 at position 0. It then moves in the positive direction 4 units in 5 time units. We could calculate the average velocity of the object for any time period by:
-</p>
-<p>
-  <m>avgVelocity=\frac{x_2-x_1}{t_2-t_1}</m>
-</p>
-<p>
-  where <m>x_1</m> and <m>x_2</m> correspond to postions and <m>t_1</m> and <m>t_2</m> correpsond to times.
-</p>
-<p>
-  Since we have already created the arrays <c>time</c> and <c>position</c> in MATLAB we can use array addressing to pull out individual numbers within the array.
-</p>
-<p>
-  <term>Vector Addressing</term>
-</p>
-   <figure xml:id="fig_9_15">
-      <caption>Example of our position array.</caption>
-      <image source="chapter_09/fig_15.png" width="70%"> </image>
-    </figure>
-<p>
-  In this example, our array <c>position</c> has 5 elements in it corresponding to the numbers 0, 4, 8, 12, and 30. In this example, the number 8 has an address of 3. It is the third element in the array position. To access this number, we can call the array position and specify that we want the third element out of it.
-</p>
-<p>
-  Try typing this into the command window:
-</p>
-<p>
-  <c>position(3)</c>
-</p>
-<p>
-  You should notice that MATLAB stores the number 8 into the <c>ans</c> variable. We have accessed the number 8 from the <c>position</c> array! It may not be obvious now (some of you may be asking, why not just type in the number 8?) but believe me when I say this is a fundamental skill to have in MATLAB and is critical to your future success!
-</p>
-<p>
-  See if you can guess what the output of the following command will be, before typing it in:
-</p>
-<p>
-  <c>anyone_home = position(4) + 4</c>
-</p>
-<p>
-  What happens when you type that in? You create a new variable called <c>anyone_home</c> and it stores the number 16 in it. Why 16? Because <c>position(4)</c> accesses the 4th element in the array position!
-</p>
-<exercise xml:id="velocity-calculation">
-
-  <title>Calculating Velocity from Position Data</title>
-
-  <statement>
-    <p>
-      Which of the following lines of code would correctly calculate the velocity of the object
-      from time 15 to time 20? (Hint: the answer should be 3.6)
-    </p>
-  </statement>
-
-  <choices multiple-correct="yes">
-
-    <choice correct="yes">
-      <statement>
-        <p><c>vel = (position(5)-position(4))/(time(5)-time(4))</c></p>
-      </statement>
-      <feedback>
-        <p>
-          Correct. This uses the proper forward difference between the position and time values.
-        </p>
-      </feedback>
-    </choice>
-
-    <choice>
-      <statement>
-        <p><c>vel = (position(4)-position(5))/(time(5)-time(4))</c></p>
-      </statement>
-      <feedback>
-        <p>
-          Incorrect. The sign of the numerator is reversed, which flips the direction of velocity.
-        </p>
-      </feedback>
-    </choice>
-
-    <choice>
-      <statement>
-        <p><c>vel = (position(5)-position(4))/(time(4)-time(5))</c></p>
-      </statement>
-      <feedback>
-        <p>
-          Incorrect. The time difference has the wrong sign, which produces an incorrect velocity.
-        </p>
-      </feedback>
-    </choice>
-
-    <choice correct="yes">
-      <statement>
-        <p><c>vel = (position(4)-position(5))/(time(4)-time(5))</c></p>
-      </statement>
-      <feedback>
-        <p>
-          Correct. Both numerator and denominator are reversed, which cancels the sign change and gives the correct velocity.
-        </p>
-      </feedback>
-    </choice>
-
-  </choices>
-
-</exercise>
-<p>
-  As you can see, addressing values inside of vectors is as easy as typing in the vector name, followed by parenthesis, and then typing in the number that corresponds to its position!
-</p>
-<p>
-  <term>Try It</term>
-</p>
-<p>
-  Brain workout time. Try creating different size row and column vectors with random numbers and use array addressing to make sure that you understand how to pull out the correct values. Array addressing on row and column vectors works the exact same way. The addresses start at 1 and go from there.
-</p>
-  <example xml:id="array-practice">
-    <title>Array Practice</title>
-    <statement>
-        <p>Here is an interactive code box that functions identically to the MATLAB command window.</p>
-<program language="octave" interactive="activecode" xml:id="prog-9-10" label="prog-9-10">
-% Use this code box to construct your practice arrays
-</program>
-</statement>
-</example>
-<p>
-  <term>Matrix Addressing</term>
-</p>
-<p>
-  Matrix addressing works the same way as vector addressing, the only difference is that with matrices we need to specify <term>both the row and the column</term> of the value of interest. Take a look at figure 9.4.5 for an example.
-</p>
- <figure xml:id="fig_9_16">
-      <caption>Example of addressing the number 14 in the matrix <term>matrix</term>.</caption>
-      <image source="chapter_09/fig_16.png" width="70%"> </image>
-    </figure>
-    <p>
-      Go ahead and enter the matrix in figure 9.4.5 into your workspace. It is good practice to remember how to enter all of the values. When you are done double-check that your matrix is the same as mine.
-    </p>
-    <p>
-      Now that you have done that, let’s try accessing the value 18. We can see that it is in the 5th row and the 2nd column of the matrix. That means, to get the number 18 we can type in:
-    </p>
-    <p>
-      <c>matrix(5,2)</c>
-    </p>
-    <p>
-      And now you know array addressing for both matrices and vectors! The main trick to remember is that when we are talking about array addressing (and honestly pretty much everything dealing with a matrix in MATLAB) it always goes <term>ROWS then COLUMNS</term>.
-    </p>
-    <p>
-      You know the drill. Brain workout time. I suggest that you make a random 4x5 matrix on a sheet of paper. Make sure that you can successfully type that matrix into MATLAB. Next, use array addressing to make sure that you can pull out numbers successfully. The nice thing about not using a square matrix is, that it will show you if you really understand the row/column law of MATLAB.
-    </p>
-    <exercise xml:id="matrix-indexing-expression">
-
-  <title>Evaluating a Matrix Expression</title>
-
-  <statement>
-    <p>
-      Given a matrix variable stored in your workspace, what is the value of
-      <c>matrix(2,2) + matrix(4,1) - matrix(1,1)</c>?
-    </p>
-  </statement>
-
-  <choices>
-
-    <choice>
-      <statement>
-        <p>17</p>
-      </statement>
-      <feedback>
-        <p>Incorrect. This does not match the correct substitution from the matrix entries.</p>
-      </feedback>
-    </choice>
-
-    <choice>
-      <statement>
-        <p>-4</p>
-      </statement>
-      <feedback>
-        <p>Incorrect. Check the indexing and sign carefully when substituting values.</p>
-      </feedback>
-    </choice>
-
-    <choice correct="yes">
-      <statement>
-        <p>-2</p>
-      </statement>
-      <feedback>
-        <p>Correct. Substituting the correct matrix entries yields -2.</p>
-      </feedback>
-    </choice>
-
-    <choice>
-      <statement>
-        <p>10</p>
-      </statement>
-      <feedback>
-        <p>Incorrect. This value may come from a different interpretation of the indices.</p>
-      </feedback>
-    </choice>
-
-  </choices>
-
-</exercise>
-</section>
-<section xml:id="quick-array-recap">
-  <title>Quick Recap on Arrays</title>
-  <p>
-    Up to this point, you should be able to do the following with arrays:
-  </p>
-  <ul>
-    <li>
-      <p>
-        Create row vectors.
-      </p>
-    </li>
-    <li>
-      <p>
-        Create column vectors.
-      </p>
-    </li>
-    <li>
-      <p>
-        Create equally spaced arrays using the <c>:</c> operator.
-      </p>
-    </li>
-    <li>
-      <p>
-        Create linearly spaced arrays using the <c>linspace()</c> function.
-      </p>
-    </li>
-    <li>
-      <p>
-        Create matrices.
-      </p>
-    </li>
-    <li>
-      <p>
-        Create arrays using all 1’s and all 0’s using the <c>ones()</c> and <c>zeros()</c> functions.
-      </p>
-    </li>
-    <li>
-      <p>
-        How to use the transpose operator <c>’</c>.
-      </p>
-    </li>
-    <li>
-      <p>
-        How to address arrays and access the values they contain.
-      </p>
-    </li>
-  </ul>
-  <p>
-    Whew! That is a ton. Good work!
-  </p>
-  <p>
-    We have one more topic to go over but you have been working out your brain hard and your brain muscles are probably sore. You could use a one-minute break. Here is a video of a Bernese mountain puppy barking at a lemon.
-  </p>
-  <figure xml:id="fig-bernese-puppy">
-          <video youtube="JFIpCSmLVhs"/>
-          <caption>Totally unrelated but you need a break now and then!</caption>
+      <section xml:id="current-folder">
+        <title>Current Folder</title>
+        <figure xml:id="fig_9_4">
+            <caption>The Current Folder Path and the Current Folder Browser are boxed in red.</caption>
+              <image source="chapter_09/fig_4.png" width="70%"> </image>
         </figure>
-</section>
-<section xml:id="adavanced-array-addressing">
-  <title>Advanced Array Addressing with the <c>:</c> Operator</title>
-  <p>
-    You can couple what we have learned about the <c>:</c> operator with addressing for arrays to do some really cool stuff. The key thing to remember is that the <c>:</c> operator defaults to a spacing of 1! That means you can use the <c>:</c> operator to address a range of elements in a vector or a matrix.
-  </p>
-  <p>
-    <term>Using <c>:</c> with vectors</term>
-  </p>
-  <p>
-    As mentioned above, we can use the <c>:</c> operator to address a range of elements from a vector. The most general use case is as follows:
-  </p>
-  <p>
-    <c>range_from_vector = vector_name(m:n)</c>
-  </p>
-  <p>
-    This would take out the <m>m^{th}</m> through the <m>n^{th}</m> elements of vector <c>vector_name</c> and store them in a new vector called <c>range_from_vector</c>. It’s that easy!
-  </p>
-  <p>
-    For this example, let’s add a random vector <c>v_man</c> to our workspace as follows:
-  </p>
-  <p>
-    <c>v_man = [22 61 45 51 68 98 11 90 17]</c>
-  </p>
-  <p>
-    We can use the <c>:</c> operator to address different ranges of elements from the vector v_man. Let’s say for this application we want to create a new variable called two_to_five and we want to store the 2nd through the 5th elements of vector v_man.
-  </p>
-  <p>
-    <c>two_to_five = v_man(2:5)</c>
-  </p>
-  <p>
-    That will accomplish our goal!
-  </p>
-  <p>
-    Before you try that on your computer, do you know what those elements’ values should be? Take a second to write them down before trying to make sure you understand array addressing!
-  </p>
-  <example xml:id="vector-colon-example">
-    <title><c>:</c> with Vector Practice</title>
+        <p>
+          It is very important to organize your files and folders when working with MATLAB. One of the most common problems students have when starting to learn MATLAB is improper file management. They start storing all of their script files, functions, and algorithms inside the same folder. While this works for 2 or 3 files when you have 200 or 300 in the same folder, things get messy. Today is the day to get your digital life organized! I suggest creating a new folder in your documents folder that is named after the name of your course. So if you are taking MECH103: Intro to Mechanical Engineering, name your folder <code>mech103</code> (or something else that makes sense and makes you happy). Then add folders into <term>that</term> folder as appropriate. For example, it might be a good idea to create a folder called <code>assignments</code> that you use to store your assignments into, etc. It is assumed that you understand how and where to store things on a computer.
+        </p>
+        <figure xml:id="fig_9_5">
+            <caption>Example of a Windows File Explorer file management scheme.</caption>
+              <image source="chapter_09/fig_5.png" width="70%"> </image>
+        </figure>
+        <p>
+          You do not need to be an IT Professional to understand MATLAB. But a critical skill is understanding file structures and directories. For example, you should know that the “path” to the folder shown in Figure 9.4.2 above is <code>C:\Users\sbechara\Documents\mech103</code>. If you need a quick refresher on Windows File Structures, try watching the following video to catch up. I personally use GNU/Linux operating systems so when you see screenshots of MATLAB you may notice that the path is a little different (UNIX-like systems such as macOS and Linux use <code>/</code> instead of <code>\</code> and do not have drive letters like <code>C:\</code> or <code>D:\</code>).
+        </p>
+        <figure xml:id="fig-matlab-video">
+          <video youtube="4xS5IOg_nDw"/>
+          <caption>Windows File Structures Review Video</caption>
+        </figure>
+        <p>
+          To illustrate the similarities between MATLAB’s current folder browser and the current folder path to Windows Explorer, see figure 9.4.4 below. In figure 9.4.4, <term>the green boxes indicate the folder path (also sometimes called the current working directory)</term> (note: in figure 9.4.4 Windows truncated and doesn’t show the full path, to see the full path click the &lt;&lt; to the left of Documents) which in this case is <code>C:\Users\sbechara\Documents\mech103\handsonengineering</code>. The <term>red boxes indicate the current folder contents</term>, since the folder is the same we would expect both the Windows File Explorer and MATLAB File Explorer to contain the same files, and they do! The only difference is that MATLAB puts different cute icons to help you quickly understand what your files are. Isn’t that nice? 
+        </p>
+        <figure xml:id="fig_9_6">
+            <caption>Showing the similarities between MATLAB and Windows File Explorer. The green box indicates the folder path and the red box indicates the folder contents.</caption>
+              <image source="chapter_09/fig_6.png" width="70%"> </image>
+        </figure>
+        <p>
+          The next thing to learn is how to navigate your computer’s file system inside MATLAB. <term>You do it the same way that you navigate Windows File Explorer in Windows or Finder in macOS.</term> The problem here is that there are a ton of options. I encourage you to take a small brain workout and try each of these in MATLAB on your own.
+        </p>
+          <ul>
+            <li>You can click inside the path and type in a new path</li>
+            <li>You can double-click the folders displayed in the current folder</li>
+            <li>You can click on the little + symbols to show sub-directories and their contents</li>
+            <li>You can right-click inside the current folder window and add new folders and files</li>
+            <li>More?</li>
+          </ul>
+          <p>
+            I created a video showing me navigating a file system. See Figure 9.4.5 below for an example. Again, <term>do not let this be a substitute for actually trying it on your own!</term>
+          </p>
+           <figure xml:id="fig-matlab-file-video">
+          <video youtube="7dZKGjWnvnE"/>
+          <caption>Examples of MATLAB file and folder organization and manipulation capabilities.</caption>
+        </figure>
+        <p>
+          So the main thing to remember is that the “Current Folder” window in the MATLAB workspace is showing the files in the folder MATLAB is currently working out of. The way to navigate files and folders within MATLAB should be familiar to any Windows, macOS, or Linux user. The keys are to be able to know where you are and what is in the folder you are currently in.
+        </p>
+      
+        <exercise xml:id="ex-matlab-gui">
+<title>Determine the file path</title>
     <statement>
-        <p>Here is an interactive code box that functions identically to the MATLAB command window.</p>
-<program language="octave" interactive="activecode" xml:id="prog-9-11" label="prog-9-11">
-v_man = [22 61 45 51 68 98 11 90 17];
+        <p>Look at the MATLAB screenshot taken on a Windows computer. What is the user’s current path (also called the current working directory) based on this image?</p>
 
-two_to_five = v_man(2:5)</program>
-</statement>
-</example>
-<p>
-  <term>Using <c>:</c> with Matricies</term>
-</p>
-<p>
-  Because matrices have two dimensions, there are many more ways that we can use the <c>:</c> operator to address ranges of elements within a matrix. However, the logic is the exact same as with vector addressing. Again, <term>the key is to remember the row/column law of MATLAB.</term>
-</p>
-<p>
-  Hopefully, you still have some matrices stored in your workspace. Before you continue, see if you can guess how to use the <c>:</c> s operator on matrices to pull out a range of values. Can you figure out at least a couple of ways to make it work?
-</p>
-<p>
-  If you couldn’t figure any out, <term>that is OK!</term> The fact that you tried is all that matters.
-</p>
-<p>
-  Here are some of the ways that you can address a range of elements within a matrix. For this example, let’s consider the general case of a matrix <c>A</c>. It can have any number of rows and columns.
-</p>
-<ul>
-  <li>
-    <p>
-      Refer to the elements in <term>all rows</term> of <term>column n</term> of matrix <c>A</c>.
-    </p>
-    <p>
-      <c>A(:,n)</c>
-    </p>
-  </li>
-  <li>
-    <p>
-      Refer to the elements in <term>all columns</term> of <term>row m</term> of matrix <c>A</c>.
-    </p>
-    <p>
-      <c>A(:,m:n)</c>
-    </p>
-  </li>
-  <li>
-    <p>
-      Refer to the elements in <term>all the columns</term> between <term>row m</term> and <term>n</term> of matrix <c>A</c>.
-    </p>
-    <p>
-      <c>A(m:n,:)</c>
-    </p>
-  </li>
-  <li>
-    <p>
-      Refer to the elements in <term>rown m through n</term> and <term>columns y through z</term> of matrix <c>A</c>.
-    </p>
-    <p>
-      <c>A(m:n,y:z)</c>
-    </p>
-  </li>
-</ul>
-<p>
-  For your brain workout for this section, try every one of the bullet points above on one of the matrices we have previously defined to make sure you understand how this works!
-</p>
-<example xml:id="matrix-colon-example">
-    <title><c>:</c> with Matrix Practice</title>
-    <statement>
-        <p>Here is an interactive code box that functions identically to the MATLAB command window.</p>
-<program language="octave" interactive="activecode" xml:id="prog-9-12" label="prog-9-12">
-% Experiment with all the examples above
-</program>
-</statement>
-</example>
-<p>
-  <term>Housekeeping</term>
-</p>
-<p>
-  The last thing I would like to mention about scripts is that it is a good idea to include what I call “housekeeping” lines of code at the <term>top</term> of your script. Most of my scripts start with <c>clear</c> and <c>clc</c>. For example, look at a script that we will work on in Chapter 12 below in figure 9.6.3.
-</p>
-<figure xml:id="fig_9_17">
-      <caption>An example script.</caption>
-      <image source="chapter_09/fig_17.png" width="70%"> </image>
+        <figure xml:id="fig-matlab-gui-question">
+            <image source="chapter_09/question_1.png" width="70%"/>
+            <caption>The MATLAB graphical user interface.</caption>
+        </figure>
+
+        <p>
+            What is the correct file path the user is in?
+        </p>
+    </statement>
+
+    <choices>
+    <choice>
+        <statement>
+            <p><c>C:/Users/sbechara/Documents/MATLAB/</c></p>
+        </statement>
+        <feedback>
+            <p>Incorrect. This path does not include the current folder.</p>
+        </feedback>
+    </choice>
+
+    <choice correct="yes">
+        <statement>
+            <p><c>C:\Users\sbechara\Documents\MATLAB\question</c></p>
+        </statement>
+        <feedback>
+            <p>Correct. This is the current working directory shown in MATLAB.</p>
+        </feedback>
+    </choice>
+
+    <choice>
+        <statement>
+            <p><c>C:/Users/sbechara/Documents/MATLAB/question</c></p>
+        </statement>
+        <feedback>
+            <p>Incorrect. The path format shown in Windows uses backslashes.</p>
+        </feedback>
+    </choice>
+
+    <choice>
+        <statement>
+            <p><c>C:\Users\sbechara\Documents\MATLAB\question\problem1.m</c></p>
+        </statement>
+        <feedback>
+            <p>Incorrect. This is a file, not the current folder.</p>
+        </feedback>
+    </choice>
+
+    <choice>
+        <statement>
+            <p><c>C:\Users\sbechara\Documents\MATLAB\</c></p>
+        </statement>
+        <feedback>
+            <p>Incorrect. This is the parent folder.</p>
+        </feedback>
+    </choice>
+</choices>
+
+</exercise>
+      </section>
+      <section xml:id="workspace">
+        <title>Workspace</title>
+        <figure xml:id="fig_9_7">
+          <caption>The MATLAB Workspace is boxed in red. Currently, it is empty indicating that there are no workspace variables available to the user.</caption>
+            <image source="chapter_09/fig_7.jpeg" width="70%"> </image>
     </figure>
     <p>
-      Don’t worry about what this script does (yet). Instead, notice how I started the script with a <c>clc</c> and then a <c>clear</c> command. This is good practice to ensure that your scripts will work on a fresh start of MATLAB and do not rely on a variable that is currently in the workspace. You are not required to start your scripts this way, but it is good practice.
+      The area labeled “Workspace” and boxed in red above in figure 9.5.1, is the place where MATLAB lets the user know what variables are loaded and available to the user. We will learn about variables below, but for now, you can think of them as a string of letters that can be used to store a number.
     </p>
+    <figure xml:id="fig_9_8">
+          <caption>Example workspace variables</caption>
+            <image source="chapter_09/fig_8.jpeg" width="70%"> </image>
+    </figure>
+    <p>
+      In figure 9.5.2 to the left, notice that there are workspace variables. In this case, there are 3: “apples” has the value 10 stored in it, “bananas” has the value 20 stored in it, and “pie” has pi stored in it.
+    </p>
+    <p>
+      Again, you will learn later how to create your own variables and use them, but for now, it is just important that you understand how MATLAB displays the information to you about what variables are currently defined and what numbers they contain.
+    </p>
+      </section>
+      <section xml:id="matlab-banner">
+        <title>MATLAB Banner</title>
+        <figure xml:id="fig_9_9">
+          <caption>The MATLAB Banner</caption>
+          <image source="chapter_09/fig_9.jpeg" width="70%"> </image>
+        </figure>
+        <p>
+          The MATLAB banner is the part of the GUI that sits on top of everything else. There are multiple tabs (that will actually change depending on what you are doing) and there are a bunch of buttons with a little descriptive text. Almost all of the buttons are labeled in such a way that it should be pretty obvious as to their function.
+        </p>
+        <p>
+          For example, the “New Variable” button creates a new variable in the workspace. The “Preferences” button opens up a modal dialogue box that contains a whole bunch of options that you can change in MATLAB.
+        </p>
+        <p>
+          Take some time to familiarize yourself with the banner and the buttons located on it (especially the buttons in the “Home” tab). In the next chapters, I will refer to the buttons on the banner so you must know where to look.
+        </p>
+        <p>
+        <heading><term>Try It!</term></heading>
+        </p>
+        <p>
+         Take a second or two to play around with the buttons on the “Home” tab of the banner. You can’t really break anything and it is good to explore them to see what happens. Also, take a second to click through the other available tabs to see what buttons are available on those. A lot of what we will be learning throughout the rest of this book will rely on your ability to find the correct button on the banner so don’t skip this step! 
+        </p>
+      </section>
+      <section xml:id="quick-recap">
+        <title>Quick Recap</title>
+        <p>
+          If you were paying attention, working out your brain muscles, and following along, hopefully now you know:
+          <ul>
+            <li>What the command window is and what it is used for.</li>
+            <li>What the current folder path and current folder browser are, how to navigate your file system using the current folder browser, and know how to add and remove files from your file system using MATLAB.</li>
+            <li>What the Workspace area is for, how to interpret what variables are currently stored in MATLAB, and get a quick idea about the values they contain.</li>
+          </ul>
+        </p>
+        <p>
+          If any of the above three bullet points seem fuzzy to you, please take some time to re-read those sections or seek help elsewhere. From this point forward, it will be assumed that you understand these three areas of the MATLAB GUI and what they are used for.
+        </p>
+      </section>
+       <section xml:id="matlab-calc">
+        <title>MATLAB as a Glorified Calculator</title>
+        <p>
+          Even though we spent the preceding section praising MATLAB for its powerful capabilities we are going to spend the rest of this chapter learning how to use it as a calculator. It is going to seem that this is boring and easy, however, there are key concepts that are easy to miss! To best learn, I recommend that you open MATLAB and practice these concepts in the MATLAB command window.
+        </p>
+        <p>
+          <heading><term>Arithmetic Operators (for Scalar)</term></heading>
+        </p>
+        <p>
+          To use MATLAB as a calculator, we first need to learn what symbols are reserved for use as arithmetic operators. Keep in mind this section only applies to arithmetic performed on <term>scalars</term> (A quantity (such as mass or time) that has a magnitude describable by a real number and no direction. In other words, it is NOT a vector!). Future chapters will cover mathematical operations with vectors. Most of the following operators should seem pretty obvious to you.
+        </p>
+         <figure xml:id="fig_9_10">
+          <caption>The basic MATLAB mathematical operators</caption>
+          <image source="chapter_09/fig_10.jpeg" width="70%"> </image>
+        </figure>
+        <p>
+          Now that we know the symbols, we can execute basic mathematical operations in MATLAB!
+        </p>
+            <statement>
+        <p>Here is an interactive code box for checkpoint 8.8.2</p>
+
+<program language="octave" interactive="activecode" xml:id="prog-9-2" label="prog-9-2">
+
+% Use this code box to calculate the answer to the question below.
+
+</program>
+</statement>
+     <exercise xml:id="matlab-matching">
+
+  <title>Mathematical Operators in MATLAB</title>
+
+    <statement>
+        <p>Match the description of the mathematical operation with the MATLAB command.</p>
+    </statement>
+
+    <matches>
+        <match>
+            <premise>
+                <p>Four plus five</p>
+            </premise>
+            <response>
+                <p><c>4+5</c></p>
+            </response>
+        </match>
+
+        <match>
+            <premise>
+                <p>Three to the power of six</p>
+            </premise>
+            <response>
+                <p><c>3^6</c></p>
+            </response>
+        </match>
+
+        <match>
+            <premise>
+                <p>Fifteen divided by three squared</p>
+            </premise>
+            <response>
+                <p><c>15/3^2</c></p>
+            </response>
+        </match>
+
+        <match>
+            <premise>
+                <p>Six minus seven times eight</p>
+            </premise>
+            <response>
+                <p><c>6-7*8</c></p>
+            </response>
+        </match>
+    </matches>
+</exercise>   
+<p>
+<heading><term>Important Symbols and Commands</term></heading>
+</p>
+<p>
+  As we continue throughout this book, we will be adding to the list of MATLAB commands and reserved symbols. For now, these symbols and commands are the ones that I think are the most important for you to learn.
+</p>
+<figure xml:id="fig_9_11">
+          <caption>Other important MATLAB commands and symbols.</caption>
+          <image source="chapter_09/fig_11.jpeg" width="70%"> </image>
+        </figure>
+        <p>
+          <heading><term>Order of Precedence</term></heading>
+        </p>
+        <p>
+          Analogous to what you learned in previous mathematics courses about <term>order of operations</term> (A lot of you probably learned an acronym like PEMDAS: Parenthesis, Exponents, Multiplication/Division, Addition/Subtraction) MATLAB has a built-in <term>order of precedence</term>. The concept is the same, the order of precedence is built into MATLAB and specifies the order in which mathematical operations will be performed.
+        </p>
+        <p>
+          As we learn new operators (specifically logical and relational) we will be updating this list. For now, the MATLAB Order of Precedence is as follows.
+        </p>
+        <p>
+  <ol>
+    <li>Parentheses</li>
+    <li>Exponentiation</li>
+    <li>Multiplication / Division</li>
+    <li>Addition / Subtraction</li>
+  </ol>
+        </p>
+        <p>
+          <heading><term>Try It!</term></heading>
+        </p>
+        <p>
+          For example, consider if MATLAB were to execute the following two mathematical operations:
+        </p>
+        <p>
+          <c>&gt;&gt; 4 + 6 * 2</c>
+        </p>
+        <p>
+          and
+        </p>
+        <p>
+          <c>&gt;&gt; (4 + 6) * 2</c>
+        </p>
+        <p>
+          In the first instance, based on the order of precedence, the result would be <c>16</c>. Why? MATLAB will evaluate the <c>6 * 2</c> portion of the operation first, as it is higher in order of precedence than addition.
+        </p>
+        <p>
+          In the second instance, the result would be <c>20</c>. In this case, the operations in the parentheses will be evaluated first <c>(4 + 6)</c> and then the result of that will be multiplied by <c>2</c>.
+        </p>
+        <exercise xml:id="order-precedence-fillin" exercise-interactive="fillin">
+           <title>Order of Precedence with Arithmetic</title>
+    <statement>
+        <p>
+            Consider MATLAB evaluating the expression
+            <c>(4 * 4 ^ 2 / 2) + (3 - 34 * 2)</c>.
+            Based on MATLAB's order of precedence, what should the result be?
+        </p>
+        <p>
+            The result should be
+            <fillin answer="-33" mode="number"/>.
+        </p>
+    </statement>
+    <evaluation>
+        <evaluate>
+            <test correct="yes">
+                <numcmp use-answer="yes" tolerance="0.5"/>
+            </test>
+        </evaluate>
+    </evaluation>
+</exercise>
+       </section>
+       <section xml:id="variable-basics">
+        <title>Variable Basics</title>
+        <p>
+        To complete our lesson on how to use MATLAB as a calculator we need to discuss variables. Luckily, assigning variables in MATLAB is very easy and MATLAB is very forgiving with its variable naming rules. To assign a variable, you simply use the <c>=</c> operator. (Note: you don’t need to type in the <c>&gt;&gt;</c>. From now on I will put the <c>&gt;&gt;</c> in when you should type a command into the command window. Notice how the command window prompt in MATLAB is <c>&gt;&gt;</c>.)
+        </p>
+        <p>
+          <c>&gt;&gt; csu=1881;</c>
+        </p>
+        <p>
+          In this case, the variable named <c>csu</c> will be assigned the value <c>1881</c> (recall that the semicolon simply suppresses the output to the command window. Try typing the example into MATLAB yourself with and without the semicolon to see it in action!). At this point, you should notice that a new variable <c>csu</c> has been added to the workspace. Now we can use the variable csu in any mathematical operation.
+        </p>
+        <p>
+          <c>&gt;&gt; csu+19;</c>
+        </p>
+        <p>
+          You should notice that without the semicolon, <c>1900</c> is output to the command window. Sure enough, that is <c>1881 + 19</c>! The other thing to notice is that if you do not specify a variable to store an operation in, MATLAB will default to storing the value in a variable named <c>ans</c>. You can see this in the workspace. The ans variable is OK, but it is not a safe place to store information. MATLAB will overwrite the <c>ans</c> variable every time an operation is performed that does not include an assignment. Let’s re-try that last operation and this time assign the resultant to a new variable called total.
+        </p>
+        <p>
+          <c>&gt;&gt; total = csu+19;</c>
+        </p>
+        <p>
+          When you try this, you should notice a NEW variable named <c>total</c> added to the workspace and that it contains the value <c>1900</c>. If you have been following along, you should have three variables in your workspace; <c>csu</c>, <c>ans</c>, and <c>total</c>.
+        </p>
+        <p>
+          The last thing we should mention about variables is the variable naming rules:
+          <ul>
+            <li>MATLAB variables <term>must start with a letter</term></li>
+            <li>After the first letter, other letters, digits, or underscores can follow. No other characters can be used</li>
+            <li>Variables are case sensitive meaning the variable <c>RAMS</c> and <c>rams</c> are NOT the same</li>
+            <li>This is just a guideline but your variable names should be descriptive of the quantity that they are storing</li>
+          </ul>
+        </p>
+<exercise xml:id="varname-x7">
+  <title>Variable Name Validity</title>
+    <statement>
+        <p>
+            Is the following variable name valid or invalid?
+        </p>
+        <p>
+            <c>&gt;&gt;x7</c>
+        </p>
+    </statement>
+    <choices>
+        <choice>
+            <statement>
+                <p>Invalid</p>
+            </statement>
+            <feedback>
+                <p>
+                    Incorrect. Variable names in MATLAB may contain letters and numbers as long as they begin with a letter.
+                </p>
+            </feedback>
+        </choice>
+        <choice correct="yes">
+            <statement>
+                <p>Valid</p>
+            </statement>
+            <feedback>
+                <p>
+                    Correct! <c>x7</c> is a valid MATLAB variable name because it begins with a letter and contains only letters and numbers.
+                </p>
+            </feedback>
+        </choice>
+    </choices>
+</exercise>
+       </section>
+       <section xml:id="important-functions">
+        <title>Important Functions</title>
+        <p>
+          MATLAB includes thousands of built-in functions that can do calculations for you. That is actually one of the reasons why it is so expensive (it costs a lot of money to pay programmers to make those functions for you!). Functions in MATLAB work very similar to functions in Excel in that you give them some input (typically a number or variable that has a number stored in it) and they return a value based on some calculation. For example, if you wanted to calculate the square root of 16, you could type the following into the command window:
+        </p>
+        <p>
+          <c>&gt;&gt; sqrt(16)</c>
+        </p>
+        <p>
+          In this case, the function is <c>sqrt()</c> and the input is <c>16</c>. When you hit enter you should see that MATLAB spits out:
+        </p>
+        <p>
+          <c>&gt;&gt;</c>
+        </p>
+        <p>
+         <c>ans = 4</c>
+        </p>
+        <p>
+          Which is the square root of 16 (remember to leave off the semi-colon when we want to see the answer displayed in the command window). We could have also stored 16 in a variable and asked for the square root of the variable.
+        </p>
+        <p>
+          <c>&gt;&gt; number=16</c>
+        </p>
+        <p>
+          <c>&gt;&gt; sqrt(number)</c>
+        </p>
+        <p>
+          Will work the exact same way.
+        </p>
+
+<program language="octave" interactive="activecode" xml:id="prog-9-3" label="prog-9-3">
+
+% Here is a code box to try the sqrt() function
+
+% Try entering different numbers and mathematical expressions and see what happens
+
+number = 16;
+
+sqrt(number)
+
+</program>
+<p>
+  We won’t be learning about every MATLAB built-in function available, but here are a few that you may find useful right away. For your brain workout, spend a few minutes looking over table 8.3 below and practicing using those functions. I suggest trying a combination of numbers and variables as input arguments to the function.
+</p>
+<figure xml:id="fig_9_12">
+          <caption>Some important built-in functions that you should be able to use.</caption>
+          <image source="chapter_09/fig_12.jpeg" width="70%"> </image>
+        </figure>
+
+<program language="octave" interactive="activecode" xml:id="prog-9-4" label="prog-9-4">
+% Question 7.5: Degrees or Radians
+% Use this code box to compare the value for sin of 360 radians verus 360 degrees
+
+</program>
+<exercise xml:id="sin-360-comparison">
+  <title>Evaluating <c>sin</c> in MATLAB</title>
+    <statement>
+        <p>
+            Using MATLAB, evaluate <c>sin(360)</c> assuming the angle is measured in radians and then assuming the angle is measured in degrees. Which result is greater?
+        </p>
+    </statement>
+    <choices>
+        <choice correct="yes">
+            <statement>
+                <p>Radians</p>
+            </statement>
+            <feedback>
+                <p>
+                    Correct! MATLAB's <c>sin()</c> function expects radians by default. 
+                    <c>sin(360)</c> is approximately 0.959, while
+                    <c>sind(360)</c> is 0.
+                </p>
+            </feedback>
+        </choice>
+        <choice>
+            <statement>
+                <p>Degrees</p>
+            </statement>
+            <feedback>
+                <p>
+                    Incorrect. <c>sind(360)</c> equals 0, while
+                    <c>sin(360)</c> (with 360 interpreted as radians) is approximately 0.959.
+                </p>
+            </feedback>
+        </choice>
+    </choices>
+</exercise>
+       </section>
+       <section xml:id="get-help">
+        <title>Getting Help</title>
+        <p>
+          As you can probably already tell, there is a <term>lot</term> to learn when you are studying MATLAB. <term>It is not likely that you will remember everything you read about in this book.</term> While the book is and will continue to be a resource for you, I thought it would be useful to point out two tools that can help you when you feel like you are stuck. I recommend that you attempt to seek out help in the following order:
+        </p>
+        <ol>
+          <li>First try: MATLAB Built-In <c>help</c></li>
+          <li>If that doesn’t work, try: Google (<term>dangerous</term>)</li>
+        </ol>
+        <p>
+          Be honest with yourself and remember that we are here to work out our brains! It is OK to seek out help from external resources but you need to make sure that you are <term>learning</term> the material.
+        </p>
+        <p>
+          <heading><term>MATLAB Built-In <c>help</c></term></heading>
+        </p>
+        <p>
+          The MATLAB help documentation is very good and is a good place to start when you are stuck. The only problem is it will only help you if you know what function or command you need help with. For example, if you are confused about how to use the <c>cosd()</c> function you can type in:
+        </p>
+        <p>
+          <c>&gt;&gt; help cosd</c>
+        </p>
+        <p>
+          and MATLAB will display a descriptive help text explaining what the function is and how it works. <term>This is the best way to get help when you are first learning MATLAB.</term> It forces you to think about what you need help with specifically and it doesn’t answer your problem exactly. That is a good thing when you are practicing. It is OK to get a little spot when you are working out, but you don’t want your spotter pulling the bar up for you because then you wouldn’t be working out your muscles! In fact, a good brain workout would be to go into the list of functions above in figure 9.10.1 and read through the help text on each of those functions. Some of the text may be gibberish to you, but it is a good idea to start practicing reading technical documentation now.
+        </p>
+        <p>
+          <heading><term>Using Google For Help</term></heading>
+        </p>
+        <p>
+          If you are stuck and you have read through MATLAB help text and you still need a little extra help, you can usually use google to search for and quickly find an answer to your problem. However, I caution you to do this only in extreme circumstances! This is the equivalent of having your spotter lift the bar for you above. If you are totally maxed out and can’t figure it out, it is OK, but you need to go back a little later and try it again for yourself to make sure you learn how to do it on your own.
+        </p>
+        <p>
+          Another good resource is the <url href="https://www.reddit.com/r/MATLAB/">MATLAB subreddit</url>. If you are not familiar, Reddit is a forum website where users can submit questions and get answers from a community. I actually frequently respond to posts on the MATLAB subreddit so if you post a question there, I might be the one answering it for you!
+        </p>
+        <p>
+          In the end, it is important to remember, that the goal of this book is to work out your brain. I will trust that you will use the internet with discretion, understanding that learning the material is more important than “getting the answer”.
+        </p>
+      </section>
+      <section xml:id="practice">
+        <title>Practice, Practice, Practice!</title>
+      <p>
+        At this point, the best thing you can do is play around with MATLAB as a calculator. Do some arithmetic operations, assign some variables, use the semi-colon, omit the semi-colon, try typing in clear to see what happens, etc. DO NOT SKIP THE PLAYING STEP. You can read about these concepts, but if you want to learn you need to see them in practice. The best way to do that? PLAY!
+      </p>
+
+<program language="octave" interactive="activecode" xml:id="prog-9-5" label="prog-9-5">
+% Use this code box to mess around with some MATLAB skills you have learned in this textbook
+</program>
+<exercise xml:id="something-new-8" exercise-interactive="shortanswer">
+        <title>Something new?</title>
+        <statement>
+          <p>
+          After messing around with the code box above, talk about three different things you have learned in this chapter. If you were already familiar with MATLAB, talk about a function you did not know existed.
+        </p>
+        <p>
+          If you are familiar with another coding language like Python, compare it to what you have learned about MATLAB so far. What are some similarities? What are some differences?
+        </p>        
+      </statement>
+       <response />
+      </exercise>
 </section>
 </chapter>
