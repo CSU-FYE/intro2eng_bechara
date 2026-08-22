@@ -7,7 +7,7 @@
   <targets>
     <target name="web" format="html" />
     <target name="print" format="pdf" />
-    <target name="runestone" format="html" publication="runestone.ptx" output-dir="runestone" />
+    <target name="runestone" format="html" publication="runestone.ptx" output-dir="runestone" xsl="custom-runestone.xsl" />
   </targets>
 </project>
 
