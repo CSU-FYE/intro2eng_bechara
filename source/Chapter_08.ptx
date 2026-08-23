@@ -281,7 +281,7 @@
   A quick video recap of this process is provided below.
 </p>
 <figure xml:id="fig-add-trendline">
-          <video youtube="MCWWXoz9SJs"/>
+          <video label="video-add-trendline" youtube="MCWWXoz9SJs"/>
           <caption>How to add a trendline to an Excel data series</caption>
         </figure>
         <exercise xml:id="real-linear-model" exercise-interactive="shortanswer">

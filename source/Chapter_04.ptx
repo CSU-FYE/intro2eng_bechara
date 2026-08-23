@@ -172,7 +172,7 @@
     Now that we have covered some of the simple quantities and your brain muscles are loose, let’s take one more look at dimensions and consider the physical concept of <term>work</term>. Take a minute to watch the following YouTube clip to familiarize yourself with the concept of Work.
   </p>
    <figure xml:id="fig-pbs-work">
-          <video youtube="w4QFJb9a8vo"/>
+          <video label="video-pbs-work" youtube="w4QFJb9a8vo"/>
           <caption>Video Courtesy of PBS Digital Studios: Work, Energy, and Power</caption>
         </figure>
   <p>
@@ -244,7 +244,7 @@
     SI stands for The International System of Units. It is derived from the french, French Le Système International d’Unités (hence the seemingly back words abbreviation, SI). The SI system is commonly referred to as the metric system and both metric and SI will be used interchangeably throughout the book. The history of SI is pretty interesting. Watch the following video to get a feel for how SI units came to be.
   </p>
      <figure xml:id="fig-ted-ed-metric">
-          <video youtube="7bUVjJWA6Vw"/>
+          <video label="video-ted-ed-metric" youtube="7bUVjJWA6Vw"/>
           <caption>VA nice TEDEd video that describes the history of units. Easily worth a watch! You could use a quick little break anyway…</caption>
         </figure>
         <p>

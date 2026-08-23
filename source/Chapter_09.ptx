@@ -111,7 +111,7 @@ deg2rad(15.23)
           You do not need to be an IT Professional to understand MATLAB. But a critical skill is understanding file structures and directories. For example, you should know that the “path” to the folder shown in Figure 9.4.2 above is <code>C:\Users\sbechara\Documents\mech103</code>. If you need a quick refresher on Windows File Structures, try watching the following video to catch up. I personally use GNU/Linux operating systems so when you see screenshots of MATLAB you may notice that the path is a little different (UNIX-like systems such as macOS and Linux use <code>/</code> instead of <code>\</code> and do not have drive letters like <code>C:\</code> or <code>D:\</code>).
         </p>
         <figure xml:id="fig-matlab-video">
-          <video youtube="4xS5IOg_nDw"/>
+          <video label="video-matlab-video" youtube="4xS5IOg_nDw"/>
           <caption>Windows File Structures Review Video</caption>
         </figure>
         <p>
@@ -135,7 +135,7 @@ deg2rad(15.23)
             I created a video showing me navigating a file system. See Figure 9.4.5 below for an example. Again, <term>do not let this be a substitute for actually trying it on your own!</term>
           </p>
            <figure xml:id="fig-matlab-file-video">
-          <video youtube="7dZKGjWnvnE"/>
+          <video label="video-matlab-file-video" youtube="7dZKGjWnvnE"/>
           <caption>Examples of MATLAB file and folder organization and manipulation capabilities.</caption>
         </figure>
         <p>

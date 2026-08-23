@@ -180,7 +180,7 @@
       Once you hit enter, you can see that it uses the data from the cell <c>A4</c> in the calculation. Now, here is the trick. You can use cell addressing to create formulas and calculate the areas for the other cells automatically! To do so, select cell <c>B4</c> by clicking on it. You should notice a little green box (called the “fill handle”) in the lower right corner. Click on that, and drag it down so that it fills all the cells in which we would like to calculate an area. This is called copying the cell formula. If you are a little confused about what to do, see Figure 5.4.2 below.
     </p>
     <figure xml:id="fig-excel-formula-reference">
-          <video youtube="W2khobI_-MM"/>
+          <video label="video-excel-formula-reference" youtube="W2khobI_-MM"/>
           <caption>Excel Cell Formulas and Referencing</caption>
         </figure>
       <p>
@@ -209,7 +209,7 @@
       What we need to do to fix it, is go back to the formula in <c>B4</c> and create an <term>absolute cell address</term> for <c>D4</c>. To do so, add <c>$</c> symbols in front of both the <c>D</c> and the <c>4</c> like this: <c>$D$4</c>. Now when you try to copy the formula to the cells below, it will use <term>relative cell addressing</term> for the <c>A</c> cells (which is what we want) and it will use <term>absolute cell addressing</term> for the <c>D4</c> cell! A short video showing this is in the figure below.
     </p>
     <figure xml:id="fig-excel-absolute-cell">
-          <video youtube="S6RawRDnOP8"/>
+          <video label="video-excel-absolute-cell" youtube="S6RawRDnOP8"/>
           <caption>Excel Absolute Cell Referencing</caption>
         </figure>
     <p>
@@ -300,7 +300,7 @@
     Notice that Excel automatically adds all of the areas in the column! Neat! You should also notice that when functions require a range of cells (such as <c>sum()</c>) you can specify the cell range using a colon OR by clicking and dragging to select the range of cells of interest. You can see both ways of adding a range of cells in Figure 5.5.2.
   </p>
   <figure xml:id="fig-excel-functions">
-          <video youtube="sfFEbwdCf9I"/>
+          <video label="video-excel-functions" youtube="sfFEbwdCf9I"/>
           <caption>Excel Functions</caption>
   </figure>
   <p>

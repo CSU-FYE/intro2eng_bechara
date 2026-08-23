@@ -244,7 +244,7 @@
         Whew, that was a lot! For a quick video recap of the entire process, Figure 6.4.7 below.
       </p>
       <figure xml:id="fig-chart-excel">
-          <video youtube="WbevBtFvKqA"/>
+          <video label="video-chart-excel" youtube="WbevBtFvKqA"/>
           <caption>A recap of steps 1–10 on how to create a chart in Excel.</caption>
         </figure>
         <p>
@@ -268,7 +268,7 @@
       If you are confused about how to do this, Figure 6.4.10 shows how this process is completed.
     </p>
     <figure xml:id="fig-chart-essentials">
-          <video youtube="MG3X6mhpWmk"/>
+          <video label="video-chart-essentials" youtube="MG3X6mhpWmk"/>
           <caption>A short video showing how to add the essential chart elements.</caption>
         </figure>
         <p>
@@ -346,7 +346,7 @@
       To double-check your process, you can see how I accomplished creating this chart in the video below.
     </p>
       <figure xml:id="fig-create-column-chart">
-          <video youtube="zzl9XJoRwEk"/>
+          <video label="video-create-column-chart" youtube="zzl9XJoRwEk"/>
           <caption>Before you watch the video make sure that you gave it a try! You can do it!</caption>
         </figure>
         <p>

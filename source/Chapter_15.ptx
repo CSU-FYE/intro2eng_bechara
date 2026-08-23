@@ -389,7 +389,7 @@ Recall, this is saying that we can represent <m>sin(x)</m> as an infinite polyno
       If you search for “for loops” on YouTube you can find hundreds of videos of people explaining these looping structures. Here is one such video.
     </p>
     <figure xml:id="fig-matlab-for-loop">
-          <video youtube="1VKkuIRx-e0"/>
+          <video label="video-matlab-for-loop" youtube="1VKkuIRx-e0"/>
           <caption>Youtube Video on <c>for</c> Loops</caption>
         </figure>
         <exercise xml:id="for-loops-reflection" exercise-interactive="shortanswer">

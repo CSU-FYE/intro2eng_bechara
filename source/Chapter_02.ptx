@@ -207,7 +207,7 @@
         Pretend you are going to a concert to see Yo Yo Ma play Bach’s Cello Suite No. 5 in C Minor. Go ahead and do yourself a favor, take a few minutes out of your day, close your eyes, and imagine being lucky enough to hear him play this for you live. Seriously, it is only a few minutes long and it is strikingly beautiful. Hit the play button, and close your eyes…
       </p>
       <figure xml:id="fig-yoyo">
-          <video youtube="JksKMu6E2Mk"/>
+          <video label="video-yoyo" youtube="JksKMu6E2Mk"/>
           <caption>Yo-Yo Ma Playing Bach’s Cello Suite No. 5</caption>
         </figure>
         <p>

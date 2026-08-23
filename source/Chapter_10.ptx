@@ -1108,7 +1108,7 @@ position = [0, 4, 8, 12, 30] % position in meters
     We have one more topic to go over but you have been working out your brain hard and your brain muscles are probably sore. You could use a one-minute break. Here is a video of a Bernese mountain puppy barking at a lemon.
   </p>
   <figure xml:id="fig-bernese-puppy">
-          <video youtube="JFIpCSmLVhs"/>
+          <video label="video-bernese-puppy" youtube="JFIpCSmLVhs"/>
           <caption>Totally unrelated but you need a break now and then!</caption>
         </figure>
 </section>
