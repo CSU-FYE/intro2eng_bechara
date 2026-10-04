@@ -210,14 +210,14 @@ deg2rad(15.23)
         <title>Workspace</title>
         <figure xml:id="fig_9_7">
           <caption>The MATLAB Workspace is boxed in red. Currently, it is empty indicating that there are no workspace variables available to the user.</caption>
-            <image source="chapter_09/fig_7.jpeg" width="70%"> </image>
+            <image source="chapter_09/fig_7.png" width="70%"> </image>
     </figure>
     <p>
       The area labeled “Workspace” and boxed in red above in figure 9.5.1, is the place where MATLAB lets the user know what variables are loaded and available to the user. We will learn about variables below, but for now, you can think of them as a string of letters that can be used to store a number.
     </p>
     <figure xml:id="fig_9_8">
           <caption>Example workspace variables</caption>
-            <image source="chapter_09/fig_8.jpeg" width="70%"> </image>
+            <image source="chapter_09/fig_8.png" width="70%"> </image>
     </figure>
     <p>
       In figure 9.5.2 to the left, notice that there are workspace variables. In this case, there are 3: “apples” has the value 10 stored in it, “bananas” has the value 20 stored in it, and “pie” has pi stored in it.
@@ -230,7 +230,7 @@ deg2rad(15.23)
         <title>MATLAB Banner</title>
         <figure xml:id="fig_9_9">
           <caption>The MATLAB Banner</caption>
-          <image source="chapter_09/fig_9.jpeg" width="70%"> </image>
+          <image source="chapter_09/fig_9.png" width="70%"> </image>
         </figure>
         <p>
           The MATLAB banner is the part of the GUI that sits on top of everything else. There are multiple tabs (that will actually change depending on what you are doing) and there are a bunch of buttons with a little descriptive text. Almost all of the buttons are labeled in such a way that it should be pretty obvious as to their function.
@@ -275,7 +275,7 @@ deg2rad(15.23)
         </p>
          <figure xml:id="fig_9_10">
           <caption>The basic MATLAB mathematical operators</caption>
-          <image source="chapter_09/fig_10.jpeg" width="70%"> </image>
+          <image source="chapter_09/fig_10.png" width="70%"> </image>
         </figure>
         <p>
           Now that we know the symbols, we can execute basic mathematical operations in MATLAB!
@@ -343,7 +343,7 @@ deg2rad(15.23)
 </p>
 <figure xml:id="fig_9_11">
           <caption>Other important MATLAB commands and symbols.</caption>
-          <image source="chapter_09/fig_11.jpeg" width="70%"> </image>
+          <image source="chapter_09/fig_11.png" width="70%"> </image>
         </figure>
         <p>
           <heading><term>Order of Precedence</term></heading>
@@ -517,7 +517,7 @@ sqrt(number)
 </p>
 <figure xml:id="fig_9_12">
           <caption>Some important built-in functions that you should be able to use.</caption>
-          <image source="chapter_09/fig_12.jpeg" width="70%"> </image>
+          <image source="chapter_09/fig_12.png" width="70%"> </image>
         </figure>
 
 <program language="octave" interactive="activecode" xml:id="prog-9-4" label="prog-9-4">
