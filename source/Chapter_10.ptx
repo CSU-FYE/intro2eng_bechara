@@ -21,7 +21,7 @@
     <statement>
         <p>Here is an interactive code box that functions identically to the MATLAB command window.</p>
 <program language="octave" interactive="activecode" xml:id="prog-10-1" label="prog-10-1">
-% Try It 9.0.2
+% Try It
 
 midterm_1 = 86;
 
@@ -31,7 +31,7 @@ midterm_3 = 82;
 
 final = 91;
 
-average_exam_score = (midterm_1 + midterm_2 + midterm_3 + final
+average_exam_score = (midterm_1 + midterm_2 + midterm_3 + final)/4
 </program>
 </statement>
 </example>
@@ -50,7 +50,7 @@ average_exam_score = (midterm_1 + midterm_2 + midterm_3 + final
     <statement>
         <p>Here is an interactive code box that functions identically to the MATLAB command window.</p>
 <program language="octave" interactive="activecode" xml:id="prog-10-2" label="prog-10-2">
-% Try It 9.0.4
+% Try It
 
 midterm_1 = 86;
 
@@ -62,7 +62,7 @@ final = 91;
 
 final = 75; % This overwrites the value stored in the variable final
 
-average_exam_score = (midterm_1 + midterm_2 + midterm_3 + final
+average_exam_score = (midterm_1 + midterm_2 + midterm_3 + final)/4
 </program>
 </statement>
 </example> 
