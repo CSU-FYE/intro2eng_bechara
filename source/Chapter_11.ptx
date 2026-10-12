@@ -252,20 +252,25 @@ mat3 =
 <p>
   and store it in a new vector called <c>vec 3</c>.
 </p>
-<exercise xml:id="vec3-first-element" exercise-interactive="fillin">
-
-  <title>Accessing a <c>vec3</c> Element</title>
-
+<example xml:id="try-it-10-2">
+  <title>Subtracting <c>vec1</c> from <c>vec2</c></title>
   <statement>
     <p>Here is an interactive code box that functions identically to the MATLAB command window.</p>
 <program language="octave" interactive="activecode" xml:id="prog-11-3" label="prog-11-3">
 % Checkpoint 10.1.5
 % What is the value of vec3?
 clc; clear; close all;
-vec1 = 
-vec2 = 
+vec1 =
+vec2 =
 vec3 =
 </program>
+</statement>
+</example>
+<exercise xml:id="vec3-first-element" exercise-interactive="fillin">
+
+  <title>Accessing a <c>vec3</c> Element</title>
+
+  <statement>
     <p>
       What is the value of <c>vec3(1)</c>?
     </p>
@@ -336,10 +341,8 @@ a_{21}+s &amp; a_{22}+s
   <p>
     Using the 4 variables still stored in your Workspace, subtract the scalar 4 from <c>mat1</c> and store it in a new matrix called <c>mat4</c>.
   </p>
-  <exercise xml:id="mat4-first-element" exercise-interactive="fillin">
-
-  <title>Subtracting a Scalar</title>
-
+  <example xml:id="try-it-10-9">
+  <title>Subtracting a Scalar from <c>mat1</c></title>
   <statement>
     <p>Here is an interactive code box that functions identically to the MATLAB command window.</p>
 <program language="octave" interactive="activecode" xml:id="prog-11-5" label="prog-11-5">
@@ -350,6 +353,13 @@ mat1 = [4, 12; -5, 2.6];
 scalar =
 mat4 =
 </program>
+</statement>
+</example>
+  <exercise xml:id="mat4-first-element" exercise-interactive="fillin">
+
+  <title>Subtracting a Scalar</title>
+
+  <statement>
     <p>
       What is the value of <c>mat4(1,1)</c>?
     </p>
@@ -617,17 +627,22 @@ fun = x.^3 - 6 * x.^2 + x - 10
 <p>
   For this question, let’s consider the preceding example, but this time, redefine <c>x</c> to be from <c>x = 1</c> to <c>x=999</c> equally spaced by 1. To accomplish this, you should only have to modify two numbers in your script. After running it, you have now created a fun array with 1000 entries!
 </p>
- <exercise xml:id="x-257-element" exercise-interactive="fillin">
+ <example xml:id="try-it-10-10">
+  <title>Expanding the Challenge Problem</title>
+  <statement>
+    <p>Here is an interactive code box that functions identically to the MATLAB command window.</p>
+<program language="octave" interactive="activecode" xml:id="prog-11-10" label="prog-11-10">
+% Here is a code box to paste your code from the challenge problem.
+% Insert your matlab code here:
+clc; clear; close all;
+</program>
+</statement>
+</example>
+<exercise xml:id="x-257-element" exercise-interactive="fillin">
 
   <title>Beauty of MATLAB</title>
 
   <statement>
-    <p>Here is an interactive code box that functions identically to the MATLAB command window.</p>
-<program language="octave" interactive="activecode" xml:id="prog-11-10" label="prog-11-10">
-% Here is a code box to paste your code from the challenge problem. 
-% Insert your matlab code here:
-clc; clear; close all;
-</program>
     <p>
       What is the value of <c>x=257</c>?
     </p>
@@ -673,10 +688,8 @@ clc; clear; close all;
     <p>
       For this question, consider a 5x8 matrix stored in the variable random_man with random values. When the user types in <c>y = std(random_man)</c> ...
     </p>
-    <exercise xml:id="random-man" exercise-interactive="fillin">
-
-  <title>Help! <c>std</c></title>
-
+    <example xml:id="try-it-10-11">
+  <title>Exploring <c>std</c> on a Matrix</title>
   <statement>
     <p>Here is an interactive code box that functions identically to the MATLAB command window.</p>
 <program language="octave" interactive="activecode" xml:id="prog-11-11" label="prog-11-11">
@@ -686,7 +699,14 @@ clc; clear; close all;
 
 % Hint: If you are confused/forgot how a specific built in function works, use the help text.
 </program>
-<p>
+</statement>
+</example>
+    <exercise xml:id="random-man" exercise-interactive="fillin">
+
+  <title>Help! <c>std</c></title>
+
+  <statement>
+    <p>
 
       What is/are the dimensions of <c>y</c>?
 
