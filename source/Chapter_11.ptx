@@ -628,19 +628,8 @@ fun = x.^3 - 6 * x.^2 + x - 10
   For this question, let’s consider the preceding example, but this time, redefine <c>x</c> to be from <c>x = 1</c> to <c>x=999</c> equally spaced by 1. To accomplish this, you should only have to modify two numbers in your script. After running it, you have now created a fun array with 1000 entries! (You may want to add a ; and the end of the line as the output will now be very large!)
 </p>
 <p>
-  You should now have a variable fun that's 1000 elements long and contains the solution for x=1, x=2, x=3, ... and so on. Reminder that we can use parenthesis to access a certain index of an array. For example the value of fun(3) happens to correspond with the value x=3. Edit your code above to extract the value for x=257. 
+  You should now have a variable fun that's 1000 elements long and contains the solution for x=1, x=2, x=3, ... and so on. Reminder that we can use parentheses to access a certain index of an array. For example the value of fun(3) happens to correspond with the value x=3. Edit your code above to extract the value for x=257. 
 </p>
- <example xml:id="try-it-10-10">
-  <title>Expanding the Challenge Problem</title>
-  <statement>
-    <p>Here is an interactive code box that functions identically to the MATLAB command window.</p>
-<program language="octave" interactive="activecode" xml:id="prog-11-10" label="prog-11-10">
-% Here is a code box to paste your code from the challenge problem.
-% Insert your matlab code here:
-clc; clear; close all;
-</program>
-</statement>
-</example>
 <exercise xml:id="x-257-element" exercise-interactive="fillin">
 
   <title>Beauty of MATLAB</title>
