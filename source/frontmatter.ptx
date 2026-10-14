@@ -11,6 +11,18 @@
       <department>School of Biomedical and Chemical Engineering and Department of Mechanical Engineering</department>
       <institution>Colorado State University</institution>
     </author>
+
+    <credit>
+      <title>Contributing Editors</title>
+      <author><personname>Isabella Kaze</personname></author>
+      <author><personname>Dylan Scheller</personname></author>
+      <author><personname>Seth Wilson</personname></author>
+      <author><personname>Bert Vermeulen</personname></author>
+      <author><personname>Chris Torres, PhD</personname></author>
+      <author><personname>Tierney Harvey, PhD</personname></author>
+      <author><personname>Ben Grier, PhD</personname></author>
+    </credit>
+
     <date>
       <today />
     </date>
