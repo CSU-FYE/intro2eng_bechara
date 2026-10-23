@@ -109,14 +109,12 @@ The following are required items when graphing:
 <p>
 The following are not required, but are good to think about:
 </p>
-</p>
   <ul>
         <li>Grid lines can help readers can make estimations of the data points.</li>
         <li>Typically, solid lines are reserved for theoretical values and discrete points for experimental/measured values, but this is not always the case. Imagine you have a sensor that takes 1000 data points every second and you are trying to show 1 minute of data. It’s very unlikely that showing 60,000 data points will be valuable for the user and a line is more appropriate. </li>
         <li>A trendline is never required, but can be valuable when establishing an x-y relationship in experimental data.</li>
         <li>Charts should never be used to hide outliers, trends, or data that would otherwise make your data look “bad.”</li>
       </ul>
-<p>
   <p>
      The nice thing about learning and remembering these graphing guidelines before we start learning how to graph is it will inform us on what is important to learn. We will also learn about what the mathematical model (the trendline and equation) on the graphs means, how to select an appropriate one, and how to interpret <m>R^2</m> values.   
   </p>
