@@ -92,15 +92,31 @@
 </section>
 <section xml:id="graphing-guidlines">
   <title>Graphing Guidelines</title>
+<p>
+The following are required items when graphing:
+</p>
   <ul>
-        <li>Label axes clearly and make sure you include the name, symbol, and units.</li>
-        <li>Provide grid lines so that readers can make estimations of the data points.</li>
-        <li>If there is more than one line or data set on the graph, you must include a legend.</li>
-        <li>Measurements of data points should be represented as points on a graph. Never connect the dots.</li>
-        <li>Lines are reserved for theoretical values.</li>
-        <li>Use a different symbol color and shape for each different data set.</li>
+        <li>All axes include a label with the name and symbol.</li>
+        <li>Units are clearly marked for all axes with dimensions.</li>
+        <li>A descriptive title or figure caption is provided. The title should provide the user with more information than “Y vs X” as that information is readily available on the axes labels. </li>
+        <li>If there is more than one line or data set on the graph, you must include a legend. If there is only 1 data set, a legend should not be included. </li>
+        <li>Use a different symbol color and shape for each data set. Good to consider what your data would look like if printed in black and white.</li>
         <li>Ensure that the font, size, and color of the text are easy to read.</li>
+        <li>Axes tick marks and labels are clear and use step sizes that are easy to interpret. Avoid irrational step sizes and unnecessary decimal precision. Scientific notation is perfectly acceptable. SI prefixes are often useful for scaling the axes to legible numbers. </li>
+        <li>The independent variable is on the x-axis and the dependent variable on the y-axis.</li>
+        <li>A numerical chart type is used for numerical data and a categorical chart type is use for categorical data.</li>
       </ul>
+<p>
+The following are not required, but are good to think about:
+</p>
+</p>
+  <ul>
+        <li>Grid lines can help readers can make estimations of the data points.</li>
+        <li>Typically, solid lines are reserved for theoretical values and discrete points for experimental/measured values, but this is not always the case. Imagine you have a sensor that takes 1000 data points every second and you are trying to show 1 minute of data. It’s very unlikely that showing 60,000 data points will be valuable for the user and a line is more appropriate. </li>
+        <li>A trendline is never required, but can be valuable when establishing an x-y relationship in experimental data.</li>
+        <li>Charts should never be used to hide outliers, trends, or data that would otherwise make your data look “bad.”</li>
+      </ul>
+<p>
   <p>
      The nice thing about learning and remembering these graphing guidelines before we start learning how to graph is it will inform us on what is important to learn. We will also learn about what the mathematical model (the trendline and equation) on the graphs means, how to select an appropriate one, and how to interpret <m>R^2</m> values.   
   </p>
